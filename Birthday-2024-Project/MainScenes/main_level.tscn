@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=5 format=3 uid="uid://bkys348mactw2"]
+
+[ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="2_wdlbg"]
+[ext_resource type="PackedScene" uid="uid://df2chnyjbxtvd" path="res://ScenePrefabs/Pieces/piece_29.tscn" id="3_2sdbc"]
+
+[sub_resource type="Resource" id="Resource_i5q5d"]
+script = ExtResource("2_wdlbg")
+jsonData = ""
+message = ""
+artFileName = ""
 
 [node name="MainLevel" type="Node2D"]
+
+[node name="GridMap" type="Node2D" parent="."]
+script = ExtResource("1_ywtrj")
+setupData = SubResource("Resource_i5q5d")
+
+[node name="Piece29" parent="." instance=ExtResource("3_2sdbc")]
