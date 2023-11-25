@@ -4,16 +4,16 @@
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="2_wdlbg"]
 [ext_resource type="PackedScene" uid="uid://df2chnyjbxtvd" path="res://ScenePrefabs/Pieces/piece_29.tscn" id="3_2sdbc"]
 
-[sub_resource type="Resource" id="Resource_i5q5d"]
+[sub_resource type="Resource" id="Resource_7su70"]
 script = ExtResource("2_wdlbg")
-jsonData = ""
-message = ""
-artFileName = ""
+jsonData = "test"
+message = "test"
+artFileName = "test"
 
 [node name="MainLevel" type="Node2D"]
 
 [node name="GridMap" type="Node2D" parent="."]
 script = ExtResource("1_ywtrj")
-setupData = SubResource("Resource_i5q5d")
+debug_setupData = SubResource("Resource_7su70")
 
 [node name="Piece29" parent="." instance=ExtResource("3_2sdbc")]

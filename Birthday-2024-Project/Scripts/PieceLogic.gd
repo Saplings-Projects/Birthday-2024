@@ -1,13 +1,11 @@
 extends Node2D
 class_name PieceLogic
 
-enum Rotation { none, clockwise90, flipped180, counterwise90 }
-
 @export var followSpeed = 1
 
 @export_multiline var pieceShape
 
-var currentRotation = Rotation.none;
+var currentRotation = RotationEnum.Rotation;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
