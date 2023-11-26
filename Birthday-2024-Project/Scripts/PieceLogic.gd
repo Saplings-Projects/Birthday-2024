@@ -1,11 +1,12 @@
 extends Node2D
 class_name PieceLogic
 
-@export var followSpeed = 1
-
 @export_multiline var pieceShape
 
-var currentRotation = RotationEnum.Rotation;
+var currentRotation = RotationEnum.Rotation.NONE;
+var height
+var width
+var totalSquares
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,3 +25,16 @@ func _process(delta):
 			#if not legal placement, move to the side
 			#if legal placement, claim spaces and check if level is completed
 	pass
+
+func GetPieceShapeOffsetArray():
+	var squareOffsetsArray = []
+	squareOffsetsArray.push_back(Vector2(0, 0))
+	
+	#for each character in Piece Shape string, describe each square
+	
+	#TODO: properly record max height, width, total number of squares
+	height = 1
+	width = 1
+	totalSquares = 1
+	
+	return squareOffsetsArray
