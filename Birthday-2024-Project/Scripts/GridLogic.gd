@@ -1,122 +1,160 @@
-extends Node2D
+extends TileMap
 class_name GridLogic
 
 const MAX_HEIGHT = 20
 const MAX_WIDTH = 20
+const TILE_ATLAS_OPEN = Vector2i(1, 0)
+const DEBUG_TILE_OCCUPIED = Vector2i(2, 0)
+const DEBUG_TILE_CLOSED = Vector2i(0, 0)
 
 #have this passed by the level selector in the future
 @export var debug_setupData : LevelSetup
 
 var availablePieces : Array[Node2D]
+var freeSpaces = 0
+var xMinGrid = 0
+var xMaxGrid = 0
+var yMinGrid = 0
+var yMaxGrid = 0
+
+func LoadLevel(levelSetupData : LevelSetup):
+	var pieceSetupsData = levelSetupData.ParseJsonToData() #Array of PieceSetup
+	if pieceSetupsData != null:
+		for pieceSetup in pieceSetupsData:
+			#look up scene piece via ID
+			var scenePiecePrefab = load("res://" + pieceSetup.pieceID)
+			#instantiate scene piece
+			add_child(scenePiecePrefab)
+			var scenePiece = get_node(pieceSetup.pieceID)
+			scenePiece.PieceLogic.SetPieceRotation(pieceSetup.pieceRotation)
+			if pieceSetup.isBlocker:
+				#use piece temporarily to undo grid spaces by shape
+				SetGridSpacesByPieceShape(pieceSetup.gridPosition, GridSpaceStatusEnum.GridSpaceStatus.CLOSED, scenePiece)
+				scenePiece.queue_free()
+			else:
+				scenePiece.PieceLogic.levelReference = self
+				#add instantiated piece to availablePieces
+				availablePieces.push_back(scenePiece)
+				#add to level grid spaces
+				SetGridSpacesByPieceShape(pieceSetup.gridPosition, GridSpaceStatusEnum.GridSpaceStatus.OPEN, scenePiece)
+			
+		#set piece to outskirts of level grid
+		#TODO: place more neatly around the grid
+		for availablePiece in availablePieces:
+			availablePiece.position = GridCoordinateToPosition(Vector2i(xMaxGrid + 3, 0)) #shunting it to the right side
+
+func PositionToGridCoordinate(pos : Vector2):
+	var xCoord = pos.x
+	var yCoord = pos.y
+	#TODO: Use the tile set pixel size and math to convert
+	#self.TileSet.tile_size.x
+	return Vector2i(int(xCoord), int(yCoord))
+
+func GridCoordinateToPosition(gridCoords : Vector2i):
+	var xPos = gridCoords.x
+	var yPos = gridCoords.y
+	#TODO: Use the tile set pixel size and math to convert
+	#self.TileSet.tile_size.x
+	return Vector2(xPos, yPos)
+
+#returns an integer; 0 is empty, 1 is occupied, 2 is blocked or unused
+func GetGridSpace(gridCoords : Vector2i):
+	return _gridSpaces[gridCoords.x + MAX_WIDTH][gridCoords.y + MAX_HEIGHT]
+	
+#0 is empty, 1 is occupied, 2 is blocked or unused
+func SetGridSpace(gridCoords : Vector2i, newValue : GridSpaceStatusEnum.GridSpaceStatus, occupyingPiece : PieceLogic):
+	var gridInfo = GetGridSpace(gridCoords)
+	if gridInfo.currentStatus == GridSpaceStatusEnum.GridSpaceStatus.OPEN and newValue != GridSpaceStatusEnum.GridSpaceStatus.OPEN:
+		freeSpaces -= 1
+		gridInfo.occupyingPiece = occupyingPiece
+	elif gridInfo.currentStatus != GridSpaceStatusEnum.GridSpaceStatus.OPEN and newValue == GridSpaceStatusEnum.GridSpaceStatus.OPEN:
+		freeSpaces += 1
+		gridInfo.occupyingPiece = null
+	gridInfo.currentStatus = newValue
+	_gridSpaces[gridCoords.x + MAX_WIDTH][gridCoords.y + MAX_HEIGHT] = gridInfo
+	#source id?
+	var SOURCE_ID = 0
+	var tileAtlasCoord
+	match newValue:
+		GridSpaceStatusEnum.GridSpaceStatus.OPEN:
+			tileAtlasCoord = TILE_ATLAS_OPEN
+		GridSpaceStatusEnum.GridSpaceStatus.OCCUPIED:
+			tileAtlasCoord = DEBUG_TILE_OCCUPIED
+		GridSpaceStatusEnum.GridSpaceStatus.CLOSED:
+			tileAtlasCoord = DEBUG_TILE_CLOSED
+	self.set_cell(0, GridCoordinateToPosition(gridCoords), SOURCE_ID, tileAtlasCoord)
+	
+func SetMultipleGridSpaces(gridCoordinates : Array[Vector2i], newValue : GridSpaceStatusEnum.GridSpaceStatus, occupyingPiece : PieceLogic):
+	for gridCoords in gridCoordinates:
+		SetGridSpace(gridCoords, newValue, occupyingPiece)
+
+func SetGridSpacesByPieceShape(gridCoords : Vector2i, newValue : GridSpaceStatusEnum.GridSpaceStatus, piece : PieceLogic):
+	var shapeOffsets = piece.GetPieceShapeOffsetArray()
+	var translatedCoords = []
+	for squareOffset in shapeOffsets:
+		translatedCoords.push_back(Vector2i(squareOffset.x + gridCoords.x, squareOffset.y + gridCoords.y))
+	SetMultipleGridSpaces(translatedCoords, newValue, piece)
+
+func CheckLegalToPlace(piece : PieceLogic):
+	var pieceCoords = PositionToGridCoordinate(piece.GetOriginSquarePosition())
+	#if off the grid map
+	if pieceCoords.x < xMinGrid or pieceCoords.x > xMaxGrid:
+		return false
+	if pieceCoords.y < yMinGrid or pieceCoords.y > yMaxGrid:
+		return false
+	var squareOffsetsArray = piece.GetPieceShapeOffsetArray()
+	for shapeSquare in squareOffsetsArray:
+		var spaceStatus = GetGridSpace(pieceCoords + shapeSquare)
+		if spaceStatus != GridSpaceStatusEnum.GridSpaceStatus.OPEN:
+			return false
+	return true
+
+func PlacePiece(piece : PieceLogic):
+	if CheckLegalToPlace(piece) == false:
+		return false
+	var pieceCoords = PositionToGridCoordinate(piece.GetOriginSquarePosition())
+	SetGridSpacesByPieceShape(pieceCoords, GridSpaceStatusEnum.GridSpaceStatus.OCCUPIED, piece)
+	piece.AssignMapGridCoordinates(pieceCoords)
+	#TODO: check win condition HERE
+	return true
+
+func RemovePieceByCoordinates(gridCoord : Vector2i):
+	var gridInfo = GetGridSpace(gridCoord)
+	if gridInfo.occupyingPiece == null:
+		return null
+	var piece = gridInfo.occupyingPiece
+	SetGridSpacesByPieceShape(PositionToGridCoordinate(piece.GetOriginSquarePosition()), GridSpaceStatusEnum.GridSpaceStatus.OPEN, piece)
+	piece.ClearMapGridCoordinates()
+	return piece
+
+func RemovePieceByPosition(inputPosition : Vector2):
+	var gridPos = PositionToGridCoordinate(inputPosition)
+	return RemovePieceByCoordinates(gridPos)
+
+###############################################################################
 
 #var 2D array of grid occupancies
-var gridSpaces = []
-var freeSpaces = 0
-
+var _gridSpaces = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#double MAX for negative coordinates
-	for x in MAX_WIDTH * 2:
-		gridSpaces.append([])
-		for y in MAX_WIDTH * 2:
-			var gridSpaceInfo = GridSpaceInfo.new()
-			gridSpaceInfo.currentStatus = GridSpaceStatusEnum.GridSpaceStatus.CLOSED
-			gridSpaceInfo.occupyingPiece = null
-			gridSpaceInfo.gridPosition = Vector2(x - MAX_WIDTH, y - MAX_HEIGHT)
-			gridSpaceInfo.levelGridReference = self
-			gridSpaces[x].append(gridSpaceInfo)
-	
-	SetupLevel(debug_setupData)
-	pass
+	_SetupLevel()
+	#TODO: Load level using Level Select
+	LoadLevel(debug_setupData)
 
 # # Called every frame. 'delta' is the elapsed time since the previous frame.
 # func _process(delta):
 # 	pass
 
 #setup level based on setupData
-func SetupLevel(levelSetupData : LevelSetup):
-	var pieceSetupData = levelSetupData.ParseJsonToData()
-	if pieceSetupData != null:
-		for pieceSetup in pieceSetupData:
-			#look up scene piece via ID
-			var scenePiece = load("res://" + pieceSetup.pieceID)
-			#instantiate scene piece
-			add_child(scenePiece)
-			#add piece to availablePieces
-			availablePieces.push_back(get_node(pieceSetup.pieceID))
-			#add to level grid spaces
-			
-		# for availablePiece in availablePieces:
-		# 	#set piece to outskirts of level grid
-	pass
-
-#returns an integer; 0 is empty, 1 is occupied, 2 is blocked or unused
-func GetGridSpace(x : int, y : int):
-	return gridSpaces[x + MAX_WIDTH][y + MAX_HEIGHT]
-	
-#0 is empty, 1 is occupied, 2 is blocked or unused
-func SetGridSpace(x : int, y : int, newValue : GridSpaceStatusEnum.GridSpaceStatus, occupyingPiece : PieceLogic):
-	var gridInfo = gridSpaces[x][y]
-	if gridInfo.currentStatus == GridSpaceStatusEnum.GridSpaceStatus.OPEN and newValue != GridSpaceStatusEnum.GridSpaceStatus.OPEN:
-		--freeSpaces
-		gridInfo.occupyingPiece = occupyingPiece
-	elif gridInfo.currentStatus != GridSpaceStatusEnum.GridSpaceStatus.OPEN and newValue == GridSpaceStatusEnum.GridSpaceStatus.OPEN:
-		++freeSpaces
-		gridInfo.occupyingPiece = null
-	gridInfo.currentStatus = newValue
-	gridSpaces[x][y] = gridInfo
-
-func PlacePiece(piece : PieceLogic):
-	var piecePosition = piece.position
-	#check if on grid
-		#if not, return false/failure
-	
-	#map position to a grid coordinate
-	
-	var squareOffsetsArray = piece.GetPieceShapeOffsetArray()
-	for shapeSquare in squareOffsetsArray:
-		var offsetXCoord = shapeSquare.x
-		var offsetYCoord = shapeSquare.y
-		#modify the offset coordinates based on the rotation of the piece
-		match piece.currentRotation:
-			RotationEnum.Rotation.NONE:
-				#do nothing
-				pass
-			RotationEnum.Rotation.CLOCKWISE90:
-				pass
-			RotationEnum.Rotation.FLIPPED180:
-				pass
-			RotationEnum.Rotation.COUNTERWISE90:
-				pass
-		
-		var spaceStatus = GetGridSpace(offsetXCoord, offsetYCoord)
-		if spaceStatus != 0:
-			return false
-	
-	#if all squares are legal, place piece
-	for shapeSquare in squareOffsetsArray:
-		var offsetXCoord = shapeSquare.x
-		var offsetYCoord = shapeSquare.y
-		#modify the offset coordinates based on the rotation of the piece
-		match piece.currentRotation:
-			RotationEnum.Rotation.NONE:
-				#do nothing
-				pass
-			RotationEnum.Rotation.CLOCKWISE90:
-				pass
-			RotationEnum.Rotation.FLIPPED180:
-				pass
-			RotationEnum.Rotation.COUNTERWISE90:
-				pass
-		SetGridSpace(offsetXCoord, offsetYCoord, 1, piece)
-		
-	return true
-
-func RemovePiece(inputPosition : Vector2):
-	var offsetXCoord = inputPosition.x
-	var offsetYCoord = inputPosition.y
-	
-	#based on provided position, map to a grid coordinate
-	
-	pass
+func _SetupLevel():
+	#Setup grid, double MAX for negative coordinates
+	for x in MAX_WIDTH * 2:
+		_gridSpaces.append([])
+		for y in MAX_WIDTH * 2:
+			var gridSpaceInfo = GridSpaceInfo.new()
+			gridSpaceInfo.currentStatus = GridSpaceStatusEnum.GridSpaceStatus.CLOSED
+			gridSpaceInfo.occupyingPiece = null
+			gridSpaceInfo.gridPosition = Vector2i(x - MAX_WIDTH, y - MAX_HEIGHT)
+			gridSpaceInfo.levelGridReference = self
+			_gridSpaces[x].append(gridSpaceInfo)
