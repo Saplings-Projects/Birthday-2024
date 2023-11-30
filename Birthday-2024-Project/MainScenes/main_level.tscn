@@ -26,6 +26,7 @@ sources/0 = SubResource("TileSetAtlasSource_5322b")
 
 [sub_resource type="Resource" id="Resource_sascj"]
 script = ExtResource("2_wdlbg")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
 jsonData = "JSON HERE"
 message = "test"
 artFileName = "test"
@@ -33,7 +34,7 @@ artFileName = "test"
 [node name="MainLevel" type="Node2D"]
 
 [node name="Piece29" parent="." instance=ExtResource("3_2sdbc")]
-position = Vector2(559, -10)
+position = Vector2(0, 0)
 
 [node name="GridMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ntt55")

@@ -7,11 +7,10 @@ enum Rotation {
 	COUNTERWISE90
 }
 
-static var IntToEnumDict = null
+static var IntToEnumDict : Dictionary = {}
 
-static func IntToEnum(key : int):
-	if IntToEnumDict == null:
-		IntToEnumDict = Dictionary()
+static func IntToEnum(key : int) -> Rotation:
+	if IntToEnumDict.size() == 0:
 		for enumName in Rotation:
 			IntToEnumDict[enumName as int] = enumName
 	return IntToEnumDict[key]

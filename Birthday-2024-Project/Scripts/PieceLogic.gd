@@ -3,17 +3,17 @@ class_name PieceLogic
 
 @export_multiline var pieceShape
 
-var currentRotation = RotationEnum.Rotation.NONE;
-var gridHeight : int
-var gridWidth : int
+var currentRotation : RotationEnum.Rotation = RotationEnum.Rotation.NONE;
+var gridCountHeight : int
+var gridCountWidth : int
 var totalSquares : int
 var levelGridReference : GridLogic
 var gridCoords : Vector2i
-var isOnGrid = false
+var isOnGrid : bool = false
 
 #when not rotated, the origin square is the top-left most square
-func GetOriginSquarePosition():
-	return position
+func GetOriginSquarePosition() -> Vector2:
+	return position #???
 
 func SetPieceRotation(pieceRotation : RotationEnum.Rotation):
 	currentRotation = pieceRotation
@@ -31,8 +31,8 @@ func SetPieceRotation(pieceRotation : RotationEnum.Rotation):
 		RotationEnum.Rotation.COUNTERWISE90:
 			rotation = -90
 
-func GetPieceShapeOffsetArray():
-	var squareOffsetsArray = []
+func GetPieceShapeOffsetArray() -> Array[Vector2i]:
+	var squareOffsetsArray : Array[Vector2i] = []
 	squareOffsetsArray.push_back(Vector2i(0, 0))
 	
 	#for each character in Piece Shape string, describe each square
@@ -50,8 +50,8 @@ func GetPieceShapeOffsetArray():
 			pass
 	
 	#TODO: properly record max gridHeight, gridWidth, total number of squares
-	gridHeight = 1
-	gridWidth = 1
+	gridCountHeight = 1
+	gridCountWidth = 1
 	totalSquares = 1
 	return squareOffsetsArray
 
@@ -67,7 +67,6 @@ func ClearMapGridCoordinates():
 # # Called when the node enters the scene tree for the first time.
 # func _ready():
 # 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

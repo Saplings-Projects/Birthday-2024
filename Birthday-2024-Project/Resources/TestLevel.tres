@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://dtycllv72hokg"]
+
+[ext_resource type="Script" path="res://Scripts/PieceSetup.gd" id="1_37gyb"]
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_43yik"]
+
+[sub_resource type="Resource" id="Resource_7mpmc"]
+script = ExtResource("1_37gyb")
+pieceID = ""
+gridPosition = Vector2i(0, 0)
+pieceRotation = 0
+isBlocker = false
+
+[resource]
+script = ExtResource("1_43yik")
+levelData = Array[ExtResource("1_37gyb")]([SubResource("Resource_7mpmc")])
+jsonData = ""
+message = ""
+artFileName = ""
