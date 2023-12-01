@@ -1,6 +1,12 @@
 class_name GridSpaceInfo
 
-var currentStatus : GridSpaceStatusEnum.GridSpaceStatus
+enum GridSpaceStatus {
+	OPEN,
+	OCCUPIED,
+	CLOSED #blocked or unused
+}
+
+var currentStatus : GridSpaceStatus
 var occupyingPiece : PieceLogic
 var gridPosition : Vector2i
 var levelGridReference : GridLogic

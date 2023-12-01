@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=10 format=3 uid="uid://bkys348mactw2"]
 
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
-[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="2_wdlbg"]
-[ext_resource type="PackedScene" uid="uid://df2chnyjbxtvd" path="res://ScenePrefabs/Pieces/piece_29.tscn" id="3_2sdbc"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_1cxrf"]
 [ext_resource type="Texture2D" uid="uid://dv6gt6gc6l57t" path="res://Art/GenericPieceArt/Asset 26_opaque.png" id="4_fhdur"]
+[ext_resource type="Script" path="res://Scripts/PieceSetup.gd" id="5_0qrn2"]
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="6_1283r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5322b"]
 texture = ExtResource("4_fhdur")
@@ -24,22 +25,36 @@ texture_region_size = Vector2i(80, 80)
 tile_size = Vector2i(80, 80)
 sources/0 = SubResource("TileSetAtlasSource_5322b")
 
-[sub_resource type="Resource" id="Resource_sascj"]
-script = ExtResource("2_wdlbg")
-levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
-jsonData = "JSON HERE"
-message = "test"
-artFileName = "test"
+[sub_resource type="Resource" id="Resource_i4mkg"]
+script = ExtResource("5_0qrn2")
+pieceID = "piece_29"
+gridPosition = Vector2i(0, 0)
+pieceRotation = 0
+isBlocker = false
+
+[sub_resource type="Resource" id="Resource_dpv6f"]
+script = ExtResource("6_1283r")
+levelData = Array[ExtResource("5_0qrn2")]([SubResource("Resource_i4mkg")])
+jsonData = ""
+message = ""
+artFileName = ""
 
 [node name="MainLevel" type="Node2D"]
-
-[node name="Piece29" parent="." instance=ExtResource("3_2sdbc")]
-position = Vector2(0, 0)
 
 [node name="GridMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ntt55")
 rendering_quadrant_size = 80
 format = 2
-layer_0/tile_data = PackedInt32Array(-131075, 65536, 0, -65539, 65536, 0, -65538, 65536, 0, -196612, 65536, 0, -131076, 65536, 0, -65540, 65536, 0, -4, 65536, 0, 65532, 65536, 0, 131068, 65536, 0, 196604, 65536, 0, 262140, 65536, 0, -196611, 65536, 0, -3, 65536, 0, 65533, 65536, 0, 131069, 65536, 0, 196605, 65536, 0, 262141, 65536, 0, -196610, 65536, 0, -131074, 65536, 0, -2, 65536, 0, 65534, 65536, 0, 131070, 65536, 0, 196606, 65536, 0, 262142, 65536, 0, -196609, 65536, 0, -131073, 65536, 0, -65537, 65536, 0, -1, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 65536, 0, 262143, 65536, 0, -262144, 65536, 0, -196608, 65536, 0, -131072, 65536, 0, -65536, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, -262143, 65536, 0, -196607, 65536, 0, -131071, 65536, 0, -65535, 65536, 0, 1, 65536, 0, 65537, 65536, 0, 131073, 65536, 0, 196609, 65536, 0, -262142, 65536, 0, -196606, 65536, 0, -131070, 65536, 0, -65534, 65536, 0, 2, 65536, 0, 65538, 65536, 0, 131074, 65536, 0, 196610, 65536, 0, -262141, 65536, 0, -196605, 65536, 0, -131069, 65536, 0, -65533, 65536, 0, 3, 65536, 0, 65539, 65536, 0, 131075, 65536, 0, 196611, 65536, 0)
+layer_0/tile_data = PackedInt32Array(-131075, 0, 0, -65539, 0, 0, -65538, 0, 0, -196612, 0, 0, -131076, 0, 0, -65540, 0, 0, -4, 0, 0, 65532, 0, 0, 131068, 0, 0, 196604, 0, 0, 262140, 0, 0, -196611, 0, 0, -3, 0, 0, 65533, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 0, 0, -196610, 0, 0, -131074, 0, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, -196609, 0, 0, -131073, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, -262144, 0, 0, -196608, 0, 0, -131072, 0, 0, -65536, 0, 0, 0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, -262143, 0, 0, -196607, 0, 0, -131071, 0, 0, -65535, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, -262142, 0, 0, -196606, 0, 0, -131070, 0, 0, -65534, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, -262141, 0, 0, -196605, 0, 0, -131069, 0, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0)
 script = ExtResource("1_ywtrj")
-debug_setupData = SubResource("Resource_sascj")
+
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid")]
+script = ExtResource("4_1cxrf")
+grid = NodePath("../GridMap")
+held_piece_flat_speed = 1.0
+held_piece_distance_speed = 15.0
+held_piece_settle_delay = 0.35
+held_piece_settle_animation_duration = 0.25
+debug_setupData = SubResource("Resource_dpv6f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
