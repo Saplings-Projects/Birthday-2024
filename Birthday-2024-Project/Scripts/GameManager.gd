@@ -1,5 +1,5 @@
 class_name GameManager
-extends Node
+extends Node2D
 
 @export var grid: GridLogic
 
@@ -16,6 +16,14 @@ var held_piece_settled: bool
 var previous_mouse_position: Vector2
 var remaining_settle_delay: float
 
+func on_piece_clicked(clicked_piece: PieceLogic):
+	if held_piece != null:
+		return
+	
+	held_piece = clicked_piece
+	_remove_occupied_cells(held_piece)
+	_reset_settled()
+
 func _ready():
 	#TODO: Load level using Level Select
 	grid.LoadLevel(debug_setupData)
@@ -29,33 +37,25 @@ func _process(delta):
 	_rotate_held_piece()
 	_do_place_held_piece()
 
-func on_piece_clicked(clicked_piece: PieceLogic):
-	if held_piece != null:
-		return
-	
-	held_piece = clicked_piece
-	_remove_occupied_cells(held_piece)
-	_reset_settled()
-
 func _remove_occupied_cells(piece: PieceLogic):
 	if piece.current_placement_state != PieceLogic.PlacementStates.PLACED:
 		return
-	grid.RemovePieceByCoordinates(piece.gridCoords)
+	grid.RemovePieceByCoordinates(piece.placed_grid_position)
 
 func _held_piece_towards_cursor(delta):
 	if held_piece_settled:
 		return
 	
-	var target_position: Vector2 = get_viewport().get_mouse_position()
+	var target_position: Vector2 = get_global_mouse_position()
 	#target_position -= held_piece.pivot_offset
-	var held_piece_to_mouse: Vector2 = target_position - held_piece.position
+	var held_piece_to_mouse: Vector2 = target_position - held_piece.global_position
 	var held_piece_to_mouse_distance: float = held_piece_to_mouse.length()
 	
 	var distance_step: float = (held_piece_flat_speed + held_piece_distance_speed * held_piece_to_mouse_distance) * delta
 	if distance_step > held_piece_to_mouse_distance:
-		held_piece.position = target_position
+		held_piece.global_position = target_position
 		return
-	held_piece.position += held_piece_to_mouse.normalized() * distance_step
+	held_piece.global_position += held_piece_to_mouse.normalized() * distance_step
 
 func _rotate_held_piece():
 	if Input.is_action_just_pressed("RotateClockwise"):
@@ -66,17 +66,11 @@ func _rotate_held_piece():
 		_reset_settled()
 
 func _get_held_piece_grid_origin() -> Vector2i:
-	#var mouse_position = get_viewport().get_mouse_position()
-	#var piece_origin_cell_center: Vector2 = mouse_position - held_piece.current_offset
-	#piece_origin_cell_center -= grid.global_position
-	#piece_origin_cell_center += Vector2(grid.texture_size * 0.5, grid.texture_size * 0.5)
-	#var x = floor(piece_origin_cell_center.x / grid.texture_size)
-	#var y = floor(piece_origin_cell_center.y / grid.texture_size)
-	return grid.PositionToGridCoordinate(held_piece.GetOriginSquarePosition()) #Vector2i(x, y)
+	return grid.PositionToGridCoordinate(held_piece.GetOriginCellPosition())
 
 func _do_held_piece_settle(delta):
-	var mouse_position = get_viewport().get_mouse_position()
-	var mouse_distance_moved = (mouse_position - previous_mouse_position).length()
+	var mouse_position : Vector2 = get_global_mouse_position()
+	var mouse_distance_moved : float = (mouse_position - previous_mouse_position).length()
 	if mouse_distance_moved > 0.1:
 		_reset_settled()
 		held_piece.cancel_movement_tween()
@@ -87,12 +81,10 @@ func _do_held_piece_settle(delta):
 		remaining_settle_delay -= delta
 		if remaining_settle_delay <= 0:
 			held_piece_settled = true
-			var held_piece_grid_origin = _get_held_piece_grid_origin()
-			#if !_held_piece_fits_grid(held_piece_grid_origin):
-				#return
+			var held_piece_grid_origin : Vector2i = _get_held_piece_grid_origin()
 			if grid.CheckLegalToPlace(held_piece) == false:
 				return
-			var settle_position = _held_piece_placed_position(held_piece_grid_origin)
+			var settle_position : Vector2 = _held_piece_placed_position(held_piece_grid_origin)
 			held_piece.movement_tween_to(settle_position, held_piece_settle_animation_duration)
 
 func _reset_settled():
@@ -100,22 +92,9 @@ func _reset_settled():
 	remaining_settle_delay = held_piece_settle_delay
 
 func _held_piece_placed_position(held_piece_grid_origin: Vector2i) -> Vector2:
-	var placed_position = grid.GridCoordinateToPosition(held_piece_grid_origin)
-	placed_position += held_piece.GetOriginCellOffset() #(held_piece.current_offset - held_piece.pivot_offset)
+	var placed_position : Vector2 = grid.GridCoordinateToPosition(held_piece_grid_origin)
+	placed_position -= held_piece.GetOriginCellOffset()
 	return placed_position
-
-#func _held_piece_fits_grid(held_piece_grid_origin: Vector2i) -> bool:
-	#if held_piece_grid_origin.x < 0 or held_piece_grid_origin.y < 0:
-		#return false # One of the held piece's cells is outside the grid
-	#
-	#for i in range(held_piece._current_cells.size()):
-		#var cell = held_piece_grid_origin + held_piece._current_cells[i]
-		#if cell.x >= grid.width or cell.y >= grid.height:
-			#return false # One of the held piece's cells is outside the grid
-		#if occupied_grid_cells.has(cell):
-			#return false # One of the held piece's cells overlaps an occupied grid cell
-	#
-	#return true
 
 func _do_place_held_piece():
 	# Try to place the held piece
@@ -124,25 +103,14 @@ func _do_place_held_piece():
 	if held_piece == null:
 		return # There is no held piece to place
 	
-	# Find the position the held piece would occupy on the grid and check if it fits
-	#var held_piece_grid_origin = _get_held_piece_grid_origin()
-	#if !_held_piece_fits_grid(held_piece_grid_origin):
+	# check if the grid can accommodate the held piece
 	if grid.CheckLegalToPlace(held_piece) == false:
 		held_piece.return_piece()
 		held_piece = null
 		return # Piece does not fit
 	
-	# Place the 
-	grid.PlacePiece(held_piece)
-	## Add the newly occupied cells to the dictionary
-	#for i in range(held_piece._current_cells.size()):
-		#var cell_grid_position = held_piece_grid_origin + held_piece._current_cells[i]
-		#occupied_grid_cells[cell_grid_position] = true
-		#print("Placed cell " + str(cell_grid_position))
-	
 	# Find the grid aligned position on screen to move the placed piece to
-	var held_piece_grid_origin = _get_held_piece_grid_origin()
-	var placed_position = _held_piece_placed_position(held_piece_grid_origin)
+	var held_piece_grid_origin : Vector2i = _get_held_piece_grid_origin()
+	var placed_position : Vector2 = _held_piece_placed_position(held_piece_grid_origin)
 	held_piece.place_piece(held_piece_grid_origin, placed_position)
-	
 	held_piece = null # Piece is no longer being held

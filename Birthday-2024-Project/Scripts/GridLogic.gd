@@ -13,6 +13,8 @@ enum GridSpaceStatus {
 	CLOSED #blocked or unused
 }
 
+@export var startingPositions : Array[Vector2i]
+
 var availablePieces : Array[Node2D]
 var blockerPieces : Array[Node2D]
 var freeSpaces : int = 0
@@ -41,6 +43,8 @@ func ClearLevel():
 		piece.queue_free()
 
 func LoadLevel(levelSetupData : LevelSetup):
+	ClearLevel()
+	
 	var pieceSetupsData : Array[PieceSetup] = levelSetupData.RetrieveLevelData()
 	if pieceSetupsData.size() > 0:
 		for pieceSetup in pieceSetupsData:
@@ -49,12 +53,11 @@ func LoadLevel(levelSetupData : LevelSetup):
 			#instantiate scene piece
 			var scenePiece = scenePiecePrefab.instantiate()
 			add_child(scenePiece)
-			#var scenePiece : Node2D = get_node(pieceSetup.pieceID)
 			var pieceLogic : PieceLogic = scenePiece as PieceLogic
 			pieceLogic.levelGridReference = self
 			pieceLogic._initialize()
 			pieceLogic.SetPieceRotation(pieceSetup.pieceRotation)
-			if pieceSetup.isBlocker == false:
+			if pieceSetup.isBlocker:
 				#a locked piece that sits on the grid
 				SetGridSpacesByPieceShape(pieceSetup.gridPosition, GridSpaceInfo.GridSpaceStatus.CLOSED, pieceLogic)
 				blockerPieces.push_back(scenePiece)
@@ -64,25 +67,28 @@ func LoadLevel(levelSetupData : LevelSetup):
 				availablePieces.push_back(scenePiece)
 		
 		#center grid map based on the width and height
-		var midPoint = GridCoordinateToPosition(Vector2i(xMaxGrid, yMaxGrid)) + GridCoordinateToPosition(Vector2i(xMinGrid, yMinGrid))
-		position = midPoint * -0.5
+		var midPoint : Vector2i = _GridCoordinateToPosition(Vector2i(xMaxGrid, yMaxGrid)) + _GridCoordinateToPosition(Vector2i(xMinGrid, yMinGrid))
+		global_position = midPoint * -0.5
 		
 		#set piece to outskirts of level grid and unrotate
 		#TODO: place more neatly around the grid
+		var iter = 0
 		for availablePiece in availablePieces:
-			availablePiece.PieceLogic.SetPieceRotation(PieceLogic.RotationStates.DEG_0)
-			availablePiece.position = GridCoordinateToPosition(Vector2i(xMaxGrid + 3, 0)) #shunting it to the right side
+			availablePiece.global_position = GridCoordinateToPosition(startingPositions[iter]) #shunting it to the right side
+			(availablePiece as PieceLogic).SetPieceRotation(PieceLogic.RotationStates.DEG_0)
+			(availablePiece as PieceLogic)._SetReturnPoint()
+			iter += 1
 
 func PositionToGridCoordinate(pos : Vector2) -> Vector2i:
 	#adjust the position provided by how the grid is offset for centering
-	pos += position
-	var xCoord : int = floor(pos.x / self.TileSet.tile_size.x)
-	var yCoord : int = floor(pos.y / self.TileSet.tile_size.y)
+	pos -= global_position
+	var xCoord : int = floor(pos.x / tile_set.tile_size.x)
+	var yCoord : int = floor(pos.y / tile_set.tile_size.y)
 	return Vector2i(xCoord, yCoord)
 
 func GridCoordinateToPosition(gridCoords : Vector2i) -> Vector2:
 	#account for grid offset due to centering
-	return _GridCoordinateToPosition(gridCoords) - position
+	return _GridCoordinateToPosition(gridCoords) + global_position
 
 func GetGridSpace(gridCoords : Vector2i) -> GridSpaceInfo:
 	return _gridSpaces[gridCoords.x + MAX_WIDTH][gridCoords.y + MAX_HEIGHT]
@@ -98,16 +104,24 @@ func SetGridSpace(gridCoords : Vector2i, newValue : GridSpaceInfo.GridSpaceStatu
 	gridInfo.currentStatus = newValue
 	_gridSpaces[gridCoords.x + MAX_WIDTH][gridCoords.y + MAX_HEIGHT] = gridInfo
 	#setup the tile visual on the tilemap
-	var SOURCE_ID = 0 #source id?
+	var SOURCE_ID = 0
 	var tileAtlasCoord : Vector2i
 	match newValue:
 		GridSpaceInfo.GridSpaceStatus.OPEN:
 			tileAtlasCoord = TILE_ATLAS_OPEN
+			if gridCoords.x < xMinGrid:
+				xMinGrid = gridCoords.x
+			if gridCoords.x > xMaxGrid:
+				xMaxGrid = gridCoords.x
+			if gridCoords.y < yMinGrid:
+				yMinGrid = gridCoords.y
+			if gridCoords.y > yMaxGrid:
+				yMaxGrid = gridCoords.y
 		GridSpaceInfo.GridSpaceStatus.OCCUPIED:
 			tileAtlasCoord = TILE_ATLAS_OCCUPIED
 		GridSpaceInfo.GridSpaceStatus.CLOSED:
 			tileAtlasCoord = TILE_ATLAS_CLOSED
-	self.set_cell(0, GridCoordinateToPosition(gridCoords), SOURCE_ID, tileAtlasCoord)
+	self.set_cell(0, Vector2i(gridCoords.x, gridCoords.y), SOURCE_ID, tileAtlasCoord)
 	
 func SetMultipleGridSpaces(gridCoordinates : Array[Vector2i], newValue : GridSpaceInfo.GridSpaceStatus, occupyingPiece : PieceLogic):
 	for gridCoords in gridCoordinates:
@@ -140,19 +154,20 @@ func PlacePiece(piece : PieceLogic) -> bool:
 	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
 	SetGridSpacesByPieceShape(pieceCoords, GridSpaceInfo.GridSpaceStatus.OCCUPIED, piece)
 	piece.AssignMapGridCoordinates(pieceCoords)
+	
 	#TODO: check win condition HERE
 	return true
 
-func RemovePieceByCoordinates(gridCoord : Vector2i) -> GridSpaceInfo:
+func RemovePieceByCoordinates(gridCoord : Vector2i) -> PieceLogic:
 	var gridInfo : GridSpaceInfo = GetGridSpace(gridCoord)
 	if gridInfo.occupyingPiece == null:
 		return null
 	var piece = gridInfo.occupyingPiece
 	SetGridSpacesByPieceShape(PositionToGridCoordinate(piece.GetOriginCellPosition()), GridSpaceInfo.GridSpaceStatus.OPEN, piece)
-	piece.ClearMapGridCoordinates()
+	piece.return_piece()
 	return piece
 
-func RemovePieceByPosition(inputPosition : Vector2) -> GridSpaceInfo:
+func RemovePieceByPosition(inputPosition : Vector2) -> PieceLogic:
 	var gridPos : Vector2i = PositionToGridCoordinate(inputPosition)
 	return RemovePieceByCoordinates(gridPos)
 
@@ -174,11 +189,7 @@ func _ready():
 			gridSpaceInfo.levelGridReference = self
 			_gridSpaces[x].append(gridSpaceInfo)
 
-# # Called every frame. 'delta' is the elapsed time since the previous frame.
-# func _process(delta):
-# 	pass
-
 func _GridCoordinateToPosition(gridCoords : Vector2i) -> Vector2:
-	var xPos : float = gridCoords.x * self.tile_set.tile_size.x + self.tile_set.tile_size.x * 0.5
-	var yPos : float = gridCoords.y * self.tile_set.tile_size.y + self.tile_set.tile_size.y * 0.5
+	var xPos : float = gridCoords.x * tile_set.tile_size.x + tile_set.tile_size.x * 0.5
+	var yPos : float = gridCoords.y * tile_set.tile_size.y + tile_set.tile_size.y * 0.5
 	return Vector2(xPos, yPos)
