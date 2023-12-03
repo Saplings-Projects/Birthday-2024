@@ -195,13 +195,11 @@ func _SetReturnPoint():
 	#print(global_position)
 
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			print("Piece texture clicked")
-			# The texture rect of this piece has been clicked on, but not necessarily the piece's exact shape
-			if _check_shape_clicked():
-				print("Piece shape clicked")
-				on_clicked()
+	if event.is_action_pressed("GrabPiece"):
+		# Check if the user has clicked on the piece's exact shape
+		if _check_shape_clicked():
+			print("Piece shape clicked: " + name)
+			on_clicked()
 
 func _check_shape_clicked() -> bool:
 	var relative_click_position : Vector2 = get_global_mouse_position() - GetOriginCellPosition()
