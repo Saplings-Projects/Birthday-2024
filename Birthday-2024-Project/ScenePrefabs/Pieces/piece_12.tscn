@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwxcqlqwmrn3w"]
+
+[ext_resource type="Texture2D" uid="uid://dk7giwvt4udig" path="res://Art/GenericPieceArt/Asset 12.png" id="1_gfuep"]
+[ext_resource type="Script" path="res://Scripts/PieceLogic.gd" id="2_00xyj"]
+
+[node name="piece_12" type="Sprite2D"]
+texture = ExtResource("1_gfuep")
+script = ExtResource("2_00xyj")
+pieceShape = "001
+111
+100"
