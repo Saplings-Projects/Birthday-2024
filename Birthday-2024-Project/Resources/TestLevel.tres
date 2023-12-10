@@ -8,21 +8,18 @@ script = ExtResource("1_37gyb")
 pieceID = "piece_2"
 gridPosition = Vector2i(0, -1)
 pieceRotation = 3
-isBlocker = false
 
 [sub_resource type="Resource" id="Resource_8c2vu"]
 script = ExtResource("1_37gyb")
 pieceID = "piece_11"
 gridPosition = Vector2i(2, -2)
 pieceRotation = 0
-isBlocker = false
 
 [sub_resource type="Resource" id="Resource_qls2v"]
 script = ExtResource("1_37gyb")
 pieceID = "piece_12"
 gridPosition = Vector2i(-3, 1)
 pieceRotation = 2
-isBlocker = false
 
 [resource]
 script = ExtResource("1_43yik")

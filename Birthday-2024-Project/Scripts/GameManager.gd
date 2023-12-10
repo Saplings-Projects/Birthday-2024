@@ -19,12 +19,17 @@ var remaining_settle_delay: float
 func on_piece_clicked(clicked_piece: PieceLogic):
 	if held_piece != null:
 		return
+	if clicked_piece.isBlocker:
+		return
 	
 	held_piece = clicked_piece
 	_remove_occupied_cells(held_piece)
 	_reset_settled()
 
 func _ready():
+	_initialize()
+	
+func _initialize():
 	#TODO: Load level using Level Select
 	grid.LoadLevel(debug_setupData)
 

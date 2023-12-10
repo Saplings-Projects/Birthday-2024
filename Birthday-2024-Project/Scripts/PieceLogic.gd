@@ -5,12 +5,12 @@ enum PlacementStates { UNPLACED, HELD, PLACED }
 enum RotationStates { DEG_0 = 0, DEG_90, DEG_180, DEG_270 }
 
 const GAME_MANAGER_NODE_PATH = "/root/MainLevel/GameManager"
-const GRID_MAP_NODE_PATH = "/root/MainLevel/GridMap"
 const ROTATION_ANIMATION_DURATION: float = 0.35 # Number of seconds a piece takes to rotate
 const RETURN_ANIMATION_DURATION: float = 0.5 # Number of seconds a piece takes to return to it's return position when dropped
 const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to move into it's placed position
 
 @export_multiline var pieceShape : String
+@export var isBlocker : bool
 
 var current_placement_state: PlacementStates
 var levelGridReference : GridLogic
@@ -21,10 +21,10 @@ var cellWidth : int
 # This is the grid space occupied by this piece's origin cell,
 # all other occupied spaces can be found by adding _current_cells to this position
 var placed_grid_position: Vector2i
+var current_rotation_state: RotationStates
 
 var _current_cells: Array[Vector2i] # The cell offsets occupied by this piece given rotation
 var _movement_tween: Tween # Active tween for when this piece is moving to a position (e.g. when placed or returned). Set this to null when the tween is finished it's current rotation
-var _current_rotation_state: RotationStates
 var _current_angle_target: float # The rotation angle target for animation
 var _rotation_tween: Tween # Active tween for when this piece is rotating. Set this to null when the tween is finished
 var _originOffset : Vector2 #the offset from the transform center to the origin cell (0,0)
@@ -49,10 +49,10 @@ func cancel_movement_tween():
 	
 func rotate_clockwise():
 	# Update rotation variables
-	if _current_rotation_state == RotationStates.DEG_270:
-		_current_rotation_state = RotationStates.DEG_0
+	if current_rotation_state == RotationStates.DEG_270:
+		current_rotation_state = RotationStates.DEG_0
 	else:
-		_current_rotation_state = _current_rotation_state + 1 as RotationStates
+		current_rotation_state = current_rotation_state + 1 as RotationStates
 	
 	_current_angle_target += PI * 0.5
 	update_current_cells()	
@@ -60,10 +60,10 @@ func rotate_clockwise():
 	
 func rotate_anticlockwise():
 	# Update rotation variables
-	if _current_rotation_state == RotationStates.DEG_0:
-		_current_rotation_state = RotationStates.DEG_270
+	if current_rotation_state == RotationStates.DEG_0:
+		current_rotation_state = RotationStates.DEG_270
 	else:
-		_current_rotation_state = _current_rotation_state - 1 as RotationStates
+		current_rotation_state = current_rotation_state - 1 as RotationStates
 	
 	_current_angle_target -= PI * 0.5
 	update_current_cells()	
@@ -76,7 +76,7 @@ func cancel_rotation_tween():
 
 func update_current_cells():
 	# Rotates the occupied cells of the piece, rotating around the bottom-left 0,0 cell
-	match _current_rotation_state:
+	match current_rotation_state:
 		RotationStates.DEG_0: # No change from base cells
 			for i in range(cells.size()):
 				_current_cells[i] = cells[i]
@@ -102,8 +102,8 @@ func GetPieceShapeOffsetArray() -> Array[Vector2i]:
 	return _current_cells
 
 func SetPieceRotation(pieceRotation : RotationStates):
-	_current_rotation_state = pieceRotation
-	match _current_rotation_state:
+	current_rotation_state = pieceRotation
+	match current_rotation_state:
 		RotationStates.DEG_0:
 			cellWidth = _cellStartingWidth
 			cellHeight = _cellStartingHeight

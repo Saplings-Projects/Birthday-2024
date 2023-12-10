@@ -57,7 +57,7 @@ func LoadLevel(levelSetupData : LevelSetup):
 			pieceLogic.levelGridReference = self
 			pieceLogic._initialize()
 			pieceLogic.SetPieceRotation(pieceSetup.pieceRotation)
-			if pieceSetup.isBlocker:
+			if pieceLogic.isBlocker:
 				#a locked piece that sits on the grid
 				SetGridSpacesByPieceShape(pieceSetup.gridPosition, GridSpaceInfo.GridSpaceStatus.CLOSED, pieceLogic)
 				blockerPieces.push_back(scenePiece)
