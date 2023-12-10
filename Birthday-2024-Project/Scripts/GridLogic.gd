@@ -97,11 +97,10 @@ func SetGridSpace(gridCoords : Vector2i, newValue : GridSpaceInfo.GridSpaceStatu
 	var gridInfo : GridSpaceInfo = GetGridSpace(gridCoords)
 	if gridInfo.currentStatus == GridSpaceInfo.GridSpaceStatus.OPEN and newValue != GridSpaceInfo.GridSpaceStatus.OPEN:
 		freeSpaces -= 1
-		gridInfo.occupyingPiece = occupyingPiece
 	elif gridInfo.currentStatus != GridSpaceInfo.GridSpaceStatus.OPEN and newValue == GridSpaceInfo.GridSpaceStatus.OPEN:
 		freeSpaces += 1
-		gridInfo.occupyingPiece = null
 	gridInfo.currentStatus = newValue
+	gridInfo.occupyingPiece = occupyingPiece
 	_gridSpaces[gridCoords.x + MAX_WIDTH][gridCoords.y + MAX_HEIGHT] = gridInfo
 	#setup the tile visual on the tilemap
 	var SOURCE_ID = 0
@@ -160,7 +159,7 @@ func PlacePiece(piece : PieceLogic) -> bool:
 
 func RemovePieceByCoordinates(gridCoord : Vector2i) -> PieceLogic:
 	var gridInfo : GridSpaceInfo = GetGridSpace(gridCoord)
-	if gridInfo.occupyingPiece == null:
+	if gridInfo.currentStatus != GridSpaceInfo.GridSpaceStatus.OCCUPIED:
 		return null
 	var piece = gridInfo.occupyingPiece
 	SetGridSpacesByPieceShape(PositionToGridCoordinate(piece.GetOriginCellPosition()), GridSpaceInfo.GridSpaceStatus.OPEN, piece)

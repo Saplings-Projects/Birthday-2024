@@ -3,8 +3,8 @@ class_name EditorGameManager
 
 var overPieceLibrary : bool
 
-func _initialize():
-	grid.LoadLevel(debug_setupData)
+func _ready():
+	grid.LoadLevel(debug_setupData) #TEMPORARY just to load pieces
 	overPieceLibrary = false
 
 #can pick up blocker pieces

@@ -6,6 +6,10 @@ func ImportLevel(jsonImportData : String):
 	tempLevelSetup.jsonData = jsonImportData
 	LoadLevel(tempLevelSetup)
 
+func LoadLevel(levelSetupData : LevelSetup):
+	super.LoadLevel(levelSetupData)
+	global_position = Vector2(0,0)
+
 func ExportLevel() -> String:
 	var pieceData : Array[PieceSetup]
 	var json = JSON.new()
@@ -45,7 +49,7 @@ func PlacePiece(piece : PieceLogic) -> bool:
 #delete those map spaces instead
 func RemovePieceByCoordinates(gridCoord : Vector2i) -> PieceLogic:
 	var gridInfo : GridSpaceInfo = GetGridSpace(gridCoord)
-	if gridInfo.occupyingPiece == null:
+	if gridInfo.currentStatus != GridSpaceInfo.GridSpaceStatus.OCCUPIED:
 		return null
 	var piece = gridInfo.occupyingPiece
 	SetGridSpacesByPieceShape(PositionToGridCoordinate(piece.GetOriginCellPosition()), GridSpaceInfo.GridSpaceStatus.CLOSED, piece)
