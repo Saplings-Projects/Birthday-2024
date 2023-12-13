@@ -23,6 +23,9 @@ var xMaxGrid : int = 0
 var yMinGrid : int = 0
 var yMaxGrid : int = 0
 
+signal grid_updated
+
+
 func ClearLevel():
 	freeSpaces = 0
 	xMinGrid = 0
@@ -90,6 +93,11 @@ func GridCoordinateToPosition(gridCoords : Vector2i) -> Vector2:
 	#account for grid offset due to centering
 	return _GridCoordinateToPosition(gridCoords) + global_position
 
+
+func get_free_spaces() -> int:
+	return freeSpaces
+
+
 func GetGridSpace(gridCoords : Vector2i) -> GridSpaceInfo:
 	return _gridSpaces[gridCoords.x + MAX_WIDTH][gridCoords.y + MAX_HEIGHT]
 	
@@ -155,7 +163,8 @@ func PlacePiece(piece : PieceLogic) -> bool:
 	SetGridSpacesByPieceShape(pieceCoords, GridSpaceInfo.GridSpaceStatus.OCCUPIED, piece)
 	piece.AssignMapGridCoordinates(pieceCoords)
 	
-	#TODO: check win condition HERE
+	grid_updated.emit()
+	
 	return true
 
 func RemovePieceByCoordinates(gridCoord : Vector2i) -> PieceLogic:
