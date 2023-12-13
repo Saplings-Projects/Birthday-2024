@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=10 format=3 uid="uid://bkys348mactw2"]
 
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
 [ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="4_0al21"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_1cxrf"]
 [ext_resource type="Texture2D" uid="uid://dv6gt6gc6l57t" path="res://Art/GenericPieceArt/Asset 26_opaque.png" id="4_fhdur"]
+[ext_resource type="Script" path="res://Scripts/Game/States/GameEmptyState.gd" id="5_wmt6j"]
+[ext_resource type="Script" path="res://Scripts/Game/States/GamePlayState.gd" id="6_jk8at"]
+[ext_resource type="Script" path="res://Scripts/Game/States/GameWinState.gd" id="7_bviq6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5322b"]
 texture = ExtResource("4_fhdur")
@@ -34,14 +37,28 @@ layer_0/tile_data = PackedInt32Array(-131075, 0, 0, -65539, 0, 0, -65538, 0, 0, 
 script = ExtResource("1_ywtrj")
 startingPositions = Array[Vector2i]([Vector2i(6, 0), Vector2i(-6, 0), Vector2i(6, 4), Vector2i(-6, 4), Vector2i(6, -4), Vector2i(-6, -4), Vector2i(0, 6), Vector2i(0, -6)])
 
-[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid")]
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid", "empty_state", "play_state", "win_state")]
 script = ExtResource("4_1cxrf")
 grid = NodePath("../GridMap")
 held_piece_flat_speed = 1.0
 held_piece_distance_speed = 15.0
 held_piece_settle_delay = 0.35
 held_piece_settle_animation_duration = 0.25
+empty_state = NodePath("States/GameEmptyState")
+play_state = NodePath("States/GamePlayState")
+win_state = NodePath("States/GameWinState")
 debug_setupData = ExtResource("4_0al21")
+
+[node name="States" type="Node2D" parent="GameManager"]
+
+[node name="GameEmptyState" type="Node2D" parent="GameManager/States"]
+script = ExtResource("5_wmt6j")
+
+[node name="GamePlayState" type="Node2D" parent="GameManager/States"]
+script = ExtResource("6_jk8at")
+
+[node name="GameWinState" type="Node2D" parent="GameManager/States"]
+script = ExtResource("7_bviq6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.65, 0.65)

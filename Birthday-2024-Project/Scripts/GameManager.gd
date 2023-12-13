@@ -8,6 +8,12 @@ extends Node2D
 @export var held_piece_settle_delay: float # The amount of time the held piece must remain motionless before settling
 @export var held_piece_settle_animation_duration: float # The amount of time the held piece takes to move to it's settled position
 
+@export_group("States")
+@export var empty_state: GameEmptyState
+@export var play_state: GamePlayState
+@export var win_state: GameWinState
+
+@export_group("")
 #TODO: have this passed by the level selector in the future
 @export var debug_setupData : LevelSetup
 
@@ -15,6 +21,32 @@ var held_piece: PieceLogic
 var held_piece_settled: bool
 var previous_mouse_position: Vector2
 var remaining_settle_delay: float
+
+var _current_state: GameState
+var _previous_state: GameState
+
+signal state_changed_event(state)
+
+
+func switch_to_play_state():
+	_switch_state(play_state)
+
+
+func switch_to_win_state():
+	_switch_state(win_state)
+
+
+func _switch_state(state: GameState):
+	_previous_state = _current_state
+	_current_state = state
+	
+	if _previous_state != null:
+		_previous_state.exit_state()
+	
+	_current_state.enter_state()
+	
+	state_changed_event.emit(state)
+
 
 func on_piece_clicked(clicked_piece: PieceLogic):
 	if held_piece != null:
@@ -25,6 +57,13 @@ func on_piece_clicked(clicked_piece: PieceLogic):
 	_reset_settled()
 
 func _ready():
+	# State
+	_current_state = empty_state
+	empty_state.set_manager(self)
+	play_state.set_manager(self)
+	win_state.set_manager(self)
+	switch_to_play_state()
+	
 	#TODO: Load level using Level Select
 	grid.LoadLevel(debug_setupData)
 
