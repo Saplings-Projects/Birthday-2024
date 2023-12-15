@@ -22,6 +22,7 @@ var held_piece_settled: bool
 var previous_mouse_position: Vector2
 var remaining_settle_delay: float
 
+var _can_interact: bool # TODO: DELETE THIS WHEN NO LONGER NEEDED.
 var _current_state: GameState
 var _is_inititialized: bool
 var _previous_state: GameState
@@ -55,7 +56,7 @@ func _switch_state(state: GameState):
 
 
 func on_piece_clicked(clicked_piece: PieceLogic):
-	if held_piece != null:
+	if not _can_interact or held_piece != null:
 		return
 	
 	held_piece = clicked_piece
@@ -79,7 +80,7 @@ func _process(delta):
 		initialized_event.emit()
 		switch_to_play_state()
 	
-	if held_piece == null:
+	if not _can_interact or held_piece == null:
 		return
 		
 	_do_held_piece_settle(delta)

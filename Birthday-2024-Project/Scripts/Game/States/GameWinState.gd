@@ -15,6 +15,7 @@ func reset_puzzle():
 
 func enter_state():
 	print("Entering Game Win State")
+	manager._can_interact = false
 
 
 func exit_state():

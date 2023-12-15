@@ -21,6 +21,7 @@ func _on_grid_updated():
 func enter_state():
 	print("Entering Game Play State")
 	
+	manager._can_interact = true
 	manager.grid.grid_updated.connect(_on_grid_updated)
 
 
