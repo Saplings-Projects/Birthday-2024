@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=11 format=3 uid="uid://bkys348mactw2"]
 
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
 [ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="4_0al21"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Game/States/GameEmptyState.gd" id="5_wmt6j"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GamePlayState.gd" id="6_jk8at"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GameWinState.gd" id="7_bviq6"]
+[ext_resource type="PackedScene" uid="uid://cosap7ka4jc6c" path="res://ScenePrefabs/PuzzleUiManager.tscn" id="8_40gag"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5322b"]
 texture = ExtResource("4_fhdur")
@@ -62,3 +63,5 @@ script = ExtResource("7_bviq6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.65, 0.65)
+
+[node name="PuzzleUiManager" parent="." instance=ExtResource("8_40gag")]
