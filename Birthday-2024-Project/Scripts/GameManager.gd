@@ -23,9 +23,15 @@ var previous_mouse_position: Vector2
 var remaining_settle_delay: float
 
 var _current_state: GameState
+var _is_inititialized: bool
 var _previous_state: GameState
 
+signal initialized_event()
 signal state_changed_event(state)
+
+
+func get_current_state() -> GameState:
+	return _current_state
 
 
 func switch_to_play_state():
@@ -62,12 +68,17 @@ func _ready():
 	empty_state.set_manager(self)
 	play_state.set_manager(self)
 	win_state.set_manager(self)
-	switch_to_play_state()
 	
 	#TODO: Load level using Level Select
 	grid.LoadLevel(debug_setupData)
 
 func _process(delta):
+	if not _is_inititialized:
+		_is_inititialized = true
+		
+		initialized_event.emit()
+		switch_to_play_state()
+	
 	if held_piece == null:
 		return
 		

@@ -2,6 +2,7 @@ class_name PuzzleUiState
 extends Control
 
 
+var _controller: GameManager
 var _ui_manager: PuzzleUiManager
 
 

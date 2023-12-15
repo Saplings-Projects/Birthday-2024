@@ -2,14 +2,43 @@ class_name PuzzleUiPlayState
 extends PuzzleUiState
 
 
+var _state: GamePlayState
+
+
+func _on_reset_clicked():
+	_state.reset_puzzle()
+
+
+func _on_skip_clicked():
+	_state.skip_puzzle()
+
+
 #region PuzzleUiState
 
 func enter_state():
-	pass
+	var state = _controller.get_current_state()
+	
+	if not state is GamePlayState:
+		printerr("Puzzle is not in play state", self)
+		return
+	
+	_state = state
+	
+	_ui_manager.show_main_screen()
+	
+	var screen = _ui_manager.main_screen
+	screen.show_hide_win_text(false)
+	screen.context_button.text = "Skip"
+	screen.context_button.button_up.connect(_on_skip_clicked)
+	screen.reset_button.button_up.connect(_on_reset_clicked)
 
 
 func exit_state():
-	pass
+	_state = null
+	
+	var screen = _ui_manager.main_screen
+	screen.context_button.button_up.disconnect(_on_skip_clicked)
+	screen.reset_button.button_up.disconnect(_on_reset_clicked)
 
 
 func update_state():

@@ -2,6 +2,15 @@ class_name GamePlayState
 extends GameState
 
 
+func reset_puzzle():
+	get_tree().reload_current_scene()
+
+
+func skip_puzzle():
+	print("skip_puzzle is not fully implemented", self)
+	reset_puzzle() # TODO: DELETE THIS WHEN NO LONGER NEEDED.
+
+
 func _on_grid_updated():
 	if manager.grid.freeSpaces == 0:
 		manager.switch_to_win_state()

@@ -1,8 +1,9 @@
 class_name PuzzleUiManager
 extends CanvasLayer
 
+@export var controller: GameManager
 
-@export_group("UI Elements")
+@export_group("Screens")
 @export var main_screen: PuzzleMainScreen
 
 @export_group("States")
@@ -17,15 +18,22 @@ func on_puzzle_initialized():
 
 
 func on_puzzle_state_changed(state: GameState):
-	match state:
-		GamePlayState:
-			_switch_state(play_state)
-		
-		GameWinState:
-			_switch_state(win_state)
-		
-		_:
-			printerr("Unhandled puzzle state in puzzle UI Manager", self)
+	if state is GamePlayState:
+		_switch_state(play_state)
+	elif state is GameWinState:
+		_switch_state(win_state)
+	else:
+		printerr("Unhandled puzzle state in puzzle UI Manager", self)
+	
+	#match state:
+		#GamePlayState:
+			#_switch_state(play_state)
+		#
+		#GameWinState:
+			#_switch_state(win_state)
+		#
+		#_:
+			#printerr("Unhandled puzzle state in puzzle UI Manager", self)
 
 
 func show_main_screen():
@@ -52,6 +60,13 @@ func _switch_state(state: PuzzleUiState):
 func _process(delta):
 	if _current_state != null:
 		_current_state.update_state()
+
+
+func _ready():
+	play_state._controller = controller
+	play_state._ui_manager = self
+	win_state._controller = controller
+	win_state._ui_manager = self
 
 
 #endregion Node
