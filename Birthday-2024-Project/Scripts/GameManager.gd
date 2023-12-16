@@ -19,7 +19,7 @@ var remaining_settle_delay: float
 func on_piece_clicked(clicked_piece: PieceLogic):
 	if held_piece != null:
 		return
-	
+
 	held_piece = clicked_piece
 	_remove_occupied_cells(held_piece)
 	_reset_settled()
@@ -31,7 +31,7 @@ func _ready():
 func _process(delta):
 	if held_piece == null:
 		return
-		
+
 	_do_held_piece_settle(delta)
 	_held_piece_towards_cursor(delta)
 	_rotate_held_piece()
@@ -45,12 +45,12 @@ func _remove_occupied_cells(piece: PieceLogic):
 func _held_piece_towards_cursor(delta):
 	if held_piece_settled:
 		return
-	
+
 	var target_position: Vector2 = get_global_mouse_position()
 	#target_position -= held_piece.pivot_offset
 	var held_piece_to_mouse: Vector2 = target_position - held_piece.global_position
 	var held_piece_to_mouse_distance: float = held_piece_to_mouse.length()
-	
+
 	var distance_step: float = (held_piece_flat_speed + held_piece_distance_speed * held_piece_to_mouse_distance) * delta
 	if distance_step > held_piece_to_mouse_distance:
 		held_piece.global_position = target_position
@@ -102,13 +102,13 @@ func _do_place_held_piece():
 		return # Place piece input was not given
 	if held_piece == null:
 		return # There is no held piece to place
-	
+
 	# check if the grid can accommodate the held piece
 	if grid.CheckLegalToPlace(held_piece) == false:
 		held_piece.return_piece()
 		held_piece = null
 		return # Piece does not fit
-	
+
 	# Find the grid aligned position on screen to move the placed piece to
 	var held_piece_grid_origin : Vector2i = _get_held_piece_grid_origin()
 	var placed_position : Vector2 = _held_piece_placed_position(held_piece_grid_origin)

@@ -44,7 +44,7 @@ func ClearLevel():
 
 func LoadLevel(levelSetupData : LevelSetup):
 	ClearLevel()
-	
+
 	var pieceSetupsData : Array[PieceSetup] = levelSetupData.RetrieveLevelData()
 	if pieceSetupsData.size() > 0:
 		for pieceSetup in pieceSetupsData:
@@ -65,11 +65,11 @@ func LoadLevel(levelSetupData : LevelSetup):
 				#open level grid spaces
 				SetGridSpacesByPieceShape(pieceSetup.gridPosition, GridSpaceInfo.GridSpaceStatus.OPEN, pieceLogic)
 				availablePieces.push_back(scenePiece)
-		
+
 		#center grid map based on the width and height
 		var midPoint : Vector2i = _GridCoordinateToPosition(Vector2i(xMaxGrid, yMaxGrid)) + _GridCoordinateToPosition(Vector2i(xMinGrid, yMinGrid))
 		global_position = midPoint * -0.5
-		
+
 		#set piece to outskirts of level grid and unrotate
 		#TODO: place more neatly around the grid
 		var iter = 0
@@ -92,7 +92,7 @@ func GridCoordinateToPosition(gridCoords : Vector2i) -> Vector2:
 
 func GetGridSpace(gridCoords : Vector2i) -> GridSpaceInfo:
 	return _gridSpaces[gridCoords.x + MAX_WIDTH][gridCoords.y + MAX_HEIGHT]
-	
+
 func SetGridSpace(gridCoords : Vector2i, newValue : GridSpaceInfo.GridSpaceStatus, occupyingPiece : PieceLogic):
 	var gridInfo : GridSpaceInfo = GetGridSpace(gridCoords)
 	if gridInfo.currentStatus == GridSpaceInfo.GridSpaceStatus.OPEN and newValue != GridSpaceInfo.GridSpaceStatus.OPEN:
@@ -107,8 +107,10 @@ func SetGridSpace(gridCoords : Vector2i, newValue : GridSpaceInfo.GridSpaceStatu
 	var SOURCE_ID = 0
 	var tileAtlasCoord : Vector2i
 	match newValue:
+	#fancy "if newValue =" statement
 		GridSpaceInfo.GridSpaceStatus.OPEN:
 			tileAtlasCoord = TILE_ATLAS_OPEN
+			#updates the min and max size of the grid if a piece is getting placed where it hasn't before
 			if gridCoords.x < xMinGrid:
 				xMinGrid = gridCoords.x
 			if gridCoords.x > xMaxGrid:
@@ -122,7 +124,7 @@ func SetGridSpace(gridCoords : Vector2i, newValue : GridSpaceInfo.GridSpaceStatu
 		GridSpaceInfo.GridSpaceStatus.CLOSED:
 			tileAtlasCoord = TILE_ATLAS_CLOSED
 	self.set_cell(0, Vector2i(gridCoords.x, gridCoords.y), SOURCE_ID, tileAtlasCoord)
-	
+
 func SetMultipleGridSpaces(gridCoordinates : Array[Vector2i], newValue : GridSpaceInfo.GridSpaceStatus, occupyingPiece : PieceLogic):
 	for gridCoords in gridCoordinates:
 		SetGridSpace(gridCoords, newValue, occupyingPiece)
@@ -154,7 +156,7 @@ func PlacePiece(piece : PieceLogic) -> bool:
 	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
 	SetGridSpacesByPieceShape(pieceCoords, GridSpaceInfo.GridSpaceStatus.OCCUPIED, piece)
 	piece.AssignMapGridCoordinates(pieceCoords)
-	
+
 	#TODO: check win condition HERE
 	return true
 
