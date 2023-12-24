@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://8wblerx67ki"]
+
+[ext_resource type="PackedScene" uid="uid://djitpkrdyydxc" path="res://ScenePrefabs/MainMenuController.tscn" id="1_2fpfx"]
+[ext_resource type="PackedScene" uid="uid://gfva2owqvlhw" path="res://ScenePrefabs/MainMenuUiManager.tscn" id="1_yk612"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="MainMenuController" parent="." instance=ExtResource("1_2fpfx")]
+
+[node name="MainMenuUiManager" parent="." node_paths=PackedStringArray("conntroller") instance=ExtResource("1_yk612")]
+conntroller = NodePath("../MainMenuController")
+
+[connection signal="initialized_event" from="MainMenuController" to="MainMenuUiManager" method="on_main_menu_initialized"]
+[connection signal="state_changed_event" from="MainMenuController" to="MainMenuUiManager" method="on_main_menu_state_changed"]
