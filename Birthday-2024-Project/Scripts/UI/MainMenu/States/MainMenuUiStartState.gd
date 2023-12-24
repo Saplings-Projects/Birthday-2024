@@ -6,22 +6,23 @@ var _state: MainMenuStartState
 
 
 func _on_credits_clicked():
-	print("_on_credits_clicked is not implemented in MainMenuUiStartState")
+	_state.go_to_credits()
 
 
 func _on_exit_clicked():
-	print("_on_exit_clicked is not implemented in MainMenuUiStartState")
+	_state.exit_game()
 
 
 func _on_gallery_clicked():
-	print("_on_gallery_clicked is not implemented in MainMenuUiStartState")
+	_state.go_to_gallery()
 
 
 func _on_play_clicked():
-	print("_on_play_clicked is not implemented in MainMenuUiStartState")
+	_state.play()
 
 
 func _on_settings_clicked():
+	# TODO: Pull up a settings screen.
 	print("_on_settings_clicked is not implemented in MainMenuUiStartState")
 
 
