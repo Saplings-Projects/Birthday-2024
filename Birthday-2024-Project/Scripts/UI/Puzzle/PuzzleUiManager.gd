@@ -24,16 +24,6 @@ func on_puzzle_state_changed(state: GameState):
 		_switch_state(win_state)
 	else:
 		printerr("Unhandled puzzle state in puzzle UI Manager", self)
-	
-	#match state:
-		#GamePlayState:
-			#_switch_state(play_state)
-		#
-		#GameWinState:
-			#_switch_state(win_state)
-		#
-		#_:
-			#printerr("Unhandled puzzle state in puzzle UI Manager", self)
 
 
 func show_main_screen():
