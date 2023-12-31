@@ -1,5 +1,5 @@
-class_name SettingsAudioTab
-extends TabBar
+class_name AudioSettingsControl
+extends Control
 
 
 func on_fauna_slider_value_changed(value: float):
