@@ -31,6 +31,7 @@ func enter_state():
 	screen.context_button.text = "Skip"
 	screen.context_button.button_up.connect(_on_skip_clicked)
 	screen.reset_button.button_up.connect(_on_reset_clicked)
+	screen.settings_button.button_up.connect(_on_settings_clicked)
 
 
 func exit_state():
@@ -39,6 +40,7 @@ func exit_state():
 	var screen = _ui_manager.main_screen
 	screen.context_button.button_up.disconnect(_on_skip_clicked)
 	screen.reset_button.button_up.disconnect(_on_reset_clicked)
+	screen.settings_button.button_up.disconnect(_on_settings_clicked)
 
 
 func update_state():

@@ -17,3 +17,7 @@ func exit_state():
 func update_state():
 	pass
 
+
+func _on_settings_clicked():
+	_ui_manager.show_settings_window()
+
