@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cu8cq2y34vvj7"
-path="res://.godot/imported/tone_220hz.wav-fb42c54b75642cdeb0cedfae37203fd7.sample"
+path="res://.godot/imported/tone_220hz.wav-fd4b2a7ba557acf5cf38dfe60b1ccfc7.sample"
 
 [deps]
 
-source_file="res://Audio/tone_220hz.wav"
-dest_files=["res://.godot/imported/tone_220hz.wav-fb42c54b75642cdeb0cedfae37203fd7.sample"]
+source_file="res://Resources/Audio/tone_220hz.wav"
+dest_files=["res://.godot/imported/tone_220hz.wav-fd4b2a7ba557acf5cf38dfe60b1ccfc7.sample"]
 
 [params]
 

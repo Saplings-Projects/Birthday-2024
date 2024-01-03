@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://Audio/audio_bus.tres"
+buses/default_bus_layout="res://Resources/Audio/audio_bus.tres"
 
 [input]
 

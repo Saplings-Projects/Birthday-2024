@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cvlcvjragqnqr"
-path="res://.godot/imported/Oh_Goodness_uuu.wav-74f48299134cf41fb74dc72ca7b62522.sample"
+path="res://.godot/imported/Fauna_oh_goodness_uuu.wav-e789df406c61bbc4c3716bc488129a70.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Oh_Goodness_uuu.wav"
-dest_files=["res://.godot/imported/Oh_Goodness_uuu.wav-74f48299134cf41fb74dc72ca7b62522.sample"]
+source_file="res://Resources/Audio/SFX/Faunas/Fauna_oh_goodness_uuu.wav"
+dest_files=["res://.godot/imported/Fauna_oh_goodness_uuu.wav-e789df406c61bbc4c3716bc488129a70.sample"]
 
 [params]
 
