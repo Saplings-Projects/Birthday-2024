@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://btcp1sgcebsyi"]
+[gd_scene load_steps=6 format=3 uid="uid://btcp1sgcebsyi"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Settings/SettingsWindow.gd" id="1_og7pw"]
 [ext_resource type="Script" path="res://Scripts/UI/Settings/VideoSettingsControl.gd" id="2_nwu0a"]
 [ext_resource type="Script" path="res://Scripts/UI/Settings/AudioSettingsControl.gd" id="3_fkc1k"]
+[ext_resource type="Resource" uid="uid://b74u14u4necbw" path="res://Resources/Audio/Samples/SampleFaunaNoises.tres" id="4_rrue1"]
+[ext_resource type="AudioStream" uid="uid://cu8cq2y34vvj7" path="res://Resources/Audio/tone_220hz.wav" id="5_y6dl0"]
 
 [node name="SettingsWindow" type="Control"]
 layout_mode = 3
@@ -87,10 +89,16 @@ popup/item_1/id = 1
 popup/item_2/text = "1440×900"
 popup/item_2/id = 2
 
-[node name="Audio" type="TabBar" parent="MarginContainer/Panel/TabContainer"]
+[node name="Audio" type="TabBar" parent="MarginContainer/Panel/TabContainer" node_paths=PackedStringArray("music_sample_player", "sfx_sample_player", "fauna_sample_player")]
 visible = false
 layout_mode = 2
 script = ExtResource("3_fkc1k")
+music_sample_player = NodePath("MusicSamplePlayer")
+sfx_sample_player = NodePath("SfxSamplePlayer")
+fauna_sample_player = NodePath("FaunaSamplePlayer")
+sfx_samples = ExtResource("4_rrue1")
+fauna_samples = ExtResource("4_rrue1")
+tone_sample = ExtResource("5_y6dl0")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/TabContainer/Audio"]
 layout_mode = 1
@@ -116,7 +124,10 @@ text = "Master Volume"
 
 [node name="Master Slider" type="HSlider" parent="MarginContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-value = 100.0
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -127,7 +138,10 @@ text = "Music"
 
 [node name="Music Slider" type="HSlider" parent="MarginContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-value = 50.0
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.501
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -138,7 +152,10 @@ text = "SFX"
 
 [node name="SFX Slider" type="HSlider" parent="MarginContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
-value = 50.0
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.501
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -149,7 +166,19 @@ text = "Fauna"
 
 [node name="Fauna Slider" type="HSlider" parent="MarginContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer/VBoxContainer4"]
 layout_mode = 2
-value = 50.0
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.501
+
+[node name="MusicSamplePlayer" type="AudioStreamPlayer2D" parent="MarginContainer/Panel/TabContainer/Audio"]
+bus = &"Music"
+
+[node name="SfxSamplePlayer" type="AudioStreamPlayer2D" parent="MarginContainer/Panel/TabContainer/Audio"]
+bus = &"SFX"
+
+[node name="FaunaSamplePlayer" type="AudioStreamPlayer2D" parent="MarginContainer/Panel/TabContainer/Audio"]
+bus = &"Fauna"
 
 [node name="Close Button" type="Button" parent="MarginContainer/Panel"]
 layout_mode = 1
