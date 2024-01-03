@@ -42,7 +42,7 @@ func enter_state():
 	var screen = _ui_manager.start_screen
 	screen.credits_button.button_up.connect(_on_credits_clicked)
 	screen.exit_button.button_up.connect(_on_exit_clicked)
-	screen.gallary_button.button_up.connect(_on_gallery_clicked)
+	screen.gallery_button.button_up.connect(_on_gallery_clicked)
 	screen.play_button.button_up.connect(_on_play_clicked)
 	screen.settings_button.button_up.connect(_on_settings_clicked)
 
@@ -53,7 +53,7 @@ func exit_state():
 	var screen = _ui_manager.start_screen
 	screen.credits_button.button_up.disconnect(_on_credits_clicked)
 	screen.exit_button.button_up.disconnect(_on_exit_clicked)
-	screen.gallary_button.button_up.disconnect(_on_gallery_clicked)
+	screen.gallery_button.button_up.disconnect(_on_gallery_clicked)
 	screen.play_button.button_up.disconnect(_on_play_clicked)
 	screen.settings_button.button_up.disconnect(_on_settings_clicked)
 

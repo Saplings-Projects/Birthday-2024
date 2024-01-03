@@ -2,7 +2,7 @@ class_name MainMenuUiManager
 extends CanvasLayer
 
 
-@export var conntroller: MainMenuController
+@export var controller: MainMenuController
 
 @export_group("Screens")
 @export var start_screen: MainMenuStartScreen
@@ -51,7 +51,7 @@ func _process(delta):
 
 
 func _ready():
-	start_state._controller = conntroller
+	start_state._controller = controller
 	start_state._ui_manager = self
 
 

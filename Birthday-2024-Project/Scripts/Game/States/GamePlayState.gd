@@ -5,6 +5,8 @@ extends GameState
 func reset_puzzle():
 	get_tree().reload_current_scene()
 
+func back_to_menu():
+	get_tree().change_scene_to_file("res://MainScenes/main_menu.tscn")
 
 func skip_puzzle():
 	print("skip_puzzle is not fully implemented", self)

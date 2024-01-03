@@ -11,7 +11,7 @@ main_screen = NodePath("MainScreen")
 play_state = NodePath("States/PuzzleUiPlayState")
 win_state = NodePath("States/PuzzleUiWinState")
 
-[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "reset_button", "win_text")]
+[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "reset_button", "back_button", "win_text")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +21,7 @@ grow_vertical = 2
 script = ExtResource("2_fxt11")
 context_button = NodePath("MarginContainer/HBoxContainer/Context Button")
 reset_button = NodePath("MarginContainer/HBoxContainer/Reset Button")
+back_button = NodePath("MarginContainer/HBoxContainer/Back Button")
 win_text = NodePath("Win Text")
 
 [node name="MarginContainer" type="MarginContainer" parent="MainScreen"]
@@ -49,6 +50,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "<context>"
+
+[node name="Back Button" type="Button" parent="MainScreen/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
 
 [node name="Win Text" type="Label" parent="MainScreen"]
 layout_mode = 1

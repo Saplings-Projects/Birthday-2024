@@ -9,7 +9,7 @@ script = ExtResource("1_lofx7")
 start_screen = NodePath("StartScreen")
 start_state = NodePath("States/MainMenuUiStartState")
 
-[node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallary_button", "play_button", "settings_button")]
+[node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallery_button", "play_button", "settings_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ grow_vertical = 2
 script = ExtResource("2_n7aum")
 credits_button = NodePath("Panel/Navigation Buttons/Credits Button")
 exit_button = NodePath("Panel/Utility Buttons/Exit Button")
-gallary_button = NodePath("Panel/Navigation Buttons/Gallery Button")
+gallery_button = NodePath("Panel/Navigation Buttons/Gallery Button")
 play_button = NodePath("Panel/Navigation Buttons/Play Button")
 settings_button = NodePath("Panel/Utility Buttons/Settings Button")
 

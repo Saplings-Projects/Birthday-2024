@@ -8,6 +8,8 @@ var _state: GamePlayState
 func _on_reset_clicked():
 	_state.reset_puzzle()
 
+func _on_back_clicked():
+	_state.back_to_menu()
 
 func _on_skip_clicked():
 	_state.skip_puzzle()
@@ -31,6 +33,7 @@ func enter_state():
 	screen.context_button.text = "Skip"
 	screen.context_button.button_up.connect(_on_skip_clicked)
 	screen.reset_button.button_up.connect(_on_reset_clicked)
+	screen.back_button.button_up.connect(_on_back_clicked)
 
 
 func exit_state():
@@ -39,6 +42,7 @@ func exit_state():
 	var screen = _ui_manager.main_screen
 	screen.context_button.button_up.disconnect(_on_skip_clicked)
 	screen.reset_button.button_up.disconnect(_on_reset_clicked)
+	screen.back_button.button_up.disconnect(_on_back_clicked)
 
 
 func update_state():

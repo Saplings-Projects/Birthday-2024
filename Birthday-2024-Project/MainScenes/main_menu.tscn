@@ -7,8 +7,8 @@
 
 [node name="MainMenuController" parent="." instance=ExtResource("1_2fpfx")]
 
-[node name="MainMenuUiManager" parent="." node_paths=PackedStringArray("conntroller") instance=ExtResource("1_yk612")]
-conntroller = NodePath("../MainMenuController")
+[node name="MainMenuUiManager" parent="." node_paths=PackedStringArray("controller") instance=ExtResource("1_yk612")]
+controller = NodePath("../MainMenuController")
 
 [connection signal="initialized_event" from="MainMenuController" to="MainMenuUiManager" method="on_main_menu_initialized"]
 [connection signal="state_changed_event" from="MainMenuController" to="MainMenuUiManager" method="on_main_menu_state_changed"]
