@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuStartScreen.gd" id="2_n7aum"]
-[ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://SettingsWindow.tscn" id="3_ukswp"]
+[ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_ukswp"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="3_vnjds"]
 
 [node name="MainMenuUiManager" type="CanvasLayer" node_paths=PackedStringArray("settings_window", "start_screen", "start_state")]
