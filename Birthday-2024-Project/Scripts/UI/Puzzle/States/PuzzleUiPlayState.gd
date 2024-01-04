@@ -5,6 +5,10 @@ extends PuzzleUiState
 var _state: GamePlayState
 
 
+func _on_exit_clicked():
+	_state.exit_game()
+
+
 func _on_reset_clicked():
 	_state.reset_puzzle()
 
@@ -30,6 +34,7 @@ func enter_state():
 	screen.show_hide_win_text(false)
 	screen.context_button.text = "Skip"
 	screen.context_button.button_up.connect(_on_skip_clicked)
+	screen.exit_button.button_up.connect(_on_exit_clicked)
 	screen.reset_button.button_up.connect(_on_reset_clicked)
 	screen.settings_button.button_up.connect(_on_settings_clicked)
 
@@ -39,6 +44,7 @@ func exit_state():
 	
 	var screen = _ui_manager.main_screen
 	screen.context_button.button_up.disconnect(_on_skip_clicked)
+	screen.exit_button.button_up.disconnect(_on_exit_clicked)
 	screen.reset_button.button_up.disconnect(_on_reset_clicked)
 	screen.settings_button.button_up.disconnect(_on_settings_clicked)
 

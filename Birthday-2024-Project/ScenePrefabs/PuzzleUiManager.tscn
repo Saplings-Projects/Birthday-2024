@@ -13,7 +13,7 @@ settings_window = NodePath("SettingsWindow")
 play_state = NodePath("States/PuzzleUiPlayState")
 win_state = NodePath("States/PuzzleUiWinState")
 
-[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "reset_button", "settings_button", "win_text")]
+[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "exit_button", "reset_button", "settings_button", "win_text")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_fxt11")
 context_button = NodePath("MarginContainer/HBoxContainer/Context Button")
+exit_button = NodePath("MarginContainer/HBoxContainer2/Exit Button")
 reset_button = NodePath("MarginContainer/HBoxContainer/Reset Button")
 settings_button = NodePath("MarginContainer/HBoxContainer2/Settings Button")
 win_text = NodePath("Win Text")
@@ -42,6 +43,10 @@ size_flags_vertical = 0
 [node name="Settings Button" type="Button" parent="MainScreen/MarginContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Settings"
+
+[node name="Exit Button" type="Button" parent="MainScreen/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Exit"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainScreen/MarginContainer"]
 layout_mode = 2
