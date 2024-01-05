@@ -46,3 +46,14 @@ func _play_sample(stream: AudioStream, player: AudioStreamPlayer2D):
 	player.stream = stream
 	player.play()
 
+
+#region Node
+
+func _ready():
+	_change_bus_volume(1, "Master")
+	_change_bus_volume(0.5, "Music")
+	_change_bus_volume(0.5, "SFX")
+	_change_bus_volume(0.5, "Fauna")
+
+
+#endregion Node

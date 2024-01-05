@@ -3,12 +3,12 @@ extends Control
 
 
 @export var resolution_options: OptionButton
-var _height: int = 768
-var _width: int = 1366
+var _height: int = 1080
+var _width: int = 1920
 
 
 # TODO: Most of the logic in this class ought to be moved to a class that is
-#       dedicated to handling video options. (e.g. On launching the game)
+#       dedicated to handling settings. (e.g. On game launch)
 
 func on_screen_selected(index: int):
 	match index:
@@ -60,3 +60,11 @@ func _resize_window(width: int, height: int):
 	DisplayServer.window_set_size(Vector2i(width, height))
 	# TODO: Change position of window for best fit in screen.
 
+
+#region Node
+
+func _ready():
+	_enable_fullscreen()
+
+
+#endregion Node
