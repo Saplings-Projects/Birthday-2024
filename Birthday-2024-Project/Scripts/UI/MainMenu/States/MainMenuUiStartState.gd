@@ -18,12 +18,25 @@ func _on_gallery_clicked():
 
 
 func _on_play_clicked():
-	_state.play()
+	_ui_manager.show_campaign_select()
+	#_state.play()
 
 
 func _on_settings_clicked():
 	# TODO: Pull up a settings screen.
 	print("_on_settings_clicked is not implemented in MainMenuUiStartState")
+
+
+func _on_campaign_levels_clicked():
+	print("_on_campaign_levels_clicked is not implemented in MainMenuUiStartState")
+
+
+func _on_saplings_levels_clicked():
+	print("_on_saplings_levels_clicked is not implemented in MainMenuUiStartState")
+
+
+func _on_back_to_main_menu_clicked():
+	_ui_manager.show_start_screen()
 
 
 #region MainMenuUiState
