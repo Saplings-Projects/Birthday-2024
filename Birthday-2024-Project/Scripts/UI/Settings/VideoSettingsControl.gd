@@ -25,9 +25,9 @@ func on_resolution_selected(index: int):
 		0:
 			_resize_window(1920, 1080)
 		1:
-			_resize_window(1366, 768)
-		2:
 			_resize_window(1440, 900)
+		2:
+			_resize_window(1366, 768)
 
 
 func _enable_fullscreen():
