@@ -12,7 +12,6 @@ func LoadLevel(levelSetupData : LevelSetup):
 
 func ExportLevel() -> String:
 	var pieceData : Array[PieceSetup]
-	var json = JSON.new()
 	
 	for pieceLogic in availablePieces:
 		var pieceSetup = PieceSetup.new()
@@ -28,7 +27,7 @@ func ExportLevel() -> String:
 		pieceSetup.pieceRotation = pieceLogic.current_rotation_state
 		pieceData.push_back(pieceSetup)
 		
-	return json.stringify(pieceData)
+	return JSON.stringify(pieceData)
 
 #only other pieces will block a piece being placed
 func CheckLegalToPlace(piece : PieceLogic) -> bool:
