@@ -75,10 +75,12 @@ text = "Credits"
 
 [node name="Utility Buttons" type="HBoxContainer" parent="StartScreen/Panel"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-offset_bottom = 73.0
-grow_horizontal = 2
+offset_left = -111.0
+offset_bottom = 70.0
+grow_horizontal = 0
 alignment = 2
 
 [node name="Settings Button" type="Button" parent="StartScreen/Panel/Utility Buttons"]
