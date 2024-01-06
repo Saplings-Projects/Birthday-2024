@@ -2,7 +2,7 @@ class_name CampaignSelectMenu
 extends Control
 
 
-signal back_main_menu
+signal back_to_main_menu
 signal exit_game
 signal open_settings_window
 signal open_campaign_levels
@@ -10,7 +10,7 @@ signal open_saplings_levels
 
 
 func on_back_clicked():
-	back_main_menu.emit()
+	back_to_main_menu.emit()
 
 
 func on_exit_clicked():

@@ -57,9 +57,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -504.0
+offset_left = -450.0
 offset_top = -432.0
-offset_right = 504.0
+offset_right = 450.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -86,8 +86,8 @@ custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
 [node name="LeftMargin" type="MarginContainer" parent="Panel/All Buttons/Back Button Container"]
-custom_minimum_size = Vector2(383, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Back Button" type="Button" parent="Panel/All Buttons/Back Button Container"]
 custom_minimum_size = Vector2(242, 0)
@@ -95,8 +95,8 @@ layout_mode = 2
 text = "Back"
 
 [node name="Right Margin" type="MarginContainer" parent="Panel/All Buttons/Back Button Container"]
-custom_minimum_size = Vector2(383, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Bottom Margin" type="MarginContainer" parent="Panel/All Buttons"]
 custom_minimum_size = Vector2(0, 50)

@@ -7,6 +7,7 @@ extends CanvasLayer
 @export_group("Screens")
 @export var start_screen: MainMenuStartScreen
 @export var campaign_select: CampaignSelectMenu
+@export var campaign_levels: CampaignLevelsSelectMenu
 
 @export_group("States")
 @export var start_state: MainMenuUiStartState
@@ -35,10 +36,15 @@ func show_campaign_select():
 	campaign_select.show()
 
 
+func show_campaign_levels():
+	_disable_all_screans()
+	campaign_levels.show()
+
+
 func _disable_all_screans():
 	start_screen.hide()
 	campaign_select.hide()
-	
+	campaign_levels.hide()
 
 
 func _switch_state(state: MainMenuUiState):
