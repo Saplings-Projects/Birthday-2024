@@ -1,0 +1,178 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxuegn567cbjd"]
+
+[ext_resource type="FontFile" uid="uid://b4qxnl5c1be6s" path="res://Fonts/Baskerville Bold.otf" id="2_7a6iy"]
+[ext_resource type="Texture2D" uid="uid://nidr2laulydl" path="res://Art/ResolutionClearance.png" id="2_b02kv"]
+[ext_resource type="Texture2D" uid="uid://ctwvba1eua6yv" path="res://Art/Circle100.png" id="8_4tpwy"]
+[ext_resource type="Texture2D" uid="uid://cy5r7j1tqfeud" path="res://Art/WhiteTriangle.png" id="9_1qatg"]
+[ext_resource type="Texture2D" uid="uid://dyk1nom8mpmo8" path="res://Art/SharpSquareOutline.png" id="10_j6q51"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ossd2"]
+font = ExtResource("2_7a6iy")
+font_size = 72
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_b02kv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -645.5
+offset_top = 50.0
+offset_right = 645.5
+offset_bottom = 175.0
+grow_horizontal = 2
+text = "FAUNA'S 2024 BIRTHDAY "
+label_settings = SubResource("LabelSettings_ossd2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterFullRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 910.0
+offset_top = 490.0
+offset_right = -910.0
+offset_bottom = -490.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("8_4tpwy")
+
+[node name="TopLeftFixed" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_1qatg")
+stretch_mode = 2
+
+[node name="TopRightRotated" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_bottom = 180.0
+grow_horizontal = 0
+rotation = -2.35619
+pivot_offset = Vector2(90, 90)
+texture = ExtResource("9_1qatg")
+stretch_mode = 2
+
+[node name="BottomLeftSmallScale" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_right = 180.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(90, 90)
+texture = ExtResource("9_1qatg")
+stretch_mode = 2
+
+[node name="BottomRightRotatedSmallScale" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -180.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = -0.785398
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(90, 90)
+texture = ExtResource("9_1qatg")
+stretch_mode = 2
+
+[node name="LeftFixed" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_vertical = 2
+texture = ExtResource("10_j6q51")
+stretch_mode = 2
+
+[node name="Right9sliceStretch" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = 300.0
+offset_bottom = -300.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("10_j6q51")
+region_rect = Rect2(0, 0, 200, 200)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Bottom9sliceStretchSmallScale" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = -100.0
+offset_right = -300.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(660, 50)
+texture = ExtResource("10_j6q51")
+region_rect = Rect2(0, 0, 200, 200)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="FixedBottomSmallScale" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -280.0
+offset_right = 100.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(100, 100)
+texture = ExtResource("10_j6q51")
