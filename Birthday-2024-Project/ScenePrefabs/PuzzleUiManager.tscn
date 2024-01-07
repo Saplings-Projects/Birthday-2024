@@ -26,8 +26,8 @@ script = ExtResource("2_fxt11")
 context_button = NodePath("Panel/Level Buttons/Context Button")
 exit_button = NodePath("Panel/Utility Buttons/Exit Button")
 reset_button = NodePath("Panel/Level Buttons/Reset Button")
-reset_button = NodePath("Panel/Level Buttons/Reset Button")
-back_button = NodePath("Panel/Utility Buttons/Back Button")
+back_button = NodePath("Panel/Level Buttons/Back Button")
+settings_button = NodePath("Panel/Utility Buttons/Settings Button")
 win_text = NodePath("Panel/Win Text")
 
 [node name="Panel" type="Panel" parent="MainScreen"]
@@ -83,7 +83,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "<context>"
-
 
 [node name="Back Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
 custom_minimum_size = Vector2(100, 100)
