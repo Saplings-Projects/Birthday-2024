@@ -8,7 +8,6 @@ var _state: GamePlayState
 func _on_exit_clicked():
 	_state.exit_game()
 
-
 func _on_reset_clicked():
 	_state.reset_puzzle()
 
