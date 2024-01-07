@@ -5,6 +5,10 @@ extends PuzzleUiState
 var _state: GameWinState
 
 
+func _on_exit_clicked():
+	_state.exit_game()
+
+
 func _on_next_clicked():
 	_state.next_puzzle()
 
@@ -30,7 +34,9 @@ func enter_state():
 	screen.show_hide_win_text(true)
 	screen.context_button.text = "Next"
 	screen.context_button.button_up.connect(_on_next_clicked)
+	screen.exit_button.button_up.connect(_on_exit_clicked)
 	screen.reset_button.button_up.connect(_on_reset_clicked)
+	screen.settings_button.button_up.connect(_on_settings_clicked)
 
 
 func exit_state():
@@ -38,7 +44,9 @@ func exit_state():
 	
 	var screen = _ui_manager.main_screen
 	screen.context_button.button_up.disconnect(_on_next_clicked)
+	screen.exit_button.button_up.disconnect(_on_exit_clicked)
 	screen.reset_button.button_up.disconnect(_on_reset_clicked)
+	screen.settings_button.button_up.disconnect(_on_settings_clicked)
 
 
 func update_state():

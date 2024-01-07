@@ -15,6 +15,10 @@ run/main_scene="res://MainScenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Resources/Audio/audio_bus.tres"
+
 [input]
 
 RotateClockwise={

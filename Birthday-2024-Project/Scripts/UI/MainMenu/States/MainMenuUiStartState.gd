@@ -22,8 +22,7 @@ func _on_play_clicked():
 
 
 func _on_settings_clicked():
-	# TODO: Pull up a settings screen.
-	print("_on_settings_clicked is not implemented in MainMenuUiStartState")
+	_ui_manager.show_settings_window()
 
 
 #region MainMenuUiState

@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=5 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuStartScreen.gd" id="2_n7aum"]
+[ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_ukswp"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="3_vnjds"]
 
-[node name="MainMenuUiManager" type="CanvasLayer" node_paths=PackedStringArray("start_screen", "start_state")]
+[node name="MainMenuUiManager" type="CanvasLayer" node_paths=PackedStringArray("settings_window", "start_screen", "start_state")]
 script = ExtResource("1_lofx7")
+settings_window = NodePath("SettingsWindow")
 start_screen = NodePath("StartScreen")
 start_state = NodePath("States/MainMenuUiStartState")
 
@@ -73,10 +75,12 @@ text = "Credits"
 
 [node name="Utility Buttons" type="HBoxContainer" parent="StartScreen/Panel"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-offset_bottom = 73.0
-grow_horizontal = 2
+offset_left = -111.0
+offset_bottom = 70.0
+grow_horizontal = 0
 alignment = 2
 
 [node name="Settings Button" type="Button" parent="StartScreen/Panel/Utility Buttons"]
@@ -86,6 +90,9 @@ text = "Settings"
 [node name="Exit Button" type="Button" parent="StartScreen/Panel/Utility Buttons"]
 layout_mode = 2
 text = "Exit"
+
+[node name="SettingsWindow" parent="." instance=ExtResource("3_ukswp")]
+visible = false
 
 [node name="States" type="Control" parent="."]
 layout_mode = 3
@@ -98,3 +105,5 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_vnjds")
+
+[connection signal="close_settings_window" from="SettingsWindow" to="." method="hide_settings_window"]
