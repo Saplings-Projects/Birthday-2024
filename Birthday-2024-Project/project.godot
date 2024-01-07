@@ -24,6 +24,10 @@ window/size/window_height_override=900
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[audio]
+
+buses/default_bus_layout="res://Resources/Audio/audio_bus.tres"
+
 [input]
 
 RotateClockwise={

@@ -5,12 +5,17 @@ extends CanvasLayer
 @export var conntroller: MainMenuController
 
 @export_group("Screens")
+@export var settings_window: SettingsWindow
 @export var start_screen: MainMenuStartScreen
 
 @export_group("States")
 @export var start_state: MainMenuUiStartState
 
 var _current_state: MainMenuUiState
+
+
+func hide_settings_window():
+	settings_window.hide()
 
 
 func on_main_menu_initialized():
@@ -24,12 +29,17 @@ func on_main_menu_state_changed(state: MainMenuState):
 		printerr("Unhandled main menu state in main menu UI Manager")
 
 
+func show_settings_window():
+	settings_window.show()
+
+
 func show_start_screen():
 	_disable_all_screans()
 	start_screen.show()
 
 
 func _disable_all_screans():
+	settings_window.hide()
 	start_screen.hide()
 
 
