@@ -15,6 +15,10 @@ run/main_scene="res://MainScenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Resources/Audio/audio_bus.tres"
+
 [display]
 
 window/size/viewport_width=1920
@@ -23,10 +27,6 @@ window/size/window_width_override=1600
 window/size/window_height_override=900
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-
-[audio]
-
-buses/default_bus_layout="res://Resources/Audio/audio_bus.tres"
 
 [input]
 

@@ -2,11 +2,13 @@ class_name MainMenuUiManager
 extends CanvasLayer
 
 
-@export var conntroller: MainMenuController
+@export var controller: MainMenuController
 
 @export_group("Screens")
 @export var settings_window: SettingsWindow
 @export var start_screen: MainMenuStartScreen
+@export var campaign_select: CampaignSelectMenu
+@export var campaign_levels: CampaignLevelsSelectMenu
 
 @export_group("States")
 @export var start_state: MainMenuUiStartState
@@ -38,9 +40,21 @@ func show_start_screen():
 	start_screen.show()
 
 
+func show_campaign_select():
+	_disable_all_screans()
+	campaign_select.show()
+
+
+func show_campaign_levels():
+	_disable_all_screans()
+	campaign_levels.show()
+
+
 func _disable_all_screans():
 	settings_window.hide()
 	start_screen.hide()
+	campaign_select.hide()
+	campaign_levels.hide()
 
 
 func _switch_state(state: MainMenuUiState):
@@ -61,7 +75,7 @@ func _process(delta):
 
 
 func _ready():
-	start_state._controller = conntroller
+	start_state._controller = controller
 	start_state._ui_manager = self
 
 

@@ -1,17 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=7 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuStartScreen.gd" id="2_n7aum"]
+[ext_resource type="PackedScene" uid="uid://4kktp1gwthbt" path="res://ScenePrefabs/CampaignSelectMenu.tscn" id="3_qksbd"]
 [ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_ukswp"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="3_vnjds"]
+[ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/CampaignLevelSelectMenu.tscn" id="4_o3atr"]
 
-[node name="MainMenuUiManager" type="CanvasLayer" node_paths=PackedStringArray("settings_window", "start_screen", "start_state")]
+[node name="MainMenuUiManager" type="CanvasLayer" node_paths=PackedStringArray("settings_window", "start_screen", "campaign_select", "campaign_levels", "start_state")]
 script = ExtResource("1_lofx7")
 settings_window = NodePath("SettingsWindow")
 start_screen = NodePath("StartScreen")
+campaign_select = NodePath("CampaignSelectMenu")
+campaign_levels = NodePath("CampaignLevelSelectMenu")
 start_state = NodePath("States/MainMenuUiStartState")
 
-[node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallary_button", "play_button", "settings_button")]
+[node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallery_button", "play_button", "settings_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +25,7 @@ grow_vertical = 2
 script = ExtResource("2_n7aum")
 credits_button = NodePath("Panel/Navigation Buttons/Credits Button")
 exit_button = NodePath("Panel/Utility Buttons/Exit Button")
-gallary_button = NodePath("Panel/Navigation Buttons/Gallery Button")
+gallery_button = NodePath("Panel/Navigation Buttons/Gallery Button")
 play_button = NodePath("Panel/Navigation Buttons/Play Button")
 settings_button = NodePath("Panel/Utility Buttons/Settings Button")
 
@@ -91,6 +95,12 @@ text = "Settings"
 layout_mode = 2
 text = "Exit"
 
+[node name="CampaignSelectMenu" parent="." instance=ExtResource("3_qksbd")]
+visible = false
+
+[node name="CampaignLevelSelectMenu" parent="." instance=ExtResource("4_o3atr")]
+visible = false
+
 [node name="SettingsWindow" parent="." instance=ExtResource("3_ukswp")]
 visible = false
 
@@ -106,4 +116,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_vnjds")
 
+[connection signal="back_to_main_menu" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_back_to_main_menu_clicked"]
+[connection signal="exit_game" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_exit_clicked"]
+[connection signal="open_campaign_levels" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_campaign_levels_clicked"]
+[connection signal="open_saplings_levels" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_saplings_levels_clicked"]
+[connection signal="open_settings_window" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_settings_clicked"]
+[connection signal="back_to_campaign_select_menu" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_back_to_campaign_select_menu_clicked"]
+[connection signal="exit_game" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_exit_clicked"]
+[connection signal="open_settings_window" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_settings_clicked"]
+[connection signal="play" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_level_selected"]
 [connection signal="close_settings_window" from="SettingsWindow" to="." method="hide_settings_window"]
