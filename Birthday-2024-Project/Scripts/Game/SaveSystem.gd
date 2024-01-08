@@ -18,8 +18,10 @@ func load_user_preferences() -> UserPreferences:
 			return UserPreferences.new()
 
 
-func save_user_preferences():
+func save_user_preferences(prefs: UserPreferences):
 	var config = ConfigFile.new()
+	prefs._save_config(config)
+	
 	var err = config.save(_config_path)
 	
 	if err != OK:

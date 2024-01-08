@@ -15,3 +15,7 @@ func _init(config: ConfigFile = null):
 	else:
 		_apply_config(config)
 
+
+func _save_config(config: ConfigFile):
+	pass
+

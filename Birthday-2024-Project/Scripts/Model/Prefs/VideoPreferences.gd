@@ -30,6 +30,12 @@ func _apply_defaults():
 	window = _DEFAULT_WINDOW
 
 
+func _save_config(config: ConfigFile):
+	config.set_value(_SECTION_NAME, "width", width)
+	config.set_value(_SECTION_NAME, "height", height)
+	config.set_value(_SECTION_NAME, "window", window)
+
+
 #endregion Preferences
 
 enum WindowType

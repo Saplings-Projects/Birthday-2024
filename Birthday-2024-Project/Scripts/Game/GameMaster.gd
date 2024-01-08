@@ -12,6 +12,10 @@ var user_prefs: UserPreferences
 var _save_system: SaveSystem
 
 
+func save_preferences():
+	_save_system.save_user_preferences(user_prefs)
+
+
 func _apply_settings():
 	audio_controller._apply_prefs()
 	video_controller._apply_prefs()

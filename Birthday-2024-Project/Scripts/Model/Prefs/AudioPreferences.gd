@@ -34,4 +34,11 @@ func _apply_defaults():
 	fauna = _DEFAULT_FAUNA
 
 
+func _save_config(config: ConfigFile):
+	config.set_value(_SECTION_NAME, "master", master)
+	config.set_value(_SECTION_NAME, "music", music)
+	config.set_value(_SECTION_NAME, "sfx", sfx)
+	config.set_value(_SECTION_NAME, "fauna", fauna)
+
+
 #endregion Preferences

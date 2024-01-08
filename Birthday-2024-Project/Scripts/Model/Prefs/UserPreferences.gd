@@ -18,4 +18,9 @@ func _apply_defaults():
 	video = VideoPreferences.new()
 
 
+func _save_config(config: ConfigFile):
+	audio._save_config(config)
+	video._save_config(config)
+
+
 #endregion Preferences
