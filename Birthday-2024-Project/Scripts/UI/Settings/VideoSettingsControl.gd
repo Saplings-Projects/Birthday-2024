@@ -7,6 +7,7 @@ extends Control
 
 var _gm: GameMaster
 
+const _CUSTOM_OPTION_ID: int = 999
 const _RESOLUTION_FORMAT: String = "%dx%d"
 
 
@@ -14,8 +15,12 @@ func revert_changes():
 	var video = _gm.user_prefs.video
 	
 	# Handle window options
-	window_options.select(video.window)
-	resolution_options.disabled = video.window != VideoPreferences.WindowType.WINDOWED
+	if video.window < window_options.item_count:
+		window_options.select(video.window)
+		resolution_options.disabled = video.window != VideoPreferences.WindowType.WINDOWED
+	else:
+		resolution_options.disabled = true
+		_add_and_select_custom(window_options)
 	
 	# Handle resolution options
 	var resolutions = _gm.video_controller.resolutions
@@ -33,12 +38,20 @@ func revert_changes():
 		resolution_options.select(i - 1)
 	
 	if not using_preset:
-		printerr("Video prefernces are using an unavailable screen resolution")
-		# TODO: Handle this case.
+		_add_and_select_custom(resolution_options)
+
+
+func _add_and_select_custom(options: OptionButton):
+	options.add_item("Custom", _CUSTOM_OPTION_ID)
+	
+	var idx = options.get_item_index(_CUSTOM_OPTION_ID)
+	options.selected = idx
+	options.set_item_disabled(idx, true)
 
 
 func _on_resolution_selected(index: int):
 	_gm.video_controller.set_resolution(index)
+	_remove_custom(resolution_options)
 
 
 func _on_window_selected(index: int):
@@ -54,6 +67,15 @@ func _on_window_selected(index: int):
 			_gm.video_controller.enable_windowed_borderless()
 		_:
 			printerr("Unhandled screen type selected")
+	
+	_remove_custom(window_options)
+
+
+func _remove_custom(options: OptionButton):
+	var idx = options.get_item_index(_CUSTOM_OPTION_ID)
+	
+	if idx >= 0:
+		options.remove_item(idx)
 
 
 #region Node
