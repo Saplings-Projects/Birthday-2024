@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6xsrisrdefrq"]
+
+[ext_resource type="Script" path="res://Scripts/Game/GameMaster.gd" id="1_agon8"]
+[ext_resource type="Script" path="res://Scripts/Game/AudioController.gd" id="2_1oy3c"]
+
+[node name="GameMaster" type="Node2D" node_paths=PackedStringArray("audio_controller")]
+script = ExtResource("1_agon8")
+audio_controller = NodePath("AudioController")
+
+[node name="AudioController" type="Node2D" parent="."]
+script = ExtResource("2_1oy3c")

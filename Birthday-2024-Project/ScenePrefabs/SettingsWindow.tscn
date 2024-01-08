@@ -91,9 +91,13 @@ popup/item_1/id = 2
 popup/item_2/text = "1366×768"
 popup/item_2/id = 1
 
-[node name="Audio" type="TabBar" parent="MarginContainer/Window/TabContainer" node_paths=PackedStringArray("music_sample_player", "sfx_sample_player", "fauna_sample_player")]
+[node name="Audio" type="TabBar" parent="MarginContainer/Window/TabContainer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "fauna_slider", "music_sample_player", "sfx_sample_player", "fauna_sample_player")]
 layout_mode = 2
 script = ExtResource("3_jxrfi")
+master_slider = NodePath("MarginContainer/Settings Container/Master Container/Master Slider")
+music_slider = NodePath("MarginContainer/Settings Container/Music Container/Music Slider")
+sfx_slider = NodePath("MarginContainer/Settings Container/SFX Container/SFX Slider")
+fauna_slider = NodePath("MarginContainer/Settings Container/Fauna Container/Fauna Slider")
 music_sample_player = NodePath("MusicSamplePlayer")
 sfx_sample_player = NodePath("SfxSamplePlayer")
 fauna_sample_player = NodePath("FaunaSamplePlayer")
@@ -193,8 +197,4 @@ text = "Close"
 
 [connection signal="item_selected" from="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container/ScreenOptions" to="MarginContainer/Window/TabContainer/Video" method="on_screen_selected"]
 [connection signal="item_selected" from="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container/ResolutionOptions" to="MarginContainer/Window/TabContainer/Video" method="on_resolution_selected"]
-[connection signal="value_changed" from="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Master Container/Master Slider" to="MarginContainer/Window/TabContainer/Audio" method="on_master_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Music Container/Music Slider" to="MarginContainer/Window/TabContainer/Audio" method="on_music_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/SFX Container/SFX Slider" to="MarginContainer/Window/TabContainer/Audio" method="on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container/Fauna Slider" to="MarginContainer/Window/TabContainer/Audio" method="on_fauna_slider_value_changed"]
 [connection signal="button_up" from="MarginContainer/Window/Close Button" to="." method="on_close_clicked"]
