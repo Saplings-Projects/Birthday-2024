@@ -2,13 +2,13 @@ class_name GameMaster
 extends Node2D
 
 
+# Controllers
 @export var audio_controller: AudioController
 @export var video_controller: VideoController
 
 # State/Prefs
 var user_prefs: UserPreferences
 
-# Controllers
 var _save_system: SaveSystem
 
 
