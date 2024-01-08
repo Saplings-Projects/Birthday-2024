@@ -2,6 +2,12 @@ class_name AudioSettingsControl
 extends Control
 
 
+@export_group("UI Elements")
+@export var master_slider: Slider
+@export var music_slider: Slider
+@export var sfx_slider: Slider
+@export var fauna_slider: Slider
+
 @export_group("Audio Players")
 @export var music_sample_player: AudioStreamPlayer2D # TODO: DELETE WHEN NO LONGER NEEDED
 @export var sfx_sample_player: AudioStreamPlayer2D
@@ -12,31 +18,35 @@ extends Control
 @export var fauna_samples: AudioSamples
 @export var tone_sample: AudioStream # TODO: DELETE WHEN NO LONGER NEEDED
 
+var _gm: GameMaster
 
-func on_fauna_slider_value_changed(value: float):
-	_change_bus_volume(value, "Fauna")
+
+func revert_changes():
+	var audio = _gm.user_prefs.audio
+	
+	master_slider.value = audio.master
+	music_slider.value = audio.music
+	sfx_slider.value = audio.sfx
+	fauna_slider.value = audio.fauna
+
+
+func _on_fauna_slider_value_changed(value: float):
+	_gm.audio_controller.set_fauna_volume(value)
 	_play_sample(fauna_samples.get_random_sample(), fauna_sample_player)
 
 
-func on_master_slider_value_changed(value: float):
-	_change_bus_volume(value, "Master")
+func _on_master_slider_value_changed(value: float):
+	_gm.audio_controller.set_master_volume(value)
 
 
-func on_music_slider_value_changed(value: float):
-	_change_bus_volume(value, "Music")
+func _on_music_slider_value_changed(value: float):
+	_gm.audio_controller.set_music_volume(value)
 	_play_sample(tone_sample, music_sample_player) # TODO: Remove when BGM is added.
 
 
-func on_sfx_slider_value_changed(value: float):
-	_change_bus_volume(value, "SFX")
+func _on_sfx_slider_value_changed(value: float):
+	_gm.audio_controller.set_sfx_volume(value)
 	_play_sample(sfx_samples.get_random_sample(), sfx_sample_player)
-
-
-func _change_bus_volume(value: float, bus_name: String):
-	var db = log(clamp(value, 0.001, 1)) / log(10) * 20 # Convert to decibels
-	var bus_idx = AudioServer.get_bus_index(bus_name)
-	
-	AudioServer.set_bus_volume_db(bus_idx, db)
 
 
 func _play_sample(stream: AudioStream, player: AudioStreamPlayer2D):
@@ -50,10 +60,14 @@ func _play_sample(stream: AudioStream, player: AudioStreamPlayer2D):
 #region Node
 
 func _ready():
-	_change_bus_volume(1, "Master")
-	_change_bus_volume(0.5, "Music")
-	_change_bus_volume(0.5, "SFX")
-	_change_bus_volume(0.5, "Fauna")
+	_gm = get_node("/root/GlobalGameMaster")
+	
+	revert_changes()
+	
+	master_slider.value_changed.connect(_on_master_slider_value_changed)
+	music_slider.value_changed.connect(_on_music_slider_value_changed)
+	sfx_slider.value_changed.connect(_on_sfx_slider_value_changed)
+	fauna_slider.value_changed.connect(_on_fauna_slider_value_changed)
 
 
 #endregion Node
