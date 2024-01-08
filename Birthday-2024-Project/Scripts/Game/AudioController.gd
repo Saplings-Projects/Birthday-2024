@@ -10,15 +10,6 @@ const _music_bus: String = "Music"
 const _sfx_bus: String = "SFX"
 
 
-func apply_prefs(prefs: UserPreferences):
-	var audio = prefs.audio;
-	
-	set_master_volume(audio.master)
-	set_music_volume(audio.music)
-	set_sfx_volume(audio.sfx)
-	set_fauna_volume(audio.fauna)
-
-
 func set_fauna_volume(value: float):
 	_prefs.fauna = value
 	_set_bus_volume(value, _fauna_bus)
@@ -37,6 +28,13 @@ func set_music_volume(value: float):
 func set_sfx_volume(value: float):
 	_prefs.sfx = value
 	_set_bus_volume(value, _sfx_bus)
+
+
+func _apply_prefs():
+	set_master_volume(_prefs.master)
+	set_music_volume(_prefs.music)
+	set_sfx_volume(_prefs.sfx)
+	set_fauna_volume(_prefs.fauna)
 
 
 func _set_bus_volume(value: float, bus_name: String):

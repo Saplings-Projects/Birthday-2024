@@ -3,6 +3,7 @@ extends Node2D
 
 
 @export var audio_controller: AudioController
+@export var video_controller: VideoController
 
 # State/Prefs
 var user_prefs: UserPreferences
@@ -12,13 +13,15 @@ var _save_system: SaveSystem
 
 
 func _apply_settings():
-	audio_controller.apply_prefs(user_prefs)
+	audio_controller._apply_prefs()
+	video_controller._apply_prefs()
 
 
 func _load_data():
 	user_prefs = _save_system.load_user_preferences()
 	
 	audio_controller._prefs = user_prefs.audio
+	video_controller._prefs = user_prefs.video
 
 
 #region Node

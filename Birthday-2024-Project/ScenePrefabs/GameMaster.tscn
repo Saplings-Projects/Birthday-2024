@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6xsrisrdefrq"]
+[gd_scene load_steps=7 format=3 uid="uid://c6xsrisrdefrq"]
 
 [ext_resource type="Script" path="res://Scripts/Game/GameMaster.gd" id="1_agon8"]
 [ext_resource type="Script" path="res://Scripts/Game/AudioController.gd" id="2_1oy3c"]
+[ext_resource type="Script" path="res://Scripts/Game/VideoController.gd" id="3_ayqci"]
+[ext_resource type="Resource" uid="uid://c8jpl3lhgb7f6" path="res://Resources/Video/1920x1080.tres" id="4_53h28"]
+[ext_resource type="Resource" uid="uid://b3r8hjt7pd3dl" path="res://Resources/Video/1440x900.tres" id="5_8a61i"]
+[ext_resource type="Resource" uid="uid://dth7hfnnen2p8" path="res://Resources/Video/1366x768.tres" id="6_rln2h"]
 
-[node name="GameMaster" type="Node2D" node_paths=PackedStringArray("audio_controller")]
+[node name="GameMaster" type="Node2D" node_paths=PackedStringArray("audio_controller", "video_controller")]
 script = ExtResource("1_agon8")
 audio_controller = NodePath("AudioController")
+video_controller = NodePath("VideoController")
 
 [node name="AudioController" type="Node2D" parent="."]
 script = ExtResource("2_1oy3c")
+
+[node name="VideoController" type="Node2D" parent="."]
+script = ExtResource("3_ayqci")
+resolutions = Array[Resource("res://Scripts/Model/ScreenResolution.gd")]([ExtResource("4_53h28"), ExtResource("5_8a61i"), ExtResource("6_rln2h")])
