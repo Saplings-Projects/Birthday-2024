@@ -114,10 +114,13 @@ func _held_piece_towards_cursor(delta):
 func _rotate_held_piece():
 	if Input.is_action_just_pressed("RotateClockwise"):
 		held_piece.rotate_clockwise()
+		held_piece.play_sample()
 		_reset_settled()
 	elif Input.is_action_just_pressed("RotateAnticlockwise"):
 		held_piece.rotate_anticlockwise()
+		held_piece.play_sample()
 		_reset_settled()
+
 
 func _get_held_piece_grid_origin() -> Vector2i:
 	return grid.PositionToGridCoordinate(held_piece.GetOriginCellPosition())
