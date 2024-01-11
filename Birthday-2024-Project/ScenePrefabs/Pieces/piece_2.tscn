@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfrcd7gptl2uy"]
+[gd_scene load_steps=4 format=3 uid="uid://dfrcd7gptl2uy"]
 
 [ext_resource type="Texture2D" uid="uid://omq8wdisytjj" path="res://Art/GenericPieceArt/Asset 2.png" id="1_iwgnv"]
 [ext_resource type="Script" path="res://Scripts/PieceLogic.gd" id="2_nfiac"]
+[ext_resource type="Resource" uid="uid://b7cedwyqotmo4" path="res://Resources/Audio/Samples/PuzzlePieceDefault.tres" id="3_bb22m"]
 
-[node name="piece_2" type="Sprite2D"]
+[node name="piece_2" type="Sprite2D" node_paths=PackedStringArray("sample_player")]
 position = Vector2(-3, 1)
 texture = ExtResource("1_iwgnv")
 script = ExtResource("2_nfiac")
 pieceShape = "11
 11"
+sample_player = NodePath("AudioStreamPlayer2D")
+sound_samples = ExtResource("3_bb22m")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"Fauna"
