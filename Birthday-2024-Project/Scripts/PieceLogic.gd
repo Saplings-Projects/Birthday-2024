@@ -11,6 +11,8 @@ const RETURN_ANIMATION_DURATION: float = 0.5 # Number of seconds a piece takes t
 const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to move into it's placed position
 
 @export_multiline var pieceShape : String
+@export var sample_player: AudioStreamPlayer2D
+@export var sound_samples: AudioSamples
 
 var current_placement_state: PlacementStates
 var levelGridReference : GridLogic
@@ -41,7 +43,20 @@ func on_clicked():
 func on_piece_held():
 	current_placement_state = PlacementStates.HELD
 	cancel_movement_tween()
+
+
+func play_sample():
+	var sample = sound_samples.get_random_sample()
 	
+	if sample == null:
+		printerr("Could not get sound sample for puzzle piece")
+		return
+	
+	sample_player.stop()
+	sample_player.stream = sample
+	sample_player.play()
+
+
 func cancel_movement_tween():
 	if _movement_tween != null:
 		_movement_tween.stop()

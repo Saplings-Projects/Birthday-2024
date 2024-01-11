@@ -60,8 +60,11 @@ func on_piece_clicked(clicked_piece: PieceLogic):
 		return
 	
 	held_piece = clicked_piece
+	
+	clicked_piece.play_sample()
 	_remove_occupied_cells(held_piece)
 	_reset_settled()
+
 
 func _ready():
 	# State
