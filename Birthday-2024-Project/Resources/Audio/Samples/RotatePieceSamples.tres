@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AudioSamples" load_steps=2 format=3 uid="uid://yo3alxsm0es1"]
+
+[ext_resource type="Script" path="res://Scripts/Model/AudioSamples.gd" id="1_x1x50"]
+
+[resource]
+script = ExtResource("1_x1x50")
+samples = Array[AudioStream]([])

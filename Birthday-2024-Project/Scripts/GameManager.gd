@@ -61,7 +61,7 @@ func on_piece_clicked(clicked_piece: PieceLogic):
 	
 	held_piece = clicked_piece
 	
-	clicked_piece.play_sample()
+	clicked_piece.play_grab_audio()
 	_remove_occupied_cells(held_piece)
 	_reset_settled()
 
@@ -114,11 +114,11 @@ func _held_piece_towards_cursor(delta):
 func _rotate_held_piece():
 	if Input.is_action_just_pressed("RotateClockwise"):
 		held_piece.rotate_clockwise()
-		held_piece.play_sample()
+		held_piece.play_rotate_audio()
 		_reset_settled()
 	elif Input.is_action_just_pressed("RotateAnticlockwise"):
 		held_piece.rotate_anticlockwise()
-		held_piece.play_sample()
+		held_piece.play_rotate_audio()
 		_reset_settled()
 
 
@@ -170,4 +170,5 @@ func _do_place_held_piece():
 	var held_piece_grid_origin : Vector2i = _get_held_piece_grid_origin()
 	var placed_position : Vector2 = _held_piece_placed_position(held_piece_grid_origin)
 	held_piece.place_piece(held_piece_grid_origin, placed_position)
+	held_piece.play_place_audio()
 	held_piece = null # Piece is no longer being held

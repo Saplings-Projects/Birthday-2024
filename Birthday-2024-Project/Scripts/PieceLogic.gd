@@ -11,8 +11,12 @@ const RETURN_ANIMATION_DURATION: float = 0.5 # Number of seconds a piece takes t
 const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to move into it's placed position
 
 @export_multiline var pieceShape : String
-@export var sample_player: AudioStreamPlayer2D
-@export var sound_samples: AudioSamples
+@export var fauna_player: AudioStreamPlayer2D
+@export var sfx_player: AudioStreamPlayer2D
+@export var fauna_samples: AudioSamples
+@export var rotate_samples: AudioSamples
+@export var place_samples: AudioSamples
+@export var grab_samples: AudioSamples
 
 var current_placement_state: PlacementStates
 var levelGridReference : GridLogic
@@ -45,16 +49,35 @@ func on_piece_held():
 	cancel_movement_tween()
 
 
-func play_sample():
-	var sample = sound_samples.get_random_sample()
+func play_grab_audio():
+	_play_sfx_sample(grab_samples.get_random_sample())
+	
+	# Play Fauna sound
+	var sample = fauna_samples.get_random_sample()
 	
 	if sample == null:
-		printerr("Could not get sound sample for puzzle piece")
 		return
 	
-	sample_player.stop()
-	sample_player.stream = sample
-	sample_player.play()
+	fauna_player.stop()
+	fauna_player.stream = sample
+	fauna_player.play()
+
+
+func play_place_audio():
+	_play_sfx_sample(place_samples.get_random_sample())
+
+
+func play_rotate_audio():
+	_play_sfx_sample(rotate_samples.get_random_sample())
+
+
+func _play_sfx_sample(sample: AudioStream):
+	if sample == null:
+		return
+	
+	sfx_player.stop()
+	sfx_player.stream = sample
+	sfx_player.play()
 
 
 func cancel_movement_tween():
