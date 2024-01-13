@@ -2,6 +2,9 @@ class_name GameWinState
 extends GameState
 
 
+var _gm: GameMaster
+
+
 func next_puzzle():
 	print("next_puzzle is not fully implemented", self)
 	reset_puzzle() # TODO: DELETE THIS WHEN NO LONGER NEEDED.
@@ -12,7 +15,7 @@ func reset_puzzle():
 
 
 func back_to_menu():
-	get_tree().change_scene_to_file("res://MainScenes/main_menu.tscn")#TODO remember where to go back (campaign or saplings' levels and go there)
+	_gm.back_to_campaign_levels()
 
 
 #region GameState
@@ -28,6 +31,10 @@ func exit_state():
 
 func update_state():
 	pass # Do nothing
+
+
+func _ready():
+	_gm = get_node("/root/GlobalGameMaster")
 
 
 #endregion GameState

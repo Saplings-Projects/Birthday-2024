@@ -1,12 +1,13 @@
 class_name GamePlayState
 extends GameState
 
+var _gm: GameMaster
 
 func reset_puzzle():
 	get_tree().reload_current_scene()
 
 func back_to_menu():
-	get_tree().change_scene_to_file("res://MainScenes/main_menu.tscn")#TODO remember where to go back (campaign or saplings' levels and go there)
+	_gm.back_to_campaign_levels()
 
 func skip_puzzle():
 	print("skip_puzzle is not fully implemented", self)
@@ -36,5 +37,8 @@ func exit_state():
 func update_state():
 	pass
 
+
+func _ready():
+	_gm = get_node("/root/GlobalGameMaster")
 
 #endregion GameState

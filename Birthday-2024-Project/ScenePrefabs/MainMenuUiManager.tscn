@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=8 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuStartScreen.gd" id="2_n7aum"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_ukswp"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="3_vnjds"]
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/CampaignLevelSelectMenu.tscn" id="4_o3atr"]
+[ext_resource type="PackedScene" uid="uid://c6xsrisrdefrq" path="res://ScenePrefabs/GameMaster.tscn" id="7_jtwva"]
 
 [node name="MainMenuUiManager" type="CanvasLayer" node_paths=PackedStringArray("settings_window", "start_screen", "campaign_select", "campaign_levels", "start_state")]
 script = ExtResource("1_lofx7")
@@ -116,6 +117,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_vnjds")
 
+[node name="GameMaster" parent="." instance=ExtResource("7_jtwva")]
+
 [connection signal="back_to_main_menu" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_back_to_main_menu_clicked"]
 [connection signal="exit_game" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_exit_clicked"]
 [connection signal="open_campaign_levels" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_campaign_levels_clicked"]
@@ -126,3 +129,4 @@ script = ExtResource("3_vnjds")
 [connection signal="open_settings_window" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_settings_clicked"]
 [connection signal="play" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_level_selected"]
 [connection signal="close_settings_window" from="SettingsWindow" to="." method="hide_settings_window"]
+[connection signal="back_campaign" from="GameMaster" to="." method="show_campaign_levels"]
