@@ -26,7 +26,6 @@ func _on_settings_clicked():
 
 
 func _on_campaign_levels_clicked():
-	print("asd")
 	_ui_manager.show_campaign_levels()
 
 
