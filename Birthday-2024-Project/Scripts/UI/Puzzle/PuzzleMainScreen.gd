@@ -4,7 +4,10 @@ extends Control
 
 @export_group("UI Elements")
 @export var context_button: Button
+@export var exit_button: Button
 @export var reset_button: Button
+@export var back_button: Button
+@export var settings_button: Button
 @export var win_text: Label
 
 

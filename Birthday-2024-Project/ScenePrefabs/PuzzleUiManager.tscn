@@ -1,17 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=7 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleMainScreen.gd" id="2_fxt11"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiPlayState.gd" id="3_aj75g"]
+[ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_w6dq1"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiWinState.gd" id="4_4ulfu"]
 
-[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "play_state", "win_state")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
+
+[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "settings_window", "play_state", "win_state")]
 script = ExtResource("1_e57yp")
 main_screen = NodePath("MainScreen")
+settings_window = NodePath("SettingsWindow")
 play_state = NodePath("States/PuzzleUiPlayState")
 win_state = NodePath("States/PuzzleUiWinState")
 
-[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "reset_button", "win_text")]
+[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,38 +23,75 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_fxt11")
-context_button = NodePath("MarginContainer/HBoxContainer/Context Button")
-reset_button = NodePath("MarginContainer/HBoxContainer/Reset Button")
-win_text = NodePath("Win Text")
+context_button = NodePath("Panel/Level Buttons/Context Button")
+exit_button = NodePath("Panel/Utility Buttons/Exit Button")
+reset_button = NodePath("Panel/Level Buttons/Reset Button")
+back_button = NodePath("Panel/Level Buttons/Back Button")
+settings_button = NodePath("Panel/Utility Buttons/Settings Button")
+win_text = NodePath("Panel/Win Text")
 
-[node name="MarginContainer" type="MarginContainer" parent="MainScreen"]
+[node name="Panel" type="Panel" parent="MainScreen"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8uao3")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainScreen/MarginContainer"]
+[node name="Utility Buttons" type="HBoxContainer" parent="MainScreen/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -111.0
+offset_bottom = 70.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Settings Button" type="Button" parent="MainScreen/Panel/Utility Buttons"]
 layout_mode = 2
+text = "Settings"
+
+[node name="Exit Button" type="Button" parent="MainScreen/Panel/Utility Buttons"]
+layout_mode = 2
+text = "Exit"
+
+[node name="Level Buttons" type="HBoxContainer" parent="MainScreen/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_vertical = 8
 alignment = 1
 
-[node name="Reset Button" type="Button" parent="MainScreen/MarginContainer/HBoxContainer"]
+[node name="Reset Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Reset"
 
-[node name="Context Button" type="Button" parent="MainScreen/MarginContainer/HBoxContainer"]
+[node name="Context Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "<context>"
 
-[node name="Win Text" type="Label" parent="MainScreen"]
+[node name="Back Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+
+[node name="Win Text" type="Label" parent="MainScreen/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -66,6 +107,9 @@ grow_vertical = 2
 text = "WIN"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SettingsWindow" parent="." instance=ExtResource("3_w6dq1")]
+visible = false
 
 [node name="States" type="Control" parent="."]
 layout_mode = 3
@@ -84,3 +128,5 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_4ulfu")
+
+[connection signal="close_settings_window" from="SettingsWindow" to="." method="hide_settings_window"]

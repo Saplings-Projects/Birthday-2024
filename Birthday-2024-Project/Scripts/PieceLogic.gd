@@ -11,6 +11,12 @@ const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to
 
 @export_multiline var pieceShape : String
 @export var isBlocker : bool
+@export var fauna_player: AudioStreamPlayer2D
+@export var sfx_player: AudioStreamPlayer2D
+@export var fauna_samples: AudioSamples
+@export var rotate_samples: AudioSamples
+@export var place_samples: AudioSamples
+@export var grab_samples: AudioSamples
 
 var current_placement_state: PlacementStates
 var levelGridReference : GridLogic
@@ -41,7 +47,39 @@ func on_clicked():
 func on_piece_held():
 	current_placement_state = PlacementStates.HELD
 	cancel_movement_tween()
+
+
+func play_grab_audio():
+	_play_sfx_sample(grab_samples.get_random_sample())
 	
+	# Play Fauna sound
+	var sample = fauna_samples.get_random_sample()
+	
+	if sample == null:
+		return
+	
+	fauna_player.stop()
+	fauna_player.stream = sample
+	fauna_player.play()
+
+
+func play_place_audio():
+	_play_sfx_sample(place_samples.get_random_sample())
+
+
+func play_rotate_audio():
+	_play_sfx_sample(rotate_samples.get_random_sample())
+
+
+func _play_sfx_sample(sample: AudioStream):
+	if sample == null:
+		return
+	
+	sfx_player.stop()
+	sfx_player.stream = sample
+	sfx_player.play()
+
+
 func cancel_movement_tween():
 	if _movement_tween != null:
 		_movement_tween.stop()
