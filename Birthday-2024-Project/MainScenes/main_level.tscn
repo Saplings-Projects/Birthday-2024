@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=12 format=3 uid="uid://bkys348mactw2"]
 
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_4oukr"]
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
 [ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="4_0al21"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_1cxrf"]
@@ -29,6 +30,7 @@ tile_size = Vector2i(80, 80)
 sources/0 = SubResource("TileSetAtlasSource_5322b")
 
 [node name="MainLevel" type="Node2D"]
+script = ExtResource("1_4oukr")
 
 [node name="GridMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ntt55")
