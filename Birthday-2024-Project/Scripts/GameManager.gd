@@ -110,9 +110,13 @@ func _held_piece_towards_cursor(delta):
 
 func _rotate_held_piece():
 	if Input.is_action_just_pressed("RotateClockwise"):
+		## REMOVE AFTER DEBUG
+		print("rotate clockwise")
 		held_piece.rotate_clockwise()
 		_reset_settled()
 	elif Input.is_action_just_pressed("RotateAnticlockwise"):
+		## REMOVE AFTER DEBUG
+		print ("rotate anticlockwise")
 		held_piece.rotate_anticlockwise()
 		_reset_settled()
 
@@ -153,7 +157,9 @@ func _do_place_held_piece():
 		return # Place piece input was not given
 	if held_piece == null:
 		return # There is no held piece to place
-	
+
+	await get_tree().create_timer(.2).timeout
+
 	# check if the grid can accommodate the held piece
 	if grid.CheckLegalToPlace(held_piece) == false:
 		held_piece.return_piece()
@@ -162,6 +168,12 @@ func _do_place_held_piece():
 	
 	# Find the grid aligned position on screen to move the placed piece to
 	var held_piece_grid_origin : Vector2i = _get_held_piece_grid_origin()
+	## REMOVE AFTER DEBUG
+	print("get held origin")
+	print(held_piece_grid_origin)
 	var placed_position : Vector2 = _held_piece_placed_position(held_piece_grid_origin)
+	## REMOVE AFTER DEBUG
+	print("get placed position")
+	print(placed_position)
 	held_piece.place_piece(held_piece_grid_origin, placed_position)
 	held_piece = null # Piece is no longer being held
