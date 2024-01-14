@@ -59,7 +59,8 @@ script = ExtResource("6_0risw")
 
 [node name="GameEditState" type="Node2D" parent="GameManager/States"]
 
-[node name="PuzzleUiManager" parent="GameManager" instance=ExtResource("7_rjxbj")]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.65, 0.65)
+
+[node name="PuzzleUiManager" parent="." node_paths=PackedStringArray("controller") instance=ExtResource("7_rjxbj")]
+controller = NodePath("../GameManager")

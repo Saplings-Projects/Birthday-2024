@@ -12,6 +12,7 @@ extends Node2D
 @export var empty_state: GameEmptyState
 @export var play_state: GamePlayState
 @export var win_state: GameWinState
+@export var edit_state: GameEditState
 
 @export_group("")
 #TODO: have this passed by the level selector in the future
@@ -41,6 +42,10 @@ func switch_to_play_state():
 
 func switch_to_win_state():
 	_switch_state(win_state)
+
+
+func switch_to_edit_state():
+	_switch_state(edit_state)
 
 
 func _switch_state(state: GameState):
@@ -74,6 +79,8 @@ func _ready():
 	empty_state.set_manager(self)
 	play_state.set_manager(self)
 	win_state.set_manager(self)
+	if(edit_state != null):
+		edit_state.set_manager(self)
 	
 	#TODO: Load level using Level Select
 	grid.LoadLevel(debug_setupData)
