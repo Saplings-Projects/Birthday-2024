@@ -1,16 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://k528em760hy6"]
+[gd_scene load_steps=2 format=3 uid="uid://k528em760hy6"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenManager.gd" id="1_karo4"]
-[ext_resource type="PackedScene" uid="uid://cgmbftbsc100g" path="res://MainScenes/splash_screen.tscn" id="2_o346t"]
-[ext_resource type="PackedScene" uid="uid://c63ucuegf87g6" path="res://MainScenes/settings_popup.tscn" id="3_6kv6c"]
-[ext_resource type="PackedScene" uid="uid://dom7l5hw3eii5" path="res://MainScenes/confirmation_popup.tscn" id="4_y7j1a"]
 
 [node name="ScreenMngrInitScene" type="Node2D" node_paths=PackedStringArray("popupRoot")]
 script = ExtResource("1_karo4")
-splashScreen = ExtResource("2_o346t")
-settingsPopup = ExtResource("3_6kv6c")
-confirmationPopup = ExtResource("4_y7j1a")
 popupRoot = NodePath("PopupRoot")
 
 [node name="PopupRoot" type="CanvasLayer" parent="."]
 layer = 5
+follow_viewport_enabled = true
