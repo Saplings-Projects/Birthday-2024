@@ -7,6 +7,7 @@
 script = ExtResource("1_khlid")
 
 [node name="MainMenuUiManager" parent="." node_paths=PackedStringArray("screenLogic") instance=ExtResource("1_yk612")]
+follow_viewport_enabled = true
 screenLogic = NodePath("..")
 
 [node name="MainMenuUiStartState" parent="MainMenuUiManager/States" index="0" node_paths=PackedStringArray("myScreen")]

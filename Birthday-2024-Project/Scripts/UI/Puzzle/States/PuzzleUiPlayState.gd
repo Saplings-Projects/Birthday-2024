@@ -44,7 +44,7 @@ func enter_state():
 func exit_state():
 	_state = null
 	
-	var screen = _ui_manager.main_screen
+	var screen = _ui_manager
 	screen.context_button.button_up.disconnect(_on_skip_clicked)
 	screen.exit_button.button_up.disconnect(_on_exit_clicked)
 	screen.reset_button.button_up.disconnect(_on_reset_clicked)
