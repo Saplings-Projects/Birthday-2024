@@ -12,6 +12,10 @@ enum GridSpaceStatus {
 	OCCUPIED,
 	CLOSED #blocked or unused
 }
+enum GridMode {
+	PLAY,
+	EDIT
+}
 
 @export var startingPositions : Array[Vector2i]
 
@@ -22,9 +26,12 @@ var xMinGrid : int = 0
 var xMaxGrid : int = 0
 var yMinGrid : int = 0
 var yMaxGrid : int = 0
+var gridMode : GridMode
 
 signal grid_updated
 
+func SetMode(mode : GridMode):
+	gridMode = mode
 
 func ClearLevel():
 	freeSpaces = 0
@@ -44,6 +51,11 @@ func ClearLevel():
 	while blockerPieces.size() > 0:
 		var piece : Node2D = blockerPieces.pop_back()
 		piece.queue_free()
+
+func ImportLevel(jsonImportData : String):
+	var tempLevelSetup : LevelSetup = LevelSetup.new()
+	tempLevelSetup.jsonData = jsonImportData
+	LoadLevel(tempLevelSetup)
 
 func LoadLevel(levelSetupData : LevelSetup):
 	ClearLevel()
@@ -81,6 +93,28 @@ func LoadLevel(levelSetupData : LevelSetup):
 			(availablePiece as PieceLogic).SetPieceRotation(PieceLogic.RotationStates.DEG_0)
 			(availablePiece as PieceLogic)._SetReturnPoint()
 			iter += 1
+	
+	if gridMode == GridMode.EDIT:
+		global_position = Vector2(0,0)
+
+func ExportLevel() -> String:
+	var pieceData : Array[PieceSetup]
+	
+	for pieceLogic in availablePieces:
+		var pieceSetup = PieceSetup.new()
+		pieceSetup.pieceID = pieceLogic.name
+		pieceSetup.gridPosition = pieceLogic.placed_grid_position
+		pieceSetup.pieceRotation = pieceLogic.current_rotation_state
+		pieceData.push_back(pieceSetup)
+	
+	for pieceLogic in blockerPieces:
+		var pieceSetup = PieceSetup.new()
+		pieceSetup.pieceID = pieceLogic.name
+		pieceSetup.gridPosition = pieceLogic.placed_grid_position
+		pieceSetup.pieceRotation = pieceLogic.current_rotation_state
+		pieceData.push_back(pieceSetup)
+		
+	return JSON.stringify(pieceData)
 
 func PositionToGridCoordinate(pos : Vector2) -> Vector2i:
 	#adjust the position provided by how the grid is offset for centering
@@ -143,26 +177,35 @@ func SetGridSpacesByPieceShape(gridCoords : Vector2i, newValue : GridSpaceInfo.G
 
 func CheckLegalToPlace(piece : PieceLogic) -> bool:
 	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
+	
 	#if off the grid map
-	if pieceCoords.x < xMinGrid or pieceCoords.x > xMaxGrid:
-		return false
-	if pieceCoords.y < yMinGrid or pieceCoords.y > yMaxGrid:
-		return false
+	if gridMode == GridMode.PLAY:
+		if pieceCoords.x < xMinGrid or pieceCoords.x > xMaxGrid:
+			return false
+		if pieceCoords.y < yMinGrid or pieceCoords.y > yMaxGrid:
+			return false
+	
 	var cellOffsetsArray : Array[Vector2i] = piece.GetPieceShapeOffsetArray()
 	for shapeCell in cellOffsetsArray:
 		var spaceStatus : GridSpaceInfo = GetGridSpace(pieceCoords + shapeCell)
-		if spaceStatus.currentStatus != GridSpaceInfo.GridSpaceStatus.OPEN:
-			return false
+		if gridMode == GridMode.PLAY:
+			if spaceStatus.currentStatus != GridSpaceInfo.GridSpaceStatus.OPEN:
+				return false
+		else:
+			if spaceStatus.currentStatus == GridSpaceInfo.GridSpaceStatus.OCCUPIED:
+				return false
 	return true
 
 func PlacePiece(piece : PieceLogic) -> bool:
-	if CheckLegalToPlace(piece) == false:
-		return false
+	if gridMode == GridMode.PLAY:
+		if CheckLegalToPlace(piece) == false:
+			return false
 	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
 	SetGridSpacesByPieceShape(pieceCoords, GridSpaceInfo.GridSpaceStatus.OCCUPIED, piece)
 	piece.AssignMapGridCoordinates(pieceCoords)
 	
-	grid_updated.emit()
+	if gridMode == GridMode.PLAY:
+		grid_updated.emit()
 	
 	return true
 
@@ -171,7 +214,10 @@ func RemovePieceByCoordinates(gridCoord : Vector2i) -> PieceLogic:
 	if gridInfo.currentStatus != GridSpaceInfo.GridSpaceStatus.OCCUPIED:
 		return null
 	var piece = gridInfo.occupyingPiece
-	SetGridSpacesByPieceShape(PositionToGridCoordinate(piece.GetOriginCellPosition()), GridSpaceInfo.GridSpaceStatus.OPEN, piece)
+	if gridMode == GridMode.PLAY:
+		SetGridSpacesByPieceShape(PositionToGridCoordinate(piece.GetOriginCellPosition()), GridSpaceInfo.GridSpaceStatus.OPEN, piece)
+	else:
+		SetGridSpacesByPieceShape(PositionToGridCoordinate(piece.GetOriginCellPosition()), GridSpaceInfo.GridSpaceStatus.CLOSED, piece)
 	piece.return_piece()
 	return piece
 

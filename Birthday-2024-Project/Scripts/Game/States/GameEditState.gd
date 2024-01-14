@@ -1,14 +1,13 @@
 class_name GameEditState
 extends GameState
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+
+func reset_puzzle():
+	get_tree().reload_current_scene()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func back_to_menu():
+	get_tree().change_scene_to_file("res://MainScenes/main_menu.tscn")#TODO remember where to go back (campaign or saplings' levels and go there)
 
 
 
@@ -18,6 +17,7 @@ func _process(delta):
 func enter_state():
 	print("Entering Game Edit State")
 	
+	manager.grid.gridMode = GridLogic.GridMode.EDIT
 	manager._can_interact = true
 
 

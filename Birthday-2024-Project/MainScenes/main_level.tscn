@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=12 format=3 uid="uid://bkys348mactw2"]
 
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
 [ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="4_0al21"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Game/States/GamePlayState.gd" id="6_jk8at"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GameWinState.gd" id="7_bviq6"]
 [ext_resource type="PackedScene" uid="uid://cosap7ka4jc6c" path="res://ScenePrefabs/PuzzleUiManager.tscn" id="8_40gag"]
+[ext_resource type="Script" path="res://Scripts/Game/States/GameEditState.gd" id="8_e6fwe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5322b"]
 texture = ExtResource("4_fhdur")
@@ -38,21 +39,18 @@ layer_0/tile_data = PackedInt32Array(-131075, 0, 0, -65539, 0, 0, -65538, 0, 0, 
 script = ExtResource("1_ywtrj")
 startingPositions = Array[Vector2i]([Vector2i(6, 0), Vector2i(-6, 0), Vector2i(6, 4), Vector2i(-6, 4), Vector2i(6, -4), Vector2i(-6, -4), Vector2i(0, 6), Vector2i(0, -6)])
 
-[node name="GameManager" type="Node2D" parent="."]
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid", "empty_state", "play_state", "win_state", "edit_state")]
 script = ExtResource("4_1cxrf")
+grid = NodePath("../GridMap")
 held_piece_flat_speed = 1.0
 held_piece_distance_speed = 15.0
 held_piece_settle_delay = 0.35
 held_piece_settle_animation_duration = 0.25
+empty_state = NodePath("States/GameEmptyState")
+play_state = NodePath("States/GamePlayState")
+win_state = NodePath("States/GameWinState")
+edit_state = NodePath("States/GameEditState")
 debug_setupData = ExtResource("4_0al21")
-grid = Object(TileMap,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"tile_set":SubResource("TileSet_ntt55"),"rendering_quadrant_size":80,"collision_animatable":false,"collision_visibility_mode":0,"navigation_visibility_mode":0,"format":2,"layer_0/name":"","layer_0/enabled":true,"layer_0/modulate":Color(1, 1, 1, 1),"layer_0/y_sort_enabled":false,"layer_0/y_sort_origin":0,"layer_0/z_index":0,"layer_0/navigation_enabled":true,"layer_0/tile_data":PackedInt32Array(-131075, 0, 0, -65539, 0, 0, -65538, 0, 0, -196612, 0, 0, -131076, 0, 0, -65540, 0, 0, -4, 0, 0, 65532, 0, 0, 131068, 0, 0, 196604, 0, 0, 262140, 0, 0, -196611, 0, 0, -3, 0, 0, 65533, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 0, 0, -196610, 0, 0, -131074, 0, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, -196609, 0, 0, -131073, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, -262144, 0, 0, -196608, 0, 0, -131072, 0, 0, -65536, 0, 0, 0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, -262143, 0, 0, -196607, 0, 0, -131071, 0, 0, -65535, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, -262142, 0, 0, -196606, 0, 0, -131070, 0, 0, -65534, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, -262141, 0, 0, -196605, 0, 0, -131069, 0, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0),"script":ExtResource("1_ywtrj"),"startingPositions":Array[Vector2i]([Vector2i(6, 0), Vector2i(-6, 0), Vector2i(6, 4), Vector2i(-6, 4), Vector2i(6, -4), Vector2i(-6, -4), Vector2i(0, 6), Vector2i(0, -6)]))
-
-empty_state = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":ExtResource("5_wmt6j"))
-
-play_state = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":ExtResource("6_jk8at"))
-
-win_state = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":ExtResource("7_bviq6"))
-
 
 [node name="States" type="Node2D" parent="GameManager"]
 
@@ -65,8 +63,13 @@ script = ExtResource("6_jk8at")
 [node name="GameWinState" type="Node2D" parent="GameManager/States"]
 script = ExtResource("7_bviq6")
 
+[node name="GameEditState" type="Node2D" parent="GameManager/States"]
+script = ExtResource("8_e6fwe")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.65, 0.65)
 
 [node name="PuzzleUiManager" parent="." node_paths=PackedStringArray("controller") instance=ExtResource("8_40gag")]
 controller = NodePath("../GameManager")
+
+[editable path="PuzzleUiManager"]

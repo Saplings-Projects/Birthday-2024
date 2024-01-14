@@ -22,6 +22,7 @@ var held_piece: PieceLogic
 var held_piece_settled: bool
 var previous_mouse_position: Vector2
 var remaining_settle_delay: float
+var overPieceLibrary : bool
 
 var _can_interact: bool # TODO: DELETE THIS WHEN NO LONGER NEEDED.
 var _current_state: GameState
@@ -63,11 +64,11 @@ func _switch_state(state: GameState):
 func on_piece_clicked(clicked_piece: PieceLogic):
 	if not _can_interact or held_piece != null:
 		return
-	if clicked_piece.isBlocker:
-		return
+	if _current_state == play_state:
+		if clicked_piece.isBlocker:
+			return
 	
 	held_piece = clicked_piece
-	
 	clicked_piece.play_grab_audio()
 	_remove_occupied_cells(held_piece)
 	_reset_settled()
@@ -79,11 +80,11 @@ func _ready():
 	empty_state.set_manager(self)
 	play_state.set_manager(self)
 	win_state.set_manager(self)
-	if(edit_state != null):
-		edit_state.set_manager(self)
+	edit_state.set_manager(self)
 	
 	#TODO: Load level using Level Select
 	grid.LoadLevel(debug_setupData)
+	overPieceLibrary = false
 
 func _process(delta):
 	if not _is_inititialized:
@@ -168,6 +169,10 @@ func _do_place_held_piece():
 		return # Place piece input was not given
 	if held_piece == null:
 		return # There is no held piece to place
+	
+	if _current_state == edit_state:
+		#TODO: check if you are over the piece library
+		pass
 	
 	# check if the grid can accommodate the held piece
 	if grid.CheckLegalToPlace(held_piece) == false:

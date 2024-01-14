@@ -1,10 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=16 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleMainScreen.gd" id="2_fxt11"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiPlayState.gd" id="3_aj75g"]
+[ext_resource type="Texture2D" uid="uid://dyk1nom8mpmo8" path="res://Art/SharpSquareOutline.png" id="3_ukui8"]
 [ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_w6dq1"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiWinState.gd" id="4_4ulfu"]
+[ext_resource type="PackedScene" uid="uid://dfrcd7gptl2uy" path="res://ScenePrefabs/Pieces/piece_2.tscn" id="4_boyuj"]
+[ext_resource type="PackedScene" uid="uid://dj07oqkchw0d2" path="res://ScenePrefabs/Pieces/piece_3.tscn" id="5_wl48r"]
+[ext_resource type="PackedScene" uid="uid://cg54i4apoqcu3" path="res://ScenePrefabs/Pieces/piece_6.tscn" id="6_l8evx"]
+[ext_resource type="PackedScene" uid="uid://c3mov5g6xt14q" path="res://ScenePrefabs/Pieces/piece_11.tscn" id="7_vr3ym"]
+[ext_resource type="PackedScene" uid="uid://cwxcqlqwmrn3w" path="res://ScenePrefabs/Pieces/piece_12.tscn" id="8_68pvs"]
+[ext_resource type="PackedScene" uid="uid://c57vmdkca67ro" path="res://ScenePrefabs/Pieces/piece_14.tscn" id="9_1gh7k"]
+[ext_resource type="PackedScene" uid="uid://du4j77gtmj672" path="res://ScenePrefabs/Pieces/piece_27.tscn" id="10_ltrjd"]
+[ext_resource type="PackedScene" uid="uid://df2chnyjbxtvd" path="res://ScenePrefabs/Pieces/piece_29.tscn" id="11_sp1lt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
 
@@ -107,6 +116,88 @@ grow_vertical = 2
 text = "WIN"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 143.0
+grow_vertical = 2
+texture = ExtResource("3_ukui8")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainScreen/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="MainScreen/NinePatchRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="Panel" type="Panel" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="piece_2" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/Panel" instance=ExtResource("4_boyuj")]
+position = Vector2(50, 50)
+
+[node name="Panel2" type="Panel" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="piece_2" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/Panel2" node_paths=PackedStringArray("fauna_player", "sfx_player") instance=ExtResource("4_boyuj")]
+fauna_player = NodePath("../../Panel/piece_2/FaunaPlayer")
+sfx_player = NodePath("../../Panel/piece_2/SfxPlayer")
+
+[node name="Panel3" type="Panel" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="piece_2" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/Panel3" node_paths=PackedStringArray("fauna_player", "sfx_player") instance=ExtResource("4_boyuj")]
+fauna_player = NodePath("../../Panel/piece_2/FaunaPlayer")
+sfx_player = NodePath("../../Panel/piece_2/SfxPlayer")
+
+[node name="Panel4" type="Panel" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="piece_2" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/Panel4" node_paths=PackedStringArray("fauna_player", "sfx_player") instance=ExtResource("4_boyuj")]
+fauna_player = NodePath("../../Panel/piece_2/FaunaPlayer")
+sfx_player = NodePath("../../Panel/piece_2/SfxPlayer")
+
+[node name="Panel5" type="Panel" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="piece_2" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/Panel5" node_paths=PackedStringArray("fauna_player", "sfx_player") instance=ExtResource("4_boyuj")]
+fauna_player = NodePath("../../Panel/piece_2/FaunaPlayer")
+sfx_player = NodePath("../../Panel/piece_2/SfxPlayer")
+
+[node name="piece_3" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer" instance=ExtResource("5_wl48r")]
+
+[node name="piece_6" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer" instance=ExtResource("6_l8evx")]
+
+[node name="piece_11" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer" instance=ExtResource("7_vr3ym")]
+
+[node name="piece_12" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer" instance=ExtResource("8_68pvs")]
+
+[node name="piece_14" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer" instance=ExtResource("9_1gh7k")]
+
+[node name="piece_27" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer" instance=ExtResource("10_ltrjd")]
+
+[node name="Piece29" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer" instance=ExtResource("11_sp1lt")]
+
+[node name="ColorRect" type="ColorRect" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
 
 [node name="SettingsWindow" parent="." instance=ExtResource("3_w6dq1")]
 visible = false
