@@ -26,7 +26,7 @@ func ShowConfirmationPopup(title : String, body : String, confirm : String = "OK
 
 func ExitApplication():
 	ScreenEnter.connect(ExitConfirmation)
-	screenManager.ShowConfirmationPopup("Quit?", "Are you sure you want to quit?", "Yes", "No")
+	ShowConfirmationPopup("Quit?", "Are you sure you want to quit?", "Yes", "No")
 	
 func ExitConfirmation():
 	#if yes
