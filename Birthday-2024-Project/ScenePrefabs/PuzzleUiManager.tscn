@@ -1,34 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=5 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
-[ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleMainScreen.gd" id="2_fxt11"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiPlayState.gd" id="3_aj75g"]
-[ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_w6dq1"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiWinState.gd" id="4_4ulfu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
 
-[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "settings_window", "play_state", "win_state")]
+[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text")]
 script = ExtResource("1_e57yp")
 main_screen = NodePath("MainScreen")
-settings_window = NodePath("SettingsWindow")
 play_state = NodePath("States/PuzzleUiPlayState")
 win_state = NodePath("States/PuzzleUiWinState")
+context_button = NodePath("MainScreen/Panel/Level Buttons/Context Button")
+exit_button = NodePath("MainScreen/Panel/Utility Buttons/Exit Button")
+reset_button = NodePath("MainScreen/Panel/Level Buttons/Reset Button")
+back_button = NodePath("MainScreen/Panel/Level Buttons/Back Button")
+settings_button = NodePath("MainScreen/Panel/Utility Buttons/Settings Button")
+win_text = NodePath("MainScreen/Panel/Win Text")
 
-[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text")]
+[node name="MainScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_fxt11")
-context_button = NodePath("Panel/Level Buttons/Context Button")
-exit_button = NodePath("Panel/Utility Buttons/Exit Button")
-reset_button = NodePath("Panel/Level Buttons/Reset Button")
-back_button = NodePath("Panel/Level Buttons/Back Button")
-settings_button = NodePath("Panel/Utility Buttons/Settings Button")
-win_text = NodePath("Panel/Win Text")
 
 [node name="Panel" type="Panel" parent="MainScreen"]
 layout_mode = 1
@@ -108,9 +104,6 @@ text = "WIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SettingsWindow" parent="." instance=ExtResource("3_w6dq1")]
-visible = false
-
 [node name="States" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -128,5 +121,3 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_4ulfu")
-
-[connection signal="close_settings_window" from="SettingsWindow" to="." method="hide_settings_window"]

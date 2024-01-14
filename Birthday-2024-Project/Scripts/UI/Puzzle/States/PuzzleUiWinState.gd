@@ -31,7 +31,7 @@ func enter_state():
 	
 	_ui_manager.show_main_screen()
 	
-	var screen = _ui_manager.main_screen
+	var screen = _ui_manager
 	screen.show_hide_win_text(true)
 	screen.context_button.text = "Next"
 	screen.context_button.button_up.connect(_on_next_clicked)

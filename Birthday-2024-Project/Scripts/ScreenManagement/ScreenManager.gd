@@ -1,9 +1,6 @@
 class_name ScreenManager
 extends Node
 
-@export var splashScreen : PackedScene
-@export var settingsPopup : PackedScene
-@export var confirmationPopup : PackedScene
 @export var popupRoot : CanvasLayer
 
 var lastScreen : String
@@ -33,7 +30,7 @@ func CloseTopScreen(data : Dictionary):
 	topScreen.ScreenEnter.emit()
 
 func ShowSettings():
-	GoToScreen(settingsPopup, {})
+	GoToScreen(load("res://MainScenes/settings_popup.tscn"), {})
 
 func ShowConfirmationPopup(title : String, body : String, confirm : String = "Confirm", cancel : String = "Cancel"):
 	var popupParameters = {}
@@ -41,10 +38,10 @@ func ShowConfirmationPopup(title : String, body : String, confirm : String = "Co
 	popupParameters[ConfirmationPopupController.BODY_KEY] = body
 	popupParameters[ConfirmationPopupController.CONFIRM_KEY] = confirm
 	popupParameters[ConfirmationPopupController.CANCEL_KEY] = cancel
-	GoToScreen(confirmationPopup, popupParameters)
+	GoToScreen(load("res://MainScenes/confirmation_popup.tscn"), popupParameters)
 
 func _ready():
-	GoToScreen(splashScreen, {})
+	GoToScreen(load("res://MainScenes/splash_screen.tscn"), {})
 
 func _closeTopScreen():
 	var oldScreen : Node = _screenStack.pop_back()

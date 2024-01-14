@@ -24,7 +24,6 @@ func _on_play_clicked():
 
 func _on_settings_clicked():
 	myScreen.screenManager.ShowSettings()
-	#_ui_manager.show_settings_window()
 
 
 func _on_campaign_levels_clicked():
@@ -44,7 +43,7 @@ func _on_back_to_campaign_select_menu_clicked():
 
 
 func _on_level_selected():
-	get_tree().change_scene_to_file("res://MainScenes/main_level.tscn")
+	myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), {})
 
 
 #region MainMenuUiState

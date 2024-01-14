@@ -2,7 +2,6 @@ extends Node
 
 @export var myScreen : ScreenLogic
 @export var splashDuration : float = 2
-@export var mainMenuScreen : PackedScene
 
 var _timer : float = 0
 var _active : bool = false
@@ -13,7 +12,7 @@ func ScreenEnter():
 	pass
 
 func GoToMainMenu():
-	myScreen.GoToScreen(mainMenuScreen, {})
+	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {})
 
 func _process(delta):
 	if _active == false:
