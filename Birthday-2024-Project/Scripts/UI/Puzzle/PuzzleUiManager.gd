@@ -5,12 +5,17 @@ extends CanvasLayer
 
 @export_group("Screens")
 @export var main_screen: PuzzleMainScreen
+@export var settings_window: SettingsWindow
 
 @export_group("States")
 @export var play_state: PuzzleUiPlayState
 @export var win_state: PuzzleUiWinState
 
 var _current_state: PuzzleUiState
+
+
+func hide_settings_window():
+	settings_window.hide()
 
 
 func on_puzzle_initialized():
@@ -24,16 +29,6 @@ func on_puzzle_state_changed(state: GameState):
 		_switch_state(win_state)
 	else:
 		printerr("Unhandled puzzle state in puzzle UI Manager", self)
-	
-	#match state:
-		#GamePlayState:
-			#_switch_state(play_state)
-		#
-		#GameWinState:
-			#_switch_state(win_state)
-		#
-		#_:
-			#printerr("Unhandled puzzle state in puzzle UI Manager", self)
 
 
 func show_main_screen():
@@ -41,8 +36,13 @@ func show_main_screen():
 	main_screen.show()
 
 
+func show_settings_window():
+	settings_window.show()
+
+
 func _disable_all_screens():
 	main_screen.hide()
+	settings_window.hide()
 
 
 func _switch_state(state: PuzzleUiState):

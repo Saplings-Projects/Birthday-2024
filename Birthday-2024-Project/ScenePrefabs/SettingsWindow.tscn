@@ -1,0 +1,204 @@
+[gd_scene load_steps=6 format=3 uid="uid://btcp1sgcebsyi"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Settings/SettingsWindow.gd" id="1_ccik3"]
+[ext_resource type="Script" path="res://Scripts/UI/Settings/VideoSettingsControl.gd" id="2_y1ii8"]
+[ext_resource type="Script" path="res://Scripts/UI/Settings/AudioSettingsControl.gd" id="3_jxrfi"]
+[ext_resource type="Resource" uid="uid://b74u14u4necbw" path="res://Resources/Audio/Samples/SampleFaunaNoises.tres" id="4_r7kmp"]
+[ext_resource type="AudioStream" uid="uid://cu8cq2y34vvj7" path="res://Resources/Audio/tone_220hz.wav" id="5_3jstt"]
+
+[node name="SettingsWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccik3")
+
+[node name="Tint" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 80
+
+[node name="Window" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/Window"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+
+[node name="Video" type="TabBar" parent="MarginContainer/Window/TabContainer" node_paths=PackedStringArray("window_options", "resolution_options")]
+layout_mode = 2
+script = ExtResource("2_y1ii8")
+window_options = NodePath("MarginContainer/Settings Container/WindowContainer/WindowOptions")
+resolution_options = NodePath("MarginContainer/Settings Container/ResolutionContainer/ResolutionOptions")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Window/TabContainer/Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="Settings Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Video/MarginContainer"]
+layout_mode = 2
+
+[node name="WindowContainer" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container/WindowContainer"]
+layout_mode = 2
+text = "Window Mode"
+
+[node name="WindowOptions" type="OptionButton" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container/WindowContainer"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Windowed Borderless"
+popup/item_2/id = 2
+
+[node name="ResolutionContainer" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container/ResolutionContainer"]
+layout_mode = 2
+text = "Screen Resolution"
+
+[node name="ResolutionOptions" type="OptionButton" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container/ResolutionContainer"]
+layout_mode = 2
+
+[node name="Audio" type="TabBar" parent="MarginContainer/Window/TabContainer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "fauna_slider", "music_sample_player", "sfx_sample_player", "fauna_sample_player")]
+visible = false
+layout_mode = 2
+script = ExtResource("3_jxrfi")
+master_slider = NodePath("MarginContainer/Settings Container/Master Container/Master Slider")
+music_slider = NodePath("MarginContainer/Settings Container/Music Container/Music Slider")
+sfx_slider = NodePath("MarginContainer/Settings Container/SFX Container/SFX Slider")
+fauna_slider = NodePath("MarginContainer/Settings Container/Fauna Container/Fauna Slider")
+music_sample_player = NodePath("MusicSamplePlayer")
+sfx_sample_player = NodePath("SfxSamplePlayer")
+fauna_sample_player = NodePath("FaunaSamplePlayer")
+sfx_samples = ExtResource("4_r7kmp")
+fauna_samples = ExtResource("4_r7kmp")
+tone_sample = ExtResource("5_3jstt")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Window/TabContainer/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="Settings Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer"]
+layout_mode = 2
+
+[node name="Master Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Master Container"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="Master Slider" type="HSlider" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Master Container"]
+layout_mode = 2
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Music Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Music Container"]
+layout_mode = 2
+text = "Music"
+
+[node name="Music Slider" type="HSlider" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Music Container"]
+layout_mode = 2
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.501
+
+[node name="SFX Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/SFX Container"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFX Slider" type="HSlider" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/SFX Container"]
+layout_mode = 2
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.501
+
+[node name="Fauna Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
+layout_mode = 2
+text = "Fauna"
+
+[node name="Fauna Slider" type="HSlider" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
+layout_mode = 2
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.501
+
+[node name="MusicSamplePlayer" type="AudioStreamPlayer2D" parent="MarginContainer/Window/TabContainer/Audio"]
+bus = &"Music"
+
+[node name="SfxSamplePlayer" type="AudioStreamPlayer2D" parent="MarginContainer/Window/TabContainer/Audio"]
+bus = &"SFX"
+
+[node name="FaunaSamplePlayer" type="AudioStreamPlayer2D" parent="MarginContainer/Window/TabContainer/Audio"]
+bus = &"Fauna"
+
+[node name="Close Button" type="Button" parent="MarginContainer/Window"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Close"
+
+[connection signal="button_up" from="MarginContainer/Window/Close Button" to="." method="on_close_clicked"]

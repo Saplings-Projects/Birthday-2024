@@ -11,9 +11,26 @@ config_version=5
 [application]
 
 config/name="Birthday-2024"
-run/main_scene="res://MainScenes/main_level.tscn"
+run/main_scene="res://MainScenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://Resources/Audio/audio_bus.tres"
+
+[autoload]
+
+GlobalGameMaster="*res://ScenePrefabs/GameMaster.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1600
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 
