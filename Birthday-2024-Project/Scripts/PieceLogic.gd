@@ -50,17 +50,7 @@ func on_piece_held():
 
 
 func play_grab_audio():
-	_play_sfx_sample(grab_samples.get_random_sample())
-	
-	# Play Fauna sound
-	var sample = fauna_samples.get_random_sample()
-	
-	if sample == null:
-		return
-	
-	fauna_player.stop()
-	fauna_player.stream = sample
-	fauna_player.play()
+	_play_sfx_sample(fauna_samples.get_random_sample())
 
 
 func play_place_audio():
