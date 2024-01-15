@@ -63,9 +63,9 @@ script = ExtResource("6_jk8at")
 [node name="GameWinState" type="Node2D" parent="GameManager/States"]
 script = ExtResource("7_bviq6")
 
-[node name="GameEditState" type="Node2D" parent="GameManager/States"]
-visible = false
+[node name="GameEditState" type="Node2D" parent="GameManager/States" node_paths=PackedStringArray("pieceLibrary")]
 script = ExtResource("8_e6fwe")
+pieceLibrary = NodePath("../../../PuzzleUiManager/MainScreen/NinePatchRect")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.65, 0.65)

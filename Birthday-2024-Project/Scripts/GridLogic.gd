@@ -242,7 +242,6 @@ func RemovePieceByCoordinates(gridCoord : Vector2i) -> PieceLogic:
 		SetGridSpacesByPieceShape(PositionToGridCoordinate(piece.GetOriginCellPosition()), GridSpaceInfo.GridSpaceStatus.OPEN, piece)
 	else:
 		SetGridSpacesByPieceShape(PositionToGridCoordinate(piece.GetOriginCellPosition()), GridSpaceInfo.GridSpaceStatus.CLOSED, piece)
-	piece.return_piece()
 	return piece
 
 func RemovePieceByPosition(inputPosition : Vector2) -> PieceLogic:

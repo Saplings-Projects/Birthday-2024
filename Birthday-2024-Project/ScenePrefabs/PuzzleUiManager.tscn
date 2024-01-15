@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=14 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleMainScreen.gd" id="2_fxt11"]
@@ -9,22 +9,19 @@
 [ext_resource type="PackedScene" uid="uid://dfrcd7gptl2uy" path="res://ScenePrefabs/Pieces/piece_2.tscn" id="4_boyuj"]
 [ext_resource type="Texture2D" uid="uid://dxiiv2creq6b1" path="res://Art/SquareRoundedOutline.png" id="4_p1ypx"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/LibraryPiece.gd" id="5_umaa4"]
-[ext_resource type="PackedScene" uid="uid://dj07oqkchw0d2" path="res://ScenePrefabs/Pieces/piece_3.tscn" id="5_wl48r"]
-[ext_resource type="PackedScene" uid="uid://cg54i4apoqcu3" path="res://ScenePrefabs/Pieces/piece_6.tscn" id="6_l8evx"]
 [ext_resource type="PackedScene" uid="uid://c3mov5g6xt14q" path="res://ScenePrefabs/Pieces/piece_11.tscn" id="7_vr3ym"]
 [ext_resource type="PackedScene" uid="uid://cwxcqlqwmrn3w" path="res://ScenePrefabs/Pieces/piece_12.tscn" id="8_68pvs"]
-[ext_resource type="PackedScene" uid="uid://c57vmdkca67ro" path="res://ScenePrefabs/Pieces/piece_14.tscn" id="9_1gh7k"]
-[ext_resource type="PackedScene" uid="uid://du4j77gtmj672" path="res://ScenePrefabs/Pieces/piece_27.tscn" id="10_ltrjd"]
-[ext_resource type="PackedScene" uid="uid://df2chnyjbxtvd" path="res://ScenePrefabs/Pieces/piece_29.tscn" id="11_sp1lt"]
+[ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiEditState.gd" id="17_c6px3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
 
-[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "settings_window", "play_state", "win_state")]
+[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "settings_window", "play_state", "win_state", "edit_state")]
 script = ExtResource("1_e57yp")
 main_screen = NodePath("MainScreen")
 settings_window = NodePath("SettingsWindow")
 play_state = NodePath("States/PuzzleUiPlayState")
 win_state = NodePath("States/PuzzleUiWinState")
+edit_state = NodePath("States/PuzzleUiEditState")
 
 [node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text")]
 layout_mode = 3
@@ -120,10 +117,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MainScreen"]
+visible = false
+self_modulate = Color(0.717647, 0.776471, 0.494118, 1)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 250.0
+offset_right = 270.0
 grow_vertical = 2
 texture = ExtResource("3_ukui8")
 patch_margin_left = 10
@@ -144,7 +143,7 @@ layout_mode = 2
 vertical = true
 
 [node name="ColorRect" type="TextureButton" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
-custom_minimum_size = Vector2(250, 250)
+custom_minimum_size = Vector2(270, 270)
 layout_mode = 2
 action_mode = 0
 texture_normal = ExtResource("4_p1ypx")
@@ -153,63 +152,34 @@ script = ExtResource("5_umaa4")
 puzzleUiManager = NodePath("../../../../..")
 
 [node name="piece_2" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect" instance=ExtResource("4_boyuj")]
-position = Vector2(125, 125)
+position = Vector2(135, 135)
+scale = Vector2(0.75, 0.75)
 
-[node name="ColorRect2" type="ColorRect" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
-custom_minimum_size = Vector2(250, 250)
+[node name="ColorRect9" type="TextureButton" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(270, 270)
 layout_mode = 2
-color = Color(0, 0, 0, 0.392157)
+action_mode = 0
+texture_normal = ExtResource("4_p1ypx")
+stretch_mode = 0
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
 
-[node name="piece_3" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect2" instance=ExtResource("5_wl48r")]
-position = Vector2(125, 125)
+[node name="piece_11" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect9" instance=ExtResource("7_vr3ym")]
+position = Vector2(135, 135)
+scale = Vector2(0.75, 0.75)
 
-[node name="ColorRect3" type="ColorRect" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
-custom_minimum_size = Vector2(250, 250)
+[node name="ColorRect10" type="TextureButton" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(270, 270)
 layout_mode = 2
-color = Color(0, 0, 0, 0.392157)
+action_mode = 0
+texture_normal = ExtResource("4_p1ypx")
+stretch_mode = 0
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
 
-[node name="piece_6" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect3" instance=ExtResource("6_l8evx")]
-position = Vector2(125, 125)
-
-[node name="ColorRect4" type="ColorRect" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
-color = Color(0, 0, 0, 0.392157)
-
-[node name="piece_11" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect4" instance=ExtResource("7_vr3ym")]
-position = Vector2(125, 125)
-
-[node name="ColorRect5" type="ColorRect" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
-color = Color(0, 0, 0, 0.392157)
-
-[node name="piece_12" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect5" instance=ExtResource("8_68pvs")]
-position = Vector2(125, 125)
-
-[node name="ColorRect6" type="ColorRect" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
-color = Color(0, 0, 0, 0.392157)
-
-[node name="piece_14" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect6" instance=ExtResource("9_1gh7k")]
-position = Vector2(125, 125)
-
-[node name="ColorRect7" type="ColorRect" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
-color = Color(0, 0, 0, 0.392157)
-
-[node name="piece_27" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect7" instance=ExtResource("10_ltrjd")]
-position = Vector2(125, 125)
-
-[node name="ColorRect8" type="ColorRect" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
-color = Color(0, 0, 0, 0.392157)
-
-[node name="Piece29" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect8" instance=ExtResource("11_sp1lt")]
-position = Vector2(125, 125)
+[node name="piece_12" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect10" instance=ExtResource("8_68pvs")]
+position = Vector2(135, 135)
+scale = Vector2(0.75, 0.75)
 
 [node name="SettingsWindow" parent="." instance=ExtResource("3_w6dq1")]
 visible = false
@@ -232,5 +202,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_4ulfu")
 
+[node name="PuzzleUiEditState" type="Control" parent="States"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("17_c6px3")
+
 [connection signal="button_down" from="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect" to="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect" method="DebugPress"]
+[connection signal="button_down" from="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect9" to="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect9" method="DebugPress"]
+[connection signal="button_down" from="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect10" to="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect10" method="DebugPress"]
 [connection signal="close_settings_window" from="SettingsWindow" to="." method="hide_settings_window"]

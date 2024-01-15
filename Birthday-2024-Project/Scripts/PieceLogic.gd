@@ -195,7 +195,7 @@ func return_piece(moveInstantly : bool = false):
 				global_position = _return_position
 			else:
 				movement_tween_to(_return_position, RETURN_ANIMATION_DURATION)
-			SetPieceRotation(_last_grid_rotation)
+			SetPieceRotation(_last_grid_rotation, false)
 			levelGridReference.PlacePieceByCoordinates(self, _last_grid_position)
 	
 func movement_tween_to(move_to: Vector2, duration: float):

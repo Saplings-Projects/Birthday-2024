@@ -78,6 +78,7 @@ func spawn_piece(pieceID : String):
 		return
 		
 	held_piece = grid.LoadPiece(pieceID)
+	held_piece.global_position = get_global_mouse_position()
 	_reset_settled()
 
 func _ready():
@@ -87,9 +88,6 @@ func _ready():
 	play_state.set_manager(self)
 	win_state.set_manager(self)
 	edit_state.set_manager(self)
-	
-	#TODO: Load level using Level Select
-	grid.LoadLevel(debug_setupData)
 	overPieceLibrary = false
 
 func _process(delta):
@@ -97,7 +95,10 @@ func _process(delta):
 		_is_inititialized = true
 		
 		initialized_event.emit()
-		switch_to_play_state()
+		#switch_to_play_state()
+		switch_to_edit_state()
+		#TODO: Load level using Level Select
+		grid.LoadLevel(debug_setupData)
 	
 	if not _can_interact or held_piece == null:
 		return
