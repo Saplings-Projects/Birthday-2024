@@ -64,6 +64,7 @@ script = ExtResource("6_jk8at")
 script = ExtResource("7_bviq6")
 
 [node name="GameEditState" type="Node2D" parent="GameManager/States"]
+visible = false
 script = ExtResource("8_e6fwe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -71,5 +72,8 @@ zoom = Vector2(0.65, 0.65)
 
 [node name="PuzzleUiManager" parent="." node_paths=PackedStringArray("controller") instance=ExtResource("8_40gag")]
 controller = NodePath("../GameManager")
+
+[connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
+[connection signal="state_changed_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_state_changed"]
 
 [editable path="PuzzleUiManager"]
