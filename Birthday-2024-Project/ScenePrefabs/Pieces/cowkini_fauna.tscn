@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://lsby14fmqnqx"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_16pbr"]
+[ext_resource type="Texture2D" uid="uid://b00lhl4d13cxs" path="res://Art/OfficialPieceArt/FaunaCowkini.png" id="2_jw4t4"]
+
+[node name="cowkini_fauna" instance=ExtResource("1_16pbr")]
+pieceShape = "011
+111
+110"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-60, -60)
+texture = ExtResource("2_jw4t4")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://r4yd455agjgx"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_2be67"]
+[ext_resource type="Texture2D" uid="uid://bg44mdmlxp627" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksPt2FaunyaNoBg.png" id="2_dpb6y"]
+
+[node name="faunya" instance=ExtResource("1_2be67")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(120, -120)
+texture = ExtResource("2_dpb6y")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddhymvh5q6hoy"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_u3h1c"]
+[ext_resource type="Texture2D" uid="uid://bjy2uu066xde6" path="res://Art/OfficialPieceArt/faunashi.png" id="2_kik2q"]
+
+[node name="faunashi" instance=ExtResource("1_u3h1c")]
+pieceShape = "10
+11
+11"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-3, 0)
+texture = ExtResource("2_kik2q")

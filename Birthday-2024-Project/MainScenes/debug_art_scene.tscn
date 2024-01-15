@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://vl8htvv50vi2"]
+
+[ext_resource type="Texture2D" uid="uid://bjqluj600yhja" path="res://Art/Map_ResolutionClearance.png" id="1_gojkn"]
+[ext_resource type="Texture2D" uid="uid://ci3t2shlrxhc0" path="res://Art/GridTileSet.png" id="2_g4xka"]
+[ext_resource type="PackedScene" uid="uid://ddhymvh5q6hoy" path="res://ScenePrefabs/Pieces/faunashi.tscn" id="6_cpri8"]
+[ext_resource type="PackedScene" uid="uid://baib15bjrkayn" path="res://ScenePrefabs/Pieces/hitman_fauna.tscn" id="8_6nfee"]
+[ext_resource type="PackedScene" uid="uid://co44a00v7r6ma" path="res://ScenePrefabs/Pieces/smol_fauna.tscn" id="8_xystq"]
+[ext_resource type="PackedScene" uid="uid://ck50aqlumrne0" path="res://ScenePrefabs/Pieces/idol_fauna.tscn" id="9_uc2xd"]
+[ext_resource type="PackedScene" uid="uid://bxi32das560mk" path="res://ScenePrefabs/Pieces/nemu_fauna.tscn" id="11_d73wj"]
+[ext_resource type="PackedScene" uid="uid://d0tvukmuwmhjr" path="res://ScenePrefabs/Pieces/original_fauna.tscn" id="12_mlpve"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5322b"]
+texture = ExtResource("2_g4xka")
+texture_region_size = Vector2i(120, 120)
+0:0/0 = 0
+0:0/0/modulate = Color(1, 1, 1, 0)
+1:0/0 = 0
+2:0/0 = 0
+2:0/0/modulate = Color(1, 0, 0, 1)
+0:1/0 = 0
+0:2/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_x2a40"]
+tile_size = Vector2i(120, 120)
+sources/0 = SubResource("TileSetAtlasSource_5322b")
+
+[node name="debug_art_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = -0.5
+anchor_top = -0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gojkn")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="GridMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_x2a40")
+rendering_quadrant_size = 120
+format = 2
+layer_0/tile_data = PackedInt32Array(-131076, 65536, 0, -65540, 65536, 0, -4, 65536, 0, 65532, 65536, 0, 131068, 65536, 0, 196604, 65536, 0, -131075, 65536, 0, -65539, 65536, 0, -3, 65536, 0, 65533, 65536, 0, 131069, 65536, 0, 196605, 65536, 0, -131074, 65536, 0, -65538, 65536, 0, -2, 65536, 0, 65534, 65536, 0, 131070, 65536, 0, 196606, 65536, 0, -131073, 65536, 0, -65537, 65536, 0, -1, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 65536, 0, -196608, 65536, 0, -131072, 65536, 0, -65536, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, -196607, 65536, 0, -131071, 65536, 0, -65535, 65536, 0, 1, 65536, 0, 65537, 65536, 0, 131073, 65536, 0, -196606, 65536, 0, -131070, 65536, 0, -65534, 65536, 0, 2, 65536, 0, 65538, 65536, 0, 131074, 65536, 0, -196605, 65536, 0, -131069, 65536, 0, -65533, 65536, 0, 3, 65536, 0, 65539, 65536, 0, 131075, 65536, 0, -196613, 65536, 0, -131077, 65536, 0, -65541, 65536, 0, -5, 65536, 0, 65531, 65536, 0, 131067, 65536, 0, 196603, 65536, 0, 262139, 65536, 0, -196612, 65536, 0, 262140, 65536, 0, -196611, 65536, 0, 262141, 65536, 0, -196610, 65536, 0, 262142, 65536, 0, -196609, 65536, 0, 262143, 65536, 0, -262144, 65536, 0, 196608, 65536, 0, -262143, 65536, 0, 196609, 65536, 0, -262142, 65536, 0, 196610, 65536, 0, -262141, 65536, 0, 196611, 65536, 0, -262140, 65536, 0, -196604, 65536, 0, -131068, 65536, 0, -65532, 65536, 0, 4, 65536, 0, 65540, 65536, 0, 131076, 65536, 0, 196612, 65536, 0)
+
+[node name="original_fauna" parent="GridMap" instance=ExtResource("12_mlpve")]
+position = Vector2(246, 133)
+
+[node name="hitman_fauna" parent="GridMap" instance=ExtResource("8_6nfee")]
+position = Vector2(119, -58)
+
+[node name="faunashi" parent="GridMap" instance=ExtResource("6_cpri8")]
+position = Vector2(-60, -234)
+rotation = 1.5708
+
+[node name="idol_fauna" parent="GridMap" instance=ExtResource("9_uc2xd")]
+position = Vector2(-119, 125)
+
+[node name="nemu_fauna" parent="GridMap" instance=ExtResource("11_d73wj")]
+position = Vector2(477, 59)
+rotation = 1.5708
+
+[node name="smol_fauna" parent="GridMap" instance=ExtResource("8_xystq")]
+position = Vector2(297, -176)
+rotation = -1.5708
+
+[node name="Camera2D" type="Camera2D" parent="."]

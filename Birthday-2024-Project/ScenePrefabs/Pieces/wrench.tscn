@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctrg6ts07xcf5"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_10ch8"]
+[ext_resource type="Texture2D" uid="uid://rr1lnxrv1n06" path="res://Art/OfficialPieceArt/wrench.png" id="2_xt5ry"]
+
+[node name="wrench" instance=ExtResource("1_10ch8")]
+pieceShape = "1
+1"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-10, 0)
+texture = ExtResource("2_xt5ry")

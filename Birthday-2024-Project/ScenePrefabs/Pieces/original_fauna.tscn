@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0tvukmuwmhjr"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_4ghfj"]
+[ext_resource type="Texture2D" uid="uid://budwqnrnhxat5" path="res://Art/OfficialPieceArt/originalfauna.png" id="2_1qeh1"]
+
+[node name="original_fauna" instance=ExtResource("1_4ghfj")]
+pieceShape = "0110
+0110
+1111
+1111"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_1qeh1")
