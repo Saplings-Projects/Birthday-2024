@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=18 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleMainScreen.gd" id="2_fxt11"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_w6dq1"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiWinState.gd" id="4_4ulfu"]
 [ext_resource type="PackedScene" uid="uid://dfrcd7gptl2uy" path="res://ScenePrefabs/Pieces/piece_2.tscn" id="4_boyuj"]
+[ext_resource type="Texture2D" uid="uid://dxiiv2creq6b1" path="res://Art/SquareRoundedOutline.png" id="4_p1ypx"]
+[ext_resource type="Script" path="res://Scripts/UI/Puzzle/LibraryPiece.gd" id="5_umaa4"]
 [ext_resource type="PackedScene" uid="uid://dj07oqkchw0d2" path="res://ScenePrefabs/Pieces/piece_3.tscn" id="5_wl48r"]
 [ext_resource type="PackedScene" uid="uid://cg54i4apoqcu3" path="res://ScenePrefabs/Pieces/piece_6.tscn" id="6_l8evx"]
 [ext_resource type="PackedScene" uid="uid://c3mov5g6xt14q" path="res://ScenePrefabs/Pieces/piece_11.tscn" id="7_vr3ym"]
@@ -141,10 +143,14 @@ grow_vertical = 2
 layout_mode = 2
 vertical = true
 
-[node name="ColorRect" type="ColorRect" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer"]
+[node name="ColorRect" type="TextureButton" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
-color = Color(0, 0, 0, 0.392157)
+action_mode = 0
+texture_normal = ExtResource("4_p1ypx")
+stretch_mode = 0
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
 
 [node name="piece_2" parent="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect" instance=ExtResource("4_boyuj")]
 position = Vector2(125, 125)
@@ -226,4 +232,5 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_4ulfu")
 
+[connection signal="button_down" from="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect" to="MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect" method="DebugPress"]
 [connection signal="close_settings_window" from="SettingsWindow" to="." method="hide_settings_window"]

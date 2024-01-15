@@ -35,6 +35,8 @@ var _current_angle_target: float # The rotation angle target for animation
 var _rotation_tween: Tween # Active tween for when this piece is rotating. Set this to null when the tween is finished
 var _originOffset : Vector2 #the offset from the transform center to the origin cell (0,0)
 var _return_position: Vector2 # The position this piece returns to when not held or in the grid
+var _last_grid_position : Vector2i = Vector2i(GridLogic.MAX_WIDTH + 1, GridLogic.MAX_HEIGHT + 1)
+var _last_grid_rotation : RotationStates = RotationStates.DEG_0
 var _cellStartingWidth : int
 var _cellStartingHeight : int
 
@@ -139,7 +141,7 @@ func GetOriginCellPosition() -> Vector2:
 func GetPieceShapeOffsetArray() -> Array[Vector2i]:
 	return _current_cells
 
-func SetPieceRotation(pieceRotation : RotationStates):
+func SetPieceRotation(pieceRotation : RotationStates, rotateInstantly : bool = true):
 	current_rotation_state = pieceRotation
 	match current_rotation_state:
 		RotationStates.DEG_0:
@@ -160,15 +162,41 @@ func SetPieceRotation(pieceRotation : RotationStates):
 			_current_angle_target = PI * 1.5
 			
 	update_current_cells()
-	_start_rotation_tween()
+	if rotateInstantly:
+		rotation = _current_angle_target
+	else:
+		_start_rotation_tween()
 
 func AssignMapGridCoordinates(assignedCoords : Vector2i):
 	current_placement_state = PlacementStates.PLACED
 	placed_grid_position = assignedCoords
+	#Record last successful placement
+	if levelGridReference.gridMode == GridLogic.GridMode.EDIT:
+		RecordGridPosition(assignedCoords)
+
+func RecordGridPosition(gridCoords : Vector2i):
+	_last_grid_position = gridCoords
+	_last_grid_rotation = current_rotation_state
+	_return_position = levelGridReference.GridCoordinateToPosition(gridCoords) - GetOriginCellOffset()
 	
-func return_piece():
+func return_piece(moveInstantly : bool = false):
 	current_placement_state = PlacementStates.UNPLACED
-	movement_tween_to(_return_position, RETURN_ANIMATION_DURATION)
+	if levelGridReference.gridMode == GridLogic.GridMode.PLAY:
+		if moveInstantly:
+			global_position = _return_position
+		else:
+			movement_tween_to(_return_position, RETURN_ANIMATION_DURATION)
+	else:
+		#Pulled from the library but never successfully placed
+		if _last_grid_position == Vector2i(GridLogic.MAX_WIDTH + 1, GridLogic.MAX_HEIGHT + 1):
+			self.queue_free()
+		else: #Go back to last successful placement
+			if moveInstantly:
+				global_position = _return_position
+			else:
+				movement_tween_to(_return_position, RETURN_ANIMATION_DURATION)
+			SetPieceRotation(_last_grid_rotation)
+			levelGridReference.PlacePieceByCoordinates(self, _last_grid_position)
 	
 func movement_tween_to(move_to: Vector2, duration: float):
 	cancel_movement_tween()

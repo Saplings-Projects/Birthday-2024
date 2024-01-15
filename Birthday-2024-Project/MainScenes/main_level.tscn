@@ -72,28 +72,4 @@ zoom = Vector2(0.65, 0.65)
 [node name="PuzzleUiManager" parent="." node_paths=PackedStringArray("controller") instance=ExtResource("8_40gag")]
 controller = NodePath("../GameManager")
 
-[node name="piece_2" parent="PuzzleUiManager/MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect" index="0"]
-position = Vector2(125, 125)
-
-[node name="piece_3" parent="PuzzleUiManager/MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect2" index="0"]
-position = Vector2(125, 125)
-
-[node name="piece_6" parent="PuzzleUiManager/MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect3" index="0"]
-position = Vector2(125, 125)
-
-[node name="piece_11" parent="PuzzleUiManager/MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect4" index="0"]
-position = Vector2(125, 125)
-
-[node name="piece_12" parent="PuzzleUiManager/MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect5" index="0"]
-position = Vector2(125, 125)
-
-[node name="piece_14" parent="PuzzleUiManager/MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect6" index="0"]
-position = Vector2(125, 125)
-
-[node name="piece_27" parent="PuzzleUiManager/MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect7" index="0"]
-position = Vector2(125, 125)
-
-[node name="Piece29" parent="PuzzleUiManager/MainScreen/NinePatchRect/ScrollContainer/BoxContainer/ColorRect8" index="0"]
-position = Vector2(125, 125)
-
 [editable path="PuzzleUiManager"]

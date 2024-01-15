@@ -72,10 +72,12 @@ func LoadLevel(levelSetupData : LevelSetup):
 			pieceLogic.levelGridReference = self
 			pieceLogic._initialize()
 			pieceLogic.SetPieceRotation(pieceSetup.pieceRotation)
+			pieceLogic.RecordGridPosition(pieceSetup.gridPosition)
 			if pieceLogic.isBlocker:
 				#a locked piece that sits on the grid
 				SetGridSpacesByPieceShape(pieceSetup.gridPosition, GridSpaceInfo.GridSpaceStatus.CLOSED, pieceLogic)
 				blockerPieces.push_back(scenePiece)
+				pieceLogic.return_piece(true)
 			else:
 				#open level grid spaces
 				SetGridSpacesByPieceShape(pieceSetup.gridPosition, GridSpaceInfo.GridSpaceStatus.OPEN, pieceLogic)
@@ -85,17 +87,37 @@ func LoadLevel(levelSetupData : LevelSetup):
 		var midPoint : Vector2i = _GridCoordinateToPosition(Vector2i(xMaxGrid, yMaxGrid)) + _GridCoordinateToPosition(Vector2i(xMinGrid, yMinGrid))
 		global_position = midPoint * -0.5
 		
-		#set piece to outskirts of level grid and unrotate
-		#TODO: place more neatly around the grid
-		var iter = 0
-		for availablePiece in availablePieces:
-			availablePiece.global_position = GridCoordinateToPosition(startingPositions[iter]) #shunting it to the right side
-			(availablePiece as PieceLogic).SetPieceRotation(PieceLogic.RotationStates.DEG_0)
-			(availablePiece as PieceLogic)._SetReturnPoint()
-			iter += 1
+		if(gridMode == GridMode.PLAY):
+			#set piece to outskirts of level grid and unrotate
+			#TODO: place more neatly around the grid
+			var iter = 0
+			for availablePiece in availablePieces:
+				availablePiece.global_position = GridCoordinateToPosition(startingPositions[iter]) #shunting it to the right side
+				(availablePiece as PieceLogic).SetPieceRotation(PieceLogic.RotationStates.DEG_0)
+				(availablePiece as PieceLogic)._SetReturnPoint()
+				iter += 1
+		else:
+			for availablePiece in availablePieces:
+				(availablePiece as PieceLogic).return_piece(true)
 	
 	if gridMode == GridMode.EDIT:
 		global_position = Vector2(0,0)
+
+func LoadPiece(pieceID : String) -> PieceLogic:
+	#look up scene piece via ID
+	var scenePiecePrefab = load("res://ScenePrefabs/Pieces/" + pieceID + ".tscn")
+	#instantiate scene piece
+	var scenePiece = scenePiecePrefab.instantiate()
+	add_child(scenePiece)
+	var pieceLogic : PieceLogic = scenePiece as PieceLogic
+	pieceLogic.levelGridReference = self
+	pieceLogic._initialize()
+	pieceLogic.SetPieceRotation(PieceLogic.RotationStates.DEG_0)
+	if pieceLogic.isBlocker:
+		blockerPieces.push_back(scenePiece)
+	else:
+		availablePieces.push_back(scenePiece)
+	return pieceLogic
 
 func ExportLevel() -> String:
 	var pieceData : Array[PieceSetup]
@@ -197,16 +219,18 @@ func CheckLegalToPlace(piece : PieceLogic) -> bool:
 	return true
 
 func PlacePiece(piece : PieceLogic) -> bool:
+	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
+	return PlacePieceByCoordinates(piece, pieceCoords)
+
+func PlacePieceByCoordinates(piece : PieceLogic, gridCoord : Vector2i) -> bool:
 	if gridMode == GridMode.PLAY:
 		if CheckLegalToPlace(piece) == false:
 			return false
-	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
-	SetGridSpacesByPieceShape(pieceCoords, GridSpaceInfo.GridSpaceStatus.OCCUPIED, piece)
-	piece.AssignMapGridCoordinates(pieceCoords)
+	SetGridSpacesByPieceShape(gridCoord, GridSpaceInfo.GridSpaceStatus.OCCUPIED, piece)
+	piece.AssignMapGridCoordinates(gridCoord)
 	
 	if gridMode == GridMode.PLAY:
 		grid_updated.emit()
-	
 	return true
 
 func RemovePieceByCoordinates(gridCoord : Vector2i) -> PieceLogic:

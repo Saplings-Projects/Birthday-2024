@@ -73,6 +73,12 @@ func on_piece_clicked(clicked_piece: PieceLogic):
 	_remove_occupied_cells(held_piece)
 	_reset_settled()
 
+func spawn_piece(pieceID : String):
+	if not _can_interact or held_piece != null:
+		return
+		
+	held_piece = grid.LoadPiece(pieceID)
+	_reset_settled()
 
 func _ready():
 	# State
