@@ -2,6 +2,7 @@ class_name GameManager
 extends Node2D
 
 @export var grid: GridLogic
+@export var deletionZone : Control
 
 @export var held_piece_flat_speed: float
 @export var held_piece_distance_speed: float
@@ -24,7 +25,7 @@ var previous_mouse_position: Vector2
 var remaining_settle_delay: float
 var overPieceLibrary : bool
 
-var _can_interact: bool # TODO: DELETE THIS WHEN NO LONGER NEEDED.
+var _can_interact: bool
 var _current_state: GameState
 var _is_inititialized: bool
 var _previous_state: GameState
@@ -95,14 +96,17 @@ func _process(delta):
 		_is_inititialized = true
 		
 		initialized_event.emit()
-		#switch_to_play_state()
-		switch_to_edit_state()
+		switch_to_play_state()
 		#TODO: Load level using Level Select
 		grid.LoadLevel(debug_setupData)
 	
 	if not _can_interact or held_piece == null:
+		deletionZone.hide()
 		return
-		
+	
+	if _current_state is GameEditState:
+		deletionZone.show()
+	
 	_do_held_piece_settle(delta)
 	_held_piece_towards_cursor(delta)
 	_rotate_held_piece()
@@ -177,13 +181,12 @@ func _do_place_held_piece():
 	if held_piece == null:
 		return # There is no held piece to place
 	
-	if _current_state == edit_state:
-		#TODO: check if you are over the piece library
-		pass
-	
 	# check if the grid can accommodate the held piece
 	if grid.CheckLegalToPlace(held_piece) == false:
-		held_piece.return_piece()
+		if _current_state is GameEditState and grid.CheckIfInDeletionZone(held_piece):
+			grid.DeletePiece(held_piece)
+		else:
+			held_piece.return_piece()
 		held_piece = null
 		return # Piece does not fit
 	

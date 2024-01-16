@@ -1,11 +1,12 @@
 extends TileMap
 class_name GridLogic
 
-const MAX_HEIGHT : int = 20
-const MAX_WIDTH : int = 20
+const MAX_HEIGHT : int = 4 #doubled for negative
+const MAX_WIDTH : int = 5 #doubled for negative
 const TILE_ATLAS_OPEN = Vector2i(1, 0)
 const TILE_ATLAS_OCCUPIED = Vector2i(2, 0)
 const TILE_ATLAS_CLOSED = Vector2i(0, 0)
+const TILE_ATLAS_CLOSED_VISIBLE = Vector2i(0, 1)
 
 enum GridSpaceStatus {
 	OPEN,
@@ -19,8 +20,8 @@ enum GridMode {
 
 @export var startingPositions : Array[Vector2i]
 
-var availablePieces : Array[Node2D]
-var blockerPieces : Array[Node2D]
+var availablePieces : Array[PieceLogic]
+var blockerPieces : Array[PieceLogic]
 var freeSpaces : int = 0
 var xMinGrid : int = 0
 var xMaxGrid : int = 0
@@ -28,60 +29,56 @@ var yMinGrid : int = 0
 var yMaxGrid : int = 0
 var gridMode : GridMode
 
+var _levelData : LevelSetup
+
 signal grid_updated
 
 func SetMode(mode : GridMode):
 	gridMode = mode
 
 func ClearLevel():
+	for x in MAX_WIDTH * 2:
+		for y in MAX_HEIGHT * 2:
+			SetGridSpace(Vector2i(x - MAX_WIDTH, y - MAX_HEIGHT), GridSpaceInfo.GridSpaceStatus.CLOSED, null)
+	while availablePieces.size() > 0:
+		availablePieces.pop_back().queue_free()
+	while blockerPieces.size() > 0:
+		blockerPieces.pop_back().queue_free()
 	freeSpaces = 0
 	xMinGrid = 0
 	xMaxGrid = 0
 	yMinGrid = 0
 	yMaxGrid = 0
-	for x in MAX_WIDTH * 2:
-		for y in MAX_WIDTH * 2:
-			var gridSpaceInfo : GridSpaceInfo = _gridSpaces[x][y]
-			gridSpaceInfo.currentStatus = GridSpaceInfo.GridSpaceStatus.CLOSED
-			gridSpaceInfo.occupyingPiece = null
-			_gridSpaces[x][y] = gridSpaceInfo
-	while availablePieces.size() > 0:
-		var piece : Node2D = availablePieces.pop_back()
-		piece.queue_free()
-	while blockerPieces.size() > 0:
-		var piece : Node2D = blockerPieces.pop_back()
-		piece.queue_free()
+	global_position = Vector2(0,0)
 
 func ImportLevel(jsonImportData : String):
-	var tempLevelSetup : LevelSetup = LevelSetup.new()
-	tempLevelSetup.jsonData = jsonImportData
-	LoadLevel(tempLevelSetup)
+	var levelSetup : LevelSetup = LevelSetup.new()
+	levelSetup.jsonData = jsonImportData
+	LoadLevel(levelSetup)
+	
+func ReloadLevel():
+	if _levelData == null:
+		ClearLevel()
+	else:
+		LoadLevel(_levelData)
 
 func LoadLevel(levelSetupData : LevelSetup):
 	ClearLevel()
+	_levelData = levelSetupData
 	
 	var pieceSetupsData : Array[PieceSetup] = levelSetupData.RetrieveLevelData()
 	if pieceSetupsData.size() > 0:
 		for pieceSetup in pieceSetupsData:
-			#look up scene piece via ID
-			var scenePiecePrefab = load("res://ScenePrefabs/Pieces/" + pieceSetup.pieceID + ".tscn")
-			#instantiate scene piece
-			var scenePiece = scenePiecePrefab.instantiate()
-			add_child(scenePiece)
-			var pieceLogic : PieceLogic = scenePiece as PieceLogic
-			pieceLogic.levelGridReference = self
-			pieceLogic._initialize()
+			var pieceLogic : PieceLogic = LoadPiece(pieceSetup.pieceID)
 			pieceLogic.SetPieceRotation(pieceSetup.pieceRotation)
 			pieceLogic.RecordGridPosition(pieceSetup.gridPosition)
 			if pieceLogic.isBlocker:
 				#a locked piece that sits on the grid
 				SetGridSpacesByPieceShape(pieceSetup.gridPosition, GridSpaceInfo.GridSpaceStatus.CLOSED, pieceLogic)
-				blockerPieces.push_back(scenePiece)
 				pieceLogic.return_piece(true)
 			else:
 				#open level grid spaces
 				SetGridSpacesByPieceShape(pieceSetup.gridPosition, GridSpaceInfo.GridSpaceStatus.OPEN, pieceLogic)
-				availablePieces.push_back(scenePiece)
 		
 		#center grid map based on the width and height
 		var midPoint : Vector2i = _GridCoordinateToPosition(Vector2i(xMaxGrid, yMaxGrid)) + _GridCoordinateToPosition(Vector2i(xMinGrid, yMinGrid))
@@ -93,15 +90,13 @@ func LoadLevel(levelSetupData : LevelSetup):
 			var iter = 0
 			for availablePiece in availablePieces:
 				availablePiece.global_position = GridCoordinateToPosition(startingPositions[iter]) #shunting it to the right side
-				(availablePiece as PieceLogic).SetPieceRotation(PieceLogic.RotationStates.DEG_0)
-				(availablePiece as PieceLogic)._SetReturnPoint()
+				availablePiece.SetPieceRotation(PieceLogic.RotationStates.DEG_0)
+				availablePiece._SetReturnPoint()
 				iter += 1
 		else:
+			global_position = Vector2(0,0)
 			for availablePiece in availablePieces:
-				(availablePiece as PieceLogic).return_piece(true)
-	
-	if gridMode == GridMode.EDIT:
-		global_position = Vector2(0,0)
+				availablePiece.return_piece(true)
 
 func LoadPiece(pieceID : String) -> PieceLogic:
 	#look up scene piece via ID
@@ -112,29 +107,35 @@ func LoadPiece(pieceID : String) -> PieceLogic:
 	var pieceLogic : PieceLogic = scenePiece as PieceLogic
 	pieceLogic.levelGridReference = self
 	pieceLogic._initialize()
+	pieceLogic.piece_id = pieceID
 	pieceLogic.SetPieceRotation(PieceLogic.RotationStates.DEG_0)
 	if pieceLogic.isBlocker:
-		blockerPieces.push_back(scenePiece)
+		blockerPieces.push_back(pieceLogic)
 	else:
-		availablePieces.push_back(scenePiece)
+		availablePieces.push_back(pieceLogic)
 	return pieceLogic
 
+func DeletePiece(piece : PieceLogic):
+	availablePieces.erase(piece)
+	blockerPieces.erase(piece)
+	piece.queue_free()
+
 func ExportLevel() -> String:
-	var pieceData : Array[PieceSetup]
+	var pieceData : Array[String]
 	
 	for pieceLogic in availablePieces:
-		var pieceSetup = PieceSetup.new()
-		pieceSetup.pieceID = pieceLogic.name
+		var pieceSetup : PieceSetup = PieceSetup.new()
+		pieceSetup.pieceID = pieceLogic.piece_id
 		pieceSetup.gridPosition = pieceLogic.placed_grid_position
 		pieceSetup.pieceRotation = pieceLogic.current_rotation_state
-		pieceData.push_back(pieceSetup)
+		pieceData.push_back(pieceSetup.JsonSerialize())
 	
 	for pieceLogic in blockerPieces:
-		var pieceSetup = PieceSetup.new()
-		pieceSetup.pieceID = pieceLogic.name
+		var pieceSetup : PieceSetup = PieceSetup.new()
+		pieceSetup.pieceID = pieceLogic.piece_id
 		pieceSetup.gridPosition = pieceLogic.placed_grid_position
 		pieceSetup.pieceRotation = pieceLogic.current_rotation_state
-		pieceData.push_back(pieceSetup)
+		pieceData.push_back(pieceSetup.JsonSerialize())
 		
 	return JSON.stringify(pieceData)
 
@@ -155,10 +156,19 @@ func get_free_spaces() -> int:
 
 
 func GetGridSpace(gridCoords : Vector2i) -> GridSpaceInfo:
+	if gridCoords.x < -MAX_WIDTH or gridCoords.x >= MAX_WIDTH:
+		#printerr("ERROR: attempting to access grid space out of bounds")
+		return null
+	if gridCoords.y < -MAX_HEIGHT or gridCoords.y >= MAX_HEIGHT:
+		#printerr("ERROR: attempting to access grid space out of bounds")
+		return null
 	return _gridSpaces[gridCoords.x + MAX_WIDTH][gridCoords.y + MAX_HEIGHT]
 	
 func SetGridSpace(gridCoords : Vector2i, newValue : GridSpaceInfo.GridSpaceStatus, occupyingPiece : PieceLogic):
 	var gridInfo : GridSpaceInfo = GetGridSpace(gridCoords)
+	#tried accessing an illegal coordinate
+	if gridInfo == null:
+		return
 	if gridInfo.currentStatus == GridSpaceInfo.GridSpaceStatus.OPEN and newValue != GridSpaceInfo.GridSpaceStatus.OPEN:
 		freeSpaces -= 1
 	elif gridInfo.currentStatus != GridSpaceInfo.GridSpaceStatus.OPEN and newValue == GridSpaceInfo.GridSpaceStatus.OPEN:
@@ -181,9 +191,16 @@ func SetGridSpace(gridCoords : Vector2i, newValue : GridSpaceInfo.GridSpaceStatu
 			if gridCoords.y > yMaxGrid:
 				yMaxGrid = gridCoords.y
 		GridSpaceInfo.GridSpaceStatus.OCCUPIED:
-			tileAtlasCoord = TILE_ATLAS_OCCUPIED
+			if gridMode == GridMode.PLAY:
+				tileAtlasCoord = TILE_ATLAS_OCCUPIED
+			else:
+				tileAtlasCoord = TILE_ATLAS_OPEN
 		GridSpaceInfo.GridSpaceStatus.CLOSED:
-			tileAtlasCoord = TILE_ATLAS_CLOSED
+			if gridMode == GridMode.PLAY:
+				tileAtlasCoord = TILE_ATLAS_CLOSED
+			else:
+				tileAtlasCoord = TILE_ATLAS_CLOSED_VISIBLE
+				
 	self.set_cell(0, Vector2i(gridCoords.x, gridCoords.y), SOURCE_ID, tileAtlasCoord)
 	
 func SetMultipleGridSpaces(gridCoordinates : Array[Vector2i], newValue : GridSpaceInfo.GridSpaceStatus, occupyingPiece : PieceLogic):
@@ -200,7 +217,7 @@ func SetGridSpacesByPieceShape(gridCoords : Vector2i, newValue : GridSpaceInfo.G
 func CheckLegalToPlace(piece : PieceLogic) -> bool:
 	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
 	
-	#if off the grid map
+	#if outside the level bounding box
 	if gridMode == GridMode.PLAY:
 		if pieceCoords.x < xMinGrid or pieceCoords.x > xMaxGrid:
 			return false
@@ -210,12 +227,26 @@ func CheckLegalToPlace(piece : PieceLogic) -> bool:
 	var cellOffsetsArray : Array[Vector2i] = piece.GetPieceShapeOffsetArray()
 	for shapeCell in cellOffsetsArray:
 		var spaceStatus : GridSpaceInfo = GetGridSpace(pieceCoords + shapeCell)
+		#would go out of max bounds
+		if spaceStatus == null:
+			return false
 		if gridMode == GridMode.PLAY:
 			if spaceStatus.currentStatus != GridSpaceInfo.GridSpaceStatus.OPEN:
 				return false
 		else:
 			if spaceStatus.currentStatus == GridSpaceInfo.GridSpaceStatus.OCCUPIED:
 				return false
+	return true
+
+func CheckIfInDeletionZone(piece : PieceLogic) -> bool:
+	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
+	var cellOffsetsArray : Array[Vector2i] = piece.GetPieceShapeOffsetArray()
+	for shapeCell in cellOffsetsArray:
+		var spaceStatus : GridSpaceInfo = GetGridSpace(pieceCoords + shapeCell)
+		#is out of max bounds
+		if spaceStatus != null:
+			return false
+	#all squares are outside the grid map
 	return true
 
 func PlacePiece(piece : PieceLogic) -> bool:
@@ -235,6 +266,8 @@ func PlacePieceByCoordinates(piece : PieceLogic, gridCoord : Vector2i) -> bool:
 
 func RemovePieceByCoordinates(gridCoord : Vector2i) -> PieceLogic:
 	var gridInfo : GridSpaceInfo = GetGridSpace(gridCoord)
+	if gridInfo == null:
+		return null
 	if gridInfo.currentStatus != GridSpaceInfo.GridSpaceStatus.OCCUPIED:
 		return null
 	var piece = gridInfo.occupyingPiece
@@ -258,7 +291,7 @@ func _ready():
 	#Setup grid, double MAX for negative coordinates
 	for x in MAX_WIDTH * 2:
 		_gridSpaces.append([])
-		for y in MAX_WIDTH * 2:
+		for y in MAX_HEIGHT * 2:
 			var gridSpaceInfo : GridSpaceInfo = GridSpaceInfo.new()
 			gridSpaceInfo.currentStatus = GridSpaceInfo.GridSpaceStatus.CLOSED
 			gridSpaceInfo.occupyingPiece = null

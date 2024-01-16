@@ -19,6 +19,7 @@ texture_region_size = Vector2i(80, 80)
 2:0/0 = 0
 2:0/0/modulate = Color(1, 0, 0, 1)
 0:1/0 = 0
+0:1/0/modulate = Color(0.392157, 0.392157, 0.392157, 1)
 0:2/0 = 0
 1:1/0 = 0
 1:2/0 = 0
@@ -31,6 +32,19 @@ sources/0 = SubResource("TileSetAtlasSource_5322b")
 
 [node name="MainLevel" type="Node2D"]
 
+[node name="DeletionZone" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2000.0
+offset_top = -1000.0
+offset_right = 2000.0
+offset_bottom = 1000.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.196078)
+
 [node name="GridMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ntt55")
 rendering_quadrant_size = 80
@@ -39,9 +53,10 @@ layer_0/tile_data = PackedInt32Array(-131075, 0, 0, -65539, 0, 0, -65538, 0, 0, 
 script = ExtResource("1_ywtrj")
 startingPositions = Array[Vector2i]([Vector2i(6, 0), Vector2i(-6, 0), Vector2i(6, 4), Vector2i(-6, 4), Vector2i(6, -4), Vector2i(-6, -4), Vector2i(0, 6), Vector2i(0, -6)])
 
-[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid", "empty_state", "play_state", "win_state", "edit_state")]
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid", "deletionZone", "empty_state", "play_state", "win_state", "edit_state")]
 script = ExtResource("4_1cxrf")
 grid = NodePath("../GridMap")
+deletionZone = NodePath("../DeletionZone")
 held_piece_flat_speed = 1.0
 held_piece_distance_speed = 15.0
 held_piece_settle_delay = 0.35
@@ -63,9 +78,8 @@ script = ExtResource("6_jk8at")
 [node name="GameWinState" type="Node2D" parent="GameManager/States"]
 script = ExtResource("7_bviq6")
 
-[node name="GameEditState" type="Node2D" parent="GameManager/States" node_paths=PackedStringArray("pieceLibrary")]
+[node name="GameEditState" type="Node2D" parent="GameManager/States"]
 script = ExtResource("8_e6fwe")
-pieceLibrary = NodePath("../../../PuzzleUiManager/MainScreen/NinePatchRect")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.65, 0.65)

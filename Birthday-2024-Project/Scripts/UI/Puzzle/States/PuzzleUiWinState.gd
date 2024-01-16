@@ -39,6 +39,7 @@ func enter_state():
 	screen.reset_button.button_up.connect(_on_reset_clicked)
 	screen.back_button.button_up.connect(_on_back_clicked)
 	screen.settings_button.button_up.connect(_on_settings_clicked)
+	_ui_manager.edit_button.hide()
 
 
 func exit_state():

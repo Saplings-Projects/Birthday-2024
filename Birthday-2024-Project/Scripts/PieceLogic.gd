@@ -28,6 +28,7 @@ var cellWidth : int
 # all other occupied spaces can be found by adding _current_cells to this position
 var placed_grid_position: Vector2i
 var current_rotation_state: RotationStates
+var piece_id : String
 
 var _current_cells: Array[Vector2i] # The cell offsets occupied by this piece given rotation
 var _movement_tween: Tween # Active tween for when this piece is moving to a position (e.g. when placed or returned). Set this to null when the tween is finished it's current rotation
@@ -189,7 +190,7 @@ func return_piece(moveInstantly : bool = false):
 	else:
 		#Pulled from the library but never successfully placed
 		if _last_grid_position == Vector2i(GridLogic.MAX_WIDTH + 1, GridLogic.MAX_HEIGHT + 1):
-			self.queue_free()
+			levelGridReference.DeletePiece(self)
 		else: #Go back to last successful placement
 			if moveInstantly:
 				global_position = _return_position
