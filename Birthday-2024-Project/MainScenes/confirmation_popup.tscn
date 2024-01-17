@@ -12,18 +12,11 @@ font_size = 50
 font = ExtResource("2_5t04e")
 font_size = 30
 
-[node name="ConfirmationPopup" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ConfirmationPopup" type="CanvasLayer"]
 script = ExtResource("1_hpcja")
 clearScreenStack = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,7 +25,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.392157)
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -126,6 +118,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Controller" type="Control" parent="." node_paths=PackedStringArray("myScreen", "titleText", "bodyText", "confirmButtonText", "cancelButtonText")]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

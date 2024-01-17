@@ -51,7 +51,7 @@ func ClearLevel():
 	xMaxGrid = 0
 	yMinGrid = 0
 	yMaxGrid = 0
-	global_position = Vector2(0,0)
+	global_position = gridCenterOffset
 
 func ImportLevel(jsonImportData : String):
 	var levelSetup : LevelSetup = LevelSetup.new()
@@ -96,7 +96,7 @@ func LoadLevel(levelSetupData : LevelSetup):
 				availablePiece._SetReturnPoint()
 				iter += 1
 		else:
-			global_position = Vector2(0,0)
+			global_position = gridCenterOffset
 			for availablePiece in availablePieces:
 				availablePiece.return_piece(true)
 

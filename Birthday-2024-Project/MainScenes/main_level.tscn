@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=13 format=3 uid="uid://bkys348mactw2"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_4oukr"]
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
@@ -58,7 +58,7 @@ gameManager = NodePath("../GameManager")
 gridCenterOffset = Vector2(960, 540)
 startingPositions = Array[Vector2i]([Vector2i(6, 0), Vector2i(-6, 0), Vector2i(6, 4), Vector2i(-6, 4), Vector2i(6, -4), Vector2i(-6, -4), Vector2i(0, 6), Vector2i(0, -6)])
 
-[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid", "deletionZone","myScreen", "empty_state", "play_state", "win_state", "edit_state")]
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid", "deletionZone", "myScreen", "empty_state", "play_state", "win_state", "edit_state")]
 script = ExtResource("4_1cxrf")
 grid = NodePath("../GridMap")
 deletionZone = NodePath("../DeletionZone")

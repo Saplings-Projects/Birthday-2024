@@ -7,5 +7,4 @@ script = ExtResource("1_karo4")
 popupRoot = NodePath("PopupRoot")
 
 [node name="PopupRoot" type="CanvasLayer" parent="."]
-layer = 5
 follow_viewport_enabled = true
