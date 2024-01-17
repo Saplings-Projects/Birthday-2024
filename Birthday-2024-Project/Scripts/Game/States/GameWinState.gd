@@ -13,7 +13,8 @@ func reset_puzzle():
 
 
 func back_to_menu():
-	get_tree().change_scene_to_file("res://MainScenes/main_menu.tscn")#TODO remember where to go back (campaign or saplings' levels and go there)
+	manager.go_to_main_menu()
+	#TODO remember where to go back (campaign or saplings' levels and go there)
 
 
 #region GameState

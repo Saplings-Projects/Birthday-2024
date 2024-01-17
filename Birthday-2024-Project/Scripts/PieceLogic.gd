@@ -20,6 +20,7 @@ const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to
 
 var current_placement_state: PlacementStates
 var levelGridReference : GridLogic
+var game_manager : GameManager
 var cells: Array[Vector2i] # The spaces occupied by this piece when unrotated
 var totalCells : int
 var cellHeight : int
@@ -42,9 +43,6 @@ var _cellStartingWidth : int
 var _cellStartingHeight : int
 
 func on_clicked():
-	var game_manager: GameManager = get_node(GAME_MANAGER_NODE_PATH)
-	if game_manager == null:
-		return # This should never happen, but just in case
 	game_manager.on_piece_clicked(self)
 
 func on_piece_held():
@@ -53,17 +51,7 @@ func on_piece_held():
 
 
 func play_grab_audio():
-	_play_sfx_sample(grab_samples.get_random_sample())
-	
-	# Play Fauna sound
-	var sample = fauna_samples.get_random_sample()
-	
-	if sample == null:
-		return
-	
-	fauna_player.stop()
-	fauna_player.stream = sample
-	fauna_player.play()
+	_play_sfx_sample(fauna_samples.get_random_sample())
 
 
 func play_place_audio():

@@ -1,7 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
-[ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleMainScreen.gd" id="2_fxt11"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiPlayState.gd" id="3_aj75g"]
 [ext_resource type="Texture2D" uid="uid://dyk1nom8mpmo8" path="res://Art/SharpSquareOutline.png" id="3_ukui8"]
 [ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_w6dq1"]
@@ -21,31 +20,29 @@ font = ExtResource("9_u6dli")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
-[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "settings_window", "play_state", "win_state", "edit_state", "edit_button", "import_button", "export_button")]
+[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state", "edit_button", "import_button", "export_button", "context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text")]
 script = ExtResource("1_e57yp")
 main_screen = NodePath("MainScreen")
-settings_window = NodePath("SettingsWindow")
 play_state = NodePath("States/PuzzleUiPlayState")
 win_state = NodePath("States/PuzzleUiWinState")
 edit_state = NodePath("States/PuzzleUiEditState")
 edit_button = NodePath("MainScreen/Panel/Level Buttons/Edit Mode Button")
 import_button = NodePath("MainScreen/Panel/Level Buttons/Import Button")
 export_button = NodePath("MainScreen/Panel/Level Buttons/Export Button")
+context_button = NodePath("MainScreen/Panel/Level Buttons/Context Button")
+exit_button = NodePath("MainScreen/Panel/Utility Buttons/Exit Button")
+reset_button = NodePath("MainScreen/Panel/Level Buttons/Reset Button")
+back_button = NodePath("MainScreen/Panel/Level Buttons/Back Button")
+settings_button = NodePath("MainScreen/Panel/Utility Buttons/Settings Button")
+win_text = NodePath("MainScreen/Panel/Win Text")
 
-[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text")]
+[node name="MainScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_fxt11")
-context_button = NodePath("Panel/Level Buttons/Context Button")
-exit_button = NodePath("Panel/Utility Buttons/Exit Button")
-reset_button = NodePath("Panel/Level Buttons/Reset Button")
-back_button = NodePath("Panel/Level Buttons/Back Button")
-settings_button = NodePath("Panel/Utility Buttons/Settings Button")
-win_text = NodePath("Panel/Win Text")
 
 [node name="Panel" type="Panel" parent="MainScreen"]
 layout_mode = 1

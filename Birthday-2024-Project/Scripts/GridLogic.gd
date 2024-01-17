@@ -18,6 +18,8 @@ enum GridMode {
 	EDIT
 }
 
+@export var gameManager : GameManager
+@export var gridCenterOffset : Vector2
 @export var startingPositions : Array[Vector2i]
 
 var availablePieces : Array[PieceLogic]
@@ -82,7 +84,7 @@ func LoadLevel(levelSetupData : LevelSetup):
 		
 		#center grid map based on the width and height
 		var midPoint : Vector2i = _GridCoordinateToPosition(Vector2i(xMaxGrid, yMaxGrid)) + _GridCoordinateToPosition(Vector2i(xMinGrid, yMinGrid))
-		global_position = midPoint * -0.5
+		global_position = midPoint * -0.5 + gridCenterOffset
 		
 		if(gridMode == GridMode.PLAY):
 			#set piece to outskirts of level grid and unrotate
