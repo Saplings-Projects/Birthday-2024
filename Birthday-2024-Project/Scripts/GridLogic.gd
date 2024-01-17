@@ -108,6 +108,7 @@ func LoadPiece(pieceID : String) -> PieceLogic:
 	add_child(scenePiece)
 	var pieceLogic : PieceLogic = scenePiece as PieceLogic
 	pieceLogic.levelGridReference = self
+	pieceLogic.game_manager = gameManager
 	pieceLogic._initialize()
 	pieceLogic.piece_id = pieceID
 	pieceLogic.SetPieceRotation(PieceLogic.RotationStates.DEG_0)
