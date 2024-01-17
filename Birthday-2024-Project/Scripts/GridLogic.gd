@@ -13,6 +13,8 @@ enum GridSpaceStatus {
 	CLOSED #blocked or unused
 }
 
+@export var gameManager : GameManager
+@export var gridCenterOffset : Vector2
 @export var startingPositions : Array[Vector2i]
 
 var availablePieces : Array[Node2D]
@@ -58,6 +60,7 @@ func LoadLevel(levelSetupData : LevelSetup):
 			add_child(scenePiece)
 			var pieceLogic : PieceLogic = scenePiece as PieceLogic
 			pieceLogic.levelGridReference = self
+			pieceLogic.game_manager = gameManager
 			pieceLogic._initialize()
 			pieceLogic.SetPieceRotation(pieceSetup.pieceRotation)
 			if pieceSetup.isBlocker:
@@ -71,7 +74,7 @@ func LoadLevel(levelSetupData : LevelSetup):
 		
 		#center grid map based on the width and height
 		var midPoint : Vector2i = _GridCoordinateToPosition(Vector2i(xMaxGrid, yMaxGrid)) + _GridCoordinateToPosition(Vector2i(xMinGrid, yMinGrid))
-		global_position = midPoint * -0.5
+		global_position = midPoint * -0.5 + gridCenterOffset
 		
 		#set piece to outskirts of level grid and unrotate
 		#TODO: place more neatly around the grid
