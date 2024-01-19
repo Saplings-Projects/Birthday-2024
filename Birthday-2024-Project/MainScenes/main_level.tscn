@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bkys348mactw2"]
 
-[ext_resource type="Texture2D" uid="uid://ci3t2shlrxhc0" path="res://Art/GridTileSet.png" id="1_4qt1f"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_4oukr"]
+[ext_resource type="Texture2D" uid="uid://ci3t2shlrxhc0" path="res://Art/GridTileSet.png" id="1_4qt1f"]
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
 [ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="4_0al21"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_1cxrf"]
