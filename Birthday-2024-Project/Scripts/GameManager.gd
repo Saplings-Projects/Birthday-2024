@@ -173,7 +173,6 @@ func _do_place_held_piece():
 
 	#Prevents rotation while the timer is running
 	placing_piece = true
-	print(placing_piece)	
 	await get_tree().create_timer(.4).timeout	
 	
 	# Find the grid aligned position on screen to move the placed piece to
@@ -184,4 +183,3 @@ func _do_place_held_piece():
 	held_piece = null # Piece is no longer being held
 
 	placing_piece = false
-	print(placing_piece)
