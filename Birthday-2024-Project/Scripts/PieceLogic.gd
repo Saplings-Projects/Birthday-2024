@@ -113,6 +113,8 @@ func cancel_rotation_tween():
 	_rotation_tween = null
 
 func update_current_cells():
+	## REMOVE AFTER DEBUG
+	print("func - update current cells")
 	# Rotates the occupied cells of the piece, rotating around the bottom-left 0,0 cell
 	match _current_rotation_state:
 		RotationStates.DEG_0: # No change from base cells
@@ -127,6 +129,8 @@ func update_current_cells():
 		RotationStates.DEG_270: # Ascending x -> Descending y | Ascending y -> Ascending x
 			for i in range(cells.size()):
 				_current_cells[i] = Vector2i(cells[i].y, -cells[i].x)
+	## REMOVE AFTER DEBUG
+	print("func - update current cells finished")
 
 #when not rotated, the origin cell is the top-most, left-most cell
 func GetOriginCellOffset() -> Vector2:

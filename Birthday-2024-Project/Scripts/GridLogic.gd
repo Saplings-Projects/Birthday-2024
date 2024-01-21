@@ -150,12 +150,8 @@ func CheckLegalToPlace(piece : PieceLogic) -> bool:
 	if pieceCoords.y < yMinGrid or pieceCoords.y > yMaxGrid:
 		return false
 	var cellOffsetsArray : Array[Vector2i] = piece.GetPieceShapeOffsetArray()
-	## REMOVE AFTER DEBUG
-	print("spaceStatus.gridposition - CheckLegalToPlace")
 	for shapeCell in cellOffsetsArray:
 		var spaceStatus : GridSpaceInfo = GetGridSpace(pieceCoords + shapeCell)
-		## REMOVE AFTER DEBUG
-		print(spaceStatus.gridPosition)
 		if spaceStatus.currentStatus != GridSpaceInfo.GridSpaceStatus.OPEN:
 			return false
 	return true
@@ -164,6 +160,8 @@ func PlacePiece(piece : PieceLogic) -> bool:
 	if CheckLegalToPlace(piece) == false:
 		return false
 	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
+	## REMOVE AFTER DEBUG
+	print(pieceCoords)
 	SetGridSpacesByPieceShape(pieceCoords, GridSpaceInfo.GridSpaceStatus.OCCUPIED, piece)
 	piece.AssignMapGridCoordinates(pieceCoords)
 	
