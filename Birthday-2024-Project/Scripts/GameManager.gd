@@ -2,6 +2,7 @@ class_name GameManager
 extends Node2D
 
 @export var grid: GridLogic
+@export var myScreen : ScreenLogic
 
 @export var held_piece_flat_speed: float
 @export var held_piece_distance_speed: float
@@ -31,6 +32,9 @@ var _previous_state: GameState
 signal initialized_event()
 signal state_changed_event(state)
 
+func go_to_main_menu():
+	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {})
+	pass
 
 func get_current_state() -> GameState:
 	return _current_state
