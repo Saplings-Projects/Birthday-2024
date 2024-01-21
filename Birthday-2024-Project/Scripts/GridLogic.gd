@@ -163,8 +163,6 @@ func PlacePiece(piece : PieceLogic) -> bool:
 	if CheckLegalToPlace(piece) == false:
 		return false
 	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
-	## REMOVE AFTER DEBUG
-	print(pieceCoords)
 	SetGridSpacesByPieceShape(pieceCoords, GridSpaceInfo.GridSpaceStatus.OCCUPIED, piece)
 	piece.AssignMapGridCoordinates(pieceCoords)
 	

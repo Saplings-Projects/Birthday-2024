@@ -22,7 +22,7 @@ var held_piece: PieceLogic
 var held_piece_settled: bool
 var previous_mouse_position: Vector2
 var remaining_settle_delay: float
-var placing_piece: bool
+var placing_piece: bool #Track when _do_place_held_piece is running and prevent rotation
 
 var _can_interact: bool # TODO: DELETE THIS WHEN NO LONGER NEEDED.
 var _current_state: GameState
@@ -90,11 +90,11 @@ func _process(delta):
 	
 	if not _can_interact or held_piece == null:
 		return
-		
-	_do_held_piece_settle(delta)
-	_held_piece_towards_cursor(delta)
-	_rotate_held_piece()
-	_do_place_held_piece()
+	if !placing_piece:
+		_do_held_piece_settle(delta)
+		_held_piece_towards_cursor(delta)
+		_rotate_held_piece()
+		_do_place_held_piece()
 
 func _remove_occupied_cells(piece: PieceLogic):
 	if piece.current_placement_state != PieceLogic.PlacementStates.PLACED:
@@ -117,15 +117,14 @@ func _held_piece_towards_cursor(delta):
 	held_piece.global_position += held_piece_to_mouse.normalized() * distance_step
 
 func _rotate_held_piece():
-	if !placing_piece:
-		if Input.is_action_just_pressed("RotateClockwise"):
-			held_piece.rotate_clockwise()
-			held_piece.play_rotate_audio()
-			_reset_settled()
-		elif Input.is_action_just_pressed("RotateAnticlockwise"):
-			held_piece.rotate_anticlockwise()
-			held_piece.play_rotate_audio()
-			_reset_settled()
+	if Input.is_action_just_pressed("RotateClockwise"):
+		held_piece.rotate_clockwise()
+		held_piece.play_rotate_audio()
+		_reset_settled()
+	elif Input.is_action_just_pressed("RotateAnticlockwise"):
+		held_piece.rotate_anticlockwise()
+		held_piece.play_rotate_audio()
+		_reset_settled()
 
 
 func _get_held_piece_grid_origin() -> Vector2i:
@@ -165,28 +164,24 @@ func _do_place_held_piece():
 		return # Place piece input was not given
 	if held_piece == null:
 		return # There is no held piece to place
-	#placing_piece = true
-	## REMOVE AFTER DEBUG
-	print("func - place held piece")
-	
-	
-	#await get_tree().create_timer(.4).timeout
 		
 	# check if the grid can accommodate the held piece
 	if grid.CheckLegalToPlace(held_piece) == false:
 		held_piece.return_piece()
 		held_piece = null
 		return # Piece does not fit
+
+	#Prevents rotation while the timer is running
+	placing_piece = true
+	print(placing_piece)	
+	await get_tree().create_timer(.4).timeout	
 	
 	# Find the grid aligned position on screen to move the placed piece to
 	var held_piece_grid_origin : Vector2i = _get_held_piece_grid_origin()
-	## REMOVE AFTER DEBUG
-	print(held_piece_grid_origin)
 	var placed_position : Vector2 = _held_piece_placed_position(held_piece_grid_origin)
-	## REMOVE AFTER DEBUG
-	print(placed_position)
 	held_piece.place_piece(held_piece_grid_origin, placed_position)
 	held_piece.play_place_audio()
 	held_piece = null # Piece is no longer being held
 
-	#placing_piece = false
+	placing_piece = false
+	print(placing_piece)
