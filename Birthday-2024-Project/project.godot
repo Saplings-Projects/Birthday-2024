@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Birthday-2024"
-run/main_scene="res://MainScenes/screen_mngr_init_scene.tscn"
+run/main_scene="res://MainScenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 

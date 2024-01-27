@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=7 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuStartScreen.gd" id="2_n7aum"]
 [ext_resource type="PackedScene" uid="uid://4kktp1gwthbt" path="res://ScenePrefabs/CampaignSelectMenu.tscn" id="3_qksbd"]
+[ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_ukswp"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="3_vnjds"]
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/CampaignLevelSelectMenu.tscn" id="4_o3atr"]
 
-[node name="MainMenuUiManager" type="CanvasLayer" node_paths=PackedStringArray("start_screen", "campaign_select", "campaign_levels", "start_state")]
+[node name="MainMenuUiManager" type="CanvasLayer" node_paths=PackedStringArray("settings_window", "start_screen", "campaign_select", "campaign_levels", "start_state")]
 script = ExtResource("1_lofx7")
+settings_window = NodePath("SettingsWindow")
 start_screen = NodePath("StartScreen")
 campaign_select = NodePath("CampaignSelectMenu")
 campaign_levels = NodePath("CampaignLevelSelectMenu")
@@ -99,6 +101,9 @@ visible = false
 [node name="CampaignLevelSelectMenu" parent="." instance=ExtResource("4_o3atr")]
 visible = false
 
+[node name="SettingsWindow" parent="." instance=ExtResource("3_ukswp")]
+visible = false
+
 [node name="States" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -120,3 +125,4 @@ script = ExtResource("3_vnjds")
 [connection signal="exit_game" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_exit_clicked"]
 [connection signal="open_settings_window" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_settings_clicked"]
 [connection signal="play" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_level_selected"]
+[connection signal="close_settings_window" from="SettingsWindow" to="." method="hide_settings_window"]

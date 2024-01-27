@@ -1,6 +1,7 @@
 class_name GameState
 extends Node2D
 
+
 var manager: GameManager
 
 
@@ -9,7 +10,7 @@ func enter_state():
 
 
 func exit_game():
-	manager.myScreen.ExitApplication()
+	get_tree().quit()
 
 
 func exit_state():
