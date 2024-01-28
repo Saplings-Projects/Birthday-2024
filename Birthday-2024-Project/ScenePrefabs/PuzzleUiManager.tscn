@@ -1,30 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=6 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
+[ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleMainScreen.gd" id="2_fxt11"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiPlayState.gd" id="3_aj75g"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiWinState.gd" id="4_4ulfu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
 
-[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text")]
+[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "play_state", "win_state")]
 script = ExtResource("1_e57yp")
 main_screen = NodePath("MainScreen")
 play_state = NodePath("States/PuzzleUiPlayState")
 win_state = NodePath("States/PuzzleUiWinState")
-context_button = NodePath("MainScreen/Panel/Level Buttons/Context Button")
-exit_button = NodePath("MainScreen/Panel/Utility Buttons/Exit Button")
-reset_button = NodePath("MainScreen/Panel/Level Buttons/Reset Button")
-back_button = NodePath("MainScreen/Panel/Level Buttons/Back Button")
-settings_button = NodePath("MainScreen/Panel/Utility Buttons/Settings Button")
-win_text = NodePath("MainScreen/Panel/Win Text")
 
-[node name="MainScreen" type="Control" parent="."]
+[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_fxt11")
+context_button = NodePath("Panel/Level Buttons/Context Button")
+exit_button = NodePath("Panel/Utility Buttons/Exit Button")
+reset_button = NodePath("Panel/Level Buttons/Reset Button")
+back_button = NodePath("Panel/Level Buttons/Back Button")
+settings_button = NodePath("Panel/Utility Buttons/Settings Button")
+win_text = NodePath("Panel/Win Text")
 
 [node name="Panel" type="Panel" parent="MainScreen"]
 layout_mode = 1
