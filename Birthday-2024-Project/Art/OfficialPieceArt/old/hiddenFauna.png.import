@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dho1fpfoxmcnd"
-path="res://.godot/imported/smolFaunya.png-8792c71115b5b6a149f2da2bc56af300.ctex"
+uid="uid://xb2uhgw6y8vb"
+path="res://.godot/imported/hiddenFauna.png-9722e8f11fe941f8af11c6c42305807d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/OfficialPieceArt/smolFaunya.png"
-dest_files=["res://.godot/imported/smolFaunya.png-8792c71115b5b6a149f2da2bc56af300.ctex"]
+source_file="res://Art/OfficialPieceArt/old/hiddenFauna.png"
+dest_files=["res://.godot/imported/hiddenFauna.png-9722e8f11fe941f8af11c6c42305807d.ctex"]
 
 [params]
 

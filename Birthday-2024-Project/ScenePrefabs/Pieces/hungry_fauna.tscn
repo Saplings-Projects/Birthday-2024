@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://difm5n532kkm5"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_taw7x"]
+[ext_resource type="Texture2D" uid="uid://bnvw6ymm7yypy" path="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksHungryFaunyaNoBg.png" id="2_vwo45"]
+
+[node name="hungry_fauna" instance=ExtResource("1_taw7x")]
+pieceShape = "1"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(60, -58)
+texture = ExtResource("2_vwo45")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://drv78mes8008c"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_2ar1r"]
+[ext_resource type="Texture2D" uid="uid://drg2trhl7s24l" path="res://Art/OfficialPieceArt/Matcha1.png" id="2_ur7ch"]
+
+[node name="matcha_1" instance=ExtResource("1_2ar1r")]
+pieceShape = "1111
+1110
+1110"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -60)
+texture = ExtResource("2_ur7ch")

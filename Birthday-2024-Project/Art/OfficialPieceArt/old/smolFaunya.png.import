@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3t1kp6s54gps"
-path="res://.godot/imported/baldLine.png-5855d5dffc2f641fc6c64ef7d217cedf.ctex"
+uid="uid://dho1fpfoxmcnd"
+path="res://.godot/imported/smolFaunya.png-1fc6414b1f6e4acd993500d3e8048e64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/OfficialPieceArt/baldLine.png"
-dest_files=["res://.godot/imported/baldLine.png-5855d5dffc2f641fc6c64ef7d217cedf.ctex"]
+source_file="res://Art/OfficialPieceArt/old/smolFaunya.png"
+dest_files=["res://.godot/imported/smolFaunya.png-1fc6414b1f6e4acd993500d3e8048e64.ctex"]
 
 [params]
 

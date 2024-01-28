@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://f135covfq5n3"]
 
 [ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_k2quj"]
-[ext_resource type="Texture2D" uid="uid://dho1fpfoxmcnd" path="res://Art/OfficialPieceArt/smolFaunya.png" id="2_82evv"]
+[ext_resource type="Texture2D" uid="uid://cdnpjssoaincv" path="res://Art/OfficialPieceArt/SmollFaunya.png" id="2_5yg0m"]
 
 [node name="smol_faunya" instance=ExtResource("1_k2quj")]
 pieceShape = "011
@@ -9,6 +9,4 @@ pieceShape = "011
 110"
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, 4)
-scale = Vector2(0.96, 0.96)
-texture = ExtResource("2_82evv")
+texture = ExtResource("2_5yg0m")

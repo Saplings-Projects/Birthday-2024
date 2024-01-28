@@ -1,22 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://vl8htvv50vi2"]
+[gd_scene load_steps=14 format=3 uid="uid://vl8htvv50vi2"]
 
 [ext_resource type="Texture2D" uid="uid://bjqluj600yhja" path="res://Art/Map_ResolutionClearance.png" id="1_gojkn"]
 [ext_resource type="Texture2D" uid="uid://ci3t2shlrxhc0" path="res://Art/GridTileSet.png" id="2_g4xka"]
-[ext_resource type="PackedScene" uid="uid://ddhymvh5q6hoy" path="res://ScenePrefabs/Pieces/faunashi.tscn" id="6_cpri8"]
+[ext_resource type="PackedScene" uid="uid://phpjmox7w72m" path="res://ScenePrefabs/Pieces/matcha_2.tscn" id="5_7kchc"]
+[ext_resource type="PackedScene" uid="uid://difm5n532kkm5" path="res://ScenePrefabs/Pieces/hungry_fauna.tscn" id="6_anvvm"]
+[ext_resource type="PackedScene" uid="uid://do712r6j516kq" path="res://ScenePrefabs/Pieces/casual_fauna_wave.tscn" id="7_umxrb"]
 [ext_resource type="PackedScene" uid="uid://baib15bjrkayn" path="res://ScenePrefabs/Pieces/hitman_fauna.tscn" id="8_6nfee"]
+[ext_resource type="PackedScene" uid="uid://f135covfq5n3" path="res://ScenePrefabs/Pieces/smol_faunya.tscn" id="8_mrcmy"]
 [ext_resource type="PackedScene" uid="uid://co44a00v7r6ma" path="res://ScenePrefabs/Pieces/smol_fauna.tscn" id="8_xystq"]
-[ext_resource type="PackedScene" uid="uid://ck50aqlumrne0" path="res://ScenePrefabs/Pieces/idol_fauna.tscn" id="9_uc2xd"]
-[ext_resource type="PackedScene" uid="uid://bxi32das560mk" path="res://ScenePrefabs/Pieces/nemu_fauna.tscn" id="11_d73wj"]
-[ext_resource type="PackedScene" uid="uid://d0tvukmuwmhjr" path="res://ScenePrefabs/Pieces/original_fauna.tscn" id="12_mlpve"]
+[ext_resource type="PackedScene" uid="uid://kehoouuydau5" path="res://ScenePrefabs/Pieces/wide_fauna.tscn" id="9_ed1hs"]
+[ext_resource type="PackedScene" uid="uid://drv78mes8008c" path="res://ScenePrefabs/Pieces/matcha_1.tscn" id="10_wxdi4"]
+[ext_resource type="PackedScene" uid="uid://dgas6i2w16oks" path="res://ScenePrefabs/Pieces/kimono_fauna.tscn" id="11_07fit"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5322b"]
 texture = ExtResource("2_g4xka")
+margins = Vector2i(3, 3)
 texture_region_size = Vector2i(120, 120)
 0:0/0 = 0
 0:0/0/modulate = Color(1, 1, 1, 0)
 1:0/0 = 0
 2:0/0 = 0
-2:0/0/modulate = Color(1, 0, 0, 1)
+2:0/0/modulate = Color(0.72549, 0.772549, 0.490196, 1)
 0:1/0 = 0
 0:2/0 = 0
 1:1/0 = 0
@@ -63,25 +67,31 @@ rendering_quadrant_size = 120
 format = 2
 layer_0/tile_data = PackedInt32Array(-131076, 65536, 0, -65540, 65536, 0, -4, 65536, 0, 65532, 65536, 0, 131068, 65536, 0, 196604, 65536, 0, -131075, 65536, 0, -65539, 65536, 0, -3, 65536, 0, 65533, 65536, 0, 131069, 65536, 0, 196605, 65536, 0, -131074, 65536, 0, -65538, 65536, 0, -2, 65536, 0, 65534, 65536, 0, 131070, 65536, 0, 196606, 65536, 0, -131073, 65536, 0, -65537, 65536, 0, -1, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 65536, 0, -196608, 65536, 0, -131072, 65536, 0, -65536, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, -196607, 65536, 0, -131071, 65536, 0, -65535, 65536, 0, 1, 65536, 0, 65537, 65536, 0, 131073, 65536, 0, -196606, 65536, 0, -131070, 65536, 0, -65534, 65536, 0, 2, 65536, 0, 65538, 65536, 0, 131074, 65536, 0, -196605, 65536, 0, -131069, 65536, 0, -65533, 65536, 0, 3, 65536, 0, 65539, 65536, 0, 131075, 65536, 0, -196613, 65536, 0, -131077, 65536, 0, -65541, 65536, 0, -5, 65536, 0, 65531, 65536, 0, 131067, 65536, 0, 196603, 65536, 0, 262139, 65536, 0, -196612, 65536, 0, 262140, 65536, 0, -196611, 65536, 0, 262141, 65536, 0, -196610, 65536, 0, 262142, 65536, 0, -196609, 65536, 0, 262143, 65536, 0, -262144, 65536, 0, 196608, 65536, 0, -262143, 65536, 0, 196609, 65536, 0, -262142, 65536, 0, 196610, 65536, 0, -262141, 65536, 0, 196611, 65536, 0, -262140, 65536, 0, -196604, 65536, 0, -131068, 65536, 0, -65532, 65536, 0, 4, 65536, 0, 65540, 65536, 0, 131076, 65536, 0, 196612, 65536, 0)
 
-[node name="original_fauna" parent="GridMap" instance=ExtResource("12_mlpve")]
-position = Vector2(246, 133)
-
 [node name="hitman_fauna" parent="GridMap" instance=ExtResource("8_6nfee")]
-position = Vector2(119, -58)
-
-[node name="faunashi" parent="GridMap" instance=ExtResource("6_cpri8")]
-position = Vector2(-60, -234)
-rotation = 1.5708
-
-[node name="idol_fauna" parent="GridMap" instance=ExtResource("9_uc2xd")]
-position = Vector2(-119, 125)
-
-[node name="nemu_fauna" parent="GridMap" instance=ExtResource("11_d73wj")]
-position = Vector2(477, 59)
-rotation = 1.5708
+position = Vector2(240, -180)
 
 [node name="smol_fauna" parent="GridMap" instance=ExtResource("8_xystq")]
-position = Vector2(297, -176)
-rotation = -1.5708
+position = Vector2(-60, 180)
+
+[node name="matcha_2" parent="GridMap" instance=ExtResource("5_7kchc")]
+position = Vector2(420, -180)
+
+[node name="casual_fauna_wave" parent="GridMap" instance=ExtResource("7_umxrb")]
+position = Vector2(180, 300)
+
+[node name="smol_faunya" parent="GridMap" instance=ExtResource("8_mrcmy")]
+position = Vector2(-300, 180)
+
+[node name="wide_fauna" parent="GridMap" instance=ExtResource("9_ed1hs")]
+position = Vector2(-60, -60)
+
+[node name="matcha_1" parent="GridMap" instance=ExtResource("10_wxdi4")]
+position = Vector2(-360, -180)
+
+[node name="kimono_fauna" parent="GridMap" instance=ExtResource("11_07fit")]
+position = Vector2(360, 120)
+
+[node name="hungry_fauna" parent="GridMap" instance=ExtResource("6_anvvm")]
+position = Vector2(-60, -180)
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -12,12 +12,13 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5322b"]
 texture = ExtResource("1_4qt1f")
+margins = Vector2i(3, 3)
 texture_region_size = Vector2i(120, 120)
 0:0/0 = 0
 0:0/0/modulate = Color(1, 1, 1, 0)
 1:0/0 = 0
 2:0/0 = 0
-2:0/0/modulate = Color(1, 0, 0, 1)
+2:0/0/modulate = Color(0.72549, 0.772549, 0.490196, 1)
 0:1/0 = 0
 0:2/0 = 0
 1:1/0 = 0

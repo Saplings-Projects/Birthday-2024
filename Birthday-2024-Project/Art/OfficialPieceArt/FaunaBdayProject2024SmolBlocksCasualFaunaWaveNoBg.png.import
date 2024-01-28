@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xb2uhgw6y8vb"
-path="res://.godot/imported/hiddenFauna.png-3ca98dd8fd5807eafac2ef7c77b79497.ctex"
+uid="uid://dnu0m3v14cg0p"
+path="res://.godot/imported/FaunaBdayProject2024SmolBlocksCasualFaunaWaveNoBg.png-df61213f7b1ab1e54eec970f748dfa7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/OfficialPieceArt/hiddenFauna.png"
-dest_files=["res://.godot/imported/hiddenFauna.png-3ca98dd8fd5807eafac2ef7c77b79497.ctex"]
+source_file="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksCasualFaunaWaveNoBg.png"
+dest_files=["res://.godot/imported/FaunaBdayProject2024SmolBlocksCasualFaunaWaveNoBg.png-df61213f7b1ab1e54eec970f748dfa7f.ctex"]
 
 [params]
 

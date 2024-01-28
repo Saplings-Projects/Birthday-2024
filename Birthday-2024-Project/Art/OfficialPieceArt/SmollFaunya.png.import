@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpnf3u7wqfe3c"
-path="res://.godot/imported/wideLine.png-bf5b5d1972e017ceb5a7dde5abdb7f88.ctex"
+uid="uid://cdnpjssoaincv"
+path="res://.godot/imported/SmollFaunya.png-da59644bed60ca4172dddd19de315e2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/OfficialPieceArt/wideLine.png"
-dest_files=["res://.godot/imported/wideLine.png-bf5b5d1972e017ceb5a7dde5abdb7f88.ctex"]
+source_file="res://Art/OfficialPieceArt/SmollFaunya.png"
+dest_files=["res://.godot/imported/SmollFaunya.png-da59644bed60ca4172dddd19de315e2b.ctex"]
 
 [params]
 
