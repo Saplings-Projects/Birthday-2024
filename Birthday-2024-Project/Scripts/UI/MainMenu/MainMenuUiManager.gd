@@ -1,11 +1,10 @@
 class_name MainMenuUiManager
 extends CanvasLayer
 
-
 @export var controller: MainMenuController
+@export var screenLogic : ScreenLogic
 
 @export_group("Screens")
-@export var settings_window: SettingsWindow
 @export var start_screen: MainMenuStartScreen
 @export var campaign_select: CampaignSelectMenu
 @export var campaign_levels: CampaignLevelsSelectMenu
@@ -15,14 +14,8 @@ extends CanvasLayer
 
 var _current_state: MainMenuUiState
 
-
-func hide_settings_window():
-	settings_window.hide()
-
-
 func on_main_menu_initialized():
 	pass
-
 
 func on_main_menu_state_changed(state: MainMenuState):
 	if state is MainMenuStartState:
@@ -30,9 +23,8 @@ func on_main_menu_state_changed(state: MainMenuState):
 	else:
 		printerr("Unhandled main menu state in main menu UI Manager")
 
-
 func show_settings_window():
-	settings_window.show()
+	screenLogic.screenManager.ShowSettings()
 
 
 func show_start_screen():
@@ -51,7 +43,6 @@ func show_campaign_levels():
 
 
 func _disable_all_screans():
-	settings_window.hide()
 	start_screen.hide()
 	campaign_select.hide()
 	campaign_levels.hide()
@@ -69,7 +60,7 @@ func _switch_state(state: MainMenuUiState):
 
 #region Node
 
-func _process(delta):
+func _process(delta):		
 	if _current_state != null:
 		_current_state.update_state()
 

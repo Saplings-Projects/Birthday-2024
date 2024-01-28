@@ -4,8 +4,6 @@ class_name PieceLogic
 enum PlacementStates { UNPLACED, HELD, PLACED }
 enum RotationStates { DEG_0 = 0, DEG_90, DEG_180, DEG_270 }
 
-const GAME_MANAGER_NODE_PATH = "/root/MainLevel/GameManager"
-const GRID_MAP_NODE_PATH = "/root/MainLevel/GridMap"
 const ROTATION_ANIMATION_DURATION: float = 0.35 # Number of seconds a piece takes to rotate
 const RETURN_ANIMATION_DURATION: float = 0.5 # Number of seconds a piece takes to return to it's return position when dropped
 const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to move into it's placed position
@@ -20,6 +18,7 @@ const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to
 
 var current_placement_state: PlacementStates
 var levelGridReference : GridLogic
+var game_manager : GameManager
 var cells: Array[Vector2i] # The spaces occupied by this piece when unrotated
 var totalCells : int
 var cellHeight : int
@@ -39,9 +38,6 @@ var _cellStartingWidth : int
 var _cellStartingHeight : int
 
 func on_clicked():
-	var game_manager: GameManager = get_node(GAME_MANAGER_NODE_PATH)
-	if game_manager == null:
-		return # This should never happen, but just in case
 	game_manager.on_piece_clicked(self)
 
 func on_piece_held():

@@ -1,17 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=6 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleMainScreen.gd" id="2_fxt11"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiPlayState.gd" id="3_aj75g"]
-[ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_w6dq1"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiWinState.gd" id="4_4ulfu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
 
-[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "settings_window", "play_state", "win_state")]
+[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "play_state", "win_state")]
 script = ExtResource("1_e57yp")
 main_screen = NodePath("MainScreen")
-settings_window = NodePath("SettingsWindow")
 play_state = NodePath("States/PuzzleUiPlayState")
 win_state = NodePath("States/PuzzleUiWinState")
 
@@ -108,9 +106,6 @@ text = "WIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SettingsWindow" parent="." instance=ExtResource("3_w6dq1")]
-visible = false
-
 [node name="States" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -128,5 +123,3 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_4ulfu")
-
-[connection signal="close_settings_window" from="SettingsWindow" to="." method="hide_settings_window"]

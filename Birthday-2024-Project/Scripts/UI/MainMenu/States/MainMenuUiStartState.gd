@@ -1,7 +1,6 @@
 class_name MainMenuUiStartState
 extends MainMenuUiState
 
-
 var _state: MainMenuStartState
 
 
@@ -22,7 +21,7 @@ func _on_play_clicked():
 
 
 func _on_settings_clicked():
-	_ui_manager.show_settings_window()
+	_state.show_settings()
 
 
 func _on_campaign_levels_clicked():
@@ -49,13 +48,13 @@ func _on_level_selected():
 
 func enter_state():
 	var state = _controller.get_current_state()
-	
+
 	if not state is MainMenuStartState:
 		printerr("Main menu is not in start state")
 		return
-	
+
 	_state = state
-	
+
 	_ui_manager.show_start_screen()
 	
 	var screen = _ui_manager.start_screen
@@ -66,9 +65,8 @@ func enter_state():
 	screen.settings_button.button_up.connect(_on_settings_clicked)
 
 
-func exit_state():
+func exit_state():	
 	_state = null
-	
 	var screen = _ui_manager.start_screen
 	screen.credits_button.button_up.disconnect(_on_credits_clicked)
 	screen.exit_button.button_up.disconnect(_on_exit_clicked)

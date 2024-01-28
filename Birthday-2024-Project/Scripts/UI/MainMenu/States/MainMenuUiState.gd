@@ -1,7 +1,6 @@
 class_name MainMenuUiState
 extends Control
 
-
 var _controller: MainMenuController
 var _ui_manager: MainMenuUiManager
 
