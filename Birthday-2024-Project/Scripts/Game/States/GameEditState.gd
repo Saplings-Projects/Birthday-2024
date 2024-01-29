@@ -5,7 +5,7 @@ func reset_puzzle():
 	manager.grid.ClearLevel()
 
 func back_to_menu():
-	get_tree().change_scene_to_file("res://MainScenes/main_menu.tscn")#TODO remember where to go back (campaign or saplings' levels and go there)
+	manager.go_to_main_menu()
 
 func go_to_play_mode():
 	manager.switch_to_play_state()

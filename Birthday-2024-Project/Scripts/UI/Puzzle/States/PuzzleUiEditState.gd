@@ -62,7 +62,7 @@ func enter_state():
 	
 	_ui_manager.show_main_screen()
 	
-	var screen = _ui_manager
+	var screen = _ui_manager.main_screen
 	screen.show_hide_win_text(false)
 	screen.context_button.text = "Library"
 	screen.context_button.button_up.connect(_on_show_library_clicked)
@@ -70,30 +70,29 @@ func enter_state():
 	screen.reset_button.button_up.connect(_on_reset_clicked)
 	screen.back_button.button_up.connect(_on_back_clicked)
 	screen.settings_button.button_up.connect(_on_settings_clicked)
-	_ui_manager.edit_button.show()
-	_ui_manager.edit_button.text = "Play"
-	_ui_manager.edit_button.button_up.connect(_on_play_mode_clicked)
-	_ui_manager.import_button.show()
-	_ui_manager.import_button.button_up.connect(_on_import_clicked)
-	_ui_manager.export_button.show()
-	_ui_manager.export_button.button_up.connect(_on_export_clicked)
+	screen.edit_button.show()
+	screen.edit_button.text = "Play"
+	screen.edit_button.button_up.connect(_on_play_mode_clicked)
+	screen.import_button.show()
+	screen.import_button.button_up.connect(_on_import_clicked)
+	screen.export_button.show()
+	screen.export_button.button_up.connect(_on_export_clicked)
 
 
 func exit_state():
 	_state = null
 	pieceLibrary.hide()
-	_ui_manager.import_button.hide()
-	_ui_manager.export_button.hide()
-	
-	var screen = _ui_manager
+	var screen = _ui_manager.main_screen
+	screen.import_button.hide()
+	screen.export_button.hide()
 	screen.context_button.button_up.disconnect(_on_show_library_clicked)
 	screen.exit_button.button_up.disconnect(_on_exit_clicked)
 	screen.reset_button.button_up.disconnect(_on_reset_clicked)
 	screen.back_button.button_up.disconnect(_on_back_clicked)
 	screen.settings_button.button_up.disconnect(_on_settings_clicked)
-	_ui_manager.edit_button.button_up.disconnect(_on_play_mode_clicked)
-	_ui_manager.import_button.button_up.disconnect(_on_import_clicked)
-	_ui_manager.export_button.button_up.disconnect(_on_export_clicked)
+	screen.edit_button.button_up.disconnect(_on_play_mode_clicked)
+	screen.import_button.button_up.disconnect(_on_import_clicked)
+	screen.export_button.button_up.disconnect(_on_export_clicked)
 
 
 func update_state():

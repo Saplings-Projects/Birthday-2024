@@ -11,11 +11,6 @@ extends CanvasLayer
 @export var win_state: PuzzleUiWinState
 @export var edit_state: PuzzleUiEditState
 
-@export_group("")
-@export var edit_button: Button
-@export var import_button: Button
-@export var export_button: Button
-
 var _current_state: PuzzleUiState
 
 

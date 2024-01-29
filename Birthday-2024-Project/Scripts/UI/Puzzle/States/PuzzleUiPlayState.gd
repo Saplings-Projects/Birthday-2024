@@ -41,9 +41,9 @@ func enter_state():
 	screen.reset_button.button_up.connect(_on_reset_clicked)
 	screen.back_button.button_up.connect(_on_back_clicked)
 	screen.settings_button.button_up.connect(_on_settings_clicked)
-	_ui_manager.edit_button.show()
-	_ui_manager.edit_button.text = "Edit"
-	_ui_manager.edit_button.button_up.connect(_on_edit_mode_clicked)
+	screen.edit_button.show()
+	screen.edit_button.text = "Edit"
+	screen.edit_button.button_up.connect(_on_edit_mode_clicked)
 
 
 func exit_state():
@@ -55,7 +55,7 @@ func exit_state():
 	screen.reset_button.button_up.disconnect(_on_reset_clicked)
 	screen.back_button.button_up.disconnect(_on_back_clicked)
 	screen.settings_button.button_up.disconnect(_on_settings_clicked)
-	_ui_manager.edit_button.button_up.disconnect(_on_edit_mode_clicked)
+	screen.edit_button.button_up.disconnect(_on_edit_mode_clicked)
 
 
 func update_state():

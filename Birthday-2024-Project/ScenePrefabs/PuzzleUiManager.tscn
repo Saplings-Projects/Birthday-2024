@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleMainScreen.gd" id="2_fxt11"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiPlayState.gd" id="3_aj75g"]
 [ext_resource type="Texture2D" uid="uid://dyk1nom8mpmo8" path="res://Art/SharpSquareOutline.png" id="3_ukui8"]
-[ext_resource type="PackedScene" uid="uid://btcp1sgcebsyi" path="res://ScenePrefabs/SettingsWindow.tscn" id="3_w6dq1"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiWinState.gd" id="4_4ulfu"]
 [ext_resource type="PackedScene" uid="uid://dfrcd7gptl2uy" path="res://ScenePrefabs/Pieces/piece_2.tscn" id="4_boyuj"]
 [ext_resource type="Texture2D" uid="uid://dxiiv2creq6b1" path="res://Art/SquareRoundedOutline.png" id="4_p1ypx"]
@@ -21,17 +20,14 @@ font = ExtResource("9_u6dli")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
-[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state", "edit_button", "import_button", "export_button")]
+[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state")]
 script = ExtResource("1_e57yp")
 main_screen = NodePath("MainScreen")
 play_state = NodePath("States/PuzzleUiPlayState")
 win_state = NodePath("States/PuzzleUiWinState")
 edit_state = NodePath("States/PuzzleUiEditState")
-edit_button = NodePath("MainScreen/Panel/Level Buttons/Edit Mode Button")
-import_button = NodePath("MainScreen/Panel/Level Buttons/Import Button")
-export_button = NodePath("MainScreen/Panel/Level Buttons/Export Button")
 
-[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text")]
+[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text", "edit_button", "import_button", "export_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +41,9 @@ reset_button = NodePath("Panel/Level Buttons/Reset Button")
 back_button = NodePath("Panel/Level Buttons/Back Button")
 settings_button = NodePath("Panel/Utility Buttons/Settings Button")
 win_text = NodePath("Panel/Win Text")
+edit_button = NodePath("Panel/Level Buttons/Edit Mode Button")
+import_button = NodePath("Panel/Level Buttons/Import Button")
+export_button = NodePath("Panel/Level Buttons/Export Button")
 
 [node name="Panel" type="Panel" parent="MainScreen"]
 layout_mode = 1
@@ -344,9 +343,6 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Cancel"
 
-[node name="SettingsWindow" parent="." instance=ExtResource("3_w6dq1")]
-visible = false
-
 [node name="States" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -381,4 +377,3 @@ exportPopup = NodePath("../../MainScreen/ExportPopup")
 [connection signal="button_up" from="MainScreen/ExportPopup/ColorRect/Button" to="States/PuzzleUiEditState" method="_on_dismiss_export_popup"]
 [connection signal="button_up" from="MainScreen/ImportPopup/ColorRect/Button" to="States/PuzzleUiEditState" method="_on_confirm_import"]
 [connection signal="button_up" from="MainScreen/ImportPopup/ColorRect/Button2" to="States/PuzzleUiEditState" method="_on_cancel_import"]
-[connection signal="close_settings_window" from="SettingsWindow" to="." method="hide_settings_window"]
