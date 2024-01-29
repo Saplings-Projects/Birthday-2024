@@ -1,9 +1,7 @@
 class_name MainMenuUiManager
 extends CanvasLayer
 
-signal initialized_event()
-signal state_changed_event(state)
-
+@export var controller: MainMenuController
 @export var screenLogic : ScreenLogic
 
 @export_group("Screens")
@@ -15,7 +13,15 @@ signal state_changed_event(state)
 @export var start_state: MainMenuUiStartState
 
 var _current_state: MainMenuUiState
-var _is_inititialized: bool
+
+func on_main_menu_initialized():
+	pass
+
+func on_main_menu_state_changed(state: MainMenuState):
+	if state is MainMenuStartState:
+		_switch_state(start_state)
+	else:
+		printerr("Unhandled main menu state in main menu UI Manager")
 
 func show_settings_window():
 	screenLogic.screenManager.ShowSettings()
@@ -50,22 +56,17 @@ func _switch_state(state: MainMenuUiState):
 		previous_state.exit_state()
 	
 	_current_state.enter_state()
-	state_changed_event.emit(_current_state)
 
 
 #region Node
 
-func _process(delta):
-	if not _is_inititialized:
-		_is_inititialized = true
-		initialized_event.emit()
-		_switch_state(start_state)
-		
+func _process(delta):		
 	if _current_state != null:
 		_current_state.update_state()
 
 
 func _ready():
+	start_state._controller = controller
 	start_state._ui_manager = self
 
 
