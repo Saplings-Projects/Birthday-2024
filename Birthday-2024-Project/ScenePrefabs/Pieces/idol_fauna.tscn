@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck50aqlumrne0"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_857p4"]
+[ext_resource type="Texture2D" uid="uid://duksxs24hl4l1" path="res://Art/OfficialPieceArt/FaunaIdol.png" id="2_lmrm4"]
+
+[node name="idol_fauna" instance=ExtResource("1_857p4")]
+pieceShape = "11
+11
+11
+11"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-120, 0)
+texture = ExtResource("2_lmrm4")

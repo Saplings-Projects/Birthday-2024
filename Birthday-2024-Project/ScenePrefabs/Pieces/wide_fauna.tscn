@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://kehoouuydau5"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_o1oo6"]
+[ext_resource type="Texture2D" uid="uid://sijqsamyxvg3" path="res://Art/OfficialPieceArt/wideFauna.png" id="2_n03lr"]
+
+[node name="wide_fauna" instance=ExtResource("1_o1oo6")]
+pieceShape = "101
+111
+010"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(61, 60)
+texture = ExtResource("2_n03lr")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgas6i2w16oks"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_xpvsq"]
+[ext_resource type="Texture2D" uid="uid://dlupogimyyhtn" path="res://Art/OfficialPieceArt/kimonoFauna.png" id="2_kw8o4"]
+
+[node name="kimono_fauna" instance=ExtResource("1_xpvsq")]
+pieceShape = "0110
+1111
+1111
+0110"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_kw8o4")

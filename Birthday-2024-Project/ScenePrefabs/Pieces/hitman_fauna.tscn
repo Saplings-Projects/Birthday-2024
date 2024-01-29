@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://baib15bjrkayn"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_4b2ql"]
+[ext_resource type="Texture2D" uid="uid://o02tlk51tt1k" path="res://Art/OfficialPieceArt/baldFauna.png" id="2_1em2m"]
+
+[node name="hitman_fauna" instance=ExtResource("1_4b2ql")]
+pieceShape = "11
+10
+10"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -60)
+texture = ExtResource("2_1em2m")
