@@ -4,7 +4,7 @@ extends CanvasLayer
 @export var controller: GameManager
 
 @export_group("Screens")
-@export var main_screen: Control
+@export var main_screen: PuzzleMainScreen
 
 @export_group("States")
 @export var play_state: PuzzleUiPlayState
@@ -15,20 +15,6 @@ extends CanvasLayer
 @export var edit_button: Button
 @export var import_button: Button
 @export var export_button: Button
-
-@export_group("UI Elements")
-@export var context_button: Button
-@export var exit_button: Button
-@export var reset_button: Button
-@export var back_button: Button
-@export var settings_button: Button
-@export var win_text: Label
-
-func show_hide_win_text(is_showing: bool):
-	if is_showing:
-		win_text.show()
-	else:
-		win_text.hide()
 
 var _current_state: PuzzleUiState
 
