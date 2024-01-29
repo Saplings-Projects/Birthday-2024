@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://co44a00v7r6ma"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_r55yv"]
+[ext_resource type="Texture2D" uid="uid://bahwobneyv08i" path="res://Art/OfficialPieceArt/SmollFauna.png" id="2_n6bx8"]
+
+[node name="smol_fauna" instance=ExtResource("1_r55yv")]
+pieceShape = "001
+011
+111"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(2, 4)
+texture = ExtResource("2_n6bx8")

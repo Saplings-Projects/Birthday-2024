@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://do712r6j516kq"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_b72fu"]
+[ext_resource type="Texture2D" uid="uid://dnu0m3v14cg0p" path="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksCasualFaunaWaveNoBg.png" id="2_rahyy"]
+
+[node name="casual_fauna_wave" instance=ExtResource("1_b72fu")]
+pieceShape = "1"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(60, 63)
+texture = ExtResource("2_rahyy")

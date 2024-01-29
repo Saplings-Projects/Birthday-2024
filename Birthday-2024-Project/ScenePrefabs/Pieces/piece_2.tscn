@@ -7,9 +7,7 @@
 [ext_resource type="Resource" uid="uid://dsc74j6rhmivm" path="res://Resources/Audio/Samples/PlacePieceSamples.tres" id="5_gkn5q"]
 [ext_resource type="Resource" uid="uid://c5pwc03ifyimd" path="res://Resources/Audio/Samples/GrabPieceSamples.tres" id="6_mrd67"]
 
-[node name="piece_2" type="Sprite2D" node_paths=PackedStringArray("fauna_player", "sfx_player")]
-position = Vector2(-3, 1)
-texture = ExtResource("1_iwgnv")
+[node name="piece_2" type="Node2D" node_paths=PackedStringArray("fauna_player", "sfx_player")]
 script = ExtResource("2_nfiac")
 pieceShape = "11
 11"
@@ -19,6 +17,9 @@ fauna_samples = ExtResource("3_1tncv")
 rotate_samples = ExtResource("4_1vhiu")
 place_samples = ExtResource("5_gkn5q")
 grab_samples = ExtResource("6_mrd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iwgnv")
 
 [node name="FaunaPlayer" type="AudioStreamPlayer2D" parent="."]
 bus = &"Fauna"

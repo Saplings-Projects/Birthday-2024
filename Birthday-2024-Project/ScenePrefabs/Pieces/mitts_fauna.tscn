@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://di7ymuk56q8d"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_7v8yl"]
+[ext_resource type="Texture2D" uid="uid://c2a1vre2df32p" path="res://Art/OfficialPieceArt/faunaMitts.png" id="2_4cl6s"]
+
+[node name="mitts_fauna" instance=ExtResource("1_7v8yl")]
+pieceShape = "111
+010
+010
+010"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(7, 0)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("2_4cl6s")

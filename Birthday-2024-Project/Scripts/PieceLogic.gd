@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 class_name PieceLogic
 
 enum PlacementStates { UNPLACED, HELD, PLACED }

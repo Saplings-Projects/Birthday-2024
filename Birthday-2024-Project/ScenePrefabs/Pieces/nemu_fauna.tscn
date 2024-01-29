@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxi32das560mk"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_1ff8e"]
+[ext_resource type="Texture2D" uid="uid://dikhfqewphv82" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksNemuFaunaNoBg.png" id="2_6ifu2"]
+
+[node name="nemu_fauna" instance=ExtResource("1_1ff8e")]
+pieceShape = "111
+010"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(60, 120)
+texture = ExtResource("2_6ifu2")
