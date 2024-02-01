@@ -8,7 +8,6 @@ script = ExtResource("1_37gyb")
 pieceID = "original_fauna"
 gridPosition = Vector2i(1, -1)
 pieceRotation = 0
-isBlocker = false
 
 [sub_resource type="Resource" id="Resource_8c2vu"]
 script = ExtResource("1_37gyb")
@@ -21,28 +20,24 @@ script = ExtResource("1_37gyb")
 pieceID = "faunashi"
 gridPosition = Vector2i(0, -3)
 pieceRotation = 1
-isBlocker = false
 
 [sub_resource type="Resource" id="Resource_gtw3y"]
 script = ExtResource("1_37gyb")
 pieceID = "idol_fauna"
 gridPosition = Vector2i(-2, -1)
 pieceRotation = 0
-isBlocker = false
 
 [sub_resource type="Resource" id="Resource_pdn0s"]
 script = ExtResource("1_37gyb")
 pieceID = "nemu_fauna"
 gridPosition = Vector2i(4, -1)
 pieceRotation = 1
-isBlocker = false
 
 [sub_resource type="Resource" id="Resource_0af60"]
 script = ExtResource("1_37gyb")
 pieceID = "smol_fauna"
 gridPosition = Vector2i(1, -3)
 pieceRotation = 3
-isBlocker = false
 
 [resource]
 script = ExtResource("1_43yik")

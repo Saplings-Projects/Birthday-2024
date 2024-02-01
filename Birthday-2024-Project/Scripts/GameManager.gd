@@ -74,6 +74,10 @@ func on_piece_clicked(clicked_piece: PieceLogic):
 			return
 	
 	held_piece = clicked_piece
+	
+	# move to the forefront
+	grid.move_child(grid.get_child(held_piece.get_index()), -1)
+	
 	clicked_piece.play_grab_audio()
 	_remove_occupied_cells(held_piece)
 	_reset_settled()
@@ -187,8 +191,11 @@ func _do_place_held_piece():
 	
 	# check if the grid can accommodate the held piece
 	if grid.CheckLegalToPlace(held_piece) == false:
-		if _current_state is GameEditState and grid.CheckIfInDeletionZone(held_piece):
-			grid.DeletePiece(held_piece)
+		if _current_state is GameEditState:
+			if grid.CheckIfInDeletionZone(held_piece):
+				grid.DeletePiece(held_piece)
+			else:
+				held_piece.return_piece()
 		else:
 			# Moving the piece around like organizing a jigsaw puzzle
 			if grid.CheckIfOffGrid(held_piece) and grid.CheckIfOutsideSafeZone(held_piece) == false:
