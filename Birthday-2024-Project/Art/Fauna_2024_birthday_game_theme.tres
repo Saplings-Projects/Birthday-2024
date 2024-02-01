@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=34 format=3 uid="uid://cp1430xlncsx2"]
+[gd_resource type="Theme" load_steps=35 format=3 uid="uid://cp1430xlncsx2"]
 
 [ext_resource type="FontFile" uid="uid://b4qxnl5c1be6s" path="res://Fonts/Baskerville Bold.otf" id="1_4p44h"]
 [ext_resource type="Texture2D" uid="uid://b2pihf1eh3ak" path="res://Art/UI/Button_Hover_128.png" id="2_suw1a"]
@@ -11,6 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://ckbivt68b83a0" path="res://Art/UI/Button_normal_128_QuarterSize.png" id="7_4rp1n"]
 [ext_resource type="Texture2D" uid="uid://6v1gxe848lx6" path="res://Art/UI/Button_Pressed_128_QuarterSize.png" id="7_nk45r"]
 [ext_resource type="Texture2D" uid="uid://b58sombbmtx30" path="res://Art/UI/DefaultGodot/radio_unchecked.svg" id="10_8pwyk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1g102"]
+texture = ExtResource("6_t62wd")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crktb"]
 
@@ -153,11 +161,13 @@ texture_margin_bottom = 12.0
 
 [resource]
 Button/colors/font_color = Color(0.894118, 0.823529, 0.627451, 1)
+Button/colors/font_disabled_color = Color(1, 1, 1, 1)
 Button/colors/font_focus_color = Color(0.894118, 0.823529, 0.627451, 1)
 Button/colors/font_hover_color = Color(0.894118, 0.823529, 0.627451, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_4p44h")
+Button/styles/disabled = SubResource("StyleBoxTexture_1g102")
 Button/styles/focus = SubResource("StyleBoxEmpty_crktb")
 Button/styles/hover = SubResource("StyleBoxTexture_7qpuw")
 Button/styles/normal = SubResource("StyleBoxTexture_f2y4p")

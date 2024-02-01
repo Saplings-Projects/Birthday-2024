@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/CampaignLevelSelectMenu.tscn" id="4_o3atr"]
 
 [node name="MainMenuUiManager" type="CanvasLayer" node_paths=PackedStringArray("start_screen", "campaign_select", "campaign_levels", "start_state")]
+layer = 5
 script = ExtResource("1_lofx7")
 start_screen = NodePath("StartScreen")
 campaign_select = NodePath("CampaignSelectMenu")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6he4i7cm23fj"
-path="res://.godot/imported/Exit_button_Hover_QuarterSize.png-5e58edd69989afa806582942d3b6c80a.ctex"
+uid="uid://b3pmval131k2g"
+path="res://.godot/imported/Exit_button_normal_MiniSize.png-88f21062dd511f4018c233552726c521.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/Exit_button_Hover_QuarterSize.png"
-dest_files=["res://.godot/imported/Exit_button_Hover_QuarterSize.png-5e58edd69989afa806582942d3b6c80a.ctex"]
+source_file="res://Art/UI/Exit_button_normal_MiniSize.png"
+dest_files=["res://.godot/imported/Exit_button_normal_MiniSize.png-88f21062dd511f4018c233552726c521.ctex"]
 
 [params]
 

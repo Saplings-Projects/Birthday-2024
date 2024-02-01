@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=14 format=3 uid="uid://bkys348mactw2"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_4oukr"]
 [ext_resource type="Texture2D" uid="uid://ci3t2shlrxhc0" path="res://Art/GridTileSet.png" id="1_4qt1f"]
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
+[ext_resource type="Texture2D" uid="uid://bjqluj600yhja" path="res://Art/Map_ResolutionClearance.png" id="2_hsx3y"]
+[ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_rkf2x"]
 [ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="4_0al21"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_1cxrf"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GameEmptyState.gd" id="5_wmt6j"]
@@ -32,6 +34,42 @@ sources/0 = SubResource("TileSetAtlasSource_5322b")
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_4oukr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hsx3y")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect2" type="NinePatchRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rkf2x")
+patch_margin_left = 300
+patch_margin_top = 250
+patch_margin_right = 250
+patch_margin_bottom = 250
 
 [node name="GridMap" type="TileMap" parent="." node_paths=PackedStringArray("gameManager")]
 position = Vector2(960, 540)

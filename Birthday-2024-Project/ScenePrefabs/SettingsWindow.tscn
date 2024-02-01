@@ -7,9 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://cu8cq2y34vvj7" path="res://Resources/Audio/tone_220hz.wav" id="5_3jstt"]
 [ext_resource type="Texture2D" uid="uid://bh6ef2hoft8cb" path="res://Art/UI/Textbox_QuarterSize.png" id="6_pxxqe"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/Fauna_2024_birthday_game_theme.tres" id="7_0mm3k"]
-[ext_resource type="Texture2D" uid="uid://b3pmval131k2g" path="res://Art/UI/Exit_button_normal_QuarterSize.png" id="7_qkugg"]
-[ext_resource type="Texture2D" uid="uid://cwb6bao8267c6" path="res://Art/UI/Exit_button_pressed_QuarterSize.png" id="8_ojbry"]
-[ext_resource type="Texture2D" uid="uid://1s8yef5svbq1" path="res://Art/UI/Exit_button_Hover_QuarterSize.png" id="9_7a4lm"]
+[ext_resource type="Texture2D" uid="uid://b3pmval131k2g" path="res://Art/UI/Exit_button_normal_MiniSize.png" id="8_m4in0"]
+[ext_resource type="Texture2D" uid="uid://cwb6bao8267c6" path="res://Art/UI/Exit_button_pressed_MiniSize.png" id="9_al1hc"]
+[ext_resource type="Texture2D" uid="uid://1s8yef5svbq1" path="res://Art/UI/Exit_button_Hover_MiniSize.png" id="10_5436c"]
 
 [node name="SettingsWindow" type="Control"]
 layout_mode = 3
@@ -250,8 +250,8 @@ offset_top = 50.0
 offset_right = -50.0
 offset_bottom = 101.0
 grow_horizontal = 0
-texture_normal = ExtResource("7_qkugg")
-texture_pressed = ExtResource("8_ojbry")
-texture_hover = ExtResource("9_7a4lm")
+texture_normal = ExtResource("8_m4in0")
+texture_pressed = ExtResource("9_al1hc")
+texture_hover = ExtResource("10_5436c")
 
 [connection signal="button_up" from="Panel/Close Button" to="." method="on_close_clicked"]
