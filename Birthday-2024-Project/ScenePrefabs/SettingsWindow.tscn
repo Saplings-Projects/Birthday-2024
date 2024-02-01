@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://btcp1sgcebsyi"]
+[gd_scene load_steps=11 format=3 uid="uid://btcp1sgcebsyi"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Settings/SettingsWindow.gd" id="1_ccik3"]
 [ext_resource type="Script" path="res://Scripts/UI/Settings/VideoSettingsControl.gd" id="2_y1ii8"]
 [ext_resource type="Script" path="res://Scripts/UI/Settings/AudioSettingsControl.gd" id="3_jxrfi"]
 [ext_resource type="Resource" uid="uid://b74u14u4necbw" path="res://Resources/Audio/Samples/SampleFaunaNoises.tres" id="4_r7kmp"]
 [ext_resource type="AudioStream" uid="uid://cu8cq2y34vvj7" path="res://Resources/Audio/tone_220hz.wav" id="5_3jstt"]
+[ext_resource type="Texture2D" uid="uid://bh6ef2hoft8cb" path="res://Art/UI/Textbox_QuarterSize.png" id="6_pxxqe"]
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/Fauna_2024_birthday_game_theme.tres" id="7_0mm3k"]
+[ext_resource type="Texture2D" uid="uid://b3pmval131k2g" path="res://Art/UI/Exit_button_normal_QuarterSize.png" id="7_qkugg"]
+[ext_resource type="Texture2D" uid="uid://cwb6bao8267c6" path="res://Art/UI/Exit_button_pressed_QuarterSize.png" id="8_ojbry"]
+[ext_resource type="Texture2D" uid="uid://1s8yef5svbq1" path="res://Art/UI/Exit_button_Hover_QuarterSize.png" id="9_7a4lm"]
 
 [node name="SettingsWindow" type="Control"]
 layout_mode = 3
@@ -15,49 +20,72 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ccik3")
 
-[node name="Tint" type="Panel" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Panel" type="NinePatchRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -350.0
+offset_right = 300.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 80
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 80
+pivot_offset = Vector2(300, 350)
+texture = ExtResource("6_pxxqe")
+patch_margin_left = 100
+patch_margin_top = 125
+patch_margin_right = 100
+patch_margin_bottom = 125
 
-[node name="Window" type="Panel" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="TabContainer" type="TabContainer" parent="MarginContainer/Window"]
+[node name="ThemeHolder" type="Control" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 108.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 200)
+theme = ExtResource("7_0mm3k")
+
+[node name="TabContainer" type="TabContainer" parent="Panel/ThemeHolder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 30.0
+offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
 
-[node name="Video" type="TabBar" parent="MarginContainer/Window/TabContainer" node_paths=PackedStringArray("window_options", "resolution_options")]
+[node name="Video" type="TabBar" parent="Panel/ThemeHolder/TabContainer" node_paths=PackedStringArray("window_options", "resolution_options")]
 layout_mode = 2
 script = ExtResource("2_y1ii8")
 window_options = NodePath("MarginContainer/Settings Container/WindowContainer/WindowOptions")
 resolution_options = NodePath("MarginContainer/Settings Container/ResolutionContainer/ResolutionOptions")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Window/TabContainer/Video"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ThemeHolder/TabContainer/Video"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -65,17 +93,17 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 5
 
-[node name="Settings Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Video/MarginContainer"]
+[node name="Settings Container" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer"]
 layout_mode = 2
 
-[node name="WindowContainer" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container"]
+[node name="WindowContainer" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container/WindowContainer"]
+[node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container/WindowContainer"]
 layout_mode = 2
 text = "Window Mode"
 
-[node name="WindowOptions" type="OptionButton" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container/WindowContainer"]
+[node name="WindowOptions" type="OptionButton" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container/WindowContainer"]
 layout_mode = 2
 item_count = 3
 selected = 0
@@ -86,36 +114,38 @@ popup/item_1/id = 1
 popup/item_2/text = "Windowed Borderless"
 popup/item_2/id = 2
 
-[node name="ResolutionContainer" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container"]
+[node name="ResolutionContainer" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container/ResolutionContainer"]
+[node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container/ResolutionContainer"]
 layout_mode = 2
 text = "Screen Resolution"
 
-[node name="ResolutionOptions" type="OptionButton" parent="MarginContainer/Window/TabContainer/Video/MarginContainer/Settings Container/ResolutionContainer"]
+[node name="ResolutionOptions" type="OptionButton" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container/ResolutionContainer"]
 layout_mode = 2
 
-[node name="Audio" type="TabBar" parent="MarginContainer/Window/TabContainer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "fauna_slider", "music_sample_player", "sfx_sample_player", "fauna_sample_player")]
+[node name="Audio" type="TabBar" parent="Panel/ThemeHolder/TabContainer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "fauna_slider", "music_sample_player", "sfx_sample_player", "fauna_sample_player")]
 visible = false
+custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
 script = ExtResource("3_jxrfi")
 master_slider = NodePath("MarginContainer/Settings Container/Master Container/Master Slider")
 music_slider = NodePath("MarginContainer/Settings Container/Music Container/Music Slider")
 sfx_slider = NodePath("MarginContainer/Settings Container/SFX Container/SFX Slider")
 fauna_slider = NodePath("MarginContainer/Settings Container/Fauna Container/Fauna Slider")
-music_sample_player = NodePath("MusicSamplePlayer")
-sfx_sample_player = NodePath("SfxSamplePlayer")
-fauna_sample_player = NodePath("FaunaSamplePlayer")
+music_sample_player = NodePath("../../MusicSamplePlayer")
+sfx_sample_player = NodePath("../../SfxSamplePlayer")
+fauna_sample_player = NodePath("../../FaunaSamplePlayer")
 sfx_samples = ExtResource("4_r7kmp")
 fauna_samples = ExtResource("4_r7kmp")
 tone_sample = ExtResource("5_3jstt")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Window/TabContainer/Audio"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ThemeHolder/TabContainer/Audio"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -123,82 +153,105 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 5
 
-[node name="Settings Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer"]
+[node name="Settings Container" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer"]
 layout_mode = 2
 
-[node name="Master Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container"]
+[node name="Master Container" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Master Container"]
+[node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Master Container"]
 layout_mode = 2
 text = "Master Volume"
 
-[node name="Master Slider" type="HSlider" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Master Container"]
+[node name="Master Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Master Container"]
 layout_mode = 2
 min_value = 0.001
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="Music Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container"]
+[node name="Music Container" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Music Container"]
+[node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Music Container"]
 layout_mode = 2
 text = "Music"
 
-[node name="Music Slider" type="HSlider" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Music Container"]
+[node name="Music Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Music Container"]
 layout_mode = 2
 min_value = 0.001
 max_value = 1.0
 step = 0.01
 value = 0.501
 
-[node name="SFX Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container"]
+[node name="SFX Container" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/SFX Container"]
+[node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/SFX Container"]
 layout_mode = 2
 text = "SFX"
 
-[node name="SFX Slider" type="HSlider" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/SFX Container"]
+[node name="SFX Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/SFX Container"]
 layout_mode = 2
 min_value = 0.001
 max_value = 1.0
 step = 0.01
 value = 0.501
 
-[node name="Fauna Container" type="VBoxContainer" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container"]
+[node name="Fauna Container" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
+[node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
 layout_mode = 2
 text = "Fauna"
 
-[node name="Fauna Slider" type="HSlider" parent="MarginContainer/Window/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
+[node name="Fauna Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
 layout_mode = 2
 min_value = 0.001
 max_value = 1.0
 step = 0.01
 value = 0.501
 
-[node name="MusicSamplePlayer" type="AudioStreamPlayer2D" parent="MarginContainer/Window/TabContainer/Audio"]
+[node name="MusicSamplePlayer" type="AudioStreamPlayer2D" parent="Panel/ThemeHolder"]
+position = Vector2(0, 127)
 bus = &"Music"
 
-[node name="SfxSamplePlayer" type="AudioStreamPlayer2D" parent="MarginContainer/Window/TabContainer/Audio"]
+[node name="SfxSamplePlayer" type="AudioStreamPlayer2D" parent="Panel/ThemeHolder"]
+position = Vector2(0, 127)
 bus = &"SFX"
 
-[node name="FaunaSamplePlayer" type="AudioStreamPlayer2D" parent="MarginContainer/Window/TabContainer/Audio"]
+[node name="FaunaSamplePlayer" type="AudioStreamPlayer2D" parent="Panel/ThemeHolder"]
+position = Vector2(0, 127)
 bus = &"Fauna"
 
-[node name="Close Button" type="Button" parent="MarginContainer/Window"]
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.0
+offset_top = 20.0
+offset_right = 109.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme = ExtResource("7_0mm3k")
+theme_override_font_sizes/font_size = 64
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close Button" type="TextureButton" parent="Panel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -50.0
-offset_bottom = 31.0
+offset_left = -101.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = 101.0
 grow_horizontal = 0
-text = "Close"
+texture_normal = ExtResource("7_qkugg")
+texture_pressed = ExtResource("8_ojbry")
+texture_hover = ExtResource("9_7a4lm")
 
-[connection signal="button_up" from="MarginContainer/Window/Close Button" to="." method="on_close_clicked"]
+[connection signal="button_up" from="Panel/Close Button" to="." method="on_close_clicked"]

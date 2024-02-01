@@ -1,16 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dom7l5hw3eii5"]
+[gd_scene load_steps=5 format=3 uid="uid://dom7l5hw3eii5"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_hpcja"]
-[ext_resource type="FontFile" uid="uid://b4qxnl5c1be6s" path="res://Fonts/Baskerville Bold.otf" id="2_5t04e"]
+[ext_resource type="Texture2D" uid="uid://bh6ef2hoft8cb" path="res://Art/UI/Textbox_QuarterSize.png" id="2_poh35"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ConfirmationPopupController.gd" id="3_m15bs"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_mgx35"]
-font = ExtResource("2_5t04e")
-font_size = 50
-
-[sub_resource type="LabelSettings" id="LabelSettings_8cf8m"]
-font = ExtResource("2_5t04e")
-font_size = 30
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/Fauna_2024_birthday_game_theme.tres" id="3_rg6pl"]
 
 [node name="ConfirmationPopup" type="Control"]
 layout_mode = 3
@@ -31,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.392157)
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -39,23 +32,30 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -200.0
+offset_top = -250.0
 offset_right = 300.0
-offset_bottom = 200.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_poh35")
+patch_margin_left = 100
+patch_margin_top = 125
+patch_margin_right = 100
+patch_margin_bottom = 125
 
 [node name="Title" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -49.5
-offset_right = 49.5
-offset_bottom = 23.0
+offset_left = -109.0
+offset_top = 20.0
+offset_right = 109.0
+offset_bottom = 145.0
 grow_horizontal = 2
+theme = ExtResource("3_rg6pl")
+theme_override_font_sizes/font_size = 64
 text = "Title"
-label_settings = SubResource("LabelSettings_mgx35")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -67,13 +67,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -250.0
-offset_top = -100.0
+offset_top = -125.0
 offset_right = 250.0
-offset_bottom = 100.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_rg6pl")
+theme_override_font_sizes/font_size = 32
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-label_settings = SubResource("LabelSettings_8cf8m")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -83,22 +84,14 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -100.0
-offset_right = 200.0
+offset_left = 60.0
+offset_top = -170.0
+offset_right = 263.0
+offset_bottom = -50.0
 grow_vertical = 0
-
-[node name="Text" type="Label" parent="Panel/ConfirmButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+theme = ExtResource("3_rg6pl")
+theme_override_font_sizes/font_size = 32
 text = "Confirm"
-label_settings = SubResource("LabelSettings_8cf8m")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="CancelButton" type="Button" parent="Panel"]
 layout_mode = 1
@@ -107,23 +100,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -100.0
+offset_left = -260.0
+offset_top = -170.0
+offset_right = -60.0
+offset_bottom = -50.0
 grow_horizontal = 0
 grow_vertical = 0
-
-[node name="Text" type="Label" parent="Panel/CancelButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+theme = ExtResource("3_rg6pl")
+theme_override_font_sizes/font_size = 32
 text = "Cancel"
-label_settings = SubResource("LabelSettings_8cf8m")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="Controller" type="Control" parent="." node_paths=PackedStringArray("myScreen", "titleText", "bodyText", "confirmButtonText", "cancelButtonText")]
 anchors_preset = 0
@@ -133,8 +118,8 @@ script = ExtResource("3_m15bs")
 myScreen = NodePath("..")
 titleText = NodePath("../Panel/Title")
 bodyText = NodePath("../Panel/Body")
-confirmButtonText = NodePath("../Panel/ConfirmButton/Text")
-cancelButtonText = NodePath("../Panel/CancelButton/Text")
+confirmButtonText = NodePath("../Panel/ConfirmButton")
+cancelButtonText = NodePath("../Panel/CancelButton")
 
 [connection signal="ScreenEnter" from="." to="Controller" method="onScreenEnter"]
 [connection signal="button_up" from="Panel/ConfirmButton" to="Controller" method="onConfirm"]
