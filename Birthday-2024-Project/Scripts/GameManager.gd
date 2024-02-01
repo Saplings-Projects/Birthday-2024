@@ -190,6 +190,9 @@ func _do_place_held_piece():
 		if _current_state is GameEditState and grid.CheckIfInDeletionZone(held_piece):
 			grid.DeletePiece(held_piece)
 		else:
+			# Moving the piece around like organizing a jigsaw puzzle
+			if grid.CheckIfOffGrid(held_piece) and grid.CheckIfOutsideSafeZone(held_piece) == false:
+				held_piece._SetReturnPoint()
 			held_piece.return_piece()
 		held_piece = null
 		return # Piece does not fit

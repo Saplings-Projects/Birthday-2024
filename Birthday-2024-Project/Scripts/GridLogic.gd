@@ -7,6 +7,8 @@ const TILE_ATLAS_OPEN = Vector2i(1, 0)
 const TILE_ATLAS_OCCUPIED = Vector2i(2, 0)
 const TILE_ATLAS_CLOSED = Vector2i(0, 0)
 const TILE_ATLAS_CLOSED_VISIBLE = Vector2i(0, 1)
+const SAFE_HEIGHT : int = 4 #doubled for negative
+const SAFE_WIDTH : int = 7 #doubled for negative
 
 enum GridSpaceStatus {
 	OPEN,
@@ -87,14 +89,30 @@ func LoadLevel(levelSetupData : LevelSetup):
 		global_position = midPoint * -0.5 + gridCenterOffset
 		
 		if(gridMode == GridMode.PLAY):
+			var rng : RandomNumberGenerator = RandomNumberGenerator.new()
+			var quadrant : int = 0
 			#set piece to outskirts of level grid and unrotate
-			#TODO: place more neatly around the grid
-			var iter = 0
+			var startingPos : Vector2i
 			for availablePiece in availablePieces:
-				availablePiece.global_position = GridCoordinateToPosition(startingPositions[iter]) #shunting it to the right side
+				match quadrant:
+					0:
+						startingPos.x = xMinGrid - 2
+						startingPos.y = rng.randi_range(1, SAFE_HEIGHT - 2)
+					1:
+						startingPos.x = xMaxGrid + 2
+						startingPos.y = rng.randi_range(1, SAFE_HEIGHT - 2)
+					2:
+						startingPos.x = xMinGrid - 2
+						startingPos.y = rng.randi_range(-SAFE_HEIGHT + 1, -1)
+					3:
+						startingPos.x = xMaxGrid + 2
+						startingPos.y = rng.randi_range(-SAFE_HEIGHT + 1, -1)
+						quadrant = -1
+				
+				quadrant += 1
+				availablePiece.global_position = GridCoordinateToPosition(startingPos)
 				availablePiece.SetPieceRotation(PieceLogic.RotationStates.DEG_0)
 				availablePiece._SetReturnPoint()
-				iter += 1
 		else:
 			global_position = gridCenterOffset
 			for availablePiece in availablePieces:
@@ -250,6 +268,28 @@ func CheckIfInDeletionZone(piece : PieceLogic) -> bool:
 		if spaceStatus != null:
 			return false
 	#all squares are outside the grid map
+	return true
+
+func CheckIfOffGrid(piece : PieceLogic) -> bool:
+	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
+	var cellOffsetsArray : Array[Vector2i] = piece.GetPieceShapeOffsetArray()
+	for shapeCell in cellOffsetsArray:
+		var spaceStatus : GridSpaceInfo = GetGridSpace(pieceCoords + shapeCell)
+		#is out of max bounds
+		if spaceStatus != null and spaceStatus.currentStatus != GridSpaceStatus.CLOSED:
+				return false
+	#all squares are outside the grid map
+	return true
+
+func CheckIfOutsideSafeZone(piece : PieceLogic) -> bool:
+	# offset by grid centering
+	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition() + global_position - gridCenterOffset)
+	var cellOffsetsArray : Array[Vector2i] = piece.GetPieceShapeOffsetArray()
+	for shapeCell in cellOffsetsArray:
+		var spaceCoord : Vector2i = pieceCoords + shapeCell
+		# if at least 1 square is in view
+		if abs(spaceCoord.x) < SAFE_WIDTH and abs(spaceCoord.y) < SAFE_HEIGHT:
+			return false
 	return true
 
 func PlacePiece(piece : PieceLogic) -> bool:
