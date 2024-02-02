@@ -8,7 +8,8 @@ func next_puzzle():
 
 
 func reset_puzzle():
-	get_tree().reload_current_scene()
+	manager.grid.ReloadLevel()
+	manager.switch_to_play_state()
 
 
 func back_to_menu():

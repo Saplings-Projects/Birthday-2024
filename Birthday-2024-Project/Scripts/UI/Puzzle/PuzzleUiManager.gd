@@ -9,6 +9,7 @@ extends CanvasLayer
 @export_group("States")
 @export var play_state: PuzzleUiPlayState
 @export var win_state: PuzzleUiWinState
+@export var edit_state: PuzzleUiEditState
 
 var _current_state: PuzzleUiState
 
@@ -22,6 +23,8 @@ func on_puzzle_state_changed(state: GameState):
 		_switch_state(play_state)
 	elif state is GameWinState:
 		_switch_state(win_state)
+	elif state is GameEditState:
+		_switch_state(edit_state)
 	else:
 		printerr("Unhandled puzzle state in puzzle UI Manager", self)
 
@@ -61,6 +64,8 @@ func _ready():
 	play_state._ui_manager = self
 	win_state._controller = controller
 	win_state._ui_manager = self
+	edit_state._controller = controller
+	edit_state._ui_manager = self
 
 
 #endregion Node
