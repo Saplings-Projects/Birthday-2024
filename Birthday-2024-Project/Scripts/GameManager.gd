@@ -113,10 +113,10 @@ func _process(delta):
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()
 		return
-	
+    
 	if _current_state is GameEditState:
 		deletionZone.show()
-
+    
 	if !placing_piece:
 		_do_held_piece_settle(delta)
 		_held_piece_towards_cursor(delta)
@@ -191,7 +191,7 @@ func _do_place_held_piece():
 		return # Place piece input was not given
 	if held_piece == null:
 		return # There is no held piece to place
-	
+		
 	# check if the grid can accommodate the held piece
 	if grid.CheckLegalToPlace(held_piece) == false:
 		if _current_state is GameEditState:
@@ -206,6 +206,10 @@ func _do_place_held_piece():
 			held_piece.return_piece()
 		held_piece = null
 		return # Piece does not fit
+
+	#Prevents rotation while the timer is running
+	placing_piece = true
+	await get_tree().create_timer(.4).timeout	
 	
 	#Prevents rotation while the timer is running
 	placing_piece = true
@@ -217,5 +221,5 @@ func _do_place_held_piece():
 	held_piece.place_piece(held_piece_grid_origin, placed_position)
 	held_piece.play_place_audio()
 	held_piece = null # Piece is no longer being held
-
-	placing_piece = false;
+  
+	placing_piece = false
