@@ -11,7 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://cwb6bao8267c6" path="res://Art/UI/Exit_button_pressed_MiniSize.png" id="9_al1hc"]
 [ext_resource type="Texture2D" uid="uid://1s8yef5svbq1" path="res://Art/UI/Exit_button_Hover_MiniSize.png" id="10_5436c"]
 
-[node name="SettingsWindow" type="CanvasLayer"]
+[node name="SettingsWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ccik3")
 
 [node name="ColorRect" type="ColorRect" parent="."]

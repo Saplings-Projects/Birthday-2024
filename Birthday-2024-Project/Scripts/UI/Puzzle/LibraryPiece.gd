@@ -1,5 +1,5 @@
 class_name LibraryPiece
-extends TextureButton
+extends Button
 
 @export var puzzleUiManager : PuzzleUiManager
 

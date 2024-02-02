@@ -6,7 +6,7 @@ const MAX_WIDTH : int = 5 #doubled for negative
 const TILE_ATLAS_OPEN = Vector2i(1, 0)
 const TILE_ATLAS_OCCUPIED = Vector2i(2, 0)
 const TILE_ATLAS_CLOSED = Vector2i(0, 0)
-const TILE_ATLAS_CLOSED_VISIBLE = Vector2i(0, 1)
+const TILE_ATLAS_CLOSED_VISIBLE = Vector2i(2, 0)
 const SAFE_HEIGHT : int = 4 #doubled for negative
 const SAFE_WIDTH : int = 7 #doubled for negative
 

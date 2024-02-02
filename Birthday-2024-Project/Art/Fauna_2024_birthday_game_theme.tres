@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=35 format=3 uid="uid://cp1430xlncsx2"]
+[gd_resource type="Theme" load_steps=37 format=3 uid="uid://cp1430xlncsx2"]
 
 [ext_resource type="FontFile" uid="uid://b4qxnl5c1be6s" path="res://Fonts/Baskerville Bold.otf" id="1_4p44h"]
 [ext_resource type="Texture2D" uid="uid://b2pihf1eh3ak" path="res://Art/UI/Button_Hover_128.png" id="2_suw1a"]
@@ -159,6 +159,16 @@ texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqnbu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_edh6j"]
+texture = ExtResource("7_4rp1n")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+modulate_color = Color(0.894118, 0.823529, 0.627451, 1)
+
 [resource]
 Button/colors/font_color = Color(0.894118, 0.823529, 0.627451, 1)
 Button/colors/font_disabled_color = Color(1, 1, 1, 1)
@@ -218,3 +228,9 @@ TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_2ytwn")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_wh45t")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_0bnuw")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_0mhsy")
+TextEdit/colors/caret_color = Color(1, 1, 1, 1)
+TextEdit/colors/font_color = Color(1, 1, 1, 1)
+TextEdit/colors/font_placeholder_color = Color(1, 1, 1, 0.501961)
+TextEdit/fonts/font = ExtResource("1_4p44h")
+TextEdit/styles/focus = SubResource("StyleBoxEmpty_lqnbu")
+TextEdit/styles/normal = SubResource("StyleBoxTexture_edh6j")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=15 format=3 uid="uid://bkys348mactw2"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_4oukr"]
 [ext_resource type="Texture2D" uid="uid://ci3t2shlrxhc0" path="res://Art/GridTileSet.png" id="1_4qt1f"]
@@ -76,6 +76,15 @@ patch_margin_top = 250
 patch_margin_right = 250
 patch_margin_bottom = 250
 
+[node name="DeletionZone" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.196078)
+
 [node name="GridCenter" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -89,18 +98,6 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="DeletionZone" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1040.0
-offset_top = -460.0
-offset_right = 2960.0
-offset_bottom = 1540.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0, 0, 0.196078)
 
 [node name="GridMap" type="TileMap" parent="GridCenter" node_paths=PackedStringArray("gameManager")]
 position = Vector2(20, 20)
@@ -145,6 +142,9 @@ script = ExtResource("8_e6fwe")
 [node name="PuzzleUiManager" parent="." node_paths=PackedStringArray("controller") instance=ExtResource("8_40gag")]
 layout_mode = 1
 controller = NodePath("../GameManager")
+
+[node name="MainScreen" parent="PuzzleUiManager" index="0" node_paths=PackedStringArray("controller")]
+controller = NodePath("../../GameManager")
 
 [connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
 [connection signal="state_changed_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_state_changed"]
