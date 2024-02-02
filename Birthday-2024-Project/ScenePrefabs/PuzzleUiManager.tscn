@@ -1,30 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=15 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
+[ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleMainScreen.gd" id="2_fxt11"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiPlayState.gd" id="3_aj75g"]
+[ext_resource type="Texture2D" uid="uid://dyk1nom8mpmo8" path="res://Art/SharpSquareOutline.png" id="3_ukui8"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiWinState.gd" id="4_4ulfu"]
+[ext_resource type="PackedScene" uid="uid://dfrcd7gptl2uy" path="res://ScenePrefabs/Pieces/piece_2.tscn" id="4_boyuj"]
+[ext_resource type="Texture2D" uid="uid://dxiiv2creq6b1" path="res://Art/SquareRoundedOutline.png" id="4_p1ypx"]
+[ext_resource type="Script" path="res://Scripts/UI/Puzzle/LibraryPiece.gd" id="5_umaa4"]
+[ext_resource type="PackedScene" uid="uid://c3mov5g6xt14q" path="res://ScenePrefabs/Pieces/piece_11.tscn" id="7_vr3ym"]
+[ext_resource type="PackedScene" uid="uid://cwxcqlqwmrn3w" path="res://ScenePrefabs/Pieces/piece_12.tscn" id="8_68pvs"]
+[ext_resource type="FontFile" uid="uid://b4qxnl5c1be6s" path="res://Fonts/Baskerville Bold.otf" id="9_u6dli"]
+[ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiEditState.gd" id="17_c6px3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
 
-[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text")]
+[sub_resource type="LabelSettings" id="LabelSettings_n65yv"]
+font = ExtResource("9_u6dli")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[node name="PuzzleUiManager" type="CanvasLayer" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state")]
 script = ExtResource("1_e57yp")
 main_screen = NodePath("MainScreen")
 play_state = NodePath("States/PuzzleUiPlayState")
 win_state = NodePath("States/PuzzleUiWinState")
-context_button = NodePath("MainScreen/Panel/Level Buttons/Context Button")
-exit_button = NodePath("MainScreen/Panel/Utility Buttons/Exit Button")
-reset_button = NodePath("MainScreen/Panel/Level Buttons/Reset Button")
-back_button = NodePath("MainScreen/Panel/Level Buttons/Back Button")
-settings_button = NodePath("MainScreen/Panel/Utility Buttons/Settings Button")
-win_text = NodePath("MainScreen/Panel/Win Text")
+edit_state = NodePath("States/PuzzleUiEditState")
 
-[node name="MainScreen" type="Control" parent="."]
+[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text", "edit_button", "import_button", "export_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_fxt11")
+context_button = NodePath("Panel/Level Buttons/Context Button")
+exit_button = NodePath("Panel/Utility Buttons/Exit Button")
+reset_button = NodePath("Panel/Level Buttons/Reset Button")
+back_button = NodePath("Panel/Level Buttons/Back Button")
+settings_button = NodePath("Panel/Utility Buttons/Settings Button")
+win_text = NodePath("Panel/Win Text")
+edit_button = NodePath("Panel/Level Buttons/Edit Mode Button")
+import_button = NodePath("Panel/Level Buttons/Import Button")
+export_button = NodePath("Panel/Level Buttons/Export Button")
 
 [node name="Panel" type="Panel" parent="MainScreen"]
 layout_mode = 1
@@ -87,6 +106,29 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back"
 
+[node name="Edit Mode Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Edit"
+
+[node name="Import Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Import"
+
+[node name="Export Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Export"
+
 [node name="Win Text" type="Label" parent="MainScreen/Panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -103,6 +145,203 @@ grow_vertical = 2
 text = "WIN"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PieceLibrary" type="NinePatchRect" parent="MainScreen"]
+visible = false
+self_modulate = Color(0.717647, 0.776471, 0.494118, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 270.0
+grow_vertical = 2
+texture = ExtResource("3_ukui8")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainScreen/PieceLibrary"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="MainScreen/PieceLibrary/ScrollContainer"]
+layout_mode = 2
+vertical = true
+
+[node name="ColorRect" type="TextureButton" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(270, 270)
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("4_p1ypx")
+stretch_mode = 0
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="piece_2" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/ColorRect" instance=ExtResource("4_boyuj")]
+position = Vector2(135, 135)
+scale = Vector2(0.75, 0.75)
+
+[node name="ColorRect9" type="TextureButton" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(270, 270)
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("4_p1ypx")
+stretch_mode = 0
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="piece_11" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/ColorRect9" instance=ExtResource("7_vr3ym")]
+position = Vector2(135, 135)
+scale = Vector2(0.75, 0.75)
+
+[node name="ColorRect10" type="TextureButton" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(270, 270)
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("4_p1ypx")
+stretch_mode = 0
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="piece_12" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/ColorRect10" instance=ExtResource("8_68pvs")]
+position = Vector2(135, 135)
+scale = Vector2(0.75, 0.75)
+
+[node name="ExportPopup" type="ColorRect" parent="MainScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="ColorRect" type="ColorRect" parent="MainScreen/ExportPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.556863, 0.937255, 0.592157, 1)
+
+[node name="Label" type="Label" parent="MainScreen/ExportPopup/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Data Copied to Clipboard!"
+label_settings = SubResource("LabelSettings_n65yv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="MainScreen/ExportPopup/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -35.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "OK"
+
+[node name="ImportPopup" type="ColorRect" parent="MainScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="ColorRect" type="ColorRect" parent="MainScreen/ImportPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.556863, 0.937255, 0.592157, 1)
+
+[node name="Label" type="Label" parent="MainScreen/ImportPopup/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 75.0
+grow_horizontal = 2
+text = "Import Level Data"
+label_settings = SubResource("LabelSettings_n65yv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="MainScreen/ImportPopup/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -125.0
+offset_right = 250.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "paste level data here..."
+wrap_mode = 1
+autowrap_mode = 1
+
+[node name="Button" type="Button" parent="MainScreen/ImportPopup/ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 150.0
+grow_vertical = 0
+text = "Import"
+
+[node name="Button2" type="Button" parent="MainScreen/ImportPopup/ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Cancel"
 
 [node name="States" type="Control" parent="."]
 layout_mode = 3
@@ -121,3 +360,20 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_4ulfu")
+
+[node name="PuzzleUiEditState" type="Control" parent="States" node_paths=PackedStringArray("pieceLibrary", "importPopup", "inputField", "exportPopup")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("17_c6px3")
+pieceLibrary = NodePath("../../MainScreen/PieceLibrary")
+importPopup = NodePath("../../MainScreen/ImportPopup")
+inputField = NodePath("../../MainScreen/ImportPopup/ColorRect/TextEdit")
+exportPopup = NodePath("../../MainScreen/ExportPopup")
+
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/ColorRect" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/ColorRect" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/ColorRect9" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/ColorRect9" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/ColorRect10" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/ColorRect10" method="GrabPiece"]
+[connection signal="button_up" from="MainScreen/ExportPopup/ColorRect/Button" to="States/PuzzleUiEditState" method="_on_dismiss_export_popup"]
+[connection signal="button_up" from="MainScreen/ImportPopup/ColorRect/Button" to="States/PuzzleUiEditState" method="_on_confirm_import"]
+[connection signal="button_up" from="MainScreen/ImportPopup/ColorRect/Button2" to="States/PuzzleUiEditState" method="_on_cancel_import"]

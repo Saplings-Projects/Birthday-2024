@@ -17,6 +17,8 @@ func _on_back_clicked():
 func _on_skip_clicked():
 	_state.skip_puzzle()
 
+func _on_edit_mode_clicked():
+	_state.go_to_edit_mode()
 
 #region PuzzleUiState
 
@@ -31,7 +33,7 @@ func enter_state():
 	
 	_ui_manager.show_main_screen()
 	
-	var screen = _ui_manager
+	var screen = _ui_manager.main_screen
 	screen.show_hide_win_text(false)
 	screen.context_button.text = "Skip"
 	screen.context_button.button_up.connect(_on_skip_clicked)
@@ -39,17 +41,21 @@ func enter_state():
 	screen.reset_button.button_up.connect(_on_reset_clicked)
 	screen.back_button.button_up.connect(_on_back_clicked)
 	screen.settings_button.button_up.connect(_on_settings_clicked)
+	screen.edit_button.show()
+	screen.edit_button.text = "Edit"
+	screen.edit_button.button_up.connect(_on_edit_mode_clicked)
 
 
 func exit_state():
 	_state = null
 	
-	var screen = _ui_manager
+	var screen = _ui_manager.main_screen
 	screen.context_button.button_up.disconnect(_on_skip_clicked)
 	screen.exit_button.button_up.disconnect(_on_exit_clicked)
 	screen.reset_button.button_up.disconnect(_on_reset_clicked)
 	screen.back_button.button_up.disconnect(_on_back_clicked)
 	screen.settings_button.button_up.disconnect(_on_settings_clicked)
+	screen.edit_button.button_up.disconnect(_on_edit_mode_clicked)
 
 
 func update_state():

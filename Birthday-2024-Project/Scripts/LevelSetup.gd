@@ -14,7 +14,10 @@ func RetrieveLevelData() -> Array[PieceSetup]:
 		var json = JSON.new()
 		var error = json.parse(jsonData)
 		if(error == OK):
-			return json.data
+			var parsedData : Array[PieceSetup]
+			for pieceData in json.data:
+				parsedData.push_back(PieceSetup.JsonParse(pieceData))
+			return parsedData
 		else:
 			printerr("ERROR: Unable to parse json level data")
 			return []

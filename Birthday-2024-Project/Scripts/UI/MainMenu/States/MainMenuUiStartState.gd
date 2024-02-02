@@ -1,21 +1,19 @@
 class_name MainMenuUiStartState
 extends MainMenuUiState
 
-@export var myScreen : ScreenLogic
+var _state: MainMenuStartState
 
 
 func _on_credits_clicked():
-	# TODO: Implement function
-	print("go_to_credits is not implemented in MainMenuUiStartState")
+	_state.go_to_credits()
 
 
 func _on_exit_clicked():
-	myScreen.ExitApplication()
+	_state.exit_game()
 
 
 func _on_gallery_clicked():
-	# TODO: Implement function
-	print("go_to_gallery is not implemented in MainMenuUiStartState")
+	_state.go_to_gallery()
 
 
 func _on_play_clicked():
@@ -23,7 +21,7 @@ func _on_play_clicked():
 
 
 func _on_settings_clicked():
-	myScreen.screenManager.ShowSettings()
+	_state.show_settings()
 
 
 func _on_campaign_levels_clicked():
@@ -43,12 +41,20 @@ func _on_back_to_campaign_select_menu_clicked():
 
 
 func _on_level_selected():
-	myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), {})
+	_state.play()
 
 
 #region MainMenuUiState
 
 func enter_state():
+	var state = _controller.get_current_state()
+
+	if not state is MainMenuStartState:
+		printerr("Main menu is not in start state")
+		return
+
+	_state = state
+
 	_ui_manager.show_start_screen()
 	
 	var screen = _ui_manager.start_screen
@@ -60,6 +66,7 @@ func enter_state():
 
 
 func exit_state():	
+	_state = null
 	var screen = _ui_manager.start_screen
 	screen.credits_button.button_up.disconnect(_on_credits_clicked)
 	screen.exit_button.button_up.disconnect(_on_exit_clicked)

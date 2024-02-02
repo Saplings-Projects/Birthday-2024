@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccdq0btysgv1m"]
+
+[ext_resource type="Script" path="res://Scripts/PieceLogic.gd" id="1_pb07g"]
+[ext_resource type="Resource" uid="uid://b7cedwyqotmo4" path="res://Resources/Audio/Samples/DefaultFaunaSamples.tres" id="2_5dkss"]
+[ext_resource type="Resource" uid="uid://yo3alxsm0es1" path="res://Resources/Audio/Samples/RotatePieceSamples.tres" id="3_cuols"]
+[ext_resource type="Resource" uid="uid://dsc74j6rhmivm" path="res://Resources/Audio/Samples/PlacePieceSamples.tres" id="4_5x5m6"]
+[ext_resource type="Resource" uid="uid://c5pwc03ifyimd" path="res://Resources/Audio/Samples/GrabPieceSamples.tres" id="5_um730"]
+[ext_resource type="Texture2D" uid="uid://omq8wdisytjj" path="res://Art/GenericPieceArt/Asset 2.png" id="6_5tqvs"]
+
+[node name="base_piece" type="Node2D" node_paths=PackedStringArray("fauna_player", "sfx_player")]
+script = ExtResource("1_pb07g")
+pieceShape = "11
+11"
+fauna_player = NodePath("FaunaPlayer")
+sfx_player = NodePath("SfxPlayer")
+fauna_samples = ExtResource("2_5dkss")
+rotate_samples = ExtResource("3_cuols")
+place_samples = ExtResource("4_5x5m6")
+grab_samples = ExtResource("5_um730")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("6_5tqvs")
+
+[node name="FaunaPlayer" type="AudioStreamPlayer2D" parent="."]
+bus = &"Fauna"
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"

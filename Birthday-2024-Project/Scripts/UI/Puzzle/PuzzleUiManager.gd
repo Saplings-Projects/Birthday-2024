@@ -4,25 +4,12 @@ extends CanvasLayer
 @export var controller: GameManager
 
 @export_group("Screens")
-@export var main_screen: Control
+@export var main_screen: PuzzleMainScreen
 
 @export_group("States")
 @export var play_state: PuzzleUiPlayState
 @export var win_state: PuzzleUiWinState
-
-@export_group("UI Elements")
-@export var context_button: Button
-@export var exit_button: Button
-@export var reset_button: Button
-@export var back_button: Button
-@export var settings_button: Button
-@export var win_text: Label
-
-func show_hide_win_text(is_showing: bool):
-	if is_showing:
-		win_text.show()
-	else:
-		win_text.hide()
+@export var edit_state: PuzzleUiEditState
 
 var _current_state: PuzzleUiState
 
@@ -36,6 +23,8 @@ func on_puzzle_state_changed(state: GameState):
 		_switch_state(play_state)
 	elif state is GameWinState:
 		_switch_state(win_state)
+	elif state is GameEditState:
+		_switch_state(edit_state)
 	else:
 		printerr("Unhandled puzzle state in puzzle UI Manager", self)
 
@@ -75,6 +64,8 @@ func _ready():
 	play_state._ui_manager = self
 	win_state._controller = controller
 	win_state._ui_manager = self
+	edit_state._controller = controller
+	edit_state._ui_manager = self
 
 
 #endregion Node
