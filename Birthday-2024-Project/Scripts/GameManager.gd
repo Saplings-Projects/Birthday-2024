@@ -9,6 +9,7 @@ extends Node2D
 @export var held_piece_distance_speed: float
 @export var held_piece_settle_delay: float # The amount of time the held piece must remain motionless before settling
 @export var held_piece_settle_animation_duration: float # The amount of time the held piece takes to move to it's settled position
+@export var place_piece_delay: float # The amount of time user input is blocked while the piece is being placed
 
 @export_group("States")
 @export var empty_state: GameEmptyState
@@ -210,11 +211,15 @@ func _do_place_held_piece():
 	placing_piece = true
 	await get_tree().create_timer(.4).timeout	
 	
+	#Prevents rotation while the timer is running
+	placing_piece = true
+	await get_tree().create_timer(place_piece_delay).timeout	
+	
 	# Find the grid aligned position on screen to move the placed piece to
 	var held_piece_grid_origin : Vector2i = _get_held_piece_grid_origin()
 	var placed_position : Vector2 = _held_piece_placed_position(held_piece_grid_origin)
 	held_piece.place_piece(held_piece_grid_origin, placed_position)
 	held_piece.play_place_audio()
 	held_piece = null # Piece is no longer being held
-
+  
 	placing_piece = false
