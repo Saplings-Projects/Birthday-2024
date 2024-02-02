@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://b74u14u4necbw" path="res://Resources/Audio/Samples/SampleFaunaNoises.tres" id="4_r7kmp"]
 [ext_resource type="AudioStream" uid="uid://cu8cq2y34vvj7" path="res://Resources/Audio/tone_220hz.wav" id="5_3jstt"]
 [ext_resource type="Texture2D" uid="uid://bh6ef2hoft8cb" path="res://Art/UI/Textbox_QuarterSize.png" id="6_pxxqe"]
-[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/Fauna_2024_birthday_game_theme.tres" id="7_0mm3k"]
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="7_0mm3k"]
 [ext_resource type="Texture2D" uid="uid://b3pmval131k2g" path="res://Art/UI/Exit_button_normal_MiniSize.png" id="8_m4in0"]
 [ext_resource type="Texture2D" uid="uid://cwb6bao8267c6" path="res://Art/UI/Exit_button_pressed_MiniSize.png" id="9_al1hc"]
 [ext_resource type="Texture2D" uid="uid://1s8yef5svbq1" path="res://Art/UI/Exit_button_Hover_MiniSize.png" id="10_5436c"]

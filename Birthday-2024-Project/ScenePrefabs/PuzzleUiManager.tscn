@@ -1,14 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=17 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_0axgr"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleMainScreen.gd" id="2_fxt11"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiPlayState.gd" id="3_aj75g"]
-[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/Fauna_2024_birthday_game_theme.tres" id="3_g1rj7"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiWinState.gd" id="4_4ulfu"]
+[ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="4_3804r"]
 [ext_resource type="PackedScene" uid="uid://dfrcd7gptl2uy" path="res://ScenePrefabs/Pieces/piece_2.tscn" id="4_boyuj"]
-[ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/Settings_Button_theme.tres" id="4_nclfg"]
-[ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/Exit_Button_theme.tres" id="5_786mp"]
+[ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="5_kgic0"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/LibraryPiece.gd" id="5_umaa4"]
+[ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_pwysr"]
 [ext_resource type="PackedScene" uid="uid://c3mov5g6xt14q" path="res://ScenePrefabs/Pieces/piece_11.tscn" id="7_vr3ym"]
 [ext_resource type="PackedScene" uid="uid://cwxcqlqwmrn3w" path="res://ScenePrefabs/Pieces/piece_12.tscn" id="8_68pvs"]
 [ext_resource type="FontFile" uid="uid://b4qxnl5c1be6s" path="res://Fonts/Baskerville Bold.otf" id="9_u6dli"]
@@ -41,7 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_g1rj7")
+theme = ExtResource("2_0axgr")
 script = ExtResource("1_e57yp")
 main_screen = NodePath("Panel")
 play_state = NodePath("../States/PuzzleUiPlayState")
@@ -89,7 +90,7 @@ script = ExtResource("2_fxt11")
 context_button = NodePath("Level Buttons/Context Button")
 exit_button = NodePath("Exit Button")
 reset_button = NodePath("Level Buttons/Reset Button")
-back_button = NodePath("Level Buttons/Back Button")
+back_button = NodePath("Back Button")
 settings_button = NodePath("Settings Button")
 win_text = NodePath("../Fade")
 edit_button = NodePath("Level Buttons/Edit Mode Button")
@@ -101,24 +102,30 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -220.0
-offset_top = -160.0
-offset_right = -156.0
-offset_bottom = 160.0
+offset_left = -160.0
+offset_top = -200.0
+offset_right = -96.0
+offset_bottom = 120.0
 grow_horizontal = 0
-theme = ExtResource("4_nclfg")
+theme = ExtResource("4_3804r")
+
+[node name="Back Button" type="Button" parent="MainScreen/Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 130.0
+offset_right = 258.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_kgic0")
 
 [node name="Exit Button" type="Button" parent="MainScreen/Panel"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -112.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 112.0
-grow_horizontal = 0
-theme = ExtResource("5_786mp")
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 117.0
+offset_bottom = 117.0
+theme = ExtResource("6_pwysr")
 
 [node name="Level Buttons" type="HBoxContainer" parent="MainScreen/Panel"]
 layout_mode = 1
@@ -145,13 +152,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "<context>"
-
-[node name="Back Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Back"
 
 [node name="Edit Mode Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
 custom_minimum_size = Vector2(100, 100)

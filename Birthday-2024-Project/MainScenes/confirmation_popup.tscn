@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_hpcja"]
 [ext_resource type="Texture2D" uid="uid://bh6ef2hoft8cb" path="res://Art/UI/Textbox_QuarterSize.png" id="2_poh35"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ConfirmationPopupController.gd" id="3_m15bs"]
-[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/Fauna_2024_birthday_game_theme.tres" id="3_rg6pl"]
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="3_rg6pl"]
 
 [node name="ConfirmationPopup" type="Control"]
 layout_mode = 3
