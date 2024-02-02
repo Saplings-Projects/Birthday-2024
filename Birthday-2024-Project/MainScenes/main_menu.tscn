@@ -19,6 +19,7 @@ script = ExtResource("1_khlid")
 myScreen = NodePath("../../..")
 
 [node name="MainMenuUiManager" parent="." node_paths=PackedStringArray("controller", "screenLogic") instance=ExtResource("1_yk612")]
+layout_mode = 1
 controller = NodePath("../MainMenuController")
 screenLogic = NodePath("..")
 

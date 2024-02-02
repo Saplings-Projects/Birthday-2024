@@ -1,5 +1,5 @@
 class_name MainMenuUiManager
-extends CanvasLayer
+extends Control
 
 @export var controller: MainMenuController
 @export var screenLogic : ScreenLogic
