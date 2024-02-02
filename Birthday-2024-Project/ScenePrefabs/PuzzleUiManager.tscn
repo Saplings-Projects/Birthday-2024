@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=15 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_0axgr"]
@@ -12,15 +12,9 @@
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_pwysr"]
 [ext_resource type="PackedScene" uid="uid://c3mov5g6xt14q" path="res://ScenePrefabs/Pieces/piece_11.tscn" id="7_vr3ym"]
 [ext_resource type="PackedScene" uid="uid://cwxcqlqwmrn3w" path="res://ScenePrefabs/Pieces/piece_12.tscn" id="8_68pvs"]
-[ext_resource type="FontFile" uid="uid://b4qxnl5c1be6s" path="res://Fonts/Baskerville Bold.otf" id="9_u6dli"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiEditState.gd" id="17_c6px3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_n65yv"]
-font = ExtResource("9_u6dli")
-font_size = 30
-font_color = Color(0, 0, 0, 1)
 
 [node name="PuzzleUiManager" type="Control" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state")]
 layout_mode = 3
@@ -268,7 +262,6 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Level Data Copied to Clipboard!"
-label_settings = SubResource("LabelSettings_n65yv")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
