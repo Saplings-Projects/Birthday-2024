@@ -49,7 +49,6 @@ func exit_state():
 	screen.context_button.button_up.disconnect(_on_next_clicked)
 	screen.exit_button.button_up.disconnect(_on_exit_clicked)
 	screen.reset_button.button_up.disconnect(_on_reset_clicked)
-	screen.settings_button.button_up.disconnect(_on_settings_clicked)
 	screen.back_button.button_up.disconnect(_on_back_clicked)
 	screen.settings_button.button_up.disconnect(_on_settings_clicked)
 
