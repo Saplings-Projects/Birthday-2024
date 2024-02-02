@@ -32,14 +32,17 @@ texture_region_size = Vector2i(120, 120)
 tile_size = Vector2i(120, 120)
 sources/0 = SubResource("TileSetAtlasSource_5322b")
 
-[node name="MainLevel" type="Node2D"]
+[node name="MainLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_4oukr")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,7 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(960, 540)
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,7 +61,7 @@ texture = ExtResource("2_hsx3y")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="TextureRect2" type="NinePatchRect" parent="CanvasLayer/Control"]
+[node name="TextureRect2" type="NinePatchRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,20 +74,34 @@ patch_margin_top = 250
 patch_margin_right = 250
 patch_margin_bottom = 250
 
-[node name="GridMap" type="TileMap" parent="." node_paths=PackedStringArray("gameManager")]
-position = Vector2(960, 540)
+[node name="GridCenter" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridMap" type="TileMap" parent="GridCenter" node_paths=PackedStringArray("gameManager")]
+position = Vector2(20, 20)
 tile_set = SubResource("TileSet_ntt55")
 rendering_quadrant_size = 120
 format = 2
 layer_0/tile_data = PackedInt32Array(-131075, 0, 0, -65539, 0, 0, -65538, 0, 0, -196612, 0, 0, -131076, 0, 0, -65540, 0, 0, -4, 0, 0, 65532, 0, 0, 131068, 0, 0, 196604, 0, 0, 262140, 0, 0, -196611, 0, 0, -3, 0, 0, 65533, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 0, 0, -196610, 0, 0, -131074, 0, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, -196609, 0, 0, -131073, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, -262144, 0, 0, -196608, 0, 0, -131072, 0, 0, -65536, 0, 0, 0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, -262143, 0, 0, -196607, 0, 0, -131071, 0, 0, -65535, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, -262142, 0, 0, -196606, 0, 0, -131070, 0, 0, -65534, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, -262141, 0, 0, -196605, 0, 0, -131069, 0, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0)
 script = ExtResource("1_ywtrj")
-gameManager = NodePath("../GameManager")
+gameManager = NodePath("../../GameManager")
 gridCenterOffset = Vector2(960, 540)
 startingPositions = Array[Vector2i]([Vector2i(6, 0), Vector2i(-6, 0), Vector2i(6, 4), Vector2i(-6, 4), Vector2i(6, -4), Vector2i(-6, -4), Vector2i(0, 6), Vector2i(0, -6)])
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid", "myScreen", "empty_state", "play_state", "win_state")]
 script = ExtResource("4_1cxrf")
-grid = NodePath("../GridMap")
+grid = NodePath("../GridCenter/GridMap")
 myScreen = NodePath("..")
 held_piece_flat_speed = 1.0
 held_piece_distance_speed = 15.0
@@ -107,6 +124,7 @@ script = ExtResource("6_jk8at")
 script = ExtResource("7_bviq6")
 
 [node name="PuzzleUiManager" parent="." node_paths=PackedStringArray("controller") instance=ExtResource("8_40gag")]
+layout_mode = 1
 controller = NodePath("../GameManager")
 
 [connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
