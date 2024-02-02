@@ -8,7 +8,7 @@ extends Control
 @export var reset_button: Button
 @export var back_button: Button
 @export var settings_button: Button
-@export var win_text: Label
+@export var win_text: Control
 
 
 func show_hide_win_text(is_showing: bool):

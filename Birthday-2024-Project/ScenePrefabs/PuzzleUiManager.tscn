@@ -29,13 +29,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_g1rj7")
 script = ExtResource("2_fxt11")
 context_button = NodePath("Panel/Level Buttons/Context Button")
 exit_button = NodePath("Panel/Exit Button")
 reset_button = NodePath("Panel/Level Buttons/Reset Button")
 back_button = NodePath("Panel/Level Buttons/Back Button")
 settings_button = NodePath("Panel/Settings Button")
-win_text = NodePath("Panel/Win Text")
+win_text = NodePath("Fade")
+
+[node name="Fade" type="ColorRect" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.894118, 0.823529, 0.627451, 0.25098)
+
+[node name="Win Text" type="Label" parent="MainScreen/Fade"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -90.0
+offset_right = 162.5
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 144
+text = "WIN"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="MainScreen"]
 layout_mode = 1
@@ -44,7 +74,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_g1rj7")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8uao3")
 
 [node name="Settings Button" type="Button" parent="MainScreen/Panel"]
@@ -103,24 +132,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back"
-
-[node name="Win Text" type="Label" parent="MainScreen/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -162.5
-offset_top = -90.0
-offset_right = 162.5
-offset_bottom = 90.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 144
-text = "WIN"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="States" type="Control" parent="."]
 layout_mode = 3
