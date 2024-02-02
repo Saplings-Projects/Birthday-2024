@@ -9,6 +9,7 @@ extends Node2D
 @export var held_piece_distance_speed: float
 @export var held_piece_settle_delay: float # The amount of time the held piece must remain motionless before settling
 @export var held_piece_settle_animation_duration: float # The amount of time the held piece takes to move to it's settled position
+@export var place_piece_delay: float # The amount of time user input is blocked while the piece is being placed
 
 @export_group("States")
 @export var empty_state: GameEmptyState
@@ -25,6 +26,7 @@ var held_piece_settled: bool
 var previous_mouse_position: Vector2
 var remaining_settle_delay: float
 var overPieceLibrary : bool
+var placing_piece: bool #Track when _do_place_held_piece is running and prevent rotation
 
 var _can_interact: bool
 var _current_state: GameState
@@ -114,11 +116,12 @@ func _process(delta):
 	
 	if _current_state is GameEditState:
 		deletionZone.show()
-	
-	_do_held_piece_settle(delta)
-	_held_piece_towards_cursor(delta)
-	_rotate_held_piece()
-	_do_place_held_piece()
+
+	if !placing_piece:
+		_do_held_piece_settle(delta)
+		_held_piece_towards_cursor(delta)
+		_rotate_held_piece()
+		_do_place_held_piece()
 
 func _remove_occupied_cells(piece: PieceLogic):
 	if piece.current_placement_state != PieceLogic.PlacementStates.PLACED:
@@ -204,9 +207,15 @@ func _do_place_held_piece():
 		held_piece = null
 		return # Piece does not fit
 	
+	#Prevents rotation while the timer is running
+	placing_piece = true
+	await get_tree().create_timer(place_piece_delay).timeout	
+	
 	# Find the grid aligned position on screen to move the placed piece to
 	var held_piece_grid_origin : Vector2i = _get_held_piece_grid_origin()
 	var placed_position : Vector2 = _held_piece_placed_position(held_piece_grid_origin)
 	held_piece.place_piece(held_piece_grid_origin, placed_position)
 	held_piece.play_place_audio()
 	held_piece = null # Piece is no longer being held
+
+	placing_piece = false;
