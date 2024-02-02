@@ -5,18 +5,11 @@
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ConfirmationPopupController.gd" id="3_m15bs"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/Fauna_2024_birthday_game_theme.tres" id="3_rg6pl"]
 
-[node name="ConfirmationPopup" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ConfirmationPopup" type="CanvasLayer"]
 script = ExtResource("1_hpcja")
 clearScreenStack = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -111,6 +104,7 @@ theme_override_font_sizes/font_size = 32
 text = "Cancel"
 
 [node name="Controller" type="Control" parent="." node_paths=PackedStringArray("myScreen", "titleText", "bodyText", "confirmButtonText", "cancelButtonText")]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

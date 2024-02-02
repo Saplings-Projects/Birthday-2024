@@ -2,6 +2,7 @@ class_name GameManager
 extends Node2D
 
 @export var grid: GridLogic
+@export var deletionZone : Control
 @export var myScreen : ScreenLogic
 
 @export var held_piece_flat_speed: float
@@ -13,6 +14,7 @@ extends Node2D
 @export var empty_state: GameEmptyState
 @export var play_state: GamePlayState
 @export var win_state: GameWinState
+@export var edit_state: GameEditState
 
 @export_group("")
 #TODO: have this passed by the level selector in the future
@@ -22,8 +24,9 @@ var held_piece: PieceLogic
 var held_piece_settled: bool
 var previous_mouse_position: Vector2
 var remaining_settle_delay: float
+var overPieceLibrary : bool
 
-var _can_interact: bool # TODO: DELETE THIS WHEN NO LONGER NEEDED.
+var _can_interact: bool
 var _current_state: GameState
 var _is_inititialized: bool
 var _previous_state: GameState
@@ -47,6 +50,10 @@ func switch_to_win_state():
 	_switch_state(win_state)
 
 
+func switch_to_edit_state():
+	_switch_state(edit_state)
+
+
 func _switch_state(state: GameState):
 	_previous_state = _current_state
 	_current_state = state
@@ -62,13 +69,26 @@ func _switch_state(state: GameState):
 func on_piece_clicked(clicked_piece: PieceLogic):
 	if not _can_interact or held_piece != null:
 		return
+	if _current_state == play_state:
+		if clicked_piece.isBlocker:
+			return
 	
 	held_piece = clicked_piece
+	
+	# move to the forefront
+	grid.move_child(grid.get_child(held_piece.get_index()), -1)
 	
 	clicked_piece.play_grab_audio()
 	_remove_occupied_cells(held_piece)
 	_reset_settled()
 
+func spawn_piece(pieceID : String):
+	if not _can_interact or held_piece != null:
+		return
+		
+	held_piece = grid.LoadPiece(pieceID)
+	held_piece.global_position = get_global_mouse_position()
+	_reset_settled()
 
 func _ready():
 	# State
@@ -76,9 +96,8 @@ func _ready():
 	empty_state.set_manager(self)
 	play_state.set_manager(self)
 	win_state.set_manager(self)
-	
-	#TODO: Load level using Level Select
-	grid.LoadLevel(debug_setupData)
+	edit_state.set_manager(self)
+	overPieceLibrary = false
 
 func _process(delta):
 	if not _is_inititialized:
@@ -86,10 +105,16 @@ func _process(delta):
 		
 		initialized_event.emit()
 		switch_to_play_state()
+		#TODO: Load level using Level Select
+		grid.LoadLevel(debug_setupData)
 	
 	if not _can_interact or held_piece == null:
+		deletionZone.hide()
 		return
-		
+	
+	if _current_state is GameEditState:
+		deletionZone.show()
+	
 	_do_held_piece_settle(delta)
 	_held_piece_towards_cursor(delta)
 	_rotate_held_piece()
@@ -166,7 +191,16 @@ func _do_place_held_piece():
 	
 	# check if the grid can accommodate the held piece
 	if grid.CheckLegalToPlace(held_piece) == false:
-		held_piece.return_piece()
+		if _current_state is GameEditState:
+			if grid.CheckIfInDeletionZone(held_piece):
+				grid.DeletePiece(held_piece)
+			else:
+				held_piece.return_piece()
+		else:
+			# Moving the piece around like organizing a jigsaw puzzle
+			if grid.CheckIfOffGrid(held_piece) and grid.CheckIfOutsideSafeZone(held_piece) == false:
+				held_piece._SetReturnPoint()
+			held_piece.return_piece()
 		held_piece = null
 		return # Piece does not fit
 	

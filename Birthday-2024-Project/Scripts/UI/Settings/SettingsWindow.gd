@@ -1,5 +1,5 @@
 class_name SettingsWindow
-extends Control
+extends CanvasLayer
 
 
 var _gm: GameMaster
