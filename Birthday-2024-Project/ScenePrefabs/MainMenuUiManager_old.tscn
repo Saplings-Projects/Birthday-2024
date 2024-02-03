@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmeovm843kcpk"]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_wlwmk"]
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuStartScreen.gd" id="2_g0vv2"]
+[ext_resource type="PackedScene" uid="uid://4kktp1gwthbt" path="res://ScenePrefabs/CampaignSelectMenu.tscn" id="3_2jy5w"]
+[ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/CampaignLevelSelectMenu.tscn" id="4_f70yt"]
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="5_v0w4q"]
+
+[node name="MainMenuUiManager" type="CanvasLayer" node_paths=PackedStringArray("start_screen", "campaign_select", "campaign_levels", "start_state")]
+layer = 5
+script = ExtResource("1_wlwmk")
+start_screen = NodePath("StartScreen")
+campaign_select = NodePath("CampaignSelectMenu")
+campaign_levels = NodePath("CampaignLevelSelectMenu")
+start_state = NodePath("States/MainMenuUiStartState")
+
+[node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallery_button", "play_button", "settings_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_g0vv2")
+credits_button = NodePath("Panel/Navigation Buttons/Credits Button")
+exit_button = NodePath("Panel/Utility Buttons/Exit Button")
+gallery_button = NodePath("Panel/Navigation Buttons/Gallery Button")
+play_button = NodePath("Panel/Navigation Buttons/Play Button")
+settings_button = NodePath("Panel/Utility Buttons/Settings Button")
+
+[node name="Panel" type="Panel" parent="StartScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="StartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -251.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "FAUNA'S 2024
+BIRTHDAY"
+horizontal_alignment = 1
+
+[node name="Navigation Buttons" type="VBoxContainer" parent="StartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -432.0
+offset_right = 121.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Play Button" type="Button" parent="StartScreen/Panel/Navigation Buttons"]
+layout_mode = 2
+text = "Play"
+
+[node name="Gallery Button" type="Button" parent="StartScreen/Panel/Navigation Buttons"]
+layout_mode = 2
+text = "Gallery"
+
+[node name="Credits Button" type="Button" parent="StartScreen/Panel/Navigation Buttons"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Utility Buttons" type="HBoxContainer" parent="StartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -111.0
+offset_bottom = 70.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="Settings Button" type="Button" parent="StartScreen/Panel/Utility Buttons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit Button" type="Button" parent="StartScreen/Panel/Utility Buttons"]
+layout_mode = 2
+text = "Exit"
+
+[node name="CampaignSelectMenu" parent="." instance=ExtResource("3_2jy5w")]
+visible = false
+
+[node name="CampaignLevelSelectMenu" parent="." instance=ExtResource("4_f70yt")]
+visible = false
+
+[node name="States" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenuUiStartState" type="Control" parent="States"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_v0w4q")
+
+[connection signal="back_to_main_menu" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_back_to_main_menu_clicked"]
+[connection signal="exit_game" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_exit_clicked"]
+[connection signal="open_campaign_levels" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_campaign_levels_clicked"]
+[connection signal="open_saplings_levels" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_saplings_levels_clicked"]
+[connection signal="open_settings_window" from="CampaignSelectMenu" to="States/MainMenuUiStartState" method="_on_settings_clicked"]
+[connection signal="back_to_campaign_select_menu" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_back_to_campaign_select_menu_clicked"]
+[connection signal="exit_game" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_exit_clicked"]
+[connection signal="open_settings_window" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_settings_clicked"]
+[connection signal="play" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_level_selected"]

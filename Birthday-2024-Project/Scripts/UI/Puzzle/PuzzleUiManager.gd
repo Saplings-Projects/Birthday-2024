@@ -1,5 +1,5 @@
 class_name PuzzleUiManager
-extends CanvasLayer
+extends Control
 
 @export var controller: GameManager
 

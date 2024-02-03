@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://clkf6xmmherj8"]
+
+[ext_resource type="Texture2D" uid="uid://brgkpsm5nrg3y" path="res://Art/UI/EXITGame_Button_Hover.png" id="1_766dn"]
+[ext_resource type="Texture2D" uid="uid://cb3ok87x01w1t" path="res://Art/UI/EXITGame_Button_normal.png" id="2_ghi0e"]
+[ext_resource type="Texture2D" uid="uid://owwawwg55rtq" path="res://Art/UI/EXITGame_Button_Pressed.png" id="3_wfpwr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sovk4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w7ci1"]
+texture = ExtResource("1_766dn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k0fhw"]
+texture = ExtResource("2_ghi0e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xaya1"]
+texture = ExtResource("3_wfpwr")
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_sovk4")
+Button/styles/hover = SubResource("StyleBoxTexture_w7ci1")
+Button/styles/normal = SubResource("StyleBoxTexture_k0fhw")
+Button/styles/pressed = SubResource("StyleBoxTexture_xaya1")

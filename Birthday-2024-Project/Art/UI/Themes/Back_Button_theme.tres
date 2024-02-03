@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://ddnhn5ud1sj7x"]
+
+[ext_resource type="Texture2D" uid="uid://bwy2sshyuu1s5" path="res://Art/UI/Back_Button_Hover_half.png" id="1_s5enu"]
+[ext_resource type="Texture2D" uid="uid://bxe6gggcpml1g" path="res://Art/UI/Back_Button_normal_half.png" id="2_s7vqc"]
+[ext_resource type="Texture2D" uid="uid://cm5h5mc7mrci1" path="res://Art/UI/Back_Button_Pressed_half.png" id="3_mi7rg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhdp3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7xp4h"]
+texture = ExtResource("1_s5enu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qhmrp"]
+texture = ExtResource("2_s7vqc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cro2b"]
+texture = ExtResource("3_mi7rg")
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_jhdp3")
+Button/styles/hover = SubResource("StyleBoxTexture_7xp4h")
+Button/styles/normal = SubResource("StyleBoxTexture_qhmrp")
+Button/styles/pressed = SubResource("StyleBoxTexture_cro2b")

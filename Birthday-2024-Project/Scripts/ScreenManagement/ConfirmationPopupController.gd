@@ -10,8 +10,8 @@ const CANCEL_KEY : String = "CONFIRMATION_POPUP_CANCEL"
 @export var myScreen : ScreenLogic
 @export var titleText : Label
 @export var bodyText : Label
-@export var confirmButtonText : Label
-@export var cancelButtonText : Label
+@export var confirmButtonText : Button
+@export var cancelButtonText : Button
 
 func onScreenEnter():
 	titleText.text = myScreen.transitionData[TITLE_KEY] as String

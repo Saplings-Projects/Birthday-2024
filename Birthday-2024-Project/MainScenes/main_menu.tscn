@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://8wblerx67ki"]
+[gd_scene load_steps=4 format=3 uid="uid://de71hxh02pinp"]
 
 [ext_resource type="PackedScene" uid="uid://djitpkrdyydxc" path="res://ScenePrefabs/MainMenuController.tscn" id="1_2fpfx"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_khlid"]
 [ext_resource type="PackedScene" uid="uid://gfva2owqvlhw" path="res://ScenePrefabs/MainMenuUiManager.tscn" id="1_yk612"]
 
-[node name="MainMenu" type="Node2D"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_khlid")
 
 [node name="MainMenuController" parent="." instance=ExtResource("1_2fpfx")]
@@ -13,6 +19,7 @@ script = ExtResource("1_khlid")
 myScreen = NodePath("../../..")
 
 [node name="MainMenuUiManager" parent="." node_paths=PackedStringArray("controller", "screenLogic") instance=ExtResource("1_yk612")]
+layout_mode = 1
 controller = NodePath("../MainMenuController")
 screenLogic = NodePath("..")
 
