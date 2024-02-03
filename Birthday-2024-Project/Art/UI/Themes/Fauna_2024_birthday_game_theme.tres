@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=37 format=3 uid="uid://cp1430xlncsx2"]
+[gd_resource type="Theme" load_steps=38 format=3 uid="uid://cp1430xlncsx2"]
 
 [ext_resource type="FontFile" uid="uid://b4qxnl5c1be6s" path="res://Fonts/Baskerville Bold.otf" id="1_4p44h"]
 [ext_resource type="Texture2D" uid="uid://b2pihf1eh3ak" path="res://Art/UI/Button_Hover_128.png" id="2_suw1a"]
+[ext_resource type="Texture2D" uid="uid://brxer7ld41we" path="res://Art/UI/Button_normal_128.png" id="4_ukw72"]
 [ext_resource type="Texture2D" uid="uid://chis21ju8h5gj" path="res://Art/UI/Button_Pressed_128.png" id="4_um0av"]
 [ext_resource type="Texture2D" uid="uid://bjs0eqwf8gtal" path="res://Art/UI/Grabber_normal_64.png" id="5_8ln57"]
 [ext_resource type="Texture2D" uid="uid://cuscg7k8es2l8" path="res://Art/UI/Grabber_selected_64.png" id="6_3twc8"]
@@ -30,7 +31,7 @@ texture_margin_right = 40.0
 texture_margin_bottom = 40.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f2y4p"]
-texture = ExtResource("2_suw1a")
+texture = ExtResource("4_ukw72")
 texture_margin_left = 40.0
 texture_margin_top = 40.0
 texture_margin_right = 40.0
@@ -99,7 +100,7 @@ texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wrjwq"]
-texture = ExtResource("6_t62wd")
+texture = ExtResource("7_4rp1n")
 texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
@@ -153,7 +154,7 @@ texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mhsy"]
-texture = ExtResource("6_t62wd")
+texture = ExtResource("7_4rp1n")
 texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0

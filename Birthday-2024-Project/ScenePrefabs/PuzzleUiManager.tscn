@@ -115,10 +115,14 @@ theme = ExtResource("5_kgic0")
 
 [node name="Exit Button" type="Button" parent="MainScreen/Panel"]
 layout_mode = 1
-offset_left = 15.0
-offset_top = 15.0
-offset_right = 117.0
-offset_bottom = 117.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = -200.0
+offset_right = -26.0
+offset_bottom = 120.0
+grow_horizontal = 0
 theme = ExtResource("6_pwysr")
 
 [node name="Level Buttons" type="HBoxContainer" parent="MainScreen/Panel"]

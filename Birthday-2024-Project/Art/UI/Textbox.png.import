@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://le6d8xr45cor"
-path="res://.godot/imported/Fauna_2024_colour palette.png-505246a5018590bc20c6f3833932aa6e.ctex"
+uid="uid://c137614qag6kt"
+path="res://.godot/imported/Textbox.png-46e3704e6b6a5ffcafb7e8fac0b681b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Fauna_2024_colour palette.png"
-dest_files=["res://.godot/imported/Fauna_2024_colour palette.png-505246a5018590bc20c6f3833932aa6e.ctex"]
+source_file="res://Art/UI/Textbox.png"
+dest_files=["res://.godot/imported/Textbox.png-46e3704e6b6a5ffcafb7e8fac0b681b1.ctex"]
 
 [params]
 

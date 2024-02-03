@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byj7vv184qs16"
-path="res://.godot/imported/Undo arrow.png-324d11c9a52cf135816007f813e02d38.ctex"
+uid="uid://owwawwg55rtq"
+path="res://.godot/imported/EXITGame_Button_Pressed.png-1b378bdaa8eb39f370fd9932056cff70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/Undo arrow.png"
-dest_files=["res://.godot/imported/Undo arrow.png-324d11c9a52cf135816007f813e02d38.ctex"]
+source_file="res://Art/UI/EXITGame_Button_Pressed.png"
+dest_files=["res://.godot/imported/EXITGame_Button_Pressed.png-1b378bdaa8eb39f370fd9932056cff70.ctex"]
 
 [params]
 

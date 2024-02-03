@@ -113,10 +113,10 @@ func _process(delta):
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()
 		return
-    
+	
 	if _current_state is GameEditState:
 		deletionZone.show()
-    
+	
 	if !placing_piece:
 		_do_held_piece_settle(delta)
 		_held_piece_towards_cursor(delta)

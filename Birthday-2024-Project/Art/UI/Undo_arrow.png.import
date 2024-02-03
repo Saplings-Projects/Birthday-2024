@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kvb3erkcb6sc"
-path="res://.godot/imported/Commuinty_pressed.png-b9e6a75d9a7eaa405fb3cd987458cef3.ctex"
+uid="uid://byj7vv184qs16"
+path="res://.godot/imported/Undo_arrow.png-d248385925d3d7231e3ba32448a63ba4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/Commuinty_pressed.png"
-dest_files=["res://.godot/imported/Commuinty_pressed.png-b9e6a75d9a7eaa405fb3cd987458cef3.ctex"]
+source_file="res://Art/UI/Undo_arrow.png"
+dest_files=["res://.godot/imported/Undo_arrow.png-d248385925d3d7231e3ba32448a63ba4.ctex"]
 
 [params]
 

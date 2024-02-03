@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oitqfuqhb8as"
-path="res://.godot/imported/radio_unchecked.svg-30c8395544e5b7dff135f5885b2c0e9e.ctex"
+uid="uid://brgkpsm5nrg3y"
+path="res://.godot/imported/EXITGame_Button_Hover.png-936846b316339633f01601ae93392b25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/radio_unchecked.svg"
-dest_files=["res://.godot/imported/radio_unchecked.svg-30c8395544e5b7dff135f5885b2c0e9e.ctex"]
+source_file="res://Art/UI/EXITGame_Button_Hover.png"
+dest_files=["res://.godot/imported/EXITGame_Button_Hover.png-936846b316339633f01601ae93392b25.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
