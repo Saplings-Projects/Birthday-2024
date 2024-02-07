@@ -12,7 +12,7 @@ func ScreenEnter():
 	pass
 
 func GoToMainMenu():
-	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {})
+	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, true)
 
 func _process(delta):
 	if _active == false:
