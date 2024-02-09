@@ -76,6 +76,31 @@ patch_margin_top = 250
 patch_margin_right = 250
 patch_margin_bottom = 250
 
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -345.0
+offset_top = -446.0
+offset_right = -55.0
+offset_bottom = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.572549, 0.47451, 0.235294, 1)
+theme_override_font_sizes/font_size = 20
+text = "Controls:
+LMB DRAG to grab & move pieces
+RMB or AD to rotate held piece
+Editing:
+Drag pieces from the library onto the grid
+Hovering over library shows piece descriptions
+Drag pieces off the grid into the red to delete"
+vertical_alignment = 2
+autowrap_mode = 3
+
 [node name="DeletionZone" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
