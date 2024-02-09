@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://qgaf0pv44vcf"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_oopcw"]
+[ext_resource type="Texture2D" uid="uid://c5lhgx5if6tvr" path="res://Art/GenericPieceArt/happyfauna.png" id="2_ks62q"]
+
+[node name="happy_fauna" instance=ExtResource("1_oopcw")]
+pieceShape = "1
+1"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ks62q")

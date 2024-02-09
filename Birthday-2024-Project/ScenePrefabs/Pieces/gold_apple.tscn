@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://5yjn5jx20rmk"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_u42iy"]
+[ext_resource type="Texture2D" uid="uid://cdfuvu4fpykb3" path="res://Art/GenericPieceArt/goldapple.png" id="2_wcl4d"]
+
+[node name="gold_apple" instance=ExtResource("1_u42iy")]
+pieceShape = "1"
+isBlocker = true
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_wcl4d")
