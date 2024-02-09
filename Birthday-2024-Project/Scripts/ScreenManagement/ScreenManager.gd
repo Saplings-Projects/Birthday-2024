@@ -48,7 +48,7 @@ func ShowConfirmationPopup(title : String, body : String, confirm : String = "Co
 	GoToScreen(load("res://MainScenes/confirmation_popup.tscn"), popupParameters, false)
 
 func _ready():
-	GoToScreen(load("res://MainScenes/splash_screen.tscn"), {}, false)
+	GoToScreen(load("res://MainScenes/splash_screen.tscn"), {}, true)
 
 func _closeTopScreen():
 	var oldScreen : Node = _screenStack.pop_back()
