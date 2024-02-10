@@ -17,6 +17,10 @@ script = ExtResource("1_tp6rq")
 
 [node name="CampaignSelectUiManager" parent="." instance=ExtResource("2_0c5se")]
 layout_mode = 1
+controller = NodePath("../CampaignSelectController")
+screenLogic = NodePath("..")
 
 [connection signal="initialized_event" from="CampaignSelectController" to="CampaignSelectUiManager" method="on_campaign_select_initialized"]
 [connection signal="state_changed_event" from="CampaignSelectController" to="CampaignSelectUiManager" method="on_campaign_select_state_changed"]
+
+[editable path="CampaignSelectController"]
