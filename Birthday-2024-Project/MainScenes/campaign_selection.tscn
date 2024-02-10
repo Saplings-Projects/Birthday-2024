@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvxs6val4gfwt"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_tp6rq"]
+[ext_resource type="PackedScene" uid="uid://4kktp1gwthbt" path="res://ScenePrefabs/CampaignSelectMenu.tscn" id="2_0c5se"]
+
+[node name="CampaignSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tp6rq")
+
+[node name="CampaignSelectMenu" parent="." instance=ExtResource("2_0c5se")]
+layout_mode = 1

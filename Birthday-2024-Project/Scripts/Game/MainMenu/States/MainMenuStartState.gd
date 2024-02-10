@@ -20,8 +20,8 @@ func show_settings():
 	myScreen.screenManager.ShowSettings()
 
 
-func play():
-	myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), {})
+func show_campaign_selection():
+	myScreen.screenManager.ShowCampaignSelection()
 
 
 #region MainMenuState

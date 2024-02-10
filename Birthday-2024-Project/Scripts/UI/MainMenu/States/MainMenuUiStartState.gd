@@ -17,7 +17,7 @@ func _on_gallery_clicked():
 
 
 func _on_play_clicked():
-	_ui_manager.show_campaign_select()
+	_state.show_campaign_selection()
 
 
 func _on_settings_clicked():

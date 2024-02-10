@@ -23,19 +23,10 @@ func on_main_menu_state_changed(state: MainMenuState):
 	else:
 		printerr("Unhandled main menu state in main menu UI Manager")
 
-func show_settings_window():
-	screenLogic.screenManager.ShowSettings()
-
 
 func show_start_screen():
 	_disable_all_screans()
 	start_screen.show()
-
-
-func show_campaign_select():
-	_disable_all_screans()
-	campaign_select.show()
-
 
 func show_campaign_levels():
 	_disable_all_screans()
