@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgmbftbsc100g"]
+[gd_scene load_steps=5 format=3 uid="uid://cgmbftbsc100g"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_rg7jv"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/SplashScreenController.gd" id="2_7ejyb"]
-[ext_resource type="Texture2D" uid="uid://cy5r7j1tqfeud" path="res://Art/WhiteTriangle.png" id="2_dxllm"]
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="3_3edqt"]
+[ext_resource type="Texture2D" uid="uid://b68mtr0xwf053" path="res://Art/saplinggamestudio.png" id="4_ilokc"]
 
 [node name="SplashScreen" type="CanvasLayer"]
 script = ExtResource("1_rg7jv")
@@ -14,6 +15,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_7ejyb")
 myScreen = NodePath("..")
+splashDuration = 10.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -29,29 +31,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -561.5
+offset_top = -340.0
+offset_right = 561.5
+offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "This is a hololive fan game"
+theme = ExtResource("3_3edqt")
+text = "This is a level editor for an upcoming Hololive fan game project.
+We are just fans and in no way affiliated with Hololive or Cover corporation.
+
+If you want to submit your level and/or a message to the project,
+you can find out more on the Fauna's Forest fan discord!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -90.0
-offset_top = -24.0
-offset_right = 90.0
-offset_bottom = 156.0
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -553.0
+offset_right = 248.0
 grow_horizontal = 2
-grow_vertical = 2
-rotation = -1.5708
-texture = ExtResource("2_dxllm")
+grow_vertical = 0
+texture = ExtResource("4_ilokc")
 
 [connection signal="ScreenEnter" from="." to="Controller" method="ScreenEnter"]

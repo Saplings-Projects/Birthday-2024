@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://5yjn5jx20rmk"]
+
+[ext_resource type="PackedScene" uid="uid://ccdq0btysgv1m" path="res://ScenePrefabs/Pieces/base_piece.tscn" id="1_u42iy"]
+[ext_resource type="Texture2D" uid="uid://csbmmbti02bpt" path="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksGoldenAppleBlockerNoBg.png" id="2_6u7kx"]
+
+[node name="gold_apple" instance=ExtResource("1_u42iy")]
+pieceShape = "1"
+isBlocker = true
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-180, 180)
+texture = ExtResource("2_6u7kx")
