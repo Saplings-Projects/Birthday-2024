@@ -90,9 +90,9 @@ _data = {
 script = ExtResource("1_karo4")
 popupRoot = NodePath("PopupRoot")
 
-[node name="InitLayer" type="CanvasLayer" parent="."]
+[node name="BaseLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="InitLayer"]
+[node name="ColorRect" type="ColorRect" parent="BaseLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
