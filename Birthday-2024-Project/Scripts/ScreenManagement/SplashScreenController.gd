@@ -21,3 +21,7 @@ func _process(delta):
 	_timer -= delta
 	if _timer < 0:
 		GoToMainMenu()
+
+func _input(event):
+	if event.is_action_pressed("GrabPiece"):
+		_timer = 0

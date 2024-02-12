@@ -26,6 +26,10 @@ func GoToScreen(screen : PackedScene, data : Dictionary, doTransition: bool):
 	if(doTransition): 
 		transition.play("fade_in")
 		await transition.animation_finished
+
+func IsTopScreen(screen : ScreenLogic) -> bool:
+	var topScreen : ScreenLogic = _screenStack.back() as ScreenLogic
+	return screen == topScreen
 	
 func CloseTopScreen(data : Dictionary):
 	if _screenStack.size() == 1:

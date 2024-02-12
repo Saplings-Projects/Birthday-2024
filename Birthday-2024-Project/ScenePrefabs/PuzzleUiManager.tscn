@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=35 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_0axgr"]
@@ -6,13 +6,33 @@
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiPlayState.gd" id="3_aj75g"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiWinState.gd" id="4_4ulfu"]
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="4_3804r"]
-[ext_resource type="PackedScene" uid="uid://dfrcd7gptl2uy" path="res://ScenePrefabs/Pieces/piece_2.tscn" id="4_boyuj"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="5_kgic0"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/LibraryPiece.gd" id="5_umaa4"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_pwysr"]
-[ext_resource type="PackedScene" uid="uid://c3mov5g6xt14q" path="res://ScenePrefabs/Pieces/piece_11.tscn" id="7_vr3ym"]
-[ext_resource type="PackedScene" uid="uid://cwxcqlqwmrn3w" path="res://ScenePrefabs/Pieces/piece_12.tscn" id="8_68pvs"]
+[ext_resource type="PackedScene" uid="uid://k7op5iqng1g3" path="res://ScenePrefabs/Pieces/casual_fauna.tscn" id="8_7xd20"]
+[ext_resource type="PackedScene" uid="uid://do712r6j516kq" path="res://ScenePrefabs/Pieces/casual_fauna_wave.tscn" id="9_46j5t"]
+[ext_resource type="PackedScene" uid="uid://lsby14fmqnqx" path="res://ScenePrefabs/Pieces/cowkini_fauna.tscn" id="10_qy6ph"]
+[ext_resource type="PackedScene" uid="uid://cdlhh56v1qobi" path="res://ScenePrefabs/Pieces/ele_fauna.tscn" id="11_drf77"]
+[ext_resource type="PackedScene" uid="uid://ddhymvh5q6hoy" path="res://ScenePrefabs/Pieces/faunashi.tscn" id="12_da6up"]
+[ext_resource type="PackedScene" uid="uid://r4yd455agjgx" path="res://ScenePrefabs/Pieces/faunya.tscn" id="13_32upj"]
+[ext_resource type="PackedScene" uid="uid://baib15bjrkayn" path="res://ScenePrefabs/Pieces/hitman_fauna.tscn" id="14_o47i1"]
+[ext_resource type="PackedScene" uid="uid://difm5n532kkm5" path="res://ScenePrefabs/Pieces/hungry_fauna.tscn" id="15_f4tr3"]
+[ext_resource type="PackedScene" uid="uid://ck50aqlumrne0" path="res://ScenePrefabs/Pieces/idol_fauna.tscn" id="16_assat"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiEditState.gd" id="17_c6px3"]
+[ext_resource type="PackedScene" uid="uid://dgas6i2w16oks" path="res://ScenePrefabs/Pieces/kimono_fauna.tscn" id="17_pvu4a"]
+[ext_resource type="PackedScene" uid="uid://drv78mes8008c" path="res://ScenePrefabs/Pieces/matcha_1.tscn" id="18_m3bly"]
+[ext_resource type="PackedScene" uid="uid://phpjmox7w72m" path="res://ScenePrefabs/Pieces/matcha_2.tscn" id="19_e241v"]
+[ext_resource type="PackedScene" uid="uid://di7ymuk56q8d" path="res://ScenePrefabs/Pieces/mitts_fauna.tscn" id="20_iet1h"]
+[ext_resource type="PackedScene" uid="uid://bxi32das560mk" path="res://ScenePrefabs/Pieces/nemu_fauna.tscn" id="21_sxpgb"]
+[ext_resource type="PackedScene" uid="uid://d0tvukmuwmhjr" path="res://ScenePrefabs/Pieces/original_fauna.tscn" id="22_2ted2"]
+[ext_resource type="PackedScene" uid="uid://co44a00v7r6ma" path="res://ScenePrefabs/Pieces/smol_fauna.tscn" id="23_pq2e6"]
+[ext_resource type="PackedScene" uid="uid://f135covfq5n3" path="res://ScenePrefabs/Pieces/smol_faunya.tscn" id="24_uwwca"]
+[ext_resource type="PackedScene" uid="uid://dw50giad0r2m3" path="res://ScenePrefabs/Pieces/snail.tscn" id="25_txqha"]
+[ext_resource type="PackedScene" uid="uid://kehoouuydau5" path="res://ScenePrefabs/Pieces/wide_fauna.tscn" id="26_gjtm0"]
+[ext_resource type="PackedScene" uid="uid://ctrg6ts07xcf5" path="res://ScenePrefabs/Pieces/wrench.tscn" id="27_2038e"]
+[ext_resource type="PackedScene" uid="uid://5yjn5jx20rmk" path="res://ScenePrefabs/Pieces/gold_apple.tscn" id="28_kcfq2"]
+[ext_resource type="PackedScene" uid="uid://qgaf0pv44vcf" path="res://ScenePrefabs/Pieces/happy_fauna.tscn" id="29_13ob1"]
+[ext_resource type="PackedScene" uid="uid://b38fclggnxgnu" path="res://ScenePrefabs/Pieces/maid_fauna.tscn" id="30_6d7gv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
 
@@ -201,32 +221,354 @@ vertical = true
 [node name="LibraryPiece" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
+tooltip_text = "Casual Fauna
+Beloved kirin in her casual
+outfit ready to stream :3"
+mouse_filter = 1
+keep_pressed_outside = true
 script = ExtResource("5_umaa4")
 puzzleUiManager = NodePath("../../../../..")
 
-[node name="piece_2" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece" instance=ExtResource("4_boyuj")]
+[node name="casual_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece" instance=ExtResource("8_7xd20")]
 position = Vector2(120, 120)
-scale = Vector2(0.625, 0.625)
+scale = Vector2(0.4, 0.4)
 
 [node name="LibraryPiece2" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
+tooltip_text = "Waving Casual Fauna
+“Konfauna! I’m Ceres Fauna
+from Hololive Promise.”"
+mouse_filter = 1
+keep_pressed_outside = true
 script = ExtResource("5_umaa4")
 puzzleUiManager = NodePath("../../../../..")
 
-[node name="piece_11" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece2" instance=ExtResource("7_vr3ym")]
+[node name="casual_fauna_wave" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece2" instance=ExtResource("9_46j5t")]
 position = Vector2(120, 120)
-scale = Vector2(0.625, 0.625)
+scale = Vector2(0.4, 0.4)
 
 [node name="LibraryPiece3" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
+tooltip_text = "Cowkini Fauna
+Cowkini? Check. Safety cap? Check.
+Matcha latte? Che… Aaaaa… Uuuuu…"
+mouse_filter = 1
+keep_pressed_outside = true
 script = ExtResource("5_umaa4")
 puzzleUiManager = NodePath("../../../../..")
 
-[node name="piece_12" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece3" instance=ExtResource("8_68pvs")]
+[node name="cowkini_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece3" instance=ExtResource("10_qy6ph")]
 position = Vector2(120, 120)
-scale = Vector2(0.625, 0.625)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece4" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "EleFauna
+“Prrrt. Prrrt. Toot~”"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="ele_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece4" instance=ExtResource("11_drf77")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece5" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Faunashi
+Faunashi-sensei in her golden pot and,
+with her irreplaceable hammer,
+will lead Baeruto and Moomsuke to 
+the greatest heights of Getting Over It."
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="faunashi" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece5" instance=ExtResource("12_da6up")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece6" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Casual Faunya
+Is it a cat? Is it Casual Fauna?
+It’s actually both! And it seems she likes
+this golden apple she has in her paws."
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="faunya" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece6" instance=ExtResource("13_32upj")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece7" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Agent Fauna7
+Agent Fauna7 refuses to use guns
+as bananas work just as well.
+It’s not because of her aim."
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="hitman_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece7" instance=ExtResource("14_o47i1")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece8" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Hungry Faunya
+What’s the matter, Faunya?
+Why are you looking at me like that?"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="hungry_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece8" instance=ExtResource("15_f4tr3")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece9" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Idol Fauna
+Tensai tekina, Idol-sama!"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="idol_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece9" instance=ExtResource("16_assat")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece10" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Kimono Fauna
+“Okaerinasaimase, Goshujin-sama!
+Your… your… your maid is here.
+It was me all along. Aaaaaaa!
+What do you think? What do you think?”"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="kimono_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece10" instance=ExtResource("17_pvu4a")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece13" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Fauna Mitts
+These are not oversized oven mitts.
+These are oversized horn warmers."
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="mitts_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece13" instance=ExtResource("20_iet1h")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece14" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Nemu Fauna
+Oh, the bliss and comfiness of a Nemu onesie.
+These ears can put EleFauna’s ears to shame."
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="nemu_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece14" instance=ExtResource("21_sxpgb")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece15" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Original Fauna
+“The Keeper of Nature, a druidic kirin who
+appeared on the internet to win over humans
+and convince them to return to nature.”"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="original_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece15" instance=ExtResource("22_2ted2")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece16" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Smol Fauna
+It's time for hide and seek game!
+Will you help this sapling find Smol Fauna
+among these bushes and columns?"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="smol_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece16" instance=ExtResource("23_pq2e6")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece17" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Smol Faunya
+Hanya? Is it matcha latte? Watch out, Smol Faunya
+will smack it and spill matcha all over the floor!"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="smol_faunya" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece17" instance=ExtResource("24_uwwca")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece19" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Wide Fauna
+The first glimpse of 3D Fauna was not
+what we expected but wide head and
+big horns will forever be in our minds."
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="wide_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece19" instance=ExtResource("26_gjtm0")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece23" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Maid Fauna
+Ready to serve you a delicious meal of her
+own concoction. Mac-n-cheese milkshake!"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="maid_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece23" instance=ExtResource("30_6d7gv")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece22" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Happy Fauna
+Cute little kirin with a cute little smile :>"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="happy_fauna" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece22" instance=ExtResource("29_13ob1")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece18" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Snail - Blocker
+Just like any cat, Snail is a liquid and
+can end up in strange poses."
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="snail" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece18" instance=ExtResource("25_txqha")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece11" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Big Matcha - Blocker
+Matcha latte, one of the favorites of Fauna.
+And look there’s cute sapling art on it!"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="matcha_1" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece11" instance=ExtResource("18_m3bly")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece12" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Matcha Set - Blocker
+Even more matcha? What will I do with all
+this powder? One glass is not enough."
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="matcha_2" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" instance=ExtResource("19_e241v")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece20" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Wrench - Blocker
+A trusty companion for Agent Fauna7.
+It can do everything as long as it’s a distraction
+or smacking the head of an unsuspecting victim."
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="wrench" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" instance=ExtResource("27_2038e")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece21" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Golden Apple - Blocker
+The fabled golden apple in possession of Keeper
+of Nature. One bite is enough to cure any ailment."
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../..")
+
+[node name="gold_apple" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" instance=ExtResource("28_kcfq2")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
 
 [node name="ExportPopup" type="ColorRect" parent="MainScreen"]
 visible = false
@@ -405,6 +747,26 @@ exportPopup = NodePath("../../MainScreen/ExportPopup")
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece2" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece2" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece3" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece3" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece4" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece4" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece5" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece5" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece6" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece6" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece7" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece7" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece8" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece8" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece9" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece9" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece10" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece10" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece13" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece13" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece14" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece14" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece15" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece15" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece16" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece16" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece17" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece17" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece19" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece19" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece23" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece23" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece22" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece22" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece18" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece18" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece11" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece11" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" method="GrabPiece"]
 [connection signal="button_up" from="MainScreen/ExportPopup/Panel/Button" to="States/PuzzleUiEditState" method="_on_dismiss_export_popup"]
 [connection signal="button_up" from="MainScreen/ImportPopup/Panel/Button" to="States/PuzzleUiEditState" method="_on_confirm_import"]
 [connection signal="button_up" from="MainScreen/ImportPopup/Panel/Button2" to="States/PuzzleUiEditState" method="_on_cancel_import"]
