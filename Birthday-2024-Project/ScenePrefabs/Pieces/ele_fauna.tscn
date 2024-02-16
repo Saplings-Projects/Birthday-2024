@@ -4,7 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://dquxc6isrs5w6" path="res://Art/OfficialPieceArt/FaunaBdayProject2024EleFaunaNoBg.png" id="2_bg64v"]
 
 [node name="ele_fauna" instance=ExtResource("1_y0eqw")]
-
+pieceShape = "111
+111
+011
+011"
+    
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(-60, 0)
 texture = ExtResource("2_bg64v")
