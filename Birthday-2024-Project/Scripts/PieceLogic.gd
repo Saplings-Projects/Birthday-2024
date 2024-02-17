@@ -42,8 +42,8 @@ var _last_grid_rotation : RotationStates = RotationStates.DEG_0
 var _cellStartingWidth : int
 var _cellStartingHeight : int
 
-func on_clicked():
-	game_manager.on_piece_clicked(self)
+func on_clicked(clicked_cell : int):
+	game_manager.on_piece_clicked(self, clicked_cell)
 
 func on_piece_held():
 	current_placement_state = PlacementStates.HELD
@@ -202,6 +202,13 @@ func place_piece(grid_position: Vector2i, move_to: Vector2):
 	current_placement_state = PlacementStates.PLACED
 	movement_tween_to(move_to, PLACED_ANIMATION_DURATION)
 	
+func target_vector(target_pos: Vector2, target_cell_index: int) -> Vector2:
+	var target_cell : Vector2i = _current_cells[target_cell_index]
+	var tile_size = levelGridReference.tile_set.tile_size
+	var cell_pos : Vector2 = GetOriginCellPosition() + Vector2(target_cell.x * tile_size.x, target_cell.y * tile_size.y)
+	# Returns vector that moves the center of the targeted cell to the target position
+	return target_pos - cell_pos
+	
 ###############################################################################
 
 func _initialize():
@@ -252,18 +259,19 @@ func _SetReturnPoint():
 func _input(event):
 	if event.is_action_pressed("GrabPiece"):
 		# Check if the user has clicked on the piece's exact shape
-		if _check_shape_clicked():
+		var clicked_cell : int = _check_shape_clicked()
+		if clicked_cell != -1:
 			print("Piece shape clicked: " + name)
-			on_clicked()
+			on_clicked(clicked_cell)
 
-func _check_shape_clicked() -> bool:
+func _check_shape_clicked() -> int:
 	var relative_click_position : Vector2 = get_global_mouse_position() - GetOriginCellPosition()
 	for i in range(_current_cells.size()):
 		var cell00 : Vector2 = Vector2((_current_cells[i].x - 0.5) * levelGridReference.tile_set.tile_size.x, (_current_cells[i].y - 0.5) * levelGridReference.tile_set.tile_size.y)
 		var cell11 : Vector2 = cell00 + Vector2(levelGridReference.tile_set.tile_size.x, levelGridReference.tile_set.tile_size.y)
 		if relative_click_position.x >= cell00.x and relative_click_position.x <= cell11.x and relative_click_position.y >= cell00.y and relative_click_position.y < cell11.y: # I really wish gdscript let you break statements across lines
-			return true # Mouse is inside one of the piece's cells
-	return false
+			return i # Mouse is inside one of the piece's cells
+	return -1
 	
 func _start_rotation_tween():
 	# Create the tween to animate the rotation
