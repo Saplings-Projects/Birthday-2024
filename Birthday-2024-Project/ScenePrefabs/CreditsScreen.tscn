@@ -1,0 +1,147 @@
+[gd_scene load_steps=8 format=3 uid="uid://catc2xlo8s4pi"]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu/CreditsScreen.gd" id="1_6as2f"]
+[ext_resource type="Texture2D" uid="uid://bjqluj600yhja" path="res://Art/Map_ResolutionClearance.png" id="2_5thx4"]
+[ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_hr80e"]
+[ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="4_nowih"]
+[ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="5_0lgxm"]
+[ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_qycl5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmrw0"]
+
+[node name="CreditsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6as2f")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5thx4")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect2" type="NinePatchRect" parent="Panel2"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_hr80e")
+patch_margin_left = 300
+patch_margin_top = 250
+patch_margin_right = 250
+patch_margin_bottom = 250
+
+[node name="CreditsText" type="RichTextLabel" parent="Panel2"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+bbcode_enabled = true
+text = "
+
+
+
+
+
+[center]Credits[/center]
+
+
+Developers
+Name here
+Name here
+Name here
+
+Testing
+Name here
+Name here
+Name here
+
+Music
+Name here
+Name here
+Name here
+
+Art
+Name here
+Name here
+Name here
+
+Sounds
+Name here
+Name here
+Name here
+"
+fit_content = true
+scroll_active = false
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rmrw0")
+
+[node name="Settings Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1760.0
+offset_top = -200.0
+offset_right = 1824.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("4_nowih")
+
+[node name="Back Button" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 130.0
+offset_right = 258.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_0lgxm")
+
+[node name="Exit Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1830.0
+offset_top = -200.0
+offset_right = 1894.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("6_qycl5")
+
+[node name="DeletionZone" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.196078)
+
+[connection signal="button_up" from="Panel/Settings Button" to="." method="_on_settings_button_button_up"]
+[connection signal="button_up" from="Panel/Back Button" to="." method="_on_back_button_button_up"]
+[connection signal="button_up" from="Panel/Exit Button" to="." method="_on_exit_button_button_up"]
