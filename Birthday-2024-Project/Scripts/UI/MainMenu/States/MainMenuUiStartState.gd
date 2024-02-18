@@ -5,7 +5,7 @@ var _state: MainMenuStartState
 
 
 func _on_credits_clicked():
-	_state.go_to_credits()
+	_ui_manager.show_credits_screen()
 
 
 func _on_exit_clicked():

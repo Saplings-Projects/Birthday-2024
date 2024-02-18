@@ -10,7 +10,6 @@ func exit_game():
 func go_to_credits():
 	# TODO: Implement function
 	print("go_to_credits is not implemented in MainMenuStartState")
-	myScreen.GoToScreen(load("res://ScenePrefabs/CreditsScreen.tscn"), {}, true)
 
 
 func go_to_gallery():

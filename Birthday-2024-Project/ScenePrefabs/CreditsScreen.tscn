@@ -11,13 +11,23 @@
 
 [node name="CreditsScreen" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_6as2f")
 
-[node name="Panel2" type="Panel" parent="."]
-layout_mode = 0
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
 
-[node name="TextureRect" type="TextureRect" parent="Panel2"]
+[node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,67 +38,18 @@ texture = ExtResource("2_5thx4")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="TextureRect2" type="NinePatchRect" parent="Panel2"]
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="TextureRect2" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_hr80e")
 patch_margin_left = 300
 patch_margin_top = 250
 patch_margin_right = 250
 patch_margin_bottom = 250
-
-[node name="CreditsText" type="RichTextLabel" parent="Panel2"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_right = 1920.0
-offset_bottom = 1080.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-bbcode_enabled = true
-text = "
-
-
-
-
-
-[center]Credits[/center]
-
-
-Developers
-Name here
-Name here
-Name here
-
-Testing
-Name here
-Name here
-Name here
-
-Music
-Name here
-Name here
-Name here
-
-Art
-Name here
-Name here
-Name here
-
-Sounds
-Name here
-Name here
-Name here
-"
-fit_content = true
-scroll_active = false
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -104,9 +65,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1760.0
+offset_left = -160.0
 offset_top = -200.0
-offset_right = 1824.0
+offset_right = -96.0
 offset_bottom = 120.0
 grow_horizontal = 0
 theme = ExtResource("4_nowih")
@@ -126,21 +87,122 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1830.0
+offset_left = -90.0
 offset_top = -200.0
-offset_right = 1894.0
+offset_right = -26.0
 offset_bottom = 120.0
 grow_horizontal = 0
 theme = ExtResource("6_qycl5")
 
-[node name="DeletionZone" type="ColorRect" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0, 0, 0.196078)
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="LeftColumn" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Developers" type="RichTextLabel" parent="HBoxContainer/LeftColumn"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][font_size=30]Developers[/font_size]
+Dev Name1
+Dev Name2
+Dev Name3
+Really Long Dev Name to see how it wraps
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Art" type="RichTextLabel" parent="HBoxContainer/LeftColumn"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][font_size=30]Art[/font_size]
+Art Name1
+Art Name2
+Art Name3
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="CenterColumn" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Credits" type="RichTextLabel" parent="HBoxContainer/CenterColumn"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Credits[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="RightColumn" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Testing" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][font_size=30]Testing[/font_size]
+Tester Name1
+Tester Name2
+Tester Name3
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Music" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][font_size=30]Music[/font_size]
+Musician Name1
+Musician Name2
+Musician Name3
+[/center]"
+fit_content = true
+scroll_active = false
 
 [connection signal="button_up" from="Panel/Settings Button" to="." method="_on_settings_button_button_up"]
 [connection signal="button_up" from="Panel/Back Button" to="." method="_on_back_button_button_up"]
