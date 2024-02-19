@@ -21,7 +21,7 @@ func show_settings():
 
 
 func play():
-	myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), {})
+	myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), {}, true)
 
 
 #region MainMenuState
