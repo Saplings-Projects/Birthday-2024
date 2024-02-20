@@ -51,7 +51,7 @@ func on_piece_held():
 
 
 func play_grab_audio():
-	_play_sfx_sample(fauna_samples.get_random_sample())
+	_play_sfx_sample(grab_samples.get_random_sample())
 
 
 func play_place_audio():

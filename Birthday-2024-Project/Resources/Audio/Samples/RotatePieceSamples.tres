@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="AudioSamples" load_steps=4 format=3 uid="uid://yo3alxsm0es1"]
+[gd_resource type="Resource" script_class="AudioSamples" load_steps=5 format=3 uid="uid://yo3alxsm0es1"]
 
-[ext_resource type="AudioStream" uid="uid://cvlcvjragqnqr" path="res://Resources/Audio/SFX/Fauna_oh_goodness_uuu.wav" id="1_wwaci"]
-[ext_resource type="AudioStream" uid="uid://bpyi7xm3yah2n" path="res://Resources/Audio/SFX/Fauna_what_da_heck.wav" id="2_u1pbg"]
+[ext_resource type="AudioStream" uid="uid://dsw0700yfnq3" path="res://Resources/Audio/SFX/Fauna_oh_goodness_uuu.wav" id="1_wwaci"]
+[ext_resource type="AudioStream" uid="uid://chv4m26p6xw2n" path="res://Resources/Audio/SFX/Fauna_what_da_heck.wav" id="2_u1pbg"]
 [ext_resource type="Script" path="res://Scripts/Model/AudioSamples.gd" id="2_vsmoa"]
+[ext_resource type="AudioStream" uid="uid://238j331ougsr" path="res://Resources/Audio/SFX/Oi.wav" id="3_hv5wr"]
 
 [resource]
 script = ExtResource("2_vsmoa")
-samples = Array[AudioStream]([ExtResource("1_wwaci"), ExtResource("2_u1pbg")])
+samples = Array[AudioStream]([ExtResource("1_wwaci"), ExtResource("2_u1pbg"), ExtResource("3_hv5wr")])

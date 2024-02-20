@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://c6r15bv5aukmn"
-path="res://.godot/imported/Sneeze.wav-57dd670a1586d45cbf8eeaa79415e0b0.sample"
+uid="uid://dj1074kks4wjk"
+path="res://.godot/imported/Hic_uuuu.wav-f3977bb544813c54e9d31e3a08d7de9f.sample"
 
 [deps]
 
-source_file="res://Resources/Audio/SFX/Sneeze.wav"
-dest_files=["res://.godot/imported/Sneeze.wav-57dd670a1586d45cbf8eeaa79415e0b0.sample"]
+source_file="res://Resources/Audio/SFX/Hic_uuuu.wav"
+dest_files=["res://.godot/imported/Hic_uuuu.wav-f3977bb544813c54e9d31e3a08d7de9f.sample"]
 
 [params]
 
