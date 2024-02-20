@@ -13,7 +13,6 @@ const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to
 @export var isBlocker : bool
 @export var fauna_player: AudioStreamPlayer2D
 @export var sfx_player: AudioStreamPlayer2D
-@export var fauna_samples: AudioSamples
 @export var rotate_samples: AudioSamples
 @export var place_samples: AudioSamples
 @export var grab_samples: AudioSamples
