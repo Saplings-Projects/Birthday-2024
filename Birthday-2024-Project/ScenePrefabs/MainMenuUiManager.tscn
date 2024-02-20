@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=4 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuStartScreen.gd" id="2_n7aum"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="3_vnjds"]
-[ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/CampaignLevelSelectMenu.tscn" id="4_o3atr"]
 
-[node name="MainMenuUiManager" type="Control" node_paths=PackedStringArray("start_screen", "campaign_levels", "start_state")]
+[node name="MainMenuUiManager" type="Control" node_paths=PackedStringArray("start_screen", "start_state")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lofx7")
 start_screen = NodePath("StartScreen")
-campaign_levels = NodePath("CampaignLevelSelectMenu")
 start_state = NodePath("States/MainMenuUiStartState")
 
 [node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallery_button", "play_button", "settings_button")]
@@ -97,10 +95,6 @@ text = "Settings"
 layout_mode = 2
 text = "Exit"
 
-[node name="CampaignLevelSelectMenu" parent="." instance=ExtResource("4_o3atr")]
-visible = false
-layout_mode = 1
-
 [node name="States" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -112,8 +106,3 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_vnjds")
-
-[connection signal="back_to_campaign_select_menu" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_back_to_campaign_select_menu_clicked"]
-[connection signal="exit_game" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_exit_clicked"]
-[connection signal="open_settings_window" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_settings_clicked"]
-[connection signal="play" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_level_selected"]

@@ -24,26 +24,6 @@ func _on_settings_clicked():
 	_state.show_settings()
 
 
-func _on_campaign_levels_clicked():
-	_ui_manager.show_campaign_levels()
-
-
-func _on_saplings_levels_clicked():
-	print("_on_saplings_levels_clicked is not implemented in MainMenuUiStartState")
-
-
-func _on_back_to_main_menu_clicked():
-	_ui_manager.show_start_screen()
-
-
-func _on_back_to_campaign_select_menu_clicked():
-	_ui_manager.show_campaign_select()
-
-
-func _on_level_selected():
-	_state.play()
-
-
 #region MainMenuUiState
 
 func enter_state():

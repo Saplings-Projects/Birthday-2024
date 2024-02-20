@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvxs6val4gfwt"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_tp6rq"]
-[ext_resource type="PackedScene" uid="uid://4kktp1gwthbt" path="res://ScenePrefabs/CampaignSelectUiManager.tscn" id="2_0c5se"]
-[ext_resource type="PackedScene" uid="uid://dhwl5p33jvcd2" path="res://ScenePrefabs/CampaignSelectController.tscn" id="3_mxj51"]
+[ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/CampaignSelectUiManager.gd" id="2_1asfj"]
+[ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/CampaignSelectStartScreen.gd" id="3_k52jr"]
 
 [node name="CampaignSelection" type="Control"]
 layout_mode = 3
@@ -13,14 +13,118 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tp6rq")
 
-[node name="CampaignSelectController" parent="." instance=ExtResource("3_mxj51")]
-
-[node name="CampaignSelectUiManager" parent="." instance=ExtResource("2_0c5se")]
+[node name="CampaignSelectUiManager" type="Control" parent="." node_paths=PackedStringArray("screenLogic", "start_screen")]
 layout_mode = 1
-controller = NodePath("../CampaignSelectController")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_1asfj")
 screenLogic = NodePath("..")
+start_screen = NodePath("CampaignSelectStartScreen")
 
-[connection signal="initialized_event" from="CampaignSelectController" to="CampaignSelectUiManager" method="on_campaign_select_initialized"]
-[connection signal="state_changed_event" from="CampaignSelectController" to="CampaignSelectUiManager" method="on_campaign_select_state_changed"]
+[node name="CampaignSelectStartScreen" type="Control" parent="CampaignSelectUiManager" node_paths=PackedStringArray("back_button", "exit_button", "settings_button", "campaign_button", "saplings_button")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_k52jr")
+back_button = NodePath("Panel/All Buttons/Back Button Container/Back Button")
+exit_button = NodePath("Panel/Utility Buttons/Exit Button")
+settings_button = NodePath("Panel/Utility Buttons/Settings Button")
+campaign_button = NodePath("Panel/All Buttons/Campaign Select ButtonsContainer/Campaign Levels")
+saplings_button = NodePath("Panel/All Buttons/Campaign Select ButtonsContainer/Sapling\'s Levels")
 
-[editable path="CampaignSelectController"]
+[node name="Panel" type="Panel" parent="CampaignSelectUiManager/CampaignSelectStartScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -251.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "FAUNA'S 2024
+BIRTHDAY"
+horizontal_alignment = 1
+
+[node name="Utility Buttons" type="HBoxContainer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 73.0
+grow_horizontal = 2
+alignment = 2
+
+[node name="Settings Button" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/Utility Buttons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit Button" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/Utility Buttons"]
+layout_mode = 2
+text = "Exit"
+
+[node name="All Buttons" type="VBoxContainer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -432.0
+offset_right = 450.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Campaign Select ButtonsContainer" type="HBoxContainer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/All Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Campaign Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/All Buttons/Campaign Select ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Campaign Levels"
+
+[node name="Separator" type="MarginContainer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/All Buttons/Campaign Select ButtonsContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Sapling\'s Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/All Buttons/Campaign Select ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sapling's Levels"
+
+[node name="Back Button Container" type="HBoxContainer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/All Buttons"]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+
+[node name="LeftMargin" type="MarginContainer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/All Buttons/Back Button Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Back Button" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/All Buttons/Back Button Container"]
+custom_minimum_size = Vector2(242, 0)
+layout_mode = 2
+text = "Back"
+
+[node name="Right Margin" type="MarginContainer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/All Buttons/Back Button Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bottom Margin" type="MarginContainer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/All Buttons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2

@@ -1,44 +1,31 @@
 class_name CampaignSelectUiManager
 extends Control
 
-@export var controller: CampaignSelectController
 @export var screenLogic : ScreenLogic
+@export var start_screen: CampaignSelectStartScreen
 
-@export_group("States")
-@export var start_state: CampaignSelectUiStartState
+func _on_exit_clicked():
+	screenLogic.ExitApplication()
 
-var _current_state: CampaignSelectUiState
+func _on_settings_clicked():
+	screenLogic.screenManager.ShowSettings()
 
-func on_campaign_select_initialized():
-	pass
+func _on_campaign_clicked():
+	screenLogic.screenManager.GoToScreen(load("res://MainScenes/campaign_level_select.tscn"), {})
 
-func on_campaign_select_state_changed(state: CampaignSelectState):
-	if state is CampaignSelectStartState:
-		_switch_state(start_state)
-	else:
-		printerr("Unhandled campaign select state in campaign select UI Manager")
+func _on_saplings_clicked():
+	screenLogic.screenManager.GoToScreen(load("res://MainScenes/sapling_level_select.tscn"), {})
 
-
-func _switch_state(state: CampaignSelectUiState):
-	var previous_state = _current_state
-	_current_state = state
+func _on_back_clicked():
+	screenLogic.GoToScreen(load("res://MainScenes/main_menu.tscn"), {})
 	
-	if previous_state != null:
-		previous_state.exit_state()
-	
-	_current_state.enter_state()
-
-
 #region Node
 
-func _process(delta):		
-	if _current_state != null:
-		_current_state.update_state()
-
-
 func _ready():
-	start_state._controller = controller
-	start_state._ui_manager = self
-
+	start_screen.exit_button.button_up.connect(_on_exit_clicked)
+	start_screen.settings_button.button_up.connect(_on_settings_clicked)
+	start_screen.campaign_button.button_up.connect(_on_campaign_clicked)
+	start_screen.saplings_button.button_up.connect(_on_saplings_clicked)
+	start_screen.back_button.button_up.connect(_on_back_clicked)
 
 #endregion None

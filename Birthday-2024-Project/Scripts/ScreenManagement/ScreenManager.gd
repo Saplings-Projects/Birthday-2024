@@ -32,10 +32,6 @@ func CloseTopScreen(data : Dictionary):
 func ShowSettings():
 	GoToScreen(load("res://MainScenes/settings_popup.tscn"), {})
 
-
-func ShowCampaignSelection():
-	GoToScreen(load("res://MainScenes/campaign_selection.tscn"), {})
-
 func ShowConfirmationPopup(title : String, body : String, confirm : String = "Confirm", cancel : String = "Cancel"):
 	var popupParameters = {}
 	popupParameters[ConfirmationPopupController.TITLE_KEY] = title
