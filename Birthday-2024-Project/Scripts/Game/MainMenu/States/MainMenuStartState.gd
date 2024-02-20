@@ -15,6 +15,11 @@ func go_to_credits():
 func go_to_gallery():
 	# TODO: Implement function
 	print("go_to_gallery is not implemented in MainMenuStartState")
+
+
+func go_to_messages():
+	# TODO: Implement function
+	print("go_to_messages is not implemented in MainMenuStartState")
 	
 func show_settings():
 	myScreen.screenManager.ShowSettings()
