@@ -4,15 +4,9 @@ extends Node2D
 
 var _prefs: AudioPreferences
 
-const _FAUNA_BUS: String = "Fauna"
 const _MASTER_BUS: String = "Master"
 const _MUSIC_BUS: String = "Music"
 const _SFX_BUS: String = "SFX"
-
-
-func set_fauna_volume(value: float):
-	_prefs.fauna = value
-	_set_bus_volume(value, _FAUNA_BUS)
 
 
 func set_master_volume(value: float):
@@ -34,7 +28,6 @@ func _apply_prefs():
 	set_master_volume(_prefs.master)
 	set_music_volume(_prefs.music)
 	set_sfx_volume(_prefs.sfx)
-	set_fauna_volume(_prefs.fauna)
 
 
 func _set_bus_volume(value: float, bus_name: String):

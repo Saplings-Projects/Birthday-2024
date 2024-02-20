@@ -124,7 +124,7 @@ text = "Screen Resolution"
 [node name="ResolutionOptions" type="OptionButton" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container/ResolutionContainer"]
 layout_mode = 2
 
-[node name="Audio" type="TabBar" parent="Panel/ThemeHolder/TabContainer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "fauna_slider", "music_sample_player", "sfx_sample_player", "fauna_sample_player")]
+[node name="Audio" type="TabBar" parent="Panel/ThemeHolder/TabContainer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "music_sample_player", "sfx_sample_player")]
 visible = false
 custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
@@ -132,12 +132,9 @@ script = ExtResource("3_jxrfi")
 master_slider = NodePath("MarginContainer/Settings Container/Master Container/Master Slider")
 music_slider = NodePath("MarginContainer/Settings Container/Music Container/Music Slider")
 sfx_slider = NodePath("MarginContainer/Settings Container/SFX Container/SFX Slider")
-fauna_slider = NodePath("MarginContainer/Settings Container/Fauna Container/Fauna Slider")
 music_sample_player = NodePath("../../MusicSamplePlayer")
 sfx_sample_player = NodePath("../../SfxSamplePlayer")
-fauna_sample_player = NodePath("../../FaunaSamplePlayer")
 sfx_samples = ExtResource("4_r7kmp")
-fauna_samples = ExtResource("4_r7kmp")
 tone_sample = ExtResource("5_3jstt")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/ThemeHolder/TabContainer/Audio"]
@@ -192,20 +189,6 @@ layout_mode = 2
 text = "SFX"
 
 [node name="SFX Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/SFX Container"]
-layout_mode = 2
-min_value = 0.001
-max_value = 1.0
-step = 0.01
-value = 0.501
-
-[node name="Fauna Container" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
-layout_mode = 2
-text = "Fauna"
-
-[node name="Fauna Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
 layout_mode = 2
 min_value = 0.001
 max_value = 1.0

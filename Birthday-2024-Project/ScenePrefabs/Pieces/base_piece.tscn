@@ -11,7 +11,7 @@
 script = ExtResource("1_pb07g")
 pieceShape = "11
 11"
-fauna_player = NodePath("FaunaPlayer")
+fauna_player = NodePath("")
 sfx_player = NodePath("SfxPlayer")
 fauna_samples = ExtResource("2_5dkss")
 rotate_samples = ExtResource("3_cuols")
@@ -20,9 +20,6 @@ grab_samples = ExtResource("5_um730")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("6_5tqvs")
-
-[node name="FaunaPlayer" type="AudioStreamPlayer2D" parent="."]
-bus = &"Fauna"
 
 [node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
 bus = &"SFX"
