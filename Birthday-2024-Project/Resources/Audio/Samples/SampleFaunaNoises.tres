@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="AudioSamples" load_steps=10 format=3 uid="uid://b74u14u4necbw"]
 
 [ext_resource type="Script" path="res://Scripts/Model/AudioSamples.gd" id="1_dcgb6"]
-[ext_resource type="AudioStream" uid="uid://ol4op1k817t2" path="res://Resources/Audio/SFX/Faunas/Fauna_ghost_noise.wav" id="1_y4jk7"]
-[ext_resource type="AudioStream" uid="uid://b6pswo5i1fnk3" path="res://Resources/Audio/SFX/Faunas/Fauna_I_.wav" id="2_moqg5"]
-[ext_resource type="AudioStream" uid="uid://d0b1yb1wy7xr2" path="res://Resources/Audio/SFX/Faunas/Fauna_pew_pew.wav" id="3_mc55f"]
-[ext_resource type="AudioStream" uid="uid://c2oqb53dvbptr" path="res://Resources/Audio/SFX/Faunas/Fauna_sneeze.wav" id="4_6x5kg"]
-[ext_resource type="AudioStream" uid="uid://cvlcvjragqnqr" path="res://Resources/Audio/SFX/Faunas/Fauna_oh_goodness_uuu.wav" id="5_sh78e"]
-[ext_resource type="AudioStream" uid="uid://cnnv01hbrq4qo" path="res://Resources/Audio/SFX/Faunas/Fauna_2_wives.wav" id="6_0fwv4"]
-[ext_resource type="AudioStream" uid="uid://m66tidk37mou" path="res://Resources/Audio/SFX/Faunas/Fauna_7_wives.wav" id="7_v6220"]
-[ext_resource type="AudioStream" uid="uid://dk5sjcnkboimq" path="res://Resources/Audio/SFX/Faunas/Fauna_boom.wav" id="8_yskcy"]
+[ext_resource type="AudioStream" uid="uid://ol4op1k817t2" path="res://Resources/Audio/SFX/Fauna_ghost_noise.wav" id="1_y4jk7"]
+[ext_resource type="AudioStream" uid="uid://b6pswo5i1fnk3" path="res://Resources/Audio/SFX/Fauna_I_.wav" id="2_moqg5"]
+[ext_resource type="AudioStream" uid="uid://d0b1yb1wy7xr2" path="res://Resources/Audio/SFX/Fauna_pew_pew.wav" id="3_mc55f"]
+[ext_resource type="AudioStream" uid="uid://c2oqb53dvbptr" path="res://Resources/Audio/SFX/Fauna_sneeze.wav" id="4_6x5kg"]
+[ext_resource type="AudioStream" uid="uid://cvlcvjragqnqr" path="res://Resources/Audio/SFX/Fauna_oh_goodness_uuu.wav" id="5_sh78e"]
+[ext_resource type="AudioStream" uid="uid://cnnv01hbrq4qo" path="res://Resources/Audio/SFX/Fauna_2_wives.wav" id="6_0fwv4"]
+[ext_resource type="AudioStream" uid="uid://m66tidk37mou" path="res://Resources/Audio/SFX/Fauna_7_wives.wav" id="7_v6220"]
+[ext_resource type="AudioStream" uid="uid://dk5sjcnkboimq" path="res://Resources/Audio/SFX/Fauna_boom.wav" id="8_yskcy"]
 
 [resource]
 script = ExtResource("1_dcgb6")

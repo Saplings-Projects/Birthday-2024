@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://m66tidk37mou"
-path="res://.godot/imported/Fauna_7_wives.wav-ea9d3ef59c1005e8cb3c7d38b0cb8730.sample"
+path="res://.godot/imported/Fauna_7_wives.wav-dba14a889e1c5e5acca05d19b033bed0.sample"
 
 [deps]
 
-source_file="res://Resources/Audio/SFX/Faunas/Fauna_7_wives.wav"
-dest_files=["res://.godot/imported/Fauna_7_wives.wav-ea9d3ef59c1005e8cb3c7d38b0cb8730.sample"]
+source_file="res://Resources/Audio/SFX/Fauna_7_wives.wav"
+dest_files=["res://.godot/imported/Fauna_7_wives.wav-dba14a889e1c5e5acca05d19b033bed0.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ol4op1k817t2"
-path="res://.godot/imported/Fauna_ghost_noise.wav-fe09dd0c10a36a8ffc73d50dc2a6f45a.sample"
+path="res://.godot/imported/Fauna_ghost_noise.wav-705a60ab325bb190ed689af6e74547b0.sample"
 
 [deps]
 
-source_file="res://Resources/Audio/SFX/Faunas/Fauna_ghost_noise.wav"
-dest_files=["res://.godot/imported/Fauna_ghost_noise.wav-fe09dd0c10a36a8ffc73d50dc2a6f45a.sample"]
+source_file="res://Resources/Audio/SFX/Fauna_ghost_noise.wav"
+dest_files=["res://.godot/imported/Fauna_ghost_noise.wav-705a60ab325bb190ed689af6e74547b0.sample"]
 
 [params]
 

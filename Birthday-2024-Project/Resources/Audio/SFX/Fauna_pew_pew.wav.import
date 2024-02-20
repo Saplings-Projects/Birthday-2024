@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d0b1yb1wy7xr2"
-path="res://.godot/imported/Fauna_pew_pew.wav-2ef87aa5c73ba147b686f107354381b4.sample"
+path="res://.godot/imported/Fauna_pew_pew.wav-b67dca18393083b2e900f8f614126f30.sample"
 
 [deps]
 
-source_file="res://Resources/Audio/SFX/Faunas/Fauna_pew_pew.wav"
-dest_files=["res://.godot/imported/Fauna_pew_pew.wav-2ef87aa5c73ba147b686f107354381b4.sample"]
+source_file="res://Resources/Audio/SFX/Fauna_pew_pew.wav"
+dest_files=["res://.godot/imported/Fauna_pew_pew.wav-b67dca18393083b2e900f8f614126f30.sample"]
 
 [params]
 

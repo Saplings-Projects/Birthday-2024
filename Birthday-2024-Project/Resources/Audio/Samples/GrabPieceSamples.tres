@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AudioSamples" load_steps=3 format=3 uid="uid://c5pwc03ifyimd"]
 
 [ext_resource type="Script" path="res://Scripts/Model/AudioSamples.gd" id="1_5rir7"]
-[ext_resource type="AudioStream" uid="uid://b6pswo5i1fnk3" path="res://Resources/Audio/SFX/Faunas/Fauna_I_.wav" id="1_k4687"]
+[ext_resource type="AudioStream" uid="uid://b6pswo5i1fnk3" path="res://Resources/Audio/SFX/Fauna_I_.wav" id="1_k4687"]
 
 [resource]
 script = ExtResource("1_5rir7")
