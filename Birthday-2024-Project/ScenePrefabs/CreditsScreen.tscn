@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://catc2xlo8s4pi"]
+[gd_scene load_steps=9 format=3 uid="uid://catc2xlo8s4pi"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/CreditsScreen.gd" id="1_6as2f"]
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_a7ojj"]
 [ext_resource type="Texture2D" uid="uid://bjqluj600yhja" path="res://Art/Map_ResolutionClearance.png" id="2_5thx4"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_hr80e"]
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="4_nowih"]
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_a7ojj")
 script = ExtResource("1_6as2f")
 
 [node name="Control" type="Control" parent="."]
@@ -102,10 +104,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -250.0
-offset_right = 350.0
-offset_bottom = 250.0
+offset_left = -450.0
+offset_top = -400.0
+offset_right = 450.0
+offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
@@ -119,33 +121,37 @@ theme_override_constants/separation = 40
 alignment = 1
 
 [node name="Developers" type="RichTextLabel" parent="HBoxContainer/LeftColumn"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
 clip_contents = false
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 20
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "[center][font_size=30]Developers[/font_size]
-Dev Name1
-Dev Name2
-Dev Name3
-Really Long Dev Name to see how it wraps
+text = "[center][font_size=40]Developers[/font_size]
+Bishop
+Casulono
+Duarpeto
+Godouuu
+Mikotey
+Sambino
+Vorthein
 [/center]"
 fit_content = true
 scroll_active = false
 
 [node name="Art" type="RichTextLabel" parent="HBoxContainer/LeftColumn"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 20
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "[center][font_size=30]Art[/font_size]
-Art Name1
-Art Name2
-Art Name3
+text = "[center][font_size=40]Art[/font_size]
+crashairsprig
+Cyanophycée
+EndyStarBoy
+HDAK art
+Lunar
+mpmrpjb
 [/center]"
 fit_content = true
 scroll_active = false
@@ -156,11 +162,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Credits" type="RichTextLabel" parent="HBoxContainer/CenterColumn"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 30
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]Credits[/center]"
 fit_content = true
@@ -174,14 +179,14 @@ theme_override_constants/separation = 40
 alignment = 1
 
 [node name="Testing" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
+visible = false
 clip_contents = false
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 20
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[center][font_size=30]Testing[/font_size]
+text = "[center][font_size=40]Testing[/font_size]
 Tester Name1
 Tester Name2
 Tester Name3
@@ -189,17 +194,51 @@ Tester Name3
 fit_content = true
 scroll_active = false
 
-[node name="Music" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
+[node name="Lead" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 20
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "[center][font_size=30]Music[/font_size]
-Musician Name1
-Musician Name2
-Musician Name3
+text = "[center][font_size=40]Lead[/font_size]
+Casulono
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Patronage" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center][font_size=40]Patronage[/font_size]
+Mikotey
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="General Help" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center][font_size=40]General Help[/font_size]
+DarkEcoFreak
+RaddLad
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Music" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center][font_size=40]Music[/font_size]
+kessokujason
 [/center]"
 fit_content = true
 scroll_active = false

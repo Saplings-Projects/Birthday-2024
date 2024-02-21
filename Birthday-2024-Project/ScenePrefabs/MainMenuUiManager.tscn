@@ -111,6 +111,7 @@ layout_mode = 1
 
 [node name="CreditsScreen" parent="." instance=ExtResource("5_typ2d")]
 visible = false
+layout_mode = 1
 
 [node name="States" type="Control" parent="."]
 layout_mode = 3
