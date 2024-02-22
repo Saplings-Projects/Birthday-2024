@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=14 format=3 uid="uid://bkys348mactw2"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_4oukr"]
 [ext_resource type="Texture2D" uid="uid://ci3t2shlrxhc0" path="res://Art/GridTileSet.png" id="1_4qt1f"]
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
 [ext_resource type="Texture2D" uid="uid://bjqluj600yhja" path="res://Art/Map_ResolutionClearance.png" id="2_hsx3y"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_rkf2x"]
-[ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="4_0al21"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_1cxrf"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GameEmptyState.gd" id="5_wmt6j"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GamePlayState.gd" id="6_jk8at"]
@@ -124,7 +123,6 @@ empty_state = NodePath("States/GameEmptyState")
 play_state = NodePath("States/GamePlayState")
 win_state = NodePath("States/GameWinState")
 edit_state = NodePath("States/GameEditState")
-debug_setupData = ExtResource("4_0al21")
 
 [node name="States" type="Node2D" parent="GameManager"]
 

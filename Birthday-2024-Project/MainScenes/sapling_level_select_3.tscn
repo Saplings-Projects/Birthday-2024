@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bumvuqd2ft2wg"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_w8ges"]
+[ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/LevelSelectMenu.tscn" id="2_knknw"]
+
+[node name="SaplingLevelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8ges")
+
+[node name="LevelSelectMenu" parent="." node_paths=PackedStringArray("screenLogic") instance=ExtResource("2_knknw")]
+layout_mode = 1
+screenLogic = NodePath("..")
+isCampaign = false
+pageNumber = 3
+
+[node name="Title" parent="LevelSelectMenu/Panel" index="0"]
+text = "COMMUNITY"
+
+[node name="Page" parent="LevelSelectMenu/Panel" index="1"]
+visible = true
+text = "3/3"
+
+[editable path="LevelSelectMenu"]

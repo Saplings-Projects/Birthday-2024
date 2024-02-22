@@ -17,10 +17,6 @@ extends Node2D
 @export var win_state: GameWinState
 @export var edit_state: GameEditState
 
-@export_group("")
-#TODO: have this passed by the level selector in the future
-@export var debug_setupData : LevelSetup
-
 var held_piece: PieceLogic
 var held_piece_settled: bool
 var previous_mouse_position: Vector2
@@ -107,8 +103,9 @@ func _process(delta):
 		
 		initialized_event.emit()
 		switch_to_play_state()
-		#TODO: Load level using Level Select
-		grid.LoadLevel(debug_setupData)
+		
+		var levelData : LevelSetup = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] #as LevelSetup
+		grid.LoadLevel(levelData)
 	
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()

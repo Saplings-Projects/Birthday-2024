@@ -21,7 +21,7 @@ script = ExtResource("1_lofx7")
 start_screen = NodePath("StartScreen")
 start_state = NodePath("States/MainMenuUiStartState")
 
-[node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallery_button", "play_button", "settings_button")]
+[node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallery_button", "play_button", "messages_button", "settings_button")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +33,7 @@ credits_button = NodePath("Panel/Navigation Buttons/Credits Button")
 exit_button = NodePath("Panel/Exit Button")
 gallery_button = NodePath("Panel/Navigation Buttons/Gallery Button")
 play_button = NodePath("Panel/Navigation Buttons/Play Button")
+messages_button = NodePath("Panel/Navigation Buttons/Messages Button")
 settings_button = NodePath("Panel/Settings Button")
 
 [node name="TextureRect" type="NinePatchRect" parent="StartScreen"]

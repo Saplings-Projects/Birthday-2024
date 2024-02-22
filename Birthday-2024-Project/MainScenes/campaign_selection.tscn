@@ -169,6 +169,7 @@ theme = ExtResource("7_oegh3")
 
 [node name="Back Button" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
 custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
 offset_left = 130.0
 offset_right = 258.0
 offset_bottom = 128.0

@@ -1,0 +1,749 @@
+[gd_scene load_steps=26 format=3 uid="uid://lma3uuskmlpo"]
+
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_f0s32"]
+[ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/LevelsSelectMenu.gd" id="2_qje3g"]
+[ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_n1ct6"]
+[ext_resource type="Texture2D" uid="uid://dvawks3eilp65" path="res://Art/UI/Level_Selection_button_normal.png" id="4_o8e0c"]
+[ext_resource type="Texture2D" uid="uid://dmyn110xk4kya" path="res://Art/UI/Level_Selection_button_Hover.png" id="5_yjbbv"]
+[ext_resource type="Texture2D" uid="uid://b1g0ps4f1inj3" path="res://Art/UI/Level_Selection_button_pressed.png" id="6_2vr16"]
+[ext_resource type="Texture2D" uid="uid://dgahqq8kwev51" path="res://Art/UI/Level_Selection_button_Disabled.png" id="7_o43s8"]
+[ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/LevelButton.gd" id="8_1r2lm"]
+[ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="9_3dmfm"]
+[ext_resource type="Texture2D" uid="uid://4itsh5d7ghs2" path="res://Art/Square.png" id="10_1fxci"]
+[ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="11_1sl5b"]
+[ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="12_fsl8b"]
+[ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="13_hp0wu"]
+[ext_resource type="Texture2D" uid="uid://db3rvquwfp1ls" path="res://Art/UI/Arrow_button_normal.png" id="14_pg7lu"]
+[ext_resource type="Texture2D" uid="uid://cyeqlujr0xudm" path="res://Art/UI/Arrow_button_pressed.png" id="15_qlyp1"]
+[ext_resource type="Texture2D" uid="uid://pfq2xiycjshy" path="res://Art/UI/Arrow_button_Hover.png" id="16_w3ija"]
+[ext_resource type="Texture2D" uid="uid://daeokhww64r8d" path="res://Art/UI/UiReferencesAndMockups/CampaignLevelScreen.png" id="17_30ude"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hlmj8"]
+texture = ExtResource("4_o8e0c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x8buo"]
+texture = ExtResource("5_yjbbv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r4470"]
+texture = ExtResource("6_2vr16")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxmve"]
+texture = ExtResource("7_o43s8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jq74l"]
+texture = ExtResource("14_pg7lu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7muh8"]
+texture = ExtResource("16_w3ija")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vq17u"]
+texture = ExtResource("15_qlyp1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ey6ba"]
+texture = ExtResource("14_pg7lu")
+modulate_color = Color(0.784314, 0.784314, 0.784314, 0.784314)
+
+[node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("prevArrow", "nextArrow")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_f0s32")
+script = ExtResource("2_qje3g")
+isCampaign = true
+pageNumber = 1
+isLastPage = true
+prevArrow = NodePath("Panel/PrevPageButton")
+nextArrow = NodePath("Panel/NextPageButton")
+
+[node name="TextureRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_n1ct6")
+patch_margin_left = 300
+patch_margin_top = 250
+patch_margin_right = 250
+patch_margin_bottom = 250
+
+[node name="Panel" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 85.0
+offset_bottom = 210.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "CAMPAIGN"
+horizontal_alignment = 1
+
+[node name="Page" type="Label" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+offset_bottom = -99.9998
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "1/1"
+horizontal_alignment = 1
+
+[node name="Level Select Buttons" type="GridContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.5
+offset_top = -298.0
+offset_right = 356.5
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="Level Button" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button2" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button2"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button3" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button3"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button4" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button4"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button5" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button5"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button6" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button6"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button7" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button7"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button8" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button8"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button9" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button9"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button10" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button10"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button11" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button11"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button12" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button12"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button13" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button13"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button14" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button14"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button15" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button15"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button16" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button16"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button17" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button17"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button18" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button18"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button19" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button19"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Level Button20" type="Button" parent="Panel/Level Select Buttons"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("8_1r2lm")
+levelData = ExtResource("9_3dmfm")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Level Select Buttons/Level Button20"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -57.5
+offset_right = 58.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1fxci")
+
+[node name="Settings Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = -200.0
+offset_right = -96.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("11_1sl5b")
+
+[node name="Exit Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = -200.0
+offset_right = -26.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("12_fsl8b")
+
+[node name="Back Button" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 130.0
+offset_right = 258.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("13_hp0wu")
+
+[node name="PrevPageButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -685.0
+offset_top = -128.0
+offset_right = -429.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_jq74l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7muh8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vq17u")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ey6ba")
+
+[node name="NextPageButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 429.0
+offset_top = -128.0
+offset_right = 685.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(128, 128)
+theme_override_styles/normal = SubResource("StyleBoxTexture_jq74l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7muh8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vq17u")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ey6ba")
+
+[node name="CampaignLevelScreen" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.505882)
+position = Vector2(958.981, 527)
+scale = Vector2(1.19099, 1.19099)
+texture = ExtResource("17_30ude")
+
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button" to="Panel/Level Select Buttons/Level Button" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button2" to="Panel/Level Select Buttons/Level Button2" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button3" to="Panel/Level Select Buttons/Level Button3" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button4" to="Panel/Level Select Buttons/Level Button4" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button5" to="Panel/Level Select Buttons/Level Button5" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button6" to="Panel/Level Select Buttons/Level Button6" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button7" to="Panel/Level Select Buttons/Level Button7" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button8" to="Panel/Level Select Buttons/Level Button8" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button9" to="Panel/Level Select Buttons/Level Button9" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button10" to="Panel/Level Select Buttons/Level Button10" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button11" to="Panel/Level Select Buttons/Level Button11" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button12" to="Panel/Level Select Buttons/Level Button12" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button13" to="Panel/Level Select Buttons/Level Button13" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button14" to="Panel/Level Select Buttons/Level Button14" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button15" to="Panel/Level Select Buttons/Level Button15" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button16" to="Panel/Level Select Buttons/Level Button16" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button17" to="Panel/Level Select Buttons/Level Button17" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button18" to="Panel/Level Select Buttons/Level Button18" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button19" to="Panel/Level Select Buttons/Level Button19" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Level Select Buttons/Level Button20" to="Panel/Level Select Buttons/Level Button20" method="GoToLevel"]
+[connection signal="button_up" from="Panel/Settings Button" to="." method="on_settings_clicked"]
+[connection signal="button_up" from="Panel/Exit Button" to="." method="on_exit_clicked"]
+[connection signal="button_up" from="Panel/Back Button" to="." method="on_back_clicked"]
+[connection signal="button_up" from="Panel/PrevPageButton" to="." method="on_prev_clicked"]
+[connection signal="button_up" from="Panel/NextPageButton" to="." method="on_next_clicked"]
