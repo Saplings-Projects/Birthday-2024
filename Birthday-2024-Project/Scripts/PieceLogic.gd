@@ -8,6 +8,7 @@ const GAME_MANAGER_NODE_PATH = "/root/MainLevel/GameManager"
 const ROTATION_ANIMATION_DURATION: float = 0.35 # Number of seconds a piece takes to rotate
 const RETURN_ANIMATION_DURATION: float = 0.5 # Number of seconds a piece takes to return to it's return position when dropped
 const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to move into it's placed position
+const NO_CELL_CLICKED: int = -1
 
 @export_multiline var pieceShape : String
 @export var isBlocker : bool
@@ -260,7 +261,7 @@ func _input(event):
 	if event.is_action_pressed("GrabPiece"):
 		# Check if the user has clicked on the piece's exact shape
 		var clicked_cell : int = _check_shape_clicked()
-		if clicked_cell != -1:
+		if clicked_cell != NO_CELL_CLICKED:
 			print("Piece shape clicked: " + name)
 			on_clicked(clicked_cell)
 
@@ -271,7 +272,7 @@ func _check_shape_clicked() -> int:
 		var cell11 : Vector2 = cell00 + Vector2(levelGridReference.tile_set.tile_size.x, levelGridReference.tile_set.tile_size.y)
 		if relative_click_position.x >= cell00.x and relative_click_position.x <= cell11.x and relative_click_position.y >= cell00.y and relative_click_position.y < cell11.y: # I really wish gdscript let you break statements across lines
 			return i # Mouse is inside one of the piece's cells
-	return -1
+	return NO_CELL_CLICKED
 	
 func _start_rotation_tween():
 	# Create the tween to animate the rotation

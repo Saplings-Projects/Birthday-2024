@@ -171,14 +171,19 @@ func _rotate_held_piece():
 		_reset_settled()
 		remaining_settle_delay = held_piece.ROTATION_ANIMATION_DURATION
 
+func _mouse_has_moved() -> bool:
+	var mouse_position : Vector2 = get_global_mouse_position()
+	var mouse_distance_moved : float = (mouse_position - previous_mouse_position).length()
+	previous_mouse_position = mouse_position
+	return mouse_distance_moved > 0.01
+
 func _get_held_piece_grid_origin() -> Vector2i:
 	return grid.PositionToGridCoordinate(held_piece.GetOriginCellPosition())
 
 func _do_held_piece_settle(delta):
 	var mouse_position : Vector2 = get_global_mouse_position()
-	var mouse_distance_moved : float = (mouse_position - previous_mouse_position).length()
 	var mouse_grid_pos : Vector2i = grid.PositionToGridCoordinate(mouse_position)
-	if (mouse_distance_moved > 0.1 and mouse_grid_pos != previous_mouse_grid_pos) or grid.CheckIfOffGridPos(mouse_position):
+	if (_mouse_has_moved() and mouse_grid_pos != previous_mouse_grid_pos) or grid.CheckIfOffGridPos(mouse_position):
 		_reset_settled()
 		held_piece.cancel_movement_tween()
 		previous_mouse_position = mouse_position
