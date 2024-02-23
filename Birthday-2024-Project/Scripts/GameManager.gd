@@ -175,7 +175,7 @@ func _mouse_has_moved() -> bool:
 	var mouse_position : Vector2 = get_global_mouse_position()
 	var mouse_distance_moved : float = (mouse_position - previous_mouse_position).length()
 	previous_mouse_position = mouse_position
-	return mouse_distance_moved > 0.01
+	return mouse_distance_moved > 0.01 # Has the mouse position changed beyond floating point errors?
 
 func _get_held_piece_grid_origin() -> Vector2i:
 	return grid.PositionToGridCoordinate(held_piece.GetOriginCellPosition())
