@@ -161,12 +161,12 @@ func _held_piece_towards_cursor(delta):
 
 func _rotate_held_piece():
 	if Input.is_action_just_pressed("RotateClockwise"):
-		held_piece.rotate_clockwise()
+		held_piece.rotate_clockwise(held_piece_cell)
 		held_piece.play_rotate_audio()
 		_reset_settled()
 		remaining_settle_delay = held_piece.ROTATION_ANIMATION_DURATION
 	elif Input.is_action_just_pressed("RotateAnticlockwise"):
-		held_piece.rotate_anticlockwise()
+		held_piece.rotate_anticlockwise(held_piece_cell)
 		held_piece.play_rotate_audio()
 		_reset_settled()
 		remaining_settle_delay = held_piece.ROTATION_ANIMATION_DURATION
@@ -182,10 +182,12 @@ func _get_held_piece_grid_origin() -> Vector2i:
 
 func _do_held_piece_settle(delta):
 	var mouse_position : Vector2 = get_global_mouse_position()
+	var mouse_has_moved : bool = _mouse_has_moved()
 	var mouse_grid_pos : Vector2i = grid.PositionToGridCoordinate(mouse_position)
-	if (_mouse_has_moved() and mouse_grid_pos != previous_mouse_grid_pos) or grid.CheckIfOffGridPos(mouse_position):
+	if (mouse_has_moved and mouse_grid_pos != previous_mouse_grid_pos) or grid.CheckIfOffGridPos(mouse_position):
 		_reset_settled()
-		held_piece.cancel_movement_tween()
+		if mouse_has_moved:
+			held_piece.cancel_movement_tween()
 		previous_mouse_position = mouse_position
 		previous_mouse_grid_pos = mouse_grid_pos
 	else:

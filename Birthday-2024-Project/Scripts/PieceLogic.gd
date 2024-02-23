@@ -77,7 +77,8 @@ func cancel_movement_tween():
 		_movement_tween.stop()
 	_movement_tween = null
 	
-func rotate_clockwise():
+func rotate_clockwise(center_cell : int):
+	var previous_cell_pos: Vector2 = get_cell_pos(center_cell)
 	# Update rotation variables
 	if current_rotation_state == RotationStates.DEG_270:
 		current_rotation_state = RotationStates.DEG_0
@@ -85,10 +86,15 @@ func rotate_clockwise():
 		current_rotation_state = current_rotation_state + 1 as RotationStates
 	
 	_current_angle_target += PI * 0.5
-	update_current_cells()	
+	update_current_cells()
+	var origin_cell_movement: Vector2 = _originOffset.rotated(_current_angle_target) - GetOriginCellOffset()
+	var center_cell_movement: Vector2 = (get_cell_pos(center_cell) + origin_cell_movement) - previous_cell_pos
+		
 	_start_rotation_tween()
+	movement_tween_to(global_position - center_cell_movement, ROTATION_ANIMATION_DURATION)
 	
-func rotate_anticlockwise():
+func rotate_anticlockwise(center_cell : int):
+	var previous_cell_pos: Vector2 = get_cell_pos(center_cell)
 	# Update rotation variables
 	if current_rotation_state == RotationStates.DEG_0:
 		current_rotation_state = RotationStates.DEG_270
@@ -96,8 +102,12 @@ func rotate_anticlockwise():
 		current_rotation_state = current_rotation_state - 1 as RotationStates
 	
 	_current_angle_target -= PI * 0.5
-	update_current_cells()	
+	update_current_cells()
+	var origin_cell_movement: Vector2 = _originOffset.rotated(_current_angle_target) - GetOriginCellOffset()
+	var center_cell_movement: Vector2 = (get_cell_pos(center_cell) + origin_cell_movement) - previous_cell_pos
+		
 	_start_rotation_tween()
+	movement_tween_to(global_position - center_cell_movement, ROTATION_ANIMATION_DURATION)
 	
 func cancel_rotation_tween():
 	if _rotation_tween != null:
@@ -202,13 +212,15 @@ func place_piece(grid_position: Vector2i, move_to: Vector2):
 		return
 	current_placement_state = PlacementStates.PLACED
 	movement_tween_to(move_to, PLACED_ANIMATION_DURATION)
-	
-func target_vector(target_pos: Vector2, target_cell_index: int) -> Vector2:
-	var target_cell : Vector2i = _current_cells[target_cell_index]
+
+func get_cell_pos(cell_index: int) -> Vector2:
+	var cell : Vector2i = _current_cells[cell_index]
 	var tile_size = levelGridReference.tile_set.tile_size
-	var cell_pos : Vector2 = GetOriginCellPosition() + Vector2(target_cell.x * tile_size.x, target_cell.y * tile_size.y)
+	return GetOriginCellPosition() + Vector2(cell.x * tile_size.x, cell.y * tile_size.y)
+
+func target_vector(target_pos: Vector2, target_cell_index: int) -> Vector2:
 	# Returns vector that moves the center of the targeted cell to the target position
-	return target_pos - cell_pos
+	return target_pos - get_cell_pos(target_cell_index)
 	
 ###############################################################################
 
