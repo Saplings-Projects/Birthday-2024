@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bumvuqd2ft2wg"]
+[gd_scene load_steps=6 format=3 uid="uid://bumvuqd2ft2wg"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_w8ges"]
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/LevelSelectMenu.tscn" id="2_knknw"]
+[ext_resource type="Resource" uid="uid://c4pbsqwmye8e3" path="res://Resources/Levels/U-full-of-Fauna.tres" id="3_otc6m"]
+[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/Levels/wanderer_level.tres" id="4_wpqw4"]
+[ext_resource type="Resource" uid="uid://bn34dmbojy2u" path="res://Resources/Levels/Zannmasters_apple_puzzle.tres" id="5_7034a"]
 
 [node name="SaplingLevelSelection" type="Control"]
 layout_mode = 3
@@ -24,5 +27,65 @@ text = "COMMUNITY"
 [node name="Page" parent="LevelSelectMenu/Panel" index="1"]
 visible = true
 text = "3/3"
+
+[node name="Level Button" parent="LevelSelectMenu/Panel/Level Select Buttons" index="0"]
+levelData = ExtResource("3_otc6m")
+
+[node name="Level Button2" parent="LevelSelectMenu/Panel/Level Select Buttons" index="1"]
+levelData = ExtResource("4_wpqw4")
+
+[node name="Level Button3" parent="LevelSelectMenu/Panel/Level Select Buttons" index="2"]
+levelData = ExtResource("5_7034a")
+
+[node name="Level Button4" parent="LevelSelectMenu/Panel/Level Select Buttons" index="3"]
+visible = false
+
+[node name="Level Button5" parent="LevelSelectMenu/Panel/Level Select Buttons" index="4"]
+visible = false
+
+[node name="Level Button6" parent="LevelSelectMenu/Panel/Level Select Buttons" index="5"]
+visible = false
+
+[node name="Level Button7" parent="LevelSelectMenu/Panel/Level Select Buttons" index="6"]
+visible = false
+
+[node name="Level Button8" parent="LevelSelectMenu/Panel/Level Select Buttons" index="7"]
+visible = false
+
+[node name="Level Button9" parent="LevelSelectMenu/Panel/Level Select Buttons" index="8"]
+visible = false
+
+[node name="Level Button10" parent="LevelSelectMenu/Panel/Level Select Buttons" index="9"]
+visible = false
+
+[node name="Level Button11" parent="LevelSelectMenu/Panel/Level Select Buttons" index="10"]
+visible = false
+
+[node name="Level Button12" parent="LevelSelectMenu/Panel/Level Select Buttons" index="11"]
+visible = false
+
+[node name="Level Button13" parent="LevelSelectMenu/Panel/Level Select Buttons" index="12"]
+visible = false
+
+[node name="Level Button14" parent="LevelSelectMenu/Panel/Level Select Buttons" index="13"]
+visible = false
+
+[node name="Level Button15" parent="LevelSelectMenu/Panel/Level Select Buttons" index="14"]
+visible = false
+
+[node name="Level Button16" parent="LevelSelectMenu/Panel/Level Select Buttons" index="15"]
+visible = false
+
+[node name="Level Button17" parent="LevelSelectMenu/Panel/Level Select Buttons" index="16"]
+visible = false
+
+[node name="Level Button18" parent="LevelSelectMenu/Panel/Level Select Buttons" index="17"]
+visible = false
+
+[node name="Level Button19" parent="LevelSelectMenu/Panel/Level Select Buttons" index="18"]
+visible = false
+
+[node name="Level Button20" parent="LevelSelectMenu/Panel/Level Select Buttons" index="19"]
+visible = false
 
 [editable path="LevelSelectMenu"]

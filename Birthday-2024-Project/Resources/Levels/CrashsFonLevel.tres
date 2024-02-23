@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://b6gqsv185mowu"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_c6fhf"]
+
+[resource]
+script = ExtResource("1_c6fhf")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"hitman_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":0,\\\"PIECE_SETUP_ID_KEY\\\":\\\"hitman_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"wide_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"wide_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"hitman_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":0,\\\"PIECE_SETUP_ID_KEY\\\":\\\"hitman_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"matcha_1\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":0,\\\"PIECE_SETUP_ID_KEY\\\":\\\"matcha_2\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\"]"
+author = "crashairsprig"
+message = "I tried to feature my pieces in this level, but maybe it's too easy like this :_lol: Anyways I hope you enjoy this puzzle and the rest of the game, but most importantly I hope you have a wonderful birthday! :_love:"

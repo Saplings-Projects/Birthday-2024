@@ -16,6 +16,63 @@ script = ExtResource("1_3v82p")
 layout_mode = 1
 screenLogic = NodePath("..")
 
+[node name="Level Button2" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="1"]
+disabled = true
+
+[node name="Level Button3" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="2"]
+disabled = true
+
+[node name="Level Button4" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="3"]
+disabled = true
+
+[node name="Level Button5" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="4"]
+disabled = true
+
+[node name="Level Button6" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="5"]
+disabled = true
+
+[node name="Level Button7" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="6"]
+disabled = true
+
+[node name="Level Button8" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="7"]
+disabled = true
+
+[node name="Level Button9" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="8"]
+disabled = true
+
+[node name="Level Button10" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="9"]
+disabled = true
+
+[node name="Level Button11" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="10"]
+disabled = true
+
+[node name="Level Button12" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="11"]
+disabled = true
+
+[node name="Level Button13" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="12"]
+disabled = true
+
+[node name="Level Button14" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="13"]
+disabled = true
+
+[node name="Level Button15" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="14"]
+disabled = true
+
+[node name="Level Button16" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="15"]
+disabled = true
+
+[node name="Level Button17" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="16"]
+disabled = true
+
+[node name="Level Button18" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="17"]
+disabled = true
+
+[node name="Level Button19" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="18"]
+disabled = true
+
+[node name="Level Button20" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="19"]
+disabled = true
+
 [node name="PrevPageButton" parent="CampaignLevelSelectMenu/Panel" index="6"]
 visible = false
 
