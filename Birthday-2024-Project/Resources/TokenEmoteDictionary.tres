@@ -1,0 +1,382 @@
+[gd_resource type="Resource" script_class="TokenToImageDict" load_steps=105 format=3 uid="uid://prwhfg3khrcq"]
+
+[ext_resource type="Texture2D" uid="uid://4702vqb2v4xo" path="res://Art/Emotes/yay.png" id="1_42ww6"]
+[ext_resource type="Script" path="res://Scripts/UI/TokenToImageDict.gd" id="1_ks2ee"]
+[ext_resource type="Script" path="res://Scripts/UI/TokenImagePair.gd" id="2_gv347"]
+[ext_resource type="Texture2D" uid="uid://4gj42xmp2266" path="res://Art/Emotes/angry.png" id="2_oygy3"]
+[ext_resource type="Texture2D" uid="uid://kpldum4wrxy8" path="res://Art/Emotes/bald.png" id="4_7vonr"]
+[ext_resource type="Texture2D" uid="uid://5q02k4m46u3u" path="res://Art/Emotes/bonk.png" id="5_qi3dq"]
+[ext_resource type="Texture2D" uid="uid://8qwmed4f2wj5" path="res://Art/Emotes/clover.png" id="6_o2a42"]
+[ext_resource type="Texture2D" uid="uid://cx4qtp5plvyyy" path="res://Art/Emotes/comfy.png" id="7_xtwmu"]
+[ext_resource type="Texture2D" uid="uid://ciaa6dtd73aum" path="res://Art/Emotes/cry.png" id="8_w1kf0"]
+[ext_resource type="Texture2D" uid="uid://bf5bodjbmpiie" path="res://Art/Emotes/dead.png" id="9_7ddaf"]
+[ext_resource type="Texture2D" uid="uid://cetr1gcfo71kv" path="res://Art/Emotes/disgust.png" id="10_senjc"]
+[ext_resource type="Texture2D" uid="uid://ok8jtyxgf5a" path="res://Art/Emotes/doki.png" id="11_t2wwx"]
+[ext_resource type="Texture2D" uid="uid://oiyvevsxs2xu" path="res://Art/Emotes/flushed.png" id="12_1ho1k"]
+[ext_resource type="Texture2D" uid="uid://8otss036qx10" path="res://Art/Emotes/greenlight.png" id="13_i035h"]
+[ext_resource type="Texture2D" uid="uid://cvu4rhooijsiq" path="res://Art/Emotes/hugsnail.png" id="14_26vx6"]
+[ext_resource type="Texture2D" uid="uid://ns7ar11aow1v" path="res://Art/Emotes/innocent.png" id="15_rw0la"]
+[ext_resource type="Texture2D" uid="uid://u1hsm1bdy45d" path="res://Art/Emotes/lol.png" id="16_fllv5"]
+[ext_resource type="Texture2D" uid="uid://ctakcgcukg3vb" path="res://Art/Emotes/love.png" id="17_l7qu1"]
+[ext_resource type="Texture2D" uid="uid://cnnprn36k72q" path="res://Art/Emotes/nemusmug.png" id="18_m5scf"]
+[ext_resource type="Texture2D" uid="uid://hhxx5vfsd10p" path="res://Art/Emotes/noo.png" id="19_n071t"]
+[ext_resource type="Texture2D" uid="uid://pr1f7k8c3cgg" path="res://Art/Emotes/pien.png" id="20_7dwr1"]
+[ext_resource type="Texture2D" uid="uid://cxd28l2lulten" path="res://Art/Emotes/pinklight.png" id="21_icosc"]
+[ext_resource type="Texture2D" uid="uid://bah3sk0xd22rt" path="res://Art/Emotes/shy.png" id="22_01tal"]
+[ext_resource type="Texture2D" uid="uid://du8qiv1rto5xj" path="res://Art/Emotes/slap.png" id="23_qhn68"]
+[ext_resource type="Texture2D" uid="uid://5jge67r6y4b3" path="res://Art/Emotes/sleep.png" id="24_ys6ox"]
+[ext_resource type="Texture2D" uid="uid://c5u4uqi66mgjc" path="res://Art/Emotes/smile.png" id="25_pge4l"]
+[ext_resource type="Texture2D" uid="uid://b1j6algfqqsrb" path="res://Art/Emotes/smug.png" id="26_uxnbr"]
+[ext_resource type="Texture2D" uid="uid://byavesev7sio6" path="res://Art/Emotes/tako.png" id="27_vku5n"]
+[ext_resource type="Texture2D" uid="uid://buc8mb07wtxpw" path="res://Art/Emotes/UUU.png" id="28_blk7t"]
+[ext_resource type="Texture2D" uid="uid://c2yj1vnfypsuq" path="res://Art/Emotes/UUUU.png" id="29_1dmpp"]
+[ext_resource type="Texture2D" uid="uid://2wo3pmyxkq28" path="res://Art/Emotes/wave.png" id="30_tuown"]
+[ext_resource type="Texture2D" uid="uid://bogc2bimsc1ac" path="res://Art/Emotes/wide1.png" id="31_ura38"]
+[ext_resource type="Texture2D" uid="uid://sduh6308qvnp" path="res://Art/Emotes/wide2.png" id="32_iwsap"]
+[ext_resource type="Texture2D" uid="uid://dsn1vc2onyuf" path="res://Art/Emotes/wide3.png" id="33_cxoly"]
+[ext_resource type="Texture2D" uid="uid://da8hrvpjcexs0" path="res://Art/Emotes/yandere.png" id="34_jlam4"]
+[ext_resource type="Texture2D" uid="uid://cfi0cfy8hofol" path="res://Art/Emotes/zoom.png" id="36_g4q6t"]
+
+[sub_resource type="Resource" id="Resource_cfbns"]
+script = ExtResource("2_gv347")
+token = ":_angry:"
+image = ExtResource("2_oygy3")
+
+[sub_resource type="Resource" id="Resource_tifko"]
+script = ExtResource("2_gv347")
+token = ":_bald:"
+image = ExtResource("4_7vonr")
+
+[sub_resource type="Resource" id="Resource_ncosh"]
+script = ExtResource("2_gv347")
+token = ":_bonk:"
+image = ExtResource("5_qi3dq")
+
+[sub_resource type="Resource" id="Resource_lniah"]
+script = ExtResource("2_gv347")
+token = ":_clover:"
+image = ExtResource("6_o2a42")
+
+[sub_resource type="Resource" id="Resource_qy1bn"]
+script = ExtResource("2_gv347")
+token = ":_comfy:"
+image = ExtResource("7_xtwmu")
+
+[sub_resource type="Resource" id="Resource_v316r"]
+script = ExtResource("2_gv347")
+token = ":_cry:"
+image = ExtResource("8_w1kf0")
+
+[sub_resource type="Resource" id="Resource_kjypk"]
+script = ExtResource("2_gv347")
+token = ":_dead:"
+image = ExtResource("9_7ddaf")
+
+[sub_resource type="Resource" id="Resource_qj8bd"]
+script = ExtResource("2_gv347")
+token = ":_disgust:"
+image = ExtResource("10_senjc")
+
+[sub_resource type="Resource" id="Resource_1unrh"]
+script = ExtResource("2_gv347")
+token = ":_doki:"
+image = ExtResource("11_t2wwx")
+
+[sub_resource type="Resource" id="Resource_yq0pg"]
+script = ExtResource("2_gv347")
+token = ":_flushed:"
+image = ExtResource("12_1ho1k")
+
+[sub_resource type="Resource" id="Resource_txf1l"]
+script = ExtResource("2_gv347")
+token = ":_greenlight:"
+image = ExtResource("13_i035h")
+
+[sub_resource type="Resource" id="Resource_6tklu"]
+script = ExtResource("2_gv347")
+token = ":_hugsnail:"
+image = ExtResource("14_26vx6")
+
+[sub_resource type="Resource" id="Resource_pjuyv"]
+script = ExtResource("2_gv347")
+token = ":_innocent:"
+image = ExtResource("15_rw0la")
+
+[sub_resource type="Resource" id="Resource_4nx0n"]
+script = ExtResource("2_gv347")
+token = ":_lol:"
+image = ExtResource("16_fllv5")
+
+[sub_resource type="Resource" id="Resource_bv473"]
+script = ExtResource("2_gv347")
+token = ":_love:"
+image = ExtResource("17_l7qu1")
+
+[sub_resource type="Resource" id="Resource_fqoei"]
+script = ExtResource("2_gv347")
+token = ":_nemusmug:"
+image = ExtResource("18_m5scf")
+
+[sub_resource type="Resource" id="Resource_sdbx3"]
+script = ExtResource("2_gv347")
+token = ":_noo:"
+image = ExtResource("19_n071t")
+
+[sub_resource type="Resource" id="Resource_ddg84"]
+script = ExtResource("2_gv347")
+token = ":_pien:"
+image = ExtResource("20_7dwr1")
+
+[sub_resource type="Resource" id="Resource_py6yo"]
+script = ExtResource("2_gv347")
+token = ":_pinklight:"
+image = ExtResource("21_icosc")
+
+[sub_resource type="Resource" id="Resource_xchul"]
+script = ExtResource("2_gv347")
+token = ":_shy:"
+image = ExtResource("22_01tal")
+
+[sub_resource type="Resource" id="Resource_tk1qq"]
+script = ExtResource("2_gv347")
+token = ":_slap:"
+image = ExtResource("23_qhn68")
+
+[sub_resource type="Resource" id="Resource_leiw7"]
+script = ExtResource("2_gv347")
+token = ":_sleep:"
+image = ExtResource("24_ys6ox")
+
+[sub_resource type="Resource" id="Resource_5p65c"]
+script = ExtResource("2_gv347")
+token = ":_smile:"
+image = ExtResource("25_pge4l")
+
+[sub_resource type="Resource" id="Resource_ru68a"]
+script = ExtResource("2_gv347")
+token = ":_smug:"
+image = ExtResource("26_uxnbr")
+
+[sub_resource type="Resource" id="Resource_ujwy5"]
+script = ExtResource("2_gv347")
+token = ":_tako:"
+image = ExtResource("27_vku5n")
+
+[sub_resource type="Resource" id="Resource_uydsa"]
+script = ExtResource("2_gv347")
+token = ":_UUU:"
+image = ExtResource("28_blk7t")
+
+[sub_resource type="Resource" id="Resource_5m4cc"]
+script = ExtResource("2_gv347")
+token = ":_UUUU:"
+image = ExtResource("29_1dmpp")
+
+[sub_resource type="Resource" id="Resource_niyrq"]
+script = ExtResource("2_gv347")
+token = ":_wave:"
+image = ExtResource("30_tuown")
+
+[sub_resource type="Resource" id="Resource_1hxjg"]
+script = ExtResource("2_gv347")
+token = ":_wide1:"
+image = ExtResource("31_ura38")
+
+[sub_resource type="Resource" id="Resource_ufoi8"]
+script = ExtResource("2_gv347")
+token = ":_wide2:"
+image = ExtResource("32_iwsap")
+
+[sub_resource type="Resource" id="Resource_4bg2q"]
+script = ExtResource("2_gv347")
+token = ":_wide3:"
+image = ExtResource("33_cxoly")
+
+[sub_resource type="Resource" id="Resource_nskkv"]
+script = ExtResource("2_gv347")
+token = ":_yandere:"
+image = ExtResource("34_jlam4")
+
+[sub_resource type="Resource" id="Resource_oh1i0"]
+script = ExtResource("2_gv347")
+token = ":_yay:"
+image = ExtResource("1_42ww6")
+
+[sub_resource type="Resource" id="Resource_nmy4q"]
+script = ExtResource("2_gv347")
+token = ":_zoom:"
+image = ExtResource("36_g4q6t")
+
+[sub_resource type="Resource" id="Resource_0s6tq"]
+script = ExtResource("2_gv347")
+token = ":FaunaAngryYT:"
+image = ExtResource("2_oygy3")
+
+[sub_resource type="Resource" id="Resource_wkedp"]
+script = ExtResource("2_gv347")
+token = ":FaunaBaldYT:"
+image = ExtResource("4_7vonr")
+
+[sub_resource type="Resource" id="Resource_27vrs"]
+script = ExtResource("2_gv347")
+token = ":FaunaBonkSaplingYT:"
+image = ExtResource("5_qi3dq")
+
+[sub_resource type="Resource" id="Resource_6w3fn"]
+script = ExtResource("2_gv347")
+token = ":FaunaCloverYT:"
+image = ExtResource("6_o2a42")
+
+[sub_resource type="Resource" id="Resource_wewhc"]
+script = ExtResource("2_gv347")
+token = ":FaunaComfyYT:"
+image = ExtResource("7_xtwmu")
+
+[sub_resource type="Resource" id="Resource_ixje2"]
+script = ExtResource("2_gv347")
+token = ":FaunaCryYT:"
+image = ExtResource("8_w1kf0")
+
+[sub_resource type="Resource" id="Resource_otqnf"]
+script = ExtResource("2_gv347")
+token = ":FaunaDeadYT:"
+image = ExtResource("9_7ddaf")
+
+[sub_resource type="Resource" id="Resource_a7oqe"]
+script = ExtResource("2_gv347")
+token = ":FaunaDisgustYT:"
+image = ExtResource("10_senjc")
+
+[sub_resource type="Resource" id="Resource_fj5q5"]
+script = ExtResource("2_gv347")
+token = ":FaunaDokiYT:"
+image = ExtResource("11_t2wwx")
+
+[sub_resource type="Resource" id="Resource_2ukkr"]
+script = ExtResource("2_gv347")
+token = ":FaunaFlushedYT:"
+image = ExtResource("12_1ho1k")
+
+[sub_resource type="Resource" id="Resource_vrymx"]
+script = ExtResource("2_gv347")
+token = ":FaunaGlowstickGreenYT:"
+image = ExtResource("13_i035h")
+
+[sub_resource type="Resource" id="Resource_52np0"]
+script = ExtResource("2_gv347")
+token = ":FaunaHugsSnailYT:"
+image = ExtResource("14_26vx6")
+
+[sub_resource type="Resource" id="Resource_xvanw"]
+script = ExtResource("2_gv347")
+token = ":FaunaAngelYT:"
+image = ExtResource("15_rw0la")
+
+[sub_resource type="Resource" id="Resource_d1afk"]
+script = ExtResource("2_gv347")
+token = ":FaunaLOLYT:"
+image = ExtResource("16_fllv5")
+
+[sub_resource type="Resource" id="Resource_4ipvb"]
+script = ExtResource("2_gv347")
+token = ":FaunaLoveRedYT:"
+image = ExtResource("17_l7qu1")
+
+[sub_resource type="Resource" id="Resource_x8kpd"]
+script = ExtResource("2_gv347")
+token = ":FaunaNemuSmugYT:"
+image = ExtResource("18_m5scf")
+
+[sub_resource type="Resource" id="Resource_xdvfy"]
+script = ExtResource("2_gv347")
+token = ":FaunaNotLikeThisYT:"
+image = ExtResource("19_n071t")
+
+[sub_resource type="Resource" id="Resource_xsp02"]
+script = ExtResource("2_gv347")
+token = ":FaunaNemuPoutYT:"
+image = ExtResource("20_7dwr1")
+
+[sub_resource type="Resource" id="Resource_1k6ya"]
+script = ExtResource("2_gv347")
+token = ":FaunaGlowstickPinkYT:"
+image = ExtResource("21_icosc")
+
+[sub_resource type="Resource" id="Resource_qqbn6"]
+script = ExtResource("2_gv347")
+token = ":FaunaBlushYT:"
+image = ExtResource("22_01tal")
+
+[sub_resource type="Resource" id="Resource_rr3om"]
+script = ExtResource("2_gv347")
+token = ":FaunaSlapYTL:"
+image = ExtResource("23_qhn68")
+
+[sub_resource type="Resource" id="Resource_n75uw"]
+script = ExtResource("2_gv347")
+token = ":FaunaNemuSleepYT:"
+image = ExtResource("24_ys6ox")
+
+[sub_resource type="Resource" id="Resource_ndqmh"]
+script = ExtResource("2_gv347")
+token = ":FaunaNemuSmileYT:"
+image = ExtResource("25_pge4l")
+
+[sub_resource type="Resource" id="Resource_y1eok"]
+script = ExtResource("2_gv347")
+token = ":FaunaSmugYT:"
+image = ExtResource("26_uxnbr")
+
+[sub_resource type="Resource" id="Resource_81buh"]
+script = ExtResource("2_gv347")
+token = ":FaunaDachi:"
+image = ExtResource("27_vku5n")
+
+[sub_resource type="Resource" id="Resource_h0blm"]
+script = ExtResource("2_gv347")
+token = ":FaunaUUUYTGreen:"
+image = ExtResource("28_blk7t")
+
+[sub_resource type="Resource" id="Resource_l3wwy"]
+script = ExtResource("2_gv347")
+token = ":FaunaUUUYTPink:"
+image = ExtResource("29_1dmpp")
+
+[sub_resource type="Resource" id="Resource_rgiwf"]
+script = ExtResource("2_gv347")
+token = ":FaunaWaveYT:"
+image = ExtResource("30_tuown")
+
+[sub_resource type="Resource" id="Resource_bs7om"]
+script = ExtResource("2_gv347")
+token = ":WideFauna1:"
+image = ExtResource("31_ura38")
+
+[sub_resource type="Resource" id="Resource_4q0h8"]
+script = ExtResource("2_gv347")
+token = ":WideFauna2:"
+image = ExtResource("32_iwsap")
+
+[sub_resource type="Resource" id="Resource_syd1w"]
+script = ExtResource("2_gv347")
+token = ":WideFauna3:"
+image = ExtResource("33_cxoly")
+
+[sub_resource type="Resource" id="Resource_msrgl"]
+script = ExtResource("2_gv347")
+token = ":FaunaYandereYT:"
+image = ExtResource("34_jlam4")
+
+[sub_resource type="Resource" id="Resource_ocx6n"]
+script = ExtResource("2_gv347")
+token = ":FaunaCheerYT:"
+image = ExtResource("1_42ww6")
+
+[sub_resource type="Resource" id="Resource_qy5ye"]
+script = ExtResource("2_gv347")
+token = ":FaunaZoomYT:"
+image = ExtResource("36_g4q6t")
+
+[resource]
+script = ExtResource("1_ks2ee")
+tokenData = Array[ExtResource("2_gv347")]([SubResource("Resource_cfbns"), SubResource("Resource_tifko"), SubResource("Resource_ncosh"), SubResource("Resource_lniah"), SubResource("Resource_qy1bn"), SubResource("Resource_v316r"), SubResource("Resource_kjypk"), SubResource("Resource_qj8bd"), SubResource("Resource_1unrh"), SubResource("Resource_yq0pg"), SubResource("Resource_txf1l"), SubResource("Resource_6tklu"), SubResource("Resource_pjuyv"), SubResource("Resource_4nx0n"), SubResource("Resource_bv473"), SubResource("Resource_fqoei"), SubResource("Resource_sdbx3"), SubResource("Resource_ddg84"), SubResource("Resource_py6yo"), SubResource("Resource_xchul"), SubResource("Resource_tk1qq"), SubResource("Resource_leiw7"), SubResource("Resource_5p65c"), SubResource("Resource_ru68a"), SubResource("Resource_ujwy5"), SubResource("Resource_uydsa"), SubResource("Resource_5m4cc"), SubResource("Resource_niyrq"), SubResource("Resource_1hxjg"), SubResource("Resource_ufoi8"), SubResource("Resource_4bg2q"), SubResource("Resource_nskkv"), SubResource("Resource_oh1i0"), SubResource("Resource_nmy4q"), SubResource("Resource_0s6tq"), SubResource("Resource_wkedp"), SubResource("Resource_27vrs"), SubResource("Resource_6w3fn"), SubResource("Resource_wewhc"), SubResource("Resource_ixje2"), SubResource("Resource_otqnf"), SubResource("Resource_a7oqe"), SubResource("Resource_fj5q5"), SubResource("Resource_2ukkr"), SubResource("Resource_vrymx"), SubResource("Resource_52np0"), SubResource("Resource_xvanw"), SubResource("Resource_d1afk"), SubResource("Resource_4ipvb"), SubResource("Resource_x8kpd"), SubResource("Resource_xdvfy"), SubResource("Resource_xsp02"), SubResource("Resource_1k6ya"), SubResource("Resource_qqbn6"), SubResource("Resource_rr3om"), SubResource("Resource_n75uw"), SubResource("Resource_ndqmh"), SubResource("Resource_y1eok"), SubResource("Resource_81buh"), SubResource("Resource_h0blm"), SubResource("Resource_l3wwy"), SubResource("Resource_rgiwf"), SubResource("Resource_bs7om"), SubResource("Resource_4q0h8"), SubResource("Resource_syd1w"), SubResource("Resource_msrgl"), SubResource("Resource_ocx6n"), SubResource("Resource_qy5ye")])

@@ -33,7 +33,7 @@ signal initialized_event()
 signal state_changed_event(state)
 
 func go_to_main_menu():
-	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {})
+	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, true)
 	pass
 
 func get_current_state() -> GameState:
@@ -70,6 +70,9 @@ func on_piece_clicked(clicked_piece: PieceLogic):
 	if _current_state == play_state:
 		if clicked_piece.isBlocker:
 			return
+	# only allow pieces to be interacted if level is the top screen
+	if myScreen.screenManager.IsTopScreen(myScreen) == false:
+		return
 	
 	held_piece = clicked_piece
 	
@@ -109,6 +112,9 @@ func _process(delta):
 	
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()
+		return
+		
+	if myScreen.screenManager.IsTopScreen(myScreen) == false:
 		return
 	
 	if _current_state is GameEditState:

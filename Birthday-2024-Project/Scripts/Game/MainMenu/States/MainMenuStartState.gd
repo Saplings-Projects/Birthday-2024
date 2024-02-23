@@ -26,7 +26,7 @@ func show_settings():
 
 
 func show_campaign_selection():
-	myScreen.screenManager.GoToScreen(load("res://MainScenes/campaign_selection.tscn"), {})
+	myScreen.screenManager.GoToScreen(load("res://MainScenes/campaign_selection.tscn"), {}, true)
 
 
 #region MainMenuState

@@ -6,6 +6,7 @@
 [node name="snail" instance=ExtResource("1_kkwfv")]
 pieceShape = "01
 11"
+isBlocker = true
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(-120, -120)

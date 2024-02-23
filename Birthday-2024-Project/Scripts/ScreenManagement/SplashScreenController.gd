@@ -12,7 +12,7 @@ func ScreenEnter():
 	pass
 
 func GoToMainMenu():
-	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {})
+	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, true)
 
 func _process(delta):
 	if _active == false:
@@ -21,3 +21,7 @@ func _process(delta):
 	_timer -= delta
 	if _timer < 0:
 		GoToMainMenu()
+
+func _input(event):
+	if event.is_action_pressed("GrabPiece"):
+		_timer = 0
