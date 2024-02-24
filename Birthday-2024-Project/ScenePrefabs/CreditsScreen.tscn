@@ -131,7 +131,7 @@ text = "[center][font_size=40]Developers[/font_size]
 Bishop
 Casulono
 Duarpeto
-Godouuu
+Diego A.
 Mikotey
 Sambino
 Vorthein
@@ -206,13 +206,13 @@ Casulono
 fit_content = true
 scroll_active = false
 
-[node name="Patronage" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
+[node name="Game Idea" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[center][font_size=40]Patronage[/font_size]
+text = "[center][font_size=40]Game Idea[/font_size]
 Mikotey
 [/center]"
 fit_content = true
