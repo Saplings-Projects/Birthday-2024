@@ -1,22 +1,28 @@
-[gd_scene load_steps=15 format=3 uid="uid://btcp1sgcebsyi"]
+[gd_scene load_steps=18 format=3 uid="uid://btcp1sgcebsyi"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Settings/SettingsWindow.gd" id="1_ccik3"]
 [ext_resource type="Script" path="res://Scripts/UI/Settings/VideoSettingsControl.gd" id="2_y1ii8"]
 [ext_resource type="Script" path="res://Scripts/UI/Settings/AudioSettingsControl.gd" id="3_jxrfi"]
 [ext_resource type="AudioStream" uid="uid://cu8cq2y34vvj7" path="res://Resources/Audio/tone_220hz.wav" id="5_3jstt"]
-[ext_resource type="AudioStream" uid="uid://2j000gweujrx" path="res://Resources/Audio/SFX/Fauna_pew_pew.wav" id="6_mflx6"]
+[ext_resource type="AudioStream" uid="uid://cdi4asddpi7xo" path="res://Resources/Audio/SFX/PageTurnNext.wav" id="6_dv34b"]
 [ext_resource type="Texture2D" uid="uid://bh6ef2hoft8cb" path="res://Art/UI/Textbox_QuarterSize.png" id="6_pxxqe"]
+[ext_resource type="AudioStream" uid="uid://bo5k5olfia8ds" path="res://Resources/Audio/Fauna/GrabFauna/Fauna_7_wives.wav" id="6_wh4bn"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="7_0mm3k"]
-[ext_resource type="AudioStream" uid="uid://dsw0700yfnq3" path="res://Resources/Audio/SFX/Fauna_oh_goodness_uuu.wav" id="7_idf7t"]
-[ext_resource type="AudioStream" uid="uid://citjs1aroetwd" path="res://Resources/Audio/SFX/Fauna_7_wives.wav" id="8_k0yb2"]
+[ext_resource type="AudioStream" uid="uid://bn254yqy4jdr1" path="res://Resources/Audio/SFX/PieceGrab.wav" id="7_depge"]
+[ext_resource type="AudioStream" uid="uid://cu33d5481hg1k" path="res://Resources/Audio/Fauna/PlaceFauna/Boom.wav" id="7_k0hy7"]
 [ext_resource type="Texture2D" uid="uid://b3pmval131k2g" path="res://Art/UI/Exit_button_normal_MiniSize.png" id="8_m4in0"]
+[ext_resource type="AudioStream" uid="uid://b8wccss4rsabx" path="res://Resources/Audio/Fauna/RotateFauna/Fauna_oh_goodness_uuu.wav" id="8_xxeno"]
 [ext_resource type="Script" path="res://Scripts/Model/AudioSamples.gd" id="9_6td77"]
 [ext_resource type="Texture2D" uid="uid://cwb6bao8267c6" path="res://Art/UI/Exit_button_pressed_MiniSize.png" id="9_al1hc"]
 [ext_resource type="Texture2D" uid="uid://1s8yef5svbq1" path="res://Art/UI/Exit_button_Hover_MiniSize.png" id="10_5436c"]
 
+[sub_resource type="Resource" id="Resource_mqiwf"]
+script = ExtResource("9_6td77")
+samples = Array[AudioStream]([ExtResource("6_dv34b"), ExtResource("7_depge")])
+
 [sub_resource type="Resource" id="Resource_0ihlb"]
 script = ExtResource("9_6td77")
-samples = Array[AudioStream]([null, null, ExtResource("6_mflx6"), null, ExtResource("7_idf7t"), null, ExtResource("8_k0yb2"), null])
+samples = Array[AudioStream]([ExtResource("7_k0hy7"), ExtResource("8_xxeno"), ExtResource("6_wh4bn")])
 
 [node name="SettingsWindow" type="Control"]
 layout_mode = 3
@@ -131,7 +137,7 @@ text = "Screen Resolution"
 [node name="ResolutionOptions" type="OptionButton" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container/ResolutionContainer"]
 layout_mode = 2
 
-[node name="Audio" type="TabBar" parent="Panel/ThemeHolder/TabContainer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "music_sample_player", "sfx_sample_player")]
+[node name="Audio" type="TabBar" parent="Panel/ThemeHolder/TabContainer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "fauna_slider", "music_sample_player", "sfx_sample_player", "fauna_sample_player")]
 visible = false
 custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
@@ -139,9 +145,12 @@ script = ExtResource("3_jxrfi")
 master_slider = NodePath("MarginContainer/Settings Container/Master Container/Master Slider")
 music_slider = NodePath("MarginContainer/Settings Container/Music Container/Music Slider")
 sfx_slider = NodePath("MarginContainer/Settings Container/SFX Container/SFX Slider")
+fauna_slider = NodePath("MarginContainer/Settings Container/Fauna Container/Fauna Slider")
 music_sample_player = NodePath("../../MusicSamplePlayer")
 sfx_sample_player = NodePath("../../SfxSamplePlayer")
-sfx_samples = SubResource("Resource_0ihlb")
+fauna_sample_player = NodePath("../../FaunaSamplePlayer")
+sfx_samples = SubResource("Resource_mqiwf")
+fauna_samples = SubResource("Resource_0ihlb")
 tone_sample = ExtResource("5_3jstt")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/ThemeHolder/TabContainer/Audio"]
@@ -196,6 +205,20 @@ layout_mode = 2
 text = "SFX"
 
 [node name="SFX Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/SFX Container"]
+layout_mode = 2
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.501
+
+[node name="Fauna Container" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
+layout_mode = 2
+text = "Fauna"
+
+[node name="Fauna Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
 layout_mode = 2
 min_value = 0.001
 max_value = 1.0

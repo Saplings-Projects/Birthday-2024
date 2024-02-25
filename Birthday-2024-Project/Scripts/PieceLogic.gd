@@ -13,9 +13,12 @@ const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to
 @export var isBlocker : bool
 @export var fauna_player: AudioStreamPlayer2D
 @export var sfx_player: AudioStreamPlayer2D
-@export var rotate_samples: AudioSamples
-@export var place_samples: AudioSamples
-@export var grab_samples: AudioSamples
+@export var sfx_rotate_samples: AudioSamples
+@export var sfx_place_samples: AudioSamples
+@export var sfx_grab_samples: AudioSamples
+@export var fauna_rotate_samples: AudioSamples
+@export var fauna_place_samples: AudioSamples
+@export var fauna_grab_samples: AudioSamples
 
 var current_placement_state: PlacementStates
 var levelGridReference : GridLogic
@@ -50,24 +53,27 @@ func on_piece_held():
 
 
 func play_grab_audio():
-	_play_sfx_sample(grab_samples.get_random_sample())
+	_play_sample(sfx_grab_samples.get_random_sample(), sfx_player)
+	_play_sample(fauna_grab_samples.get_random_sample(), fauna_player)
 
 
 func play_place_audio():
-	_play_sfx_sample(place_samples.get_random_sample())
+	_play_sample(sfx_place_samples.get_random_sample(), sfx_player)
+	_play_sample(fauna_place_samples.get_random_sample(), fauna_player)
 
 
 func play_rotate_audio():
-	_play_sfx_sample(rotate_samples.get_random_sample())
+	_play_sample(sfx_rotate_samples.get_random_sample(), sfx_player)
+	_play_sample(fauna_rotate_samples.get_random_sample(), fauna_player)
 
 
-func _play_sfx_sample(sample: AudioStream):
+func _play_sample(sample: AudioStream, player: AudioStreamPlayer2D):
 	if sample == null:
 		return
 	
-	sfx_player.stop()
-	sfx_player.stream = sample
-	sfx_player.play()
+	player.stop()
+	player.stream = sample
+	player.play()
 
 
 func cancel_movement_tween():

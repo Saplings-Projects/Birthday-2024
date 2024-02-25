@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AudioSamples" load_steps=4 format=3 uid="uid://cm8vyjm0xyrqk"]
+
+[ext_resource type="Script" path="res://Scripts/Model/AudioSamples.gd" id="1_e7lxw"]
+[ext_resource type="AudioStream" uid="uid://dpjlnkfrcma1q" path="res://Resources/Audio/Fauna/PlaceFauna/Boom.wav" id="1_h6t8j"]
+[ext_resource type="AudioStream" uid="uid://b7hpi04tmcnr1" path="res://Resources/Audio/Fauna/PlaceFauna/Plus2.wav" id="2_fmni1"]
+
+[resource]
+script = ExtResource("1_e7lxw")
+samples = Array[AudioStream]([ExtResource("1_h6t8j"), ExtResource("2_fmni1")])

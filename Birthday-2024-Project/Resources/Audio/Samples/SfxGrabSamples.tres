@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AudioSamples" load_steps=3 format=3 uid="uid://bs376cly3el6q"]
+
+[ext_resource type="Script" path="res://Scripts/Model/AudioSamples.gd" id="1_p7f6g"]
+[ext_resource type="AudioStream" uid="uid://bn254yqy4jdr1" path="res://Resources/Audio/SFX/PieceGrab.wav" id="1_wkat4"]
+
+[resource]
+script = ExtResource("1_p7f6g")
+samples = Array[AudioStream]([ExtResource("1_wkat4")])

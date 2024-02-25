@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="AudioSamples" load_steps=3 format=3 uid="uid://b7cedwyqotmo4"]
+[gd_resource type="Resource" script_class="AudioSamples" load_steps=2 format=3 uid="uid://b7cedwyqotmo4"]
 
 [ext_resource type="Script" path="res://Scripts/Model/AudioSamples.gd" id="1_0aqob"]
-[ext_resource type="AudioStream" uid="uid://c6r15bv5aukmn" path="res://Resources/Audio/SFX/Sneeze.wav" id="1_b4ybk"]
 
 [resource]
 script = ExtResource("1_0aqob")
-samples = Array[AudioStream]([ExtResource("1_b4ybk")])
+samples = Array[AudioStream]([])
