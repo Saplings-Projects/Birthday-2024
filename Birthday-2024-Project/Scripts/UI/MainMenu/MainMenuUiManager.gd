@@ -8,6 +8,7 @@ extends Control
 @export var start_screen: MainMenuStartScreen
 @export var campaign_select: CampaignSelectMenu
 @export var campaign_levels: CampaignLevelsSelectMenu
+@export var gallery_screen: GalleryScreen
 
 @export_group("States")
 @export var start_state: MainMenuUiStartState
@@ -41,11 +42,15 @@ func show_campaign_levels():
 	_disable_all_screans()
 	campaign_levels.show()
 
+func show_gallery_screen():
+	_disable_all_screans()
+	gallery_screen.show()
 
 func _disable_all_screans():
 	start_screen.hide()
 	campaign_select.hide()
 	campaign_levels.hide()
+	gallery_screen.hide()
 
 
 func _switch_state(state: MainMenuUiState):

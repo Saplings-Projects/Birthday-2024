@@ -1,0 +1,370 @@
+[gd_scene load_steps=31 format=3 uid="uid://k787vo3otomq"]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu/GalleryScreen.gd" id="1_61g35"]
+[ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="1_b70co"]
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_dgjp3"]
+[ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="4_xprdu"]
+[ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="5_ywox6"]
+[ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_p7jju"]
+[ext_resource type="Texture2D" uid="uid://dnu0m3v14cg0p" path="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksCasualFaunaWaveNoBg.png" id="7_bgwv1"]
+[ext_resource type="Texture2D" uid="uid://bv7x7urulm0hl" path="res://Art/OfficialPieceArt/FaunaBdayProject2024CasualFaunaNoBg.png" id="8_absxw"]
+[ext_resource type="Texture2D" uid="uid://bg44mdmlxp627" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksPt2FaunyaNoBg.png" id="8_r2k42"]
+[ext_resource type="Texture2D" uid="uid://bnvw6ymm7yypy" path="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksHungryFaunyaNoBg.png" id="9_jnevx"]
+[ext_resource type="Texture2D" uid="uid://c5tfnb2mdy1f0" path="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksHappyFaunaNoBg.png" id="10_8p4xo"]
+[ext_resource type="Texture2D" uid="uid://csbmmbti02bpt" path="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksGoldenAppleBlockerNoBg.png" id="11_erf5b"]
+[ext_resource type="Texture2D" uid="uid://csmg8ouqt6ydf" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksMaidFaunaMacCheeseMilkShakeNoBg.png" id="12_dlt3o"]
+[ext_resource type="Texture2D" uid="uid://dikhfqewphv82" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksNemuFaunaNoBg.png" id="13_8663b"]
+[ext_resource type="Texture2D" uid="uid://bjy2uu066xde6" path="res://Art/OfficialPieceArt/faunashi.png" id="15_0ilol"]
+[ext_resource type="Texture2D" uid="uid://drg2trhl7s24l" path="res://Art/OfficialPieceArt/Matcha1.png" id="16_laxtm"]
+[ext_resource type="Texture2D" uid="uid://o02tlk51tt1k" path="res://Art/OfficialPieceArt/baldFauna.png" id="17_h2sxg"]
+[ext_resource type="Texture2D" uid="uid://duksxs24hl4l1" path="res://Art/OfficialPieceArt/FaunaIdol.png" id="18_2p32e"]
+[ext_resource type="Texture2D" uid="uid://rr1lnxrv1n06" path="res://Art/OfficialPieceArt/wrench.png" id="19_kus4v"]
+[ext_resource type="Texture2D" uid="uid://sijqsamyxvg3" path="res://Art/OfficialPieceArt/wideFauna.png" id="20_dfb6f"]
+[ext_resource type="Texture2D" uid="uid://c2a1vre2df32p" path="res://Art/OfficialPieceArt/faunaMitts.png" id="21_jax2v"]
+[ext_resource type="Texture2D" uid="uid://cyaxerqj7bgms" path="res://Art/OfficialPieceArt/Snail.png" id="22_o6mix"]
+[ext_resource type="Texture2D" uid="uid://bahwobneyv08i" path="res://Art/OfficialPieceArt/SmollFauna.png" id="23_vsun8"]
+[ext_resource type="Texture2D" uid="uid://cdnpjssoaincv" path="res://Art/OfficialPieceArt/SmollFaunya.png" id="24_0qgc7"]
+[ext_resource type="Texture2D" uid="uid://dytum2aj5qbkp" path="res://Art/OfficialPieceArt/Matcha2.png" id="25_xnbjk"]
+[ext_resource type="Texture2D" uid="uid://b00lhl4d13cxs" path="res://Art/OfficialPieceArt/FaunaCowkini.png" id="26_ufcgr"]
+[ext_resource type="Texture2D" uid="uid://dquxc6isrs5w6" path="res://Art/OfficialPieceArt/FaunaBdayProject2024EleFaunaNoBg.png" id="27_208nj"]
+[ext_resource type="Texture2D" uid="uid://dlupogimyyhtn" path="res://Art/OfficialPieceArt/kimonoFauna.png" id="28_pa6fp"]
+[ext_resource type="Texture2D" uid="uid://budwqnrnhxat5" path="res://Art/OfficialPieceArt/originalfauna.png" id="29_4m41g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86vn4"]
+
+[node name="Gallery" type="Control" node_paths=PackedStringArray("piece", "pieces", "description", "artist_credit")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dgjp3")
+script = ExtResource("1_61g35")
+piece = NodePath("Piece Display/Casual Fauna Wave")
+pieces = [NodePath("Piece Display/Casual Fauna Wave"), NodePath("Piece Display/Casual Faunya"), NodePath("Piece Display/Faunya Hungry"), NodePath("Piece Display/Happy Fauna"), NodePath("Piece Display/Apple Blocker"), NodePath("Piece Display/Maid Fauna"), NodePath("Piece Display/Nemu Fauna"), NodePath("Piece Display/Casual Fauna"), NodePath("Piece Display/Faunashi"), NodePath("Piece Display/Big Matcha Blocker"), NodePath("Piece Display/Agent Fauna7"), NodePath("Piece Display/Idol Fauna"), NodePath("Piece Display/Wrench Blocker"), NodePath("Piece Display/Wide Fauna"), NodePath("Piece Display/Mitten Fauna"), NodePath("Piece Display/Snail Blocker"), NodePath("Piece Display/Smol Fauna"), NodePath("Piece Display/Smol Faunya"), NodePath("Piece Display/Matcha Set Blocker"), NodePath("Piece Display/Cowkini Fauna"), NodePath("Piece Display/Elephant Fauna"), NodePath("Piece Display/Kimono Fauna"), NodePath("Piece Display/Original Fauna")]
+description = NodePath("Text Display/Piece Description")
+descriptions = Array[String](["\"Konfauna! I’m Ceres Fauna from Hololive Promise, here to make you return to nature as all humans should”", "Is it a cat? Is it Casual Fauna? It’s actually both! And it seems she likes this golden apple she has in her paws. Don’t try to steal it from her.", "It’s surprising how much food can this smol Faunya eat. It’s almost like she's a bottomless pit. And now she cast her gaze on you. You better run.", "Why is Fauna smiling? Why wouldn’t she? She’s gaming, is an idol, is surrounded by cute girls, and has devoted Saplings and her handsome boy, Snail.", "The fabled golden apple in possession of Keeper of Nature. One bite is enough to cure any ailment.", "“Come on, Sapling! It’s your favorite maid kirin with your favorite meal, a mac-n-cheese milkshake. Open up!”", "Oh, the bliss and comfiness of Nemu onesie. These ears can put EleFauna’s ears to shame and cuteness can overwhelm even the coldest hearts.", "Beloved kirin in her casual outfit ready to stream :3 Is it time for sweaty gaming or ASMR? Who knows, only time will tell.", "Faunashi-sensei in her golden pot and with her irreplaceable hammer will lead Baeruto and Moomsuke to the greatest heights of Getting Over It. Together with Ourochimaru and SakuRyS she will provide commentary for the participants of GOI Trials!", "Matcha latte is one of the favorites of Fauna. Skilled baristas are making those in a matter of minutes and you can be sure to also get a cute foam art with it just like this cute sapling.", "Agent Fauna7 refuses to use guns as bananas work just as well. It’s not because of her aim. It’s a false rumor spread by syndicates that will soon be done for. Right?", "It finally happened! 4th fes was the first time Fauna donned her idol outfit and sang on the big stage for everyone! ", "A trusty companion for Agent Fauna7. It can do everything as long as it’s a distraction or smacking the head of an unsuspecting victim.", "The first glimpse of 3D Fauna was not what we expected but wide head and big horns will forever be in our minds.", "These are not oversized oven mitts. These are oversized horn warmers and if you don’t think so, get ready for kirin headbutt attack.", "Just like any cat, Snail is a liquid and can end up in strange poses. And you, knowing all this, are staring at him! Give him some privacy!", "Where did Fauna go? She could be anywhere. She could be in her closet. She could be in your walls. She could be right behind you! Or.. she could be somewhere here in the bushes.", "Did you know that green and purple colors are a great combination and together are very pleasant for the eyes? Here we have Exhibit A: BEEGsmol Faunya in purple dress accompanied by the green of spilled matcha latte.", "Even more matcha? What will I do with this whole powder? One glass is not enough. On the other hand, is it possible to overdose on it?", "Cowkini? Check. Safety cap? Check. Matcha latte? Che… Aaaaa… Uuuuu… That was not a good idea. Oh well…", "Once upon a time, a wise EleFauna said: “Prrrt. Prrrt. Toot~ Elephants, roll out!” so if by any chance you have a medieval castle, you better watch out.", "“Okaerinasaimase, Goshujin-sama! Your… your… your maid is here. It was me all along. Aaaaaaa! What do you think? What do you think?”", "\"Konfauna~ Your gaming idol kirin Ceres Fauna is here!\"The Keeper of Nature, a druidic kirin who appeared on the internet to win over humans and convince them to return to nature."])
+artist_credit = NodePath("Text Display/Piece Artists")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_b70co")
+patch_margin_left = 300
+patch_margin_top = 250
+patch_margin_right = 250
+patch_margin_bottom = 250
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_86vn4")
+
+[node name="Back Button" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 130.0
+offset_right = 258.0
+offset_bottom = 128.0
+theme = ExtResource("5_ywox6")
+
+[node name="Settings Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = -200.0
+offset_right = -96.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("4_xprdu")
+
+[node name="Exit Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = -200.0
+offset_right = -26.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("6_p7jju")
+
+[node name="Previous Art Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 850.0
+offset_right = 900.0
+offset_bottom = 1000.0
+text = "Previous"
+
+[node name="Next Art Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 850.0
+offset_right = 1400.0
+offset_bottom = 1000.0
+text = "Next"
+
+[node name="Text Display" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 200.0
+offset_right = 1600.0
+offset_bottom = 800.0
+
+[node name="Piece Description" type="Label" parent="Text Display"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 46.0
+offset_right = 455.0
+offset_bottom = 461.0
+theme = ExtResource("1_dgjp3")
+theme_override_font_sizes/font_size = 27
+text = "\"Konfauna! I’m Ceres Fauna from Hololive Promise, here to make you return to nature as all humans should”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Piece Artists" type="Label" parent="Text Display"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 491.0
+offset_right = 462.0
+offset_bottom = 568.0
+text = "Art by: Lunar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Piece Display" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 200.0
+offset_right = 920.0
+offset_bottom = 800.0
+
+[node name="Casual Fauna Wave" type="TextureRect" parent="Piece Display"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 104.0
+offset_right = 564.0
+offset_bottom = 604.0
+texture = ExtResource("7_bgwv1")
+
+[node name="Casual Faunya" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 124.0
+offset_top = -91.0
+offset_right = 624.0
+offset_bottom = 409.0
+texture = ExtResource("8_r2k42")
+
+[node name="Faunya Hungry" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 64.0
+offset_top = -27.0
+offset_right = 564.0
+offset_bottom = 473.0
+texture = ExtResource("9_jnevx")
+
+[node name="Happy Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 65.0
+offset_top = 30.0
+offset_right = 565.0
+offset_bottom = 530.0
+texture = ExtResource("10_8p4xo")
+
+[node name="Apple Blocker" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = -179.0
+offset_top = 222.0
+offset_right = 321.0
+offset_bottom = 722.0
+texture = ExtResource("11_erf5b")
+
+[node name="Maid Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 175.0
+offset_top = 149.0
+offset_right = 675.0
+offset_bottom = 649.0
+texture = ExtResource("12_dlt3o")
+
+[node name="Nemu Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 63.0
+offset_top = 156.0
+offset_right = 563.0
+offset_bottom = 656.0
+texture = ExtResource("13_8663b")
+
+[node name="Casual Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = -8.0
+offset_right = 503.0
+offset_bottom = 492.0
+texture = ExtResource("8_absxw")
+
+[node name="Faunashi" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 73.0
+offset_top = 67.0
+offset_right = 433.0
+offset_bottom = 427.0
+texture = ExtResource("15_0ilol")
+
+[node name="Big Matcha Blocker" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 32.0
+offset_top = -7.0
+offset_right = 532.0
+offset_bottom = 493.0
+texture = ExtResource("16_laxtm")
+
+[node name="Agent Fauna7" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 46.0
+offset_top = 5.0
+offset_right = 546.0
+offset_bottom = 505.0
+texture = ExtResource("17_h2sxg")
+
+[node name="Idol Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = -108.0
+offset_top = 61.0
+offset_right = 392.0
+offset_bottom = 561.0
+texture = ExtResource("18_2p32e")
+
+[node name="Wrench Blocker" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 138.0
+offset_top = 171.0
+offset_right = 378.0
+offset_bottom = 411.0
+texture = ExtResource("19_kus4v")
+
+[node name="Wide Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 65.0
+offset_top = 67.0
+offset_right = 565.0
+offset_bottom = 567.0
+texture = ExtResource("20_dfb6f")
+
+[node name="Mitten Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_top = 62.0
+offset_right = 511.0
+offset_bottom = 562.0
+texture = ExtResource("21_jax2v")
+
+[node name="Snail Blocker" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = -149.0
+offset_top = -87.0
+offset_right = 351.0
+offset_bottom = 413.0
+texture = ExtResource("22_o6mix")
+
+[node name="Smol Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 75.0
+offset_top = 78.0
+offset_right = 439.0
+offset_bottom = 442.0
+texture = ExtResource("23_vsun8")
+
+[node name="Smol Faunya" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 63.0
+offset_top = 87.0
+offset_right = 423.0
+offset_bottom = 447.0
+texture = ExtResource("24_0qgc7")
+
+[node name="Matcha Set Blocker" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 62.0
+offset_top = -14.0
+offset_right = 562.0
+offset_bottom = 486.0
+texture = ExtResource("25_xnbjk")
+
+[node name="Cowkini Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = -60.0
+offset_top = -22.0
+offset_right = 440.0
+offset_bottom = 478.0
+texture = ExtResource("26_ufcgr")
+
+[node name="Elephant Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = -64.0
+offset_top = 53.0
+offset_right = 436.0
+offset_bottom = 553.0
+texture = ExtResource("27_208nj")
+
+[node name="Kimono Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = -5.0
+offset_top = 52.0
+offset_right = 495.0
+offset_bottom = 552.0
+texture = ExtResource("28_pa6fp")
+
+[node name="Original Fauna" type="TextureRect" parent="Piece Display"]
+visible = false
+layout_mode = 0
+offset_left = 34.0
+offset_top = 77.0
+offset_right = 534.0
+offset_bottom = 577.0
+scale = Vector2(0.895, 0.895)
+texture = ExtResource("29_4m41g")
+
+[connection signal="button_up" from="Panel/Back Button" to="." method="_on_back_button_button_up"]
+[connection signal="button_up" from="Panel/Settings Button" to="." method="_on_settings_button_button_up"]
+[connection signal="button_up" from="Panel/Exit Button" to="." method="_on_exit_button_button_up"]
+[connection signal="button_up" from="Previous Art Button" to="." method="_on_previous_art_button_button_up"]
+[connection signal="button_up" from="Next Art Button" to="." method="_on_next_art_button_button_up"]

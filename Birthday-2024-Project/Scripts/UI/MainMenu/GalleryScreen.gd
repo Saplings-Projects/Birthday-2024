@@ -1,0 +1,56 @@
+class_name GalleryScreen
+extends Control
+
+@export var piece : TextureRect
+@export var pieces : Array[TextureRect] 
+@export var description : Label
+@export var descriptions : Array[String]
+@export var artist_credit : Label
+
+var gallery_tracker : int = 0
+
+signal back_to_main_menu
+signal exit_game
+signal open_settings_window
+
+func _on_exit_button_button_up():
+	exit_game.emit()
+
+func _on_back_button_button_up():
+	back_to_main_menu.emit()
+
+func _on_settings_button_button_up():
+	open_settings_window.emit()
+
+func _on_next_art_button_button_up():
+	pieces[gallery_tracker].hide()
+	gallery_tracker += 1
+	if gallery_tracker > (pieces.size() - 1) : 
+		gallery_tracker = 0;
+	pieces[gallery_tracker].visible = true
+	description.text = descriptions[gallery_tracker]
+	_change_artist_credit()
+
+func _on_previous_art_button_button_up():
+	pieces[gallery_tracker].hide()
+	gallery_tracker -= 1
+	if gallery_tracker < 0 : 
+		gallery_tracker = pieces.size() - 1
+	pieces[gallery_tracker].visible = true
+	description.text = descriptions[gallery_tracker]
+	_change_artist_credit()
+
+func _change_artist_credit():
+	match gallery_tracker:
+		0, 1, 2, 3, 4, 5, 6, 7, 20:
+			artist_credit.text = "Art by: Lunar"
+		8, 12, 14: 
+			artist_credit.text = "Art by: EndyStarBoy"
+		9, 10, 13, 18:
+			artist_credit.text = "Art by: crashairsprig"
+		11, 15, 19:
+			artist_credit.text = "Art by: mpmrpjb"
+		16, 17:
+			artist_credit.text = "Art by: Cyanophycée"
+		21, 22: 
+			artist_credit.text = "Art by: HDAK art"

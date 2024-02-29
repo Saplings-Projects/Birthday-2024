@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=7 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuStartScreen.gd" id="2_n7aum"]
 [ext_resource type="PackedScene" uid="uid://4kktp1gwthbt" path="res://ScenePrefabs/CampaignSelectMenu.tscn" id="3_qksbd"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="3_vnjds"]
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/CampaignLevelSelectMenu.tscn" id="4_o3atr"]
+[ext_resource type="PackedScene" uid="uid://k787vo3otomq" path="res://ScenePrefabs/gallery.tscn" id="5_1folx"]
 
-[node name="MainMenuUiManager" type="Control" node_paths=PackedStringArray("start_screen", "campaign_select", "campaign_levels", "start_state")]
+[node name="MainMenuUiManager" type="Control" node_paths=PackedStringArray("start_screen", "campaign_select", "campaign_levels", "gallery_screen", "start_state")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +18,7 @@ script = ExtResource("1_lofx7")
 start_screen = NodePath("StartScreen")
 campaign_select = NodePath("CampaignSelectMenu")
 campaign_levels = NodePath("CampaignLevelSelectMenu")
+gallery_screen = NodePath("Gallery")
 start_state = NodePath("States/MainMenuUiStartState")
 
 [node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallery_button", "play_button", "settings_button")]
@@ -107,6 +109,10 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="Gallery" parent="." instance=ExtResource("5_1folx")]
+visible = false
+layout_mode = 1
+
 [node name="States" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -128,3 +134,6 @@ script = ExtResource("3_vnjds")
 [connection signal="exit_game" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_exit_clicked"]
 [connection signal="open_settings_window" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_settings_clicked"]
 [connection signal="play" from="CampaignLevelSelectMenu" to="States/MainMenuUiStartState" method="_on_level_selected"]
+[connection signal="back_to_main_menu" from="Gallery" to="States/MainMenuUiStartState" method="_on_back_to_main_menu_clicked"]
+[connection signal="exit_game" from="Gallery" to="States/MainMenuUiStartState" method="_on_exit_clicked"]
+[connection signal="open_settings_window" from="Gallery" to="States/MainMenuUiStartState" method="_on_settings_clicked"]
