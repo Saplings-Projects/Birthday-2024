@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AudioSamples" load_steps=5 format=3 uid="uid://ctuxr0ryahk6s"]
+
+[ext_resource type="Script" path="res://Scripts/Model/AudioSamples.gd" id="1_pduk1"]
+[ext_resource type="AudioStream" uid="uid://c35wnbu2p3w5b" path="res://Resources/Audio/Fauna/RotateFauna/Fauna_oh_goodness_uuu.wav" id="1_ugokd"]
+[ext_resource type="AudioStream" uid="uid://de5xjwbvngdlw" path="res://Resources/Audio/Fauna/RotateFauna/Fauna_what_da_heck.wav" id="2_bbbif"]
+[ext_resource type="AudioStream" uid="uid://hejul7o6g2fd" path="res://Resources/Audio/Fauna/RotateFauna/Oi.wav" id="3_t5f25"]
+
+[resource]
+script = ExtResource("1_pduk1")
+samples = Array[AudioStream]([ExtResource("1_ugokd"), ExtResource("2_bbbif"), ExtResource("3_t5f25")])

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AudioSamples" load_steps=3 format=3 uid="uid://cmj62i48fgfhq"]
+
+[ext_resource type="AudioStream" uid="uid://si8816mox88g" path="res://Resources/Audio/SFX/PieceRotate.wav" id="1_8sr4l"]
+[ext_resource type="Script" path="res://Scripts/Model/AudioSamples.gd" id="1_083j7"]
+
+[resource]
+script = ExtResource("1_083j7")
+samples = Array[AudioStream]([ExtResource("1_8sr4l")])

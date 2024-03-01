@@ -1,9 +1,7 @@
-[gd_resource type="Resource" script_class="AudioSamples" load_steps=4 format=3 uid="uid://b7cedwyqotmo4"]
+[gd_resource type="Resource" script_class="AudioSamples" load_steps=2 format=3 uid="uid://b7cedwyqotmo4"]
 
 [ext_resource type="Script" path="res://Scripts/Model/AudioSamples.gd" id="1_0aqob"]
-[ext_resource type="AudioStream" uid="uid://vojwvg8j7e5h" path="res://Resources/Audio/SFX/Faunas/Sneeze.wav" id="1_b4ybk"]
-[ext_resource type="AudioStream" uid="uid://c2oqb53dvbptr" path="res://Resources/Audio/SFX/Faunas/Fauna_sneeze.wav" id="2_codob"]
 
 [resource]
 script = ExtResource("1_0aqob")
-samples = Array[AudioStream]([ExtResource("1_b4ybk"), ExtResource("2_codob")])
+samples = Array[AudioStream]([])

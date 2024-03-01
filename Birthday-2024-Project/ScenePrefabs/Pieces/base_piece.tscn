@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccdq0btysgv1m"]
+[gd_scene load_steps=9 format=3 uid="uid://ccdq0btysgv1m"]
 
 [ext_resource type="Script" path="res://Scripts/PieceLogic.gd" id="1_pb07g"]
-[ext_resource type="Resource" uid="uid://b7cedwyqotmo4" path="res://Resources/Audio/Samples/DefaultFaunaSamples.tres" id="2_5dkss"]
-[ext_resource type="Resource" uid="uid://yo3alxsm0es1" path="res://Resources/Audio/Samples/RotatePieceSamples.tres" id="3_cuols"]
-[ext_resource type="Resource" uid="uid://dsc74j6rhmivm" path="res://Resources/Audio/Samples/PlacePieceSamples.tres" id="4_5x5m6"]
-[ext_resource type="Resource" uid="uid://c5pwc03ifyimd" path="res://Resources/Audio/Samples/GrabPieceSamples.tres" id="5_um730"]
+[ext_resource type="Resource" uid="uid://cmj62i48fgfhq" path="res://Resources/Audio/Samples/SfxRotateSamples.tres" id="2_jtldj"]
+[ext_resource type="Resource" uid="uid://x4py2ufvv07m" path="res://Resources/Audio/Samples/SfxPlaceSamples.tres" id="3_qqqkw"]
+[ext_resource type="Resource" uid="uid://bs376cly3el6q" path="res://Resources/Audio/Samples/SfxGrabSamples.tres" id="4_8l12a"]
+[ext_resource type="Resource" uid="uid://ctuxr0ryahk6s" path="res://Resources/Audio/Samples/FaunaRotateSamples.tres" id="5_s6yv8"]
 [ext_resource type="Texture2D" uid="uid://omq8wdisytjj" path="res://Art/GenericPieceArt/Asset 2.png" id="6_5tqvs"]
+[ext_resource type="Resource" uid="uid://cm8vyjm0xyrqk" path="res://Resources/Audio/Samples/FaunaPlaceSamples.tres" id="6_f66fy"]
+[ext_resource type="Resource" uid="uid://7b11140rrvv0" path="res://Resources/Audio/Samples/FaunaGrabSamples.tres" id="7_yegtj"]
 
 [node name="base_piece" type="Node2D" node_paths=PackedStringArray("fauna_player", "sfx_player")]
 script = ExtResource("1_pb07g")
@@ -13,10 +15,12 @@ pieceShape = "11
 11"
 fauna_player = NodePath("FaunaPlayer")
 sfx_player = NodePath("SfxPlayer")
-fauna_samples = ExtResource("2_5dkss")
-rotate_samples = ExtResource("3_cuols")
-place_samples = ExtResource("4_5x5m6")
-grab_samples = ExtResource("5_um730")
+sfx_rotate_samples = ExtResource("2_jtldj")
+sfx_place_samples = ExtResource("3_qqqkw")
+sfx_grab_samples = ExtResource("4_8l12a")
+fauna_rotate_samples = ExtResource("5_s6yv8")
+fauna_place_samples = ExtResource("6_f66fy")
+fauna_grab_samples = ExtResource("7_yegtj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("6_5tqvs")

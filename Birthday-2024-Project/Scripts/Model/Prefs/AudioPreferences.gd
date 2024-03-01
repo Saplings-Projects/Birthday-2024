@@ -2,15 +2,15 @@ class_name AudioPreferences
 extends Preferences
 
 
-var fauna: float
 var master: float
 var music: float
 var sfx: float
+var fauna: float
 
-const _DEFAULT_FAUNA: float = 0.5
 const _DEFAULT_MASTER: float = 1.0
 const _DEFAULT_MUSIC: float = 0.5
 const _DEFAULT_SFX: float = 0.5
+const _DEFAULT_FAUNA: float = 0.5
 const _SECTION_NAME: String = "audio"
 
 
