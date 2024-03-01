@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://4kktp1gwthbt" path="res://ScenePrefabs/CampaignSelectMenu.tscn" id="3_qksbd"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="3_vnjds"]
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/CampaignLevelSelectMenu.tscn" id="4_o3atr"]
-[ext_resource type="PackedScene" uid="uid://k787vo3otomq" path="res://ScenePrefabs/gallery.tscn" id="5_1folx"]
+[ext_resource type="PackedScene" uid="uid://k787vo3otomq" path="res://ScenePrefabs/Gallery.tscn" id="5_1folx"]
 
 [node name="MainMenuUiManager" type="Control" node_paths=PackedStringArray("start_screen", "campaign_select", "campaign_levels", "gallery_screen", "start_state")]
 layout_mode = 3

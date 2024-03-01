@@ -6,6 +6,8 @@ extends Control
 @export var description : Label
 @export var descriptions : Array[String]
 @export var artist_credit : Label
+@export var piece_name : Label
+@export var piece_names: Array[String]
 
 var gallery_tracker : int = 0
 
@@ -28,8 +30,10 @@ func _on_next_art_button_button_up():
 	if gallery_tracker > (pieces.size() - 1) : 
 		gallery_tracker = 0;
 	pieces[gallery_tracker].visible = true
+	piece_name.text = piece_names[gallery_tracker]
 	description.text = descriptions[gallery_tracker]
 	_change_artist_credit()
+
 
 func _on_previous_art_button_button_up():
 	pieces[gallery_tracker].hide()
@@ -37,6 +41,7 @@ func _on_previous_art_button_button_up():
 	if gallery_tracker < 0 : 
 		gallery_tracker = pieces.size() - 1
 	pieces[gallery_tracker].visible = true
+	piece_name.text = piece_names[gallery_tracker]
 	description.text = descriptions[gallery_tracker]
 	_change_artist_credit()
 
