@@ -1,12 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=8 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuStartScreen.gd" id="2_n7aum"]
 [ext_resource type="PackedScene" uid="uid://4kktp1gwthbt" path="res://ScenePrefabs/CampaignSelectMenu.tscn" id="3_qksbd"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="3_vnjds"]
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/CampaignLevelSelectMenu.tscn" id="4_o3atr"]
-[ext_resource type="PackedScene" uid="uid://k787vo3otomq" path="res://ScenePrefabs/Gallery.tscn" id="5_1folx"]
-[ext_resource type="PackedScene" uid="uid://catc2xlo8s4pi" path="res://ScenePrefabs/CreditsScreen.tscn" id="5_typ2d"]
+[ext_resource type="PackedScene" path="res://ScenePrefabs/Gallery.tscn" id="5_1folx"]
+[ext_resource type="PackedScene" uid="uid://cr52r13hg2vlu" path="res://ScenePrefabs/CreditsScreen.tscn" id="5_typ2d"]
 
 [node name="MainMenuUiManager" type="Control" node_paths=PackedStringArray("start_screen", "campaign_select", "campaign_levels", "gallery_screen", "credits_screen", "start_state")]
 layout_mode = 3

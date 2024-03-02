@@ -48,7 +48,7 @@ func show_gallery_screen():
 	gallery_screen.show()
 	
 func show_credits_screen():
-	_disable_all_screans()
+	_disable_all_screens()
 	credits_screen.show()
 
 func _disable_all_screens():
