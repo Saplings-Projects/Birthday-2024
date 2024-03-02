@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnl8rcbir84u7"
-path="res://.godot/imported/PageTurnAnimMask-09.png-e3c7501468aab6f763447916a730de3a.ctex"
+uid="uid://ivivtbjoawvw"
+path="res://.godot/imported/PageTurnAnimMaskInverted-01.png-a1b13f44a2d79536f288dac55409152f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/PageTransition/PageTurnAnimMask-09.png"
-dest_files=["res://.godot/imported/PageTurnAnimMask-09.png-e3c7501468aab6f763447916a730de3a.ctex"]
+source_file="res://Art/UI/PageTransition/PageTurnAnimMaskInverted-01.png"
+dest_files=["res://.godot/imported/PageTurnAnimMaskInverted-01.png-a1b13f44a2d79536f288dac55409152f.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

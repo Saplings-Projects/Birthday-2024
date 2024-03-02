@@ -7,6 +7,7 @@
 
 [node name="SplashScreen" type="CanvasLayer"]
 script = ExtResource("1_rg7jv")
+clearScreenStack = null
 
 [node name="Controller" type="Control" parent="." node_paths=PackedStringArray("myScreen")]
 layout_mode = 3

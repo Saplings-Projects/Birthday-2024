@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b00lhl4d13cxs"
-path="res://.godot/imported/FaunaCowkini.png-c801b97381c068a4670f925d9f4858c9.ctex"
+uid="uid://rip5m7fvpvt7"
+path="res://.godot/imported/PageTurnAnimMaskInverted-04.png-6c57ee43047059574d723e55c7a528fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/OfficialPieceArt/FaunaCowkini.png"
-dest_files=["res://.godot/imported/FaunaCowkini.png-c801b97381c068a4670f925d9f4858c9.ctex"]
+source_file="res://Art/UI/PageTransition/PageTurnAnimMaskInverted-04.png"
+dest_files=["res://.godot/imported/PageTurnAnimMaskInverted-04.png-6c57ee43047059574d723e55c7a528fb.ctex"]
 
 [params]
 
