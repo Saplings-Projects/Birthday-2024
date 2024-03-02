@@ -2,6 +2,7 @@ class_name ScreenManager
 extends Node
 
 @export var popupRoot : CanvasLayer
+@export var screenTexture : TextureRect
 
 var lastScreen : String
 var _screenStack : Array[Node]
@@ -9,8 +10,12 @@ var _screenStack : Array[Node]
 
 func GoToScreen(screen : PackedScene, data : Dictionary, doTransition: bool):
 	if(doTransition):
-		transition.play("fade_out")
-		await transition.animation_finished
+		var screenCapture = get_viewport().get_texture().get_image()
+		var tex = ImageTexture.create_from_image(screenCapture)
+		screenTexture.texture = tex
+		transition.play("page_turn")
+		await get_tree().create_timer(0.05).timeout
+	
 	var newScreen = screen.instantiate()
 	var screenLogic : ScreenLogic = newScreen as ScreenLogic
 	
@@ -22,10 +27,8 @@ func GoToScreen(screen : PackedScene, data : Dictionary, doTransition: bool):
 	screenLogic.transitionData = data
 	popupRoot.add_child(newScreen)
 	_screenStack.push_back(newScreen)
+	
 	screenLogic.ScreenEnter.emit()
-	if(doTransition): 
-		transition.play("fade_in")
-		await transition.animation_finished
 
 func IsTopScreen(screen : ScreenLogic) -> bool:
 	var topScreen : ScreenLogic = _screenStack.back() as ScreenLogic
@@ -52,7 +55,7 @@ func ShowConfirmationPopup(title : String, body : String, confirm : String = "Co
 	GoToScreen(load("res://MainScenes/confirmation_popup.tscn"), popupParameters, false)
 
 func _ready():
-	GoToScreen(load("res://MainScenes/splash_screen.tscn"), {}, true)
+	GoToScreen(load("res://MainScenes/splash_screen.tscn"), {}, false)
 
 func _closeTopScreen():
 	var oldScreen : Node = _screenStack.pop_back()
