@@ -29,24 +29,24 @@ func show_settings_window():
 
 
 func show_start_screen():
-	_disable_all_screans()
+	_disable_all_screens()
 	start_screen.show()
 
 
 func show_campaign_select():
-	_disable_all_screans()
+	_disable_all_screens()
 	campaign_select.show()
 
 
 func show_campaign_levels():
-	_disable_all_screans()
+	_disable_all_screens()
 	campaign_levels.show()
 
 func show_gallery_screen():
-	_disable_all_screans()
+	_disable_all_screens()
 	gallery_screen.show()
 
-func _disable_all_screans():
+func _disable_all_screens():
 	start_screen.hide()
 	campaign_select.hide()
 	campaign_levels.hide()
