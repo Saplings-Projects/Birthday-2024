@@ -28,7 +28,7 @@ func _ready():
 
 func SetupButtonMode(buttonMode : LevelButtonMode):
 	#tooltip_text = str(levelData.levelName, " by ", levelData.author)
-	tooltip_text = levelData.levelName
+	tooltip_text = levelData.author
 	match buttonMode:
 		LevelButtonMode.LOCKED:
 			disabled = true
