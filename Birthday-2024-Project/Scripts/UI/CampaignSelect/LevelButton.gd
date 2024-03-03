@@ -16,8 +16,14 @@ func GoToLevel():
 	levelMenu.on_level_selected(levelData)
 
 func _ready():
-	#TODO: disable, enable, or show preview based on progress saved
-	SetupButtonMode(LevelButtonMode.INCOMPLETE)
+	#TODO: disable or show preview based on progress saved
+	match RandomNumberGenerator.new().randi_range(1,3):
+		1:
+			SetupButtonMode(LevelButtonMode.LOCKED)
+		2:
+			SetupButtonMode(LevelButtonMode.INCOMPLETE)
+		3:
+			SetupButtonMode(LevelButtonMode.COMPLETE)
 	
 
 func SetupButtonMode(buttonMode : LevelButtonMode):
@@ -34,7 +40,7 @@ func SetupButtonMode(buttonMode : LevelButtonMode):
 			levelPreviewRenderer.show()
 		LevelButtonMode.COMPLETE:
 			disabled = false
-			levelPreviewRenderer.texture = levelData.levelPreview
+			levelPreviewRenderer.texture = levelData.levelComplete
 			levelPreviewRenderer.material = null
 			levelPreviewRenderer.show()
 		

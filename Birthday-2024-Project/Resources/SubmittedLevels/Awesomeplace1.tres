@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bifyv513pqukh"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=3 format=3 uid="uid://bifyv513pqukh"]
 
+[ext_resource type="Texture2D" uid="uid://cl54ler61mt6y" path="res://Art/LevelPreviews/Awesomeplace1s_Level.png" id="1_hmdlp"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_w7kgj"]
 
 [resource]
@@ -9,3 +10,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_P
 author = "Awesomeplace1"
 message = "Happy Birthday Fauna! Being a sapling really has been some of the most fun I've ever had, and it's projects like these where I feel like I can contribute with the saplings and give back to my oshi who has always been giving gifts to us through all the streams and projects that you have done. I hope you enjoy this fangame and the levels that we made!"
 levelName = "Awesomeplace1's Level"
+levelPreview = ExtResource("1_hmdlp")
+levelComplete = ExtResource("1_hmdlp")
