@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cgam3hyrewdlr"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_tj1ay"]
+
+[resource]
+script = ExtResource("1_tj1ay")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"kimono_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"mitts_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"smol_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"smol_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":1}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"nemu_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"nemu_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":1}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"hitman_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"maid_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":2}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"mitts_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"gold_apple\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\"]"
+author = "Roxas_1050"
+message = "Happy Birthday Fauna! Another year with the lovely Kirin! It's been a blast! Being a sapling has been a great and goofy experience! I wish you luck, happiness, cool opportunities, and another year of goofiness!!!! :FaunaZoomYT:  Thanks for all the fun times! :FaunaLoveRedYT:"
+levelName = "Roxas1050_Level"

@@ -6,9 +6,6 @@ extends Control
 
 @export_group("Screens")
 @export var start_screen: MainMenuStartScreen
-@export var campaign_select: CampaignSelectMenu
-@export var campaign_levels: CampaignLevelsSelectMenu
-@export var gallery_screen: GalleryScreen
 
 @export_group("States")
 @export var start_state: MainMenuUiStartState
@@ -23,34 +20,6 @@ func on_main_menu_state_changed(state: MainMenuState):
 		_switch_state(start_state)
 	else:
 		printerr("Unhandled main menu state in main menu UI Manager")
-
-func show_settings_window():
-	screenLogic.screenManager.ShowSettings()
-
-
-func show_start_screen():
-	_disable_all_screens()
-	start_screen.show()
-
-
-func show_campaign_select():
-	_disable_all_screens()
-	campaign_select.show()
-
-
-func show_campaign_levels():
-	_disable_all_screens()
-	campaign_levels.show()
-
-func show_gallery_screen():
-	_disable_all_screens()
-	gallery_screen.show()
-
-func _disable_all_screens():
-	start_screen.hide()
-	campaign_select.hide()
-	campaign_levels.hide()
-	gallery_screen.hide()
 
 
 func _switch_state(state: MainMenuUiState):

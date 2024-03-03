@@ -30,9 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://dw50giad0r2m3" path="res://ScenePrefabs/Pieces/snail.tscn" id="25_txqha"]
 [ext_resource type="PackedScene" uid="uid://kehoouuydau5" path="res://ScenePrefabs/Pieces/wide_fauna.tscn" id="26_gjtm0"]
 [ext_resource type="PackedScene" uid="uid://ctrg6ts07xcf5" path="res://ScenePrefabs/Pieces/wrench.tscn" id="27_2038e"]
-[ext_resource type="PackedScene" uid="uid://5yjn5jx20rmk" path="res://ScenePrefabs/Pieces/gold_apple.tscn" id="28_kcfq2"]
-[ext_resource type="PackedScene" uid="uid://qgaf0pv44vcf" path="res://ScenePrefabs/Pieces/happy_fauna.tscn" id="29_13ob1"]
-[ext_resource type="PackedScene" uid="uid://b38fclggnxgnu" path="res://ScenePrefabs/Pieces/maid_fauna.tscn" id="30_6d7gv"]
+[ext_resource type="PackedScene" uid="uid://cvx660iqikvys" path="res://ScenePrefabs/Pieces/gold_apple.tscn" id="28_kcfq2"]
+[ext_resource type="PackedScene" path="res://ScenePrefabs/Pieces/happy_fauna.tscn" id="29_13ob1"]
+[ext_resource type="PackedScene" path="res://ScenePrefabs/Pieces/maid_fauna.tscn" id="30_6d7gv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
 

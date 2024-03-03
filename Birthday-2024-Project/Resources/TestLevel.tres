@@ -43,5 +43,6 @@ pieceRotation = 3
 script = ExtResource("1_43yik")
 levelData = Array[ExtResource("1_37gyb")]([SubResource("Resource_ljtve"), SubResource("Resource_8c2vu"), SubResource("Resource_qls2v"), SubResource("Resource_gtw3y"), SubResource("Resource_pdn0s"), SubResource("Resource_0af60")])
 jsonData = ""
+author = ""
 message = ""
-artFileName = ""
+levelName = ""

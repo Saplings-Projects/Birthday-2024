@@ -6,6 +6,7 @@
 [node name="wrench" instance=ExtResource("1_10ch8")]
 pieceShape = "1
 1"
+isBlocker = true
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(-10, 0)

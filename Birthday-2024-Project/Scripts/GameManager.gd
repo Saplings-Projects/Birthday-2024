@@ -11,15 +11,14 @@ extends Node2D
 @export var held_piece_settle_animation_duration: float # The amount of time the held piece takes to move to it's settled position
 @export var place_piece_delay: float # The amount of time user input is blocked while the piece is being placed
 
+@export var levelNameText : Label
+@export var authorText : Label
+
 @export_group("States")
 @export var empty_state: GameEmptyState
 @export var play_state: GamePlayState
 @export var win_state: GameWinState
 @export var edit_state: GameEditState
-
-@export_group("")
-#TODO: have this passed by the level selector in the future
-@export var debug_setupData : LevelSetup
 
 var held_piece: PieceLogic
 var held_piece_cell: int
@@ -113,8 +112,11 @@ func _process(delta):
 		
 		initialized_event.emit()
 		switch_to_play_state()
-		#TODO: Load level using Level Select
-		grid.LoadLevel(debug_setupData)
+		
+		var levelData : LevelSetup = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] #as LevelSetup
+		grid.LoadLevel(levelData)
+		levelNameText.text = levelData.levelName
+		authorText.text = str("By: ", levelData.author)
 	
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()
