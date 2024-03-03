@@ -6,7 +6,6 @@ extends Control
 
 @export_group("Screens")
 @export var start_screen: MainMenuStartScreen
-@export var gallery_screen: GalleryScreen
 
 @export_group("States")
 @export var start_state: MainMenuUiStartState
@@ -21,19 +20,6 @@ func on_main_menu_state_changed(state: MainMenuState):
 		_switch_state(start_state)
 	else:
 		printerr("Unhandled main menu state in main menu UI Manager")
-
-
-func show_start_screen():
-	_disable_all_screens()
-	start_screen.show()
-
-func show_gallery_screen():
-	_disable_all_screens()
-	gallery_screen.show()
-
-func _disable_all_screens():
-	start_screen.hide()
-	gallery_screen.hide()
 
 
 func _switch_state(state: MainMenuUiState):

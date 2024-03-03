@@ -13,7 +13,7 @@ func _on_exit_clicked():
 
 
 func _on_gallery_clicked():
-	_ui_manager.show_gallery_screen()
+	_state.go_to_gallery()
 
 
 func _on_messages_clicked():
@@ -38,8 +38,6 @@ func enter_state():
 		return
 
 	_state = state
-
-	_ui_manager.show_start_screen()
 	
 	var screen = _ui_manager.start_screen
 	screen.credits_button.button_up.connect(_on_credits_clicked)

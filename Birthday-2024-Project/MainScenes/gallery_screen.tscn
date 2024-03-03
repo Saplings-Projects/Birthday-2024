@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch13f5vqrhjlo"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_1l4w6"]
+[ext_resource type="PackedScene" uid="uid://k787vo3otomq" path="res://ScenePrefabs/Gallery.tscn" id="2_8r0fc"]
+
+[node name="GalleryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1l4w6")
+
+[node name="Gallery" parent="." node_paths=PackedStringArray("myScreen") instance=ExtResource("2_8r0fc")]
+layout_mode = 1
+myScreen = NodePath("..")

@@ -1,16 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=9 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_o8ptf"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuStartScreen.gd" id="2_n7aum"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="3_vnjds"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="4_bkid4"]
-[ext_resource type="PackedScene" uid="uid://k787vo3otomq" path="res://ScenePrefabs/Gallery.tscn" id="5_1folx"]
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="5_s3yha"]
 [ext_resource type="Texture2D" uid="uid://b2dleburiy01u" path="res://Art/UI/UiReferencesAndMockups/MainMenuScreen.png" id="6_ltjow"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_umtno"]
 
-[node name="MainMenuUiManager" type="Control" node_paths=PackedStringArray("start_screen", "gallery_screen", "start_state")]
+[node name="MainMenuUiManager" type="Control" node_paths=PackedStringArray("start_screen", "start_state")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +19,6 @@ grow_vertical = 2
 theme = ExtResource("1_o8ptf")
 script = ExtResource("1_lofx7")
 start_screen = NodePath("StartScreen")
-gallery_screen = NodePath("Gallery")
 start_state = NodePath("States/MainMenuUiStartState")
 
 [node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallery_button", "play_button", "messages_button", "settings_button")]
@@ -125,10 +123,6 @@ offset_bottom = 120.0
 grow_horizontal = 0
 theme = ExtResource("6_umtno")
 
-[node name="Gallery" parent="." instance=ExtResource("5_1folx")]
-visible = false
-layout_mode = 1
-
 [node name="States" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -147,7 +141,3 @@ modulate = Color(1, 1, 1, 0.478431)
 position = Vector2(959.137, 524)
 scale = Vector2(1.19742, 1.19742)
 texture = ExtResource("6_ltjow")
-
-[connection signal="back_to_main_menu" from="Gallery" to="States/MainMenuUiStartState" method="_on_back_to_main_menu_clicked"]
-[connection signal="exit_game" from="Gallery" to="States/MainMenuUiStartState" method="_on_exit_clicked"]
-[connection signal="open_settings_window" from="Gallery" to="States/MainMenuUiStartState" method="_on_settings_clicked"]
