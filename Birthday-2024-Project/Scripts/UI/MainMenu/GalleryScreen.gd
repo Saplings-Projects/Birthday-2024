@@ -1,6 +1,7 @@
 class_name GalleryScreen
 extends Control
 
+@export var myScreen : ScreenLogic
 @export var piece : TextureRect
 @export var pieces : Array[TextureRect] 
 @export var description : Label
@@ -16,13 +17,13 @@ signal exit_game
 signal open_settings_window
 
 func _on_exit_button_button_up():
-	exit_game.emit()
+	myScreen.ExitApplication()
 
 func _on_back_button_button_up():
-	back_to_main_menu.emit()
+	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 
 func _on_settings_button_button_up():
-	open_settings_window.emit()
+	myScreen.ShowSettings()
 
 func _on_next_art_button_button_up():
 	pieces[gallery_tracker].hide()

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://d3w48aw01iy6i"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_7qlcc"]
+
+[resource]
+script = ExtResource("1_7qlcc")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "xMoonPier"
+message = "Dear Fauna, Happy Birthday! During tough times you've been a shining beacon breaking through the fog. Guiding me towards a more positive future. Thank you. I took the leap and shaved my head after suffering through hair loss. Thankfully I have a beard to offset the baldness :FaunaBaldYT:. You may already know I stopped eating red meat. Going one year strong! Aside from a few times, sorry! :FaunaCryYT: Thank you, Fauna. For being the goofy, quirky goth e-girl we all love. Cheers to another year! :FaunaCheerYT: :FaunaLoveRedYT: "
+levelName = ""

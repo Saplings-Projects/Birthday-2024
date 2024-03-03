@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://b446i3110mj7e"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_qev28"]
+
+[resource]
+script = ExtResource("1_qev28")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":0,\\\"PIECE_SETUP_ID_KEY\\\":\\\"casual_fauna_wave\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":0,\\\"PIECE_SETUP_ID_KEY\\\":\\\"wide_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"mitts_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":2}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"hitman_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"faunya\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":4,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":0,\\\"PIECE_SETUP_ID_KEY\\\":\\\"maid_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":1}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"happy_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":1}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"nemu_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":1}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":0,\\\"PIECE_SETUP_ID_KEY\\\":\\\"cowkini_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"gold_apple\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\"]"
+author = "Jibs"
+message = "Happy Birthday Fauna! Hope you have a wonderful birthday filled with lots of love, food and coziness! :FaunaComfy: As for this puzzle, I can tell you that the more tea you drink, the easier it is to solve! :FaunaMajiTenshi:"
+levelName = "Teapot"

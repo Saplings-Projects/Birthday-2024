@@ -1,0 +1,185 @@
+[gd_scene load_steps=22 format=3 uid="uid://bvxs6val4gfwt"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_tp6rq"]
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_uvybp"]
+[ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/CampaignSelectUiManager.gd" id="2_1asfj"]
+[ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/CampaignSelectStartScreen.gd" id="3_k52jr"]
+[ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="5_5vjk0"]
+[ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="6_anpq0"]
+[ext_resource type="Texture2D" uid="uid://5fr6mp3yk6bj" path="res://Art/UI/UiReferencesAndMockups/CollectionSelectScreen.png" id="6_i1bcf"]
+[ext_resource type="Texture2D" uid="uid://cbnkutg81o7w5" path="res://Art/OfficialPieceArt/Campaign_normal.png" id="6_i8jrm"]
+[ext_resource type="Texture2D" uid="uid://juonhqaafapd" path="res://Art/OfficialPieceArt/Campaign_Hover.png" id="7_eo82e"]
+[ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="7_oegh3"]
+[ext_resource type="Texture2D" uid="uid://desw56y28pjg0" path="res://Art/OfficialPieceArt/Campaign_pressed.png" id="8_rhoq1"]
+[ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="8_v563t"]
+[ext_resource type="Texture2D" uid="uid://sl1ws80g8vg8" path="res://Art/OfficialPieceArt/Level_type_normal.png" id="9_qbigt"]
+[ext_resource type="Texture2D" uid="uid://b67l646wekv14" path="res://Art/OfficialPieceArt/Level_type_Hover.png" id="10_1bhoh"]
+[ext_resource type="Texture2D" uid="uid://dhewfyr5qkrr" path="res://Art/OfficialPieceArt/Level_type_Pressed.png" id="11_rxsjp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0nye"]
+texture = ExtResource("6_i8jrm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8h43p"]
+texture = ExtResource("7_eo82e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wtv88"]
+texture = ExtResource("8_rhoq1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbvc3"]
+texture = ExtResource("9_qbigt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awk44"]
+texture = ExtResource("10_1bhoh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p12qm"]
+texture = ExtResource("11_rxsjp")
+
+[node name="CampaignSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uvybp")
+script = ExtResource("1_tp6rq")
+
+[node name="CampaignSelectUiManager" type="Control" parent="." node_paths=PackedStringArray("screenLogic", "start_screen")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_1asfj")
+screenLogic = NodePath("..")
+start_screen = NodePath("CampaignSelectStartScreen")
+
+[node name="CampaignSelectStartScreen" type="Control" parent="CampaignSelectUiManager" node_paths=PackedStringArray("back_button", "exit_button", "settings_button", "campaign_button", "saplings_button")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_k52jr")
+back_button = NodePath("Panel/Back Button")
+exit_button = NodePath("Panel/Exit Button")
+settings_button = NodePath("Panel/Settings Button")
+campaign_button = NodePath("Panel/Campaign Levels")
+saplings_button = NodePath("Panel/Sapling\'s Levels")
+
+[node name="TextureRect" type="NinePatchRect" parent="CampaignSelectUiManager/CampaignSelectStartScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_5vjk0")
+patch_margin_left = 300
+patch_margin_top = 250
+patch_margin_right = 250
+patch_margin_bottom = 250
+
+[node name="Panel" type="Control" parent="CampaignSelectUiManager/CampaignSelectStartScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 85.0
+offset_bottom = 210.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "FAUNA'S 2024 BIRTHDAY"
+horizontal_alignment = 1
+
+[node name="Campaign Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -622.0
+offset_top = -316.0
+offset_right = -142.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0349066
+pivot_offset = Vector2(230, 305)
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_d0nye")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8h43p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wtv88")
+
+[node name="Sapling\'s Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 137.0
+offset_top = -312.0
+offset_right = 617.0
+offset_bottom = 328.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.020944
+pivot_offset = Vector2(230, 305)
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_pbvc3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_awk44")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p12qm")
+
+[node name="Settings Button" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = -200.0
+offset_right = -96.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("6_anpq0")
+
+[node name="Exit Button" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = -200.0
+offset_right = -26.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("7_oegh3")
+
+[node name="Back Button" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 130.0
+offset_right = 258.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("8_v563t")
+
+[node name="CollectionSelectScreenRef" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(960.189, 524)
+scale = Vector2(1.19528, 1.19528)
+texture = ExtResource("6_i1bcf")
