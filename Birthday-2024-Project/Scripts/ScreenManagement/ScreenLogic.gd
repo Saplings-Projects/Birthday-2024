@@ -15,8 +15,8 @@ func ClosePopup(data : Dictionary):
 func ClosePopupBySignal():
 	screenManager.CloseTopScreen({})
 
-func GoToScreen(screen : PackedScene, data : Dictionary, doTransition: bool):
-	screenManager.GoToScreen(screen, data, doTransition)
+func GoToScreen(screen : PackedScene, data : Dictionary, transitionStyle : ScreenManager.TransitionStyle):
+	screenManager.GoToScreen(screen, data, transitionStyle)
 
 func ShowSettings():
 	screenManager.ShowSettings()

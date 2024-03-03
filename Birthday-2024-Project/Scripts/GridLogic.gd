@@ -10,11 +10,8 @@ const TILE_ATLAS_CLOSED_VISIBLE = Vector2i(2, 0)
 const SAFE_HEIGHT : int = 4 #doubled for negative
 const SAFE_WIDTH : int = 7 #doubled for negative
 
-enum GridSpaceStatus {
-	OPEN,
-	OCCUPIED,
-	CLOSED #blocked or unused
-}
+const GridSpaceInfo = preload("res://Scripts/GridSpaceInfo.gd")
+
 enum GridMode {
 	PLAY,
 	EDIT
@@ -276,7 +273,7 @@ func CheckIfOffGrid(piece : PieceLogic) -> bool:
 	for shapeCell in cellOffsetsArray:
 		var spaceStatus : GridSpaceInfo = GetGridSpace(pieceCoords + shapeCell)
 		#is out of max bounds
-		if spaceStatus != null and spaceStatus.currentStatus != GridSpaceStatus.CLOSED:
+		if spaceStatus != null and spaceStatus.currentStatus != GridSpaceInfo.GridSpaceStatus.CLOSED:
 				return false
 	#all squares are outside the grid map
 	return true
@@ -285,7 +282,7 @@ func CheckIfOffGridPos(pos: Vector2) -> bool:
 	var gridCoords : Vector2i = PositionToGridCoordinate(pos)
 	var spaceStatus : GridSpaceInfo = GetGridSpace(gridCoords)
 	#is out of max bounds
-	if spaceStatus != null and spaceStatus.currentStatus != GridSpaceStatus.CLOSED:
+	if spaceStatus != null and spaceStatus.currentStatus != GridSpaceInfo.GridSpaceStatus.CLOSED:
 			return false
 	return true
 

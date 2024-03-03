@@ -1,16 +1,31 @@
 class_name ScreenManager
 extends Node
 
+enum TransitionStyle {
+	NONE,
+	TURN_PAGE,
+	BACK_PAGE
+}
+
 @export var popupRoot : CanvasLayer
+@export var screenTexture : TextureRect
 
 var lastScreen : String
 var _screenStack : Array[Node]
 @onready var transition = $TransitionLayer/AnimationPlayer
 
-func GoToScreen(screen : PackedScene, data : Dictionary, doTransition: bool):
-	if(doTransition):
-		transition.play("fade_out")
-		await transition.animation_finished
+func GoToScreen(screen : PackedScene, data : Dictionary, transitionStyle: TransitionStyle):
+	if transitionStyle != TransitionStyle.NONE:
+		var screenCapture = get_viewport().get_texture().get_image()
+		var tex = ImageTexture.create_from_image(screenCapture)
+		screenTexture.texture = tex
+		match transitionStyle:
+			TransitionStyle.TURN_PAGE:
+				transition.play("page_turn")
+			TransitionStyle.BACK_PAGE:
+				transition.play("page_turn_back")
+		await get_tree().create_timer(0.05).timeout
+	
 	var newScreen = screen.instantiate()
 	var screenLogic : ScreenLogic = newScreen as ScreenLogic
 	
@@ -22,10 +37,8 @@ func GoToScreen(screen : PackedScene, data : Dictionary, doTransition: bool):
 	screenLogic.transitionData = data
 	popupRoot.add_child(newScreen)
 	_screenStack.push_back(newScreen)
+	
 	screenLogic.ScreenEnter.emit()
-	if(doTransition): 
-		transition.play("fade_in")
-		await transition.animation_finished
 
 func IsTopScreen(screen : ScreenLogic) -> bool:
 	var topScreen : ScreenLogic = _screenStack.back() as ScreenLogic
@@ -41,7 +54,7 @@ func CloseTopScreen(data : Dictionary):
 	topScreen.ScreenEnter.emit()
 
 func ShowSettings():
-	GoToScreen(load("res://MainScenes/settings_popup.tscn"), {}, false)
+	GoToScreen(load("res://MainScenes/settings_popup.tscn"), {}, TransitionStyle.NONE)
 
 func ShowConfirmationPopup(title : String, body : String, confirm : String = "Confirm", cancel : String = "Cancel"):
 	var popupParameters = {}
@@ -49,10 +62,10 @@ func ShowConfirmationPopup(title : String, body : String, confirm : String = "Co
 	popupParameters[ConfirmationPopupController.BODY_KEY] = body
 	popupParameters[ConfirmationPopupController.CONFIRM_KEY] = confirm
 	popupParameters[ConfirmationPopupController.CANCEL_KEY] = cancel
-	GoToScreen(load("res://MainScenes/confirmation_popup.tscn"), popupParameters, false)
+	GoToScreen(load("res://MainScenes/confirmation_popup.tscn"), popupParameters, TransitionStyle.NONE)
 
 func _ready():
-	GoToScreen(load("res://MainScenes/splash_screen.tscn"), {}, true)
+	GoToScreen(load("res://MainScenes/splash_screen.tscn"), {}, TransitionStyle.NONE)
 
 func _closeTopScreen():
 	var oldScreen : Node = _screenStack.pop_back()

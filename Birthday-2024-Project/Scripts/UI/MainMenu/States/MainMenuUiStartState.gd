@@ -21,7 +21,7 @@ func _on_messages_clicked():
 
 
 func _on_play_clicked():
-	_state.show_campaign_selection()
+	_state.play()
 
 
 func _on_settings_clicked():

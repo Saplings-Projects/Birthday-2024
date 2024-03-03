@@ -36,6 +36,12 @@ window/stretch/aspect="expand"
 
 timers/tooltip_delay_sec=0.0
 
+[importer_defaults]
+
+texture={
+"mipmaps/generate": true
+}
+
 [input]
 
 RotateClockwise={
@@ -62,5 +68,6 @@ GrabPiece={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=2
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

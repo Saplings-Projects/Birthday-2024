@@ -38,7 +38,7 @@ signal initialized_event()
 signal state_changed_event(state)
 
 func go_to_main_menu():
-	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, true)
+	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 	pass
 
 func get_current_state() -> GameState:

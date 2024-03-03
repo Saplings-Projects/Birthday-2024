@@ -14,22 +14,22 @@ const SAPLING_LEVELS = "res://MainScenes/sapling_level_select_"
 @export var nextArrow : Button
 
 func on_level_selected(levelData : LevelSetup):
-	screenLogic.screenManager.GoToScreen(load("res://MainScenes/main_level.tscn"), { PASS_LEVEL_DATA_KEY : levelData }, true)
+	screenLogic.GoToScreen(load("res://MainScenes/main_level.tscn"), { PASS_LEVEL_DATA_KEY : levelData }, ScreenManager.TransitionStyle.TURN_PAGE)
 
 func on_prev_clicked():
 	if(isCampaign):
-		screenLogic.screenManager.GoToScreen(load(str(CAMPAIGN_LEVELS, pageNumber - 1, ".tscn")), {}, true)
+		screenLogic.GoToScreen(load(str(CAMPAIGN_LEVELS, pageNumber - 1, ".tscn")), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 	else:
-		screenLogic.screenManager.GoToScreen(load(str(SAPLING_LEVELS, pageNumber - 1, ".tscn")), {}, true)
+		screenLogic.GoToScreen(load(str(SAPLING_LEVELS, pageNumber - 1, ".tscn")), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 
 func on_next_clicked():
 	if(isCampaign):
-		screenLogic.screenManager.GoToScreen(load(str(CAMPAIGN_LEVELS, pageNumber + 1, ".tscn")), {}, true)
+		screenLogic.GoToScreen(load(str(CAMPAIGN_LEVELS, pageNumber + 1, ".tscn")), {}, ScreenManager.TransitionStyle.TURN_PAGE)
 	else:
-		screenLogic.screenManager.GoToScreen(load(str(SAPLING_LEVELS, pageNumber + 1, ".tscn")), {}, true)
+		screenLogic.GoToScreen(load(str(SAPLING_LEVELS, pageNumber + 1, ".tscn")), {}, ScreenManager.TransitionStyle.TURN_PAGE)
 
 func on_back_clicked():
-	screenLogic.screenManager.GoToScreen(load("res://MainScenes/campaign_selection.tscn"), {}, true)
+	screenLogic.GoToScreen(load("res://MainScenes/campaign_selection.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 
 
 func on_exit_clicked():

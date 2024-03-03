@@ -11,13 +11,13 @@ func _on_settings_clicked():
 	screenLogic.screenManager.ShowSettings()
 
 func _on_campaign_clicked():
-	screenLogic.screenManager.GoToScreen(load("res://MainScenes/campaign_level_select_1.tscn"), {}, true)
+	screenLogic.GoToScreen(load("res://MainScenes/campaign_level_select_1.tscn"), {}, ScreenManager.TransitionStyle.TURN_PAGE)
 
 func _on_saplings_clicked():
-	screenLogic.screenManager.GoToScreen(load("res://MainScenes/sapling_level_select_1.tscn"), {}, true)
+	screenLogic.GoToScreen(load("res://MainScenes/sapling_level_select_1.tscn"), {}, ScreenManager.TransitionStyle.TURN_PAGE)
 
 func _on_back_clicked():
-	screenLogic.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, true)
+	screenLogic.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 	
 #region Node
 
