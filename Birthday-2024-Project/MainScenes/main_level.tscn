@@ -22,13 +22,6 @@ texture_region_size = Vector2i(120, 120)
 1:0/0/modulate = Color(0.894118, 0.823529, 0.627451, 0.25098)
 2:0/0 = 0
 2:0/0/modulate = Color(0.894118, 0.823529, 0.627451, 1)
-0:1/0 = 0
-0:1/0/modulate = Color(0.392157, 0.392157, 0.392157, 1)
-0:2/0 = 0
-1:1/0 = 0
-1:2/0 = 0
-2:1/0 = 0
-2:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ntt55"]
 tile_size = Vector2i(120, 120)
