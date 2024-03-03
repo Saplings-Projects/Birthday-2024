@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_w8ges"]
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/LevelSelectMenu.tscn" id="2_knknw"]
-[ext_resource type="Resource" uid="uid://c4pbsqwmye8e3" path="res://Resources/Levels/U-full-of-Fauna.tres" id="3_otc6m"]
-[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/Levels/wanderer_level.tres" id="4_wpqw4"]
-[ext_resource type="Resource" uid="uid://bn34dmbojy2u" path="res://Resources/Levels/Zannmasters_apple_puzzle.tres" id="5_7034a"]
+[ext_resource type="Resource" uid="uid://c4pbsqwmye8e3" path="res://Resources/Levels/Greatrabe.tres" id="3_otc6m"]
+[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/Levels/wanderer.tres" id="4_wpqw4"]
+[ext_resource type="Resource" uid="uid://bn34dmbojy2u" path="res://Resources/Levels/Zannmaster.tres" id="5_7034a"]
 
 [node name="SaplingLevelSelection" type="Control"]
 layout_mode = 3

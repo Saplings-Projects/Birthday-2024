@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bifyv513pqukh"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_w7kgj"]
+
+[resource]
+script = ExtResource("1_w7kgj")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"mitts_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"kimono_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"nemu_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":2}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"wide_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":2}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"smol_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":2}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"happy_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"faunya\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"hitman_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":2}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"nemu_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\"]"
+author = "Awesomeplace1"
+message = "Happy Birthday Fauna! Being a sapling really has been some of the most fun I've ever had, and it's projects like these where I feel like I can contribute with the saplings and give back to my oshi who has always been giving gifts to us through all the streams and projects that you have done. I hope you enjoy this fangame and the levels that we made!"
+levelName = "Awesomeplace1's Level"

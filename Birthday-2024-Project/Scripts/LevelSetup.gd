@@ -5,6 +5,7 @@ class_name LevelSetup
 @export var jsonData : String
 @export var author : String
 @export var message : String
+@export var levelName : String
 @export var levelPreview : CompressedTexture2D
 
 func RetrieveLevelData() -> Array[PieceSetup]:
