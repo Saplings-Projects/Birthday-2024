@@ -45,3 +45,4 @@ levelData = Array[ExtResource("1_37gyb")]([SubResource("Resource_ljtve"), SubRes
 jsonData = ""
 author = ""
 message = ""
+levelName = ""

@@ -2,26 +2,26 @@
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_84cg6"]
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/LevelSelectMenu.tscn" id="2_vqtyi"]
-[ext_resource type="Resource" uid="uid://udwfauxcffqk" path="res://Resources/Levels/Alfin.tres" id="3_ig6bw"]
-[ext_resource type="Resource" uid="uid://dlpm245dkhr4e" path="res://Resources/Levels/HDAKart.tres" id="4_1ct14"]
-[ext_resource type="Resource" uid="uid://bfo318ocymc8f" path="res://Resources/Levels/Swagnimite.tres" id="5_m1ckx"]
-[ext_resource type="Resource" uid="uid://2rf7xmxqewhl" path="res://Resources/Levels/DoctorNeed.tres" id="6_bb1wj"]
-[ext_resource type="Resource" uid="uid://b4hc4a6c2spa6" path="res://Resources/Levels/Kayessi.tres" id="7_yitur"]
-[ext_resource type="Resource" uid="uid://dmh7scs86ghmj" path="res://Resources/Levels/Beldantazar.tres" id="8_k1stm"]
-[ext_resource type="Resource" uid="uid://crjspe47yeyig" path="res://Resources/Levels/Minik.tres" id="9_a4g3n"]
-[ext_resource type="Resource" uid="uid://sxs32bryu4rs" path="res://Resources/Levels/NekoJash.tres" id="10_t1fon"]
-[ext_resource type="Resource" uid="uid://gyuxoswfnsj7" path="res://Resources/Levels/NotTheRealNorthernlion.tres" id="11_68ka5"]
-[ext_resource type="Resource" uid="uid://xdmv4a7gyyk" path="res://Resources/Levels/GlassesKun.tres" id="12_bv173"]
-[ext_resource type="Resource" uid="uid://gearf6d5cekv" path="res://Resources/Levels/Dio.tres" id="13_uu4gg"]
-[ext_resource type="Resource" uid="uid://dhudvic5t4ch" path="res://Resources/Levels/Reis.tres" id="14_htl5u"]
-[ext_resource type="Resource" uid="uid://cgam3hyrewdlr" path="res://Resources/Levels/Roxas_1050.tres" id="15_c6ep0"]
-[ext_resource type="Resource" uid="uid://dlgivpymprc8r" path="res://Resources/Levels/Ryussei.tres" id="16_gx85e"]
-[ext_resource type="Resource" uid="uid://ciwkgdqw62k84" path="res://Resources/Levels/NachoHero.tres" id="17_l8d8e"]
-[ext_resource type="Resource" uid="uid://c2jlnjag1mr6p" path="res://Resources/Levels/Sevens.tres" id="18_pkwa6"]
-[ext_resource type="Resource" uid="uid://dsdm3efm4p8fb" path="res://Resources/Levels/Weirder.tres" id="19_sened"]
-[ext_resource type="Resource" uid="uid://ckc33cpeo2yvj" path="res://Resources/Levels/Ryuuya.tres" id="20_ide4f"]
-[ext_resource type="Resource" uid="uid://c7n80pitssu1t" path="res://Resources/Levels/EndyStarBoy.tres" id="21_7evqi"]
-[ext_resource type="Resource" uid="uid://dq78txqn56god" path="res://Resources/Levels/Chronos.tres" id="22_j88i6"]
+[ext_resource type="Resource" uid="uid://56yv87hnoqi7" path="res://Resources/SubmittedLevels/Evey.tres" id="3_2xdq6"]
+[ext_resource type="Resource" uid="uid://dlpm245dkhr4e" path="res://Resources/SubmittedLevels/HDAKart.tres" id="4_1ct14"]
+[ext_resource type="Resource" uid="uid://ce260q0n2i8ay" path="res://Resources/SubmittedLevels/ExquisiteCoffee.tres" id="4_hxqju"]
+[ext_resource type="Resource" uid="uid://brx4plkjxoh58" path="res://Resources/SubmittedLevels/Gluucifer.tres" id="6_bj1vo"]
+[ext_resource type="Resource" uid="uid://c4pbsqwmye8e3" path="res://Resources/SubmittedLevels/Greatrabe.tres" id="7_p133l"]
+[ext_resource type="Resource" uid="uid://b4hc4a6c2spa6" path="res://Resources/SubmittedLevels/Kayessi.tres" id="7_yitur"]
+[ext_resource type="Resource" uid="uid://crjspe47yeyig" path="res://Resources/SubmittedLevels/Minik.tres" id="9_a4g3n"]
+[ext_resource type="Resource" uid="uid://bnswhxfv3b16r" path="res://Resources/SubmittedLevels/ikarus.tres" id="9_swbj6"]
+[ext_resource type="Resource" uid="uid://b446i3110mj7e" path="res://Resources/SubmittedLevels/Jagdblume.tres" id="10_r186c"]
+[ext_resource type="Resource" uid="uid://sxs32bryu4rs" path="res://Resources/SubmittedLevels/NekoJash.tres" id="10_t1fon"]
+[ext_resource type="Resource" uid="uid://gyuxoswfnsj7" path="res://Resources/SubmittedLevels/NotTheRealNorthernlion.tres" id="11_68ka5"]
+[ext_resource type="Resource" uid="uid://dhvtpu4jwgilb" path="res://Resources/SubmittedLevels/Jibs.tres" id="11_rddew"]
+[ext_resource type="Resource" uid="uid://bfi181yjqfhe8" path="res://Resources/SubmittedLevels/Joaquin.tres" id="12_amyty"]
+[ext_resource type="Resource" uid="uid://xdmv4a7gyyk" path="res://Resources/SubmittedLevels/GlassesKun.tres" id="12_bv173"]
+[ext_resource type="Resource" uid="uid://b01xvdnifxq0l" path="res://Resources/SubmittedLevels/KuraHonyo.tres" id="14_jpgc6"]
+[ext_resource type="Resource" uid="uid://des2i6l5dpdk7" path="res://Resources/SubmittedLevels/Lunar.tres" id="15_5rq1i"]
+[ext_resource type="Resource" uid="uid://c04xv0ltqkjpf" path="res://Resources/SubmittedLevels/Mikki.tres" id="16_4vvkf"]
+[ext_resource type="Resource" uid="uid://ciwkgdqw62k84" path="res://Resources/SubmittedLevels/NachoHero.tres" id="17_l8d8e"]
+[ext_resource type="Resource" uid="uid://dh866o0aim8pk" path="res://Resources/SubmittedLevels/MrRyzGuy.tres" id="18_fe6ed"]
+[ext_resource type="Resource" uid="uid://3sdoy0njw7ti" path="res://Resources/SubmittedLevels/NoEscapeOnlyCuddles.tres" id="21_wxuu2"]
 
 [node name="SaplingLevelSelection" type="Control"]
 layout_mode = 3
@@ -37,73 +37,69 @@ layout_mode = 1
 screenLogic = NodePath("..")
 isCampaign = false
 pageNumber = 2
-isLastPage = false
+lastPageNumber = 4
 
 [node name="Title" parent="LevelSelectMenu/Panel" index="0"]
 text = "COMMUNITY"
 
-[node name="Page" parent="LevelSelectMenu/Panel" index="1"]
-visible = true
-text = "2/3"
-
 [node name="Level Button" parent="LevelSelectMenu/Panel/Level Select Buttons" index="0"]
-levelData = ExtResource("3_ig6bw")
+levelData = ExtResource("3_2xdq6")
 
 [node name="Level Button2" parent="LevelSelectMenu/Panel/Level Select Buttons" index="1"]
-levelData = ExtResource("4_1ct14")
+levelData = ExtResource("4_hxqju")
 
 [node name="Level Button3" parent="LevelSelectMenu/Panel/Level Select Buttons" index="2"]
-levelData = ExtResource("5_m1ckx")
-
-[node name="Level Button4" parent="LevelSelectMenu/Panel/Level Select Buttons" index="3"]
-levelData = ExtResource("6_bb1wj")
-
-[node name="Level Button5" parent="LevelSelectMenu/Panel/Level Select Buttons" index="4"]
-levelData = ExtResource("7_yitur")
-
-[node name="Level Button6" parent="LevelSelectMenu/Panel/Level Select Buttons" index="5"]
-levelData = ExtResource("8_k1stm")
-
-[node name="Level Button7" parent="LevelSelectMenu/Panel/Level Select Buttons" index="6"]
-levelData = ExtResource("9_a4g3n")
-
-[node name="Level Button8" parent="LevelSelectMenu/Panel/Level Select Buttons" index="7"]
-levelData = ExtResource("10_t1fon")
-
-[node name="Level Button9" parent="LevelSelectMenu/Panel/Level Select Buttons" index="8"]
-levelData = ExtResource("11_68ka5")
-
-[node name="Level Button10" parent="LevelSelectMenu/Panel/Level Select Buttons" index="9"]
 levelData = ExtResource("12_bv173")
 
+[node name="Level Button4" parent="LevelSelectMenu/Panel/Level Select Buttons" index="3"]
+levelData = ExtResource("6_bj1vo")
+
+[node name="Level Button5" parent="LevelSelectMenu/Panel/Level Select Buttons" index="4"]
+levelData = ExtResource("7_p133l")
+
+[node name="Level Button6" parent="LevelSelectMenu/Panel/Level Select Buttons" index="5"]
+levelData = ExtResource("4_1ct14")
+
+[node name="Level Button7" parent="LevelSelectMenu/Panel/Level Select Buttons" index="6"]
+levelData = ExtResource("9_swbj6")
+
+[node name="Level Button8" parent="LevelSelectMenu/Panel/Level Select Buttons" index="7"]
+levelData = ExtResource("10_r186c")
+
+[node name="Level Button9" parent="LevelSelectMenu/Panel/Level Select Buttons" index="8"]
+levelData = ExtResource("11_rddew")
+
+[node name="Level Button10" parent="LevelSelectMenu/Panel/Level Select Buttons" index="9"]
+levelData = ExtResource("12_amyty")
+
 [node name="Level Button11" parent="LevelSelectMenu/Panel/Level Select Buttons" index="10"]
-levelData = ExtResource("13_uu4gg")
+levelData = ExtResource("7_yitur")
 
 [node name="Level Button12" parent="LevelSelectMenu/Panel/Level Select Buttons" index="11"]
-levelData = ExtResource("14_htl5u")
+levelData = ExtResource("14_jpgc6")
 
 [node name="Level Button13" parent="LevelSelectMenu/Panel/Level Select Buttons" index="12"]
-levelData = ExtResource("15_c6ep0")
+levelData = ExtResource("15_5rq1i")
 
 [node name="Level Button14" parent="LevelSelectMenu/Panel/Level Select Buttons" index="13"]
-levelData = ExtResource("16_gx85e")
+levelData = ExtResource("16_4vvkf")
 
 [node name="Level Button15" parent="LevelSelectMenu/Panel/Level Select Buttons" index="14"]
-levelData = ExtResource("17_l8d8e")
+levelData = ExtResource("9_a4g3n")
 
 [node name="Level Button16" parent="LevelSelectMenu/Panel/Level Select Buttons" index="15"]
-levelData = ExtResource("18_pkwa6")
+levelData = ExtResource("18_fe6ed")
 
 [node name="Level Button17" parent="LevelSelectMenu/Panel/Level Select Buttons" index="16"]
-levelData = ExtResource("19_sened")
+levelData = ExtResource("17_l8d8e")
 
 [node name="Level Button18" parent="LevelSelectMenu/Panel/Level Select Buttons" index="17"]
-levelData = ExtResource("20_ide4f")
+levelData = ExtResource("10_t1fon")
 
 [node name="Level Button19" parent="LevelSelectMenu/Panel/Level Select Buttons" index="18"]
-levelData = ExtResource("21_7evqi")
+levelData = ExtResource("21_wxuu2")
 
 [node name="Level Button20" parent="LevelSelectMenu/Panel/Level Select Buttons" index="19"]
-levelData = ExtResource("22_j88i6")
+levelData = ExtResource("11_68ka5")
 
 [editable path="LevelSelectMenu"]

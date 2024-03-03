@@ -1,10 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://bumvuqd2ft2wg"]
+[gd_scene load_steps=23 format=3 uid="uid://bumvuqd2ft2wg"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_w8ges"]
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/LevelSelectMenu.tscn" id="2_knknw"]
-[ext_resource type="Resource" uid="uid://c4pbsqwmye8e3" path="res://Resources/Levels/Greatrabe.tres" id="3_otc6m"]
-[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/Levels/wanderer.tres" id="4_wpqw4"]
-[ext_resource type="Resource" uid="uid://bn34dmbojy2u" path="res://Resources/Levels/Zannmaster.tres" id="5_7034a"]
+[ext_resource type="Resource" uid="uid://bb5mq111w4rv2" path="res://Resources/SubmittedLevels/Plagesama.tres" id="3_67mgc"]
+[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/SubmittedLevels/wanderer.tres" id="4_wpqw4"]
+[ext_resource type="Resource" uid="uid://dhudvic5t4ch" path="res://Resources/SubmittedLevels/Reis.tres" id="4_xn6je"]
+[ext_resource type="Resource" uid="uid://mrwd3nmyd2of" path="res://Resources/SubmittedLevels/ROBBERGON.tres" id="5_kq32c"]
+[ext_resource type="Resource" uid="uid://cgam3hyrewdlr" path="res://Resources/SubmittedLevels/Roxas_1050.tres" id="6_l5pym"]
+[ext_resource type="Resource" uid="uid://dlgivpymprc8r" path="res://Resources/SubmittedLevels/Ryussei.tres" id="7_ub4xv"]
+[ext_resource type="Resource" uid="uid://ckc33cpeo2yvj" path="res://Resources/SubmittedLevels/Ryuuya.tres" id="8_gkq7o"]
+[ext_resource type="Resource" uid="uid://ddl0osmlogcu8" path="res://Resources/SubmittedLevels/Saphyer.tres" id="9_o6yyp"]
+[ext_resource type="Resource" uid="uid://ci0lkd5ph0ged" path="res://Resources/SubmittedLevels/Sarcasm.tres" id="10_703v5"]
+[ext_resource type="Resource" uid="uid://c2jlnjag1mr6p" path="res://Resources/SubmittedLevels/Sevens.tres" id="11_y64rv"]
+[ext_resource type="Resource" uid="uid://d1eng72jxh1qi" path="res://Resources/SubmittedLevels/Solace.tres" id="12_n5g3b"]
+[ext_resource type="Resource" uid="uid://cbohsqatyxa2t" path="res://Resources/SubmittedLevels/Splinterman.tres" id="13_icbr1"]
+[ext_resource type="Resource" uid="uid://c37hquqhl3grb" path="res://Resources/SubmittedLevels/Styxvalen.tres" id="14_ifo66"]
+[ext_resource type="Resource" uid="uid://bfo318ocymc8f" path="res://Resources/SubmittedLevels/Swagnimite.tres" id="15_p0g7h"]
+[ext_resource type="Resource" uid="uid://bbii1ab1p51lg" path="res://Resources/SubmittedLevels/Toseda.tres" id="16_yh4b4"]
+[ext_resource type="Resource" uid="uid://bdh0kf0y6d0df" path="res://Resources/SubmittedLevels/Tradgore.tres" id="17_1x8fr"]
+[ext_resource type="Resource" uid="uid://cwwvdlqy245k1" path="res://Resources/SubmittedLevels/Turtyo.tres" id="18_1ovr7"]
+[ext_resource type="Resource" uid="uid://cmrspgq3v36k6" path="res://Resources/SubmittedLevels/WamWarcen.tres" id="19_aatvw"]
+[ext_resource type="Resource" uid="uid://cjuv771fmaded" path="res://Resources/SubmittedLevels/Weeboss.tres" id="21_pd0aj"]
+[ext_resource type="Resource" uid="uid://dsdm3efm4p8fb" path="res://Resources/SubmittedLevels/Weirder.tres" id="22_52s5a"]
 
 [node name="SaplingLevelSelection" type="Control"]
 layout_mode = 3
@@ -20,72 +37,69 @@ layout_mode = 1
 screenLogic = NodePath("..")
 isCampaign = false
 pageNumber = 3
+lastPageNumber = 4
 
 [node name="Title" parent="LevelSelectMenu/Panel" index="0"]
 text = "COMMUNITY"
 
-[node name="Page" parent="LevelSelectMenu/Panel" index="1"]
-visible = true
-text = "3/3"
-
 [node name="Level Button" parent="LevelSelectMenu/Panel/Level Select Buttons" index="0"]
-levelData = ExtResource("3_otc6m")
+levelData = ExtResource("3_67mgc")
 
 [node name="Level Button2" parent="LevelSelectMenu/Panel/Level Select Buttons" index="1"]
-levelData = ExtResource("4_wpqw4")
+levelData = ExtResource("4_xn6je")
 
 [node name="Level Button3" parent="LevelSelectMenu/Panel/Level Select Buttons" index="2"]
-levelData = ExtResource("5_7034a")
+levelData = ExtResource("5_kq32c")
 
 [node name="Level Button4" parent="LevelSelectMenu/Panel/Level Select Buttons" index="3"]
-visible = false
+levelData = ExtResource("6_l5pym")
 
 [node name="Level Button5" parent="LevelSelectMenu/Panel/Level Select Buttons" index="4"]
-visible = false
+levelData = ExtResource("7_ub4xv")
 
 [node name="Level Button6" parent="LevelSelectMenu/Panel/Level Select Buttons" index="5"]
-visible = false
+levelData = ExtResource("8_gkq7o")
 
 [node name="Level Button7" parent="LevelSelectMenu/Panel/Level Select Buttons" index="6"]
-visible = false
+levelData = ExtResource("9_o6yyp")
 
 [node name="Level Button8" parent="LevelSelectMenu/Panel/Level Select Buttons" index="7"]
-visible = false
+levelData = ExtResource("10_703v5")
 
 [node name="Level Button9" parent="LevelSelectMenu/Panel/Level Select Buttons" index="8"]
-visible = false
+levelData = ExtResource("11_y64rv")
 
 [node name="Level Button10" parent="LevelSelectMenu/Panel/Level Select Buttons" index="9"]
-visible = false
+levelData = ExtResource("12_n5g3b")
 
 [node name="Level Button11" parent="LevelSelectMenu/Panel/Level Select Buttons" index="10"]
-visible = false
+levelData = ExtResource("13_icbr1")
 
 [node name="Level Button12" parent="LevelSelectMenu/Panel/Level Select Buttons" index="11"]
-visible = false
+levelData = ExtResource("14_ifo66")
 
 [node name="Level Button13" parent="LevelSelectMenu/Panel/Level Select Buttons" index="12"]
-visible = false
+levelData = ExtResource("15_p0g7h")
 
 [node name="Level Button14" parent="LevelSelectMenu/Panel/Level Select Buttons" index="13"]
-visible = false
+levelData = ExtResource("16_yh4b4")
 
 [node name="Level Button15" parent="LevelSelectMenu/Panel/Level Select Buttons" index="14"]
-visible = false
+levelData = ExtResource("17_1x8fr")
 
 [node name="Level Button16" parent="LevelSelectMenu/Panel/Level Select Buttons" index="15"]
-visible = false
+levelData = ExtResource("18_1ovr7")
 
 [node name="Level Button17" parent="LevelSelectMenu/Panel/Level Select Buttons" index="16"]
-visible = false
+levelData = ExtResource("19_aatvw")
 
 [node name="Level Button18" parent="LevelSelectMenu/Panel/Level Select Buttons" index="17"]
-visible = false
+levelData = ExtResource("4_wpqw4")
 
 [node name="Level Button19" parent="LevelSelectMenu/Panel/Level Select Buttons" index="18"]
-visible = false
+levelData = ExtResource("21_pd0aj")
 
 [node name="Level Button20" parent="LevelSelectMenu/Panel/Level Select Buttons" index="19"]
-visible = false
+levelData = ExtResource("22_52s5a")
 
 [editable path="LevelSelectMenu"]

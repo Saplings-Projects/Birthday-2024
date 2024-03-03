@@ -1,0 +1,57 @@
+[gd_scene load_steps=13 format=3 uid="uid://shy8qxvm8ys6"]
+
+[ext_resource type="Texture2D" uid="uid://dvawks3eilp65" path="res://Art/UI/Level_Selection_button_normal.png" id="1_0wlms"]
+[ext_resource type="Texture2D" uid="uid://dmyn110xk4kya" path="res://Art/UI/Level_Selection_button_Hover.png" id="2_t2lj3"]
+[ext_resource type="Texture2D" uid="uid://b1g0ps4f1inj3" path="res://Art/UI/Level_Selection_button_pressed.png" id="3_xjftg"]
+[ext_resource type="Texture2D" uid="uid://dgahqq8kwev51" path="res://Art/UI/Level_Selection_button_Disabled.png" id="4_37keo"]
+[ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/LevelButton.gd" id="5_cy0u4"]
+[ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="6_5gm5i"]
+[ext_resource type="Material" uid="uid://c4wikcqpqchi2" path="res://Materials/monochromeMat.tres" id="7_j0kws"]
+[ext_resource type="Texture2D" uid="uid://rntlh0kkhd62" path="res://Art/UI/LevelPreviewMask.png" id="7_mjp2e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hlmj8"]
+texture = ExtResource("1_0wlms")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x8buo"]
+texture = ExtResource("2_t2lj3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r4470"]
+texture = ExtResource("3_xjftg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxmve"]
+texture = ExtResource("4_37keo")
+
+[node name="Level Button" type="Button" node_paths=PackedStringArray("levelPreviewRenderer")]
+custom_minimum_size = Vector2(125, 125)
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
+script = ExtResource("5_cy0u4")
+levelData = ExtResource("6_5gm5i")
+levelPreviewRenderer = NodePath("PhotoMask/PreviewImage")
+monochromeShader = ExtResource("7_j0kws")
+
+[node name="PhotoMask" type="TextureRect" parent="."]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_mjp2e")
+expand_mode = 1
+
+[node name="PreviewImage" type="TextureRect" parent="PhotoMask"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+
+[connection signal="button_up" from="." to="." method="GoToLevel"]

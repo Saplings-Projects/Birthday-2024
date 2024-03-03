@@ -7,8 +7,9 @@ const SAPLING_LEVELS = "res://MainScenes/sapling_level_select_"
 
 @export var screenLogic : ScreenLogic
 @export var isCampaign : bool
+@export var pageText : Label
 @export var pageNumber : int
-@export var isLastPage : bool
+@export var lastPageNumber : int
 @export var prevArrow : Button
 @export var nextArrow : Button
 
@@ -40,4 +41,6 @@ func on_settings_clicked():
 
 func _ready():
 	prevArrow.disabled = pageNumber == 1
-	nextArrow.disabled = isLastPage
+	nextArrow.disabled = pageNumber == lastPageNumber
+	pageText.visible = lastPageNumber > 1
+	pageText.text = str(pageNumber, "/", lastPageNumber)

@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c4wikcqpqchi2"]
+
+[ext_resource type="Shader" path="res://Materials/monochromeShader.gdshader" id="1_4n5t0"]
+
+[resource]
+shader = ExtResource("1_4n5t0")
