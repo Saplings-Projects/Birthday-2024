@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://cj431if6hu76f" path="res://Art/GenericPieceArt/Asset 11.png" id="1_uxg85"]
 [ext_resource type="Script" path="res://Scripts/PieceLogic.gd" id="2_cwacs"]
 [ext_resource type="Resource" uid="uid://b7cedwyqotmo4" path="res://Resources/Audio/Samples/DefaultFaunaSamples.tres" id="3_jopei"]
-[ext_resource type="Resource" uid="uid://yo3alxsm0es1" path="res://Resources/Audio/Samples/RotatePieceSamples.tres" id="4_320b1"]
-[ext_resource type="Resource" uid="uid://dsc74j6rhmivm" path="res://Resources/Audio/Samples/PlacePieceSamples.tres" id="5_4xd0d"]
-[ext_resource type="Resource" uid="uid://c5pwc03ifyimd" path="res://Resources/Audio/Samples/GrabPieceSamples.tres" id="6_0fxdq"]
+[ext_resource type="Resource" uid="uid://yo3alxsm0es1" path="res://Resources/Audio/Samples/SfxRotatePieceSamples.tres" id="4_320b1"]
+[ext_resource type="Resource" uid="uid://dsc74j6rhmivm" path="res://Resources/Audio/Samples/SfxPlacePieceSamples.tres" id="5_4xd0d"]
+[ext_resource type="Resource" uid="uid://c5pwc03ifyimd" path="res://Resources/Audio/Samples/SfxGrabPieceSamples.tres" id="6_0fxdq"]
 
 [node name="piece_11" type="Sprite2D" node_paths=PackedStringArray("fauna_player", "sfx_player")]
 texture = ExtResource("1_uxg85")

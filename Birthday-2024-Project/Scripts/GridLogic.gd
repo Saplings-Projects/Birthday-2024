@@ -281,6 +281,14 @@ func CheckIfOffGrid(piece : PieceLogic) -> bool:
 	#all squares are outside the grid map
 	return true
 
+func CheckIfOffGridPos(pos: Vector2) -> bool:
+	var gridCoords : Vector2i = PositionToGridCoordinate(pos)
+	var spaceStatus : GridSpaceInfo = GetGridSpace(gridCoords)
+	#is out of max bounds
+	if spaceStatus != null and spaceStatus.currentStatus != GridSpaceStatus.CLOSED:
+			return false
+	return true
+
 func CheckIfOutsideSafeZone(piece : PieceLogic) -> bool:
 	# offset by grid centering
 	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition() + global_position - gridCenterOffset)
@@ -323,6 +331,7 @@ func RemovePieceByCoordinates(gridCoord : Vector2i) -> PieceLogic:
 func RemovePieceByPosition(inputPosition : Vector2) -> PieceLogic:
 	var gridPos : Vector2i = PositionToGridCoordinate(inputPosition)
 	return RemovePieceByCoordinates(gridPos)
+
 
 ###############################################################################
 

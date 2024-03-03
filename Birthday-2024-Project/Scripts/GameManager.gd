@@ -18,8 +18,10 @@ extends Node2D
 @export var edit_state: GameEditState
 
 var held_piece: PieceLogic
+var held_piece_cell: int
 var held_piece_settled: bool
 var previous_mouse_position: Vector2
+var previous_mouse_grid_pos: Vector2i
 var remaining_settle_delay: float
 var overPieceLibrary : bool
 var placing_piece: bool #Track when _do_place_held_piece is running and prevent rotation
@@ -64,7 +66,7 @@ func _switch_state(state: GameState):
 	state_changed_event.emit(state)
 
 
-func on_piece_clicked(clicked_piece: PieceLogic):
+func on_piece_clicked(clicked_piece: PieceLogic, clicked_cell: int):
 	if not _can_interact or held_piece != null:
 		return
 	if _current_state == play_state:
@@ -75,6 +77,7 @@ func on_piece_clicked(clicked_piece: PieceLogic):
 		return
 	
 	held_piece = clicked_piece
+	held_piece_cell = clicked_cell
 	
 	# move to the forefront
 	grid.move_child(grid.get_child(held_piece.get_index()), -1)
@@ -131,50 +134,69 @@ func _remove_occupied_cells(piece: PieceLogic):
 		return
 	grid.RemovePieceByCoordinates(piece.placed_grid_position)
 
+func _get_held_piece_target_vector() -> Vector2:
+	var target_position: Vector2 = get_global_mouse_position()
+	if not grid.CheckIfOffGridPos(target_position):
+		target_position = grid.GridCoordinateToPosition(grid.PositionToGridCoordinate(target_position))
+	return held_piece.target_vector(target_position, held_piece_cell)
+	
+func _get_held_piece_target_origin() -> Vector2:
+	return held_piece.GetOriginCellPosition() + _get_held_piece_target_vector()
+
 func _held_piece_towards_cursor(delta):
 	if held_piece_settled:
 		return
 	
-	var target_position: Vector2 = get_global_mouse_position()
-	#target_position -= held_piece.pivot_offset
-	var held_piece_to_mouse: Vector2 = target_position - held_piece.global_position
+	var held_piece_to_mouse: Vector2 = _get_held_piece_target_vector()
 	var held_piece_to_mouse_distance: float = held_piece_to_mouse.length()
 	
 	var distance_step: float = (held_piece_flat_speed + held_piece_distance_speed * held_piece_to_mouse_distance) * delta
 	if distance_step > held_piece_to_mouse_distance:
-		held_piece.global_position = target_position
+		held_piece.global_position += held_piece_to_mouse
 		return
 	held_piece.global_position += held_piece_to_mouse.normalized() * distance_step
 
 func _rotate_held_piece():
 	if Input.is_action_just_pressed("RotateClockwise"):
-		held_piece.rotate_clockwise()
+		held_piece.rotate_clockwise(held_piece_cell)
 		held_piece.play_rotate_audio()
 		_reset_settled()
+		remaining_settle_delay = held_piece.ROTATION_ANIMATION_DURATION
 	elif Input.is_action_just_pressed("RotateAnticlockwise"):
-		held_piece.rotate_anticlockwise()
+		held_piece.rotate_anticlockwise(held_piece_cell)
 		held_piece.play_rotate_audio()
 		_reset_settled()
+		remaining_settle_delay = held_piece.ROTATION_ANIMATION_DURATION
 
+func _mouse_has_moved() -> bool:
+	var mouse_position : Vector2 = get_global_mouse_position()
+	var mouse_distance_moved : float = (mouse_position - previous_mouse_position).length()
+	previous_mouse_position = mouse_position
+	return mouse_distance_moved > 0.01 # Has the mouse position changed beyond floating point errors?
 
 func _get_held_piece_grid_origin() -> Vector2i:
 	return grid.PositionToGridCoordinate(held_piece.GetOriginCellPosition())
 
 func _do_held_piece_settle(delta):
 	var mouse_position : Vector2 = get_global_mouse_position()
-	var mouse_distance_moved : float = (mouse_position - previous_mouse_position).length()
-	if mouse_distance_moved > 0.1:
+	var mouse_has_moved : bool = _mouse_has_moved()
+	var mouse_grid_pos : Vector2i = grid.PositionToGridCoordinate(mouse_position)
+	if (mouse_has_moved and mouse_grid_pos != previous_mouse_grid_pos) or grid.CheckIfOffGridPos(mouse_position):
 		_reset_settled()
-		held_piece.cancel_movement_tween()
+		if mouse_has_moved:
+			held_piece.cancel_movement_tween()
 		previous_mouse_position = mouse_position
+		previous_mouse_grid_pos = mouse_grid_pos
 	else:
 		if held_piece_settled:
 			return
 		remaining_settle_delay -= delta
 		if remaining_settle_delay <= 0:
 			held_piece_settled = true
-			var held_piece_grid_origin : Vector2i = _get_held_piece_grid_origin()
-			if grid.CheckLegalToPlace(held_piece) == false:
+			var target_origin : Vector2 = _get_held_piece_target_origin()
+			var held_piece_grid_origin : Vector2i = grid.PositionToGridCoordinate(target_origin)
+			#if grid.CheckLegalToPlace(held_piece, target_origin) == false:
+			if grid.CheckIfOffGridPos(mouse_position):
 				return
 			var settle_position : Vector2 = _held_piece_placed_position(held_piece_grid_origin)
 			held_piece.movement_tween_to(settle_position, held_piece_settle_animation_duration)

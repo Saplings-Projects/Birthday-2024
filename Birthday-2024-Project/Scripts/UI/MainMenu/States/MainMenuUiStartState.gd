@@ -13,7 +13,7 @@ func _on_exit_clicked():
 
 
 func _on_gallery_clicked():
-	_state.go_to_gallery()
+	_ui_manager.show_gallery_screen()
 
 
 func _on_messages_clicked():

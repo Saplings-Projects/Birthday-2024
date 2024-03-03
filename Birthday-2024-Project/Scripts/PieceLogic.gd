@@ -8,15 +8,18 @@ const GAME_MANAGER_NODE_PATH = "/root/MainLevel/GameManager"
 const ROTATION_ANIMATION_DURATION: float = 0.35 # Number of seconds a piece takes to rotate
 const RETURN_ANIMATION_DURATION: float = 0.5 # Number of seconds a piece takes to return to it's return position when dropped
 const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to move into it's placed position
+const NO_CELL_CLICKED: int = -1
 
 @export_multiline var pieceShape : String
 @export var isBlocker : bool
 @export var fauna_player: AudioStreamPlayer2D
 @export var sfx_player: AudioStreamPlayer2D
-@export var fauna_samples: AudioSamples
-@export var rotate_samples: AudioSamples
-@export var place_samples: AudioSamples
-@export var grab_samples: AudioSamples
+@export var sfx_rotate_samples: AudioSamples
+@export var sfx_place_samples: AudioSamples
+@export var sfx_grab_samples: AudioSamples
+@export var fauna_rotate_samples: AudioSamples
+@export var fauna_place_samples: AudioSamples
+@export var fauna_grab_samples: AudioSamples
 
 var current_placement_state: PlacementStates
 var levelGridReference : GridLogic
@@ -42,8 +45,8 @@ var _last_grid_rotation : RotationStates = RotationStates.DEG_0
 var _cellStartingWidth : int
 var _cellStartingHeight : int
 
-func on_clicked():
-	game_manager.on_piece_clicked(self)
+func on_clicked(clicked_cell : int):
+	game_manager.on_piece_clicked(self, clicked_cell)
 
 func on_piece_held():
 	current_placement_state = PlacementStates.HELD
@@ -51,24 +54,27 @@ func on_piece_held():
 
 
 func play_grab_audio():
-	_play_sfx_sample(fauna_samples.get_random_sample())
+	_play_sample(sfx_grab_samples.get_random_sample(), sfx_player)
+	_play_sample(fauna_grab_samples.get_random_sample(), fauna_player)
 
 
 func play_place_audio():
-	_play_sfx_sample(place_samples.get_random_sample())
+	_play_sample(sfx_place_samples.get_random_sample(), sfx_player)
+	_play_sample(fauna_place_samples.get_random_sample(), fauna_player)
 
 
 func play_rotate_audio():
-	_play_sfx_sample(rotate_samples.get_random_sample())
+	_play_sample(sfx_rotate_samples.get_random_sample(), sfx_player)
+	_play_sample(fauna_rotate_samples.get_random_sample(), fauna_player)
 
 
-func _play_sfx_sample(sample: AudioStream):
+func _play_sample(sample: AudioStream, player: AudioStreamPlayer2D):
 	if sample == null:
 		return
 	
-	sfx_player.stop()
-	sfx_player.stream = sample
-	sfx_player.play()
+	player.stop()
+	player.stream = sample
+	player.play()
 
 
 func cancel_movement_tween():
@@ -76,7 +82,8 @@ func cancel_movement_tween():
 		_movement_tween.stop()
 	_movement_tween = null
 	
-func rotate_clockwise():
+func rotate_clockwise(center_cell : int):
+	var previous_cell_pos: Vector2 = get_cell_pos(center_cell)
 	# Update rotation variables
 	if current_rotation_state == RotationStates.DEG_270:
 		current_rotation_state = RotationStates.DEG_0
@@ -84,10 +91,15 @@ func rotate_clockwise():
 		current_rotation_state = current_rotation_state + 1 as RotationStates
 	
 	_current_angle_target += PI * 0.5
-	update_current_cells()	
+	update_current_cells()
+	var origin_cell_movement: Vector2 = _originOffset.rotated(_current_angle_target) - GetOriginCellOffset()
+	var center_cell_movement: Vector2 = (get_cell_pos(center_cell) + origin_cell_movement) - previous_cell_pos
+		
 	_start_rotation_tween()
+	movement_tween_to(global_position - center_cell_movement, ROTATION_ANIMATION_DURATION)
 	
-func rotate_anticlockwise():
+func rotate_anticlockwise(center_cell : int):
+	var previous_cell_pos: Vector2 = get_cell_pos(center_cell)
 	# Update rotation variables
 	if current_rotation_state == RotationStates.DEG_0:
 		current_rotation_state = RotationStates.DEG_270
@@ -95,8 +107,12 @@ func rotate_anticlockwise():
 		current_rotation_state = current_rotation_state - 1 as RotationStates
 	
 	_current_angle_target -= PI * 0.5
-	update_current_cells()	
+	update_current_cells()
+	var origin_cell_movement: Vector2 = _originOffset.rotated(_current_angle_target) - GetOriginCellOffset()
+	var center_cell_movement: Vector2 = (get_cell_pos(center_cell) + origin_cell_movement) - previous_cell_pos
+		
 	_start_rotation_tween()
+	movement_tween_to(global_position - center_cell_movement, ROTATION_ANIMATION_DURATION)
 	
 func cancel_rotation_tween():
 	if _rotation_tween != null:
@@ -201,6 +217,15 @@ func place_piece(grid_position: Vector2i, move_to: Vector2):
 		return
 	current_placement_state = PlacementStates.PLACED
 	movement_tween_to(move_to, PLACED_ANIMATION_DURATION)
+
+func get_cell_pos(cell_index: int) -> Vector2:
+	var cell : Vector2i = _current_cells[cell_index]
+	var tile_size = levelGridReference.tile_set.tile_size
+	return GetOriginCellPosition() + Vector2(cell.x * tile_size.x, cell.y * tile_size.y)
+
+func target_vector(target_pos: Vector2, target_cell_index: int) -> Vector2:
+	# Returns vector that moves the center of the targeted cell to the target position
+	return target_pos - get_cell_pos(target_cell_index)
 	
 ###############################################################################
 
@@ -252,18 +277,19 @@ func _SetReturnPoint():
 func _input(event):
 	if event.is_action_pressed("GrabPiece"):
 		# Check if the user has clicked on the piece's exact shape
-		if _check_shape_clicked():
+		var clicked_cell : int = _check_shape_clicked()
+		if clicked_cell != NO_CELL_CLICKED:
 			print("Piece shape clicked: " + name)
-			on_clicked()
+			on_clicked(clicked_cell)
 
-func _check_shape_clicked() -> bool:
+func _check_shape_clicked() -> int:
 	var relative_click_position : Vector2 = get_global_mouse_position() - GetOriginCellPosition()
 	for i in range(_current_cells.size()):
 		var cell00 : Vector2 = Vector2((_current_cells[i].x - 0.5) * levelGridReference.tile_set.tile_size.x, (_current_cells[i].y - 0.5) * levelGridReference.tile_set.tile_size.y)
 		var cell11 : Vector2 = cell00 + Vector2(levelGridReference.tile_set.tile_size.x, levelGridReference.tile_set.tile_size.y)
 		if relative_click_position.x >= cell00.x and relative_click_position.x <= cell11.x and relative_click_position.y >= cell00.y and relative_click_position.y < cell11.y: # I really wish gdscript let you break statements across lines
-			return true # Mouse is inside one of the piece's cells
-	return false
+			return i # Mouse is inside one of the piece's cells
+	return NO_CELL_CLICKED
 	
 func _start_rotation_tween():
 	# Create the tween to animate the rotation
