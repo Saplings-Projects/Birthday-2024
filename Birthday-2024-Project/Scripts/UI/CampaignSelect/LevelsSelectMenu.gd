@@ -4,6 +4,7 @@ extends Control
 const PASS_LEVEL_DATA_KEY = "PASS_LEVEL_DATA_KEY"
 const PASS_LEVEL_INDEX_KEY = "PASS_LEVEL_INDEX_KEY"
 const IS_CAMPAIGN_KEY = "IS_CAMPAIGN_KEY"
+const BUTTONS_PER_PAGE_KEY = "BUTTONS_PER_PAGE_KEY"
 const CAMPAIGN_LEVELS = "res://MainScenes/campaign_level_select_"
 const SAPLING_LEVELS = "res://MainScenes/sapling_level_select_"
 
@@ -25,6 +26,7 @@ func on_level_selected(levelData : LevelSetup, levelIndex : int):
 	transitionData[PASS_LEVEL_DATA_KEY] = levelData
 	transitionData[PASS_LEVEL_INDEX_KEY] = levelIndex
 	transitionData[IS_CAMPAIGN_KEY] = isCampaign
+	transitionData[BUTTONS_PER_PAGE_KEY] = selectableButtons.size()
 	
 	screenLogic.GoToScreen(load("res://MainScenes/main_level.tscn"), transitionData, ScreenManager.TransitionStyle.TURN_PAGE)
 

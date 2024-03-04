@@ -13,8 +13,9 @@ func GetLastCampaignLevelCompleted() -> int:
 	return _campaignProgress
 
 func SetLatestCampaignLevelCompleted(levelCompleted : int):
-	_campaignProgress = levelCompleted
-	_gm.save_preferences()
+	if levelCompleted > _campaignProgress:
+		_campaignProgress = levelCompleted
+		_gm.save_preferences()
 
 func IsLevelCompleted(levelName : String) -> bool:
 	return _levelCompletionDictionary.has(levelName) and _levelCompletionDictionary[levelName] == true

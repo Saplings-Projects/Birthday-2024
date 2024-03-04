@@ -40,8 +40,44 @@ signal initialized_event()
 signal state_changed_event(state)
 
 func go_to_main_menu():
-	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
-	pass
+	var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
+	var buttonsPerPage : int = myScreen.transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY]
+	var pageNum : int = 1 + floori(thisLevelIndex / buttonsPerPage)
+	
+	if myScreen.transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY]:
+		myScreen.GoToScreen(load(str(LevelsSelectMenu.CAMPAIGN_LEVELS, pageNum, ".tscn")), {}, ScreenManager.TransitionStyle.BACK_PAGE)
+	else:
+		myScreen.GoToScreen(load(str(LevelsSelectMenu.SAPLING_LEVELS, pageNum, ".tscn")), {}, ScreenManager.TransitionStyle.BACK_PAGE)
+
+func go_to_next_level():
+	var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
+	var transitionData : Dictionary = {}
+	transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY] = thisLevelIndex + 1
+	var buttonsPerPage : int = myScreen.transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY]
+	transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY] = buttonsPerPage
+	
+	if myScreen.transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY]:
+		#last level
+		if thisLevelIndex + 1 >= _gm.campaign_level_library.Levels.size():
+			go_to_main_menu()
+		#next level is unlocked
+		elif _gm.progression_tracker.GetLastCampaignLevelCompleted() + 1 > thisLevelIndex:
+			transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY] = true
+			transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] = _gm.campaign_level_library.Levels[thisLevelIndex + 1]
+			myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), transitionData, ScreenManager.TransitionStyle.TURN_PAGE)
+		else:
+			#you haven't unlocked the next level, so go back to level select
+			go_to_main_menu()
+	else:
+		#last level
+		if thisLevelIndex + 1 >= _gm.submitted_level_library.Levels.size():
+			go_to_main_menu()
+		else:
+			transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY] = false
+			transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] = _gm.submitted_level_library.Levels[thisLevelIndex + 1]
+			myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), transitionData, ScreenManager.TransitionStyle.TURN_PAGE)
+		
+	
 
 func get_current_state() -> GameState:
 	return _current_state
@@ -120,7 +156,10 @@ func _process(delta):
 		_levelData = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] #as LevelSetup
 		grid.LoadLevel(_levelData)
 		levelNameText.text = _levelData.levelName
-		authorText.text = str("By: ", _levelData.author)
+		if _levelData.author.is_empty():
+			authorText.text = ""
+		else:
+			authorText.text = str("By: ", _levelData.author)
 	
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()
