@@ -19,7 +19,6 @@ enum GridMode {
 
 @export var gameManager : GameManager
 @export var gridCenterOffset : Vector2
-@export var startingPositions : Array[Vector2i]
 
 var availablePieces : Array[PieceLogic]
 var blockerPieces : Array[PieceLogic]
