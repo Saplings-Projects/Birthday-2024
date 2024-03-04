@@ -15,17 +15,6 @@ func GoToLevel():
 	var levelMenu : LevelsSelectMenu = get_node("../../..") as LevelsSelectMenu
 	levelMenu.on_level_selected(levelData)
 
-func _ready():
-	#TODO: disable or show preview based on progress saved
-	match RandomNumberGenerator.new().randi_range(1,3):
-		1:
-			SetupButtonMode(LevelButtonMode.LOCKED)
-		2:
-			SetupButtonMode(LevelButtonMode.INCOMPLETE)
-		3:
-			SetupButtonMode(LevelButtonMode.COMPLETE)
-	
-
 func SetupButtonMode(buttonMode : LevelButtonMode):
 	#tooltip_text = str(levelData.levelName, " by ", levelData.author)
 	tooltip_text = levelData.author

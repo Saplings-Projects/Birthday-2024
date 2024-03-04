@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bynea1n8wb2qt"]
+[gd_scene load_steps=4 format=3 uid="uid://bynea1n8wb2qt"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_3v82p"]
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/LevelSelectMenu.tscn" id="2_d1gvp"]
+[ext_resource type="Resource" uid="uid://bg5rtt2c4srhw" path="res://Resources/CampaignLevelLibrary.tres" id="3_byecu"]
 
 [node name="CampaignLevelSelection" type="Control"]
 layout_mode = 3
@@ -15,6 +16,7 @@ script = ExtResource("1_3v82p")
 [node name="CampaignLevelSelectMenu" parent="." node_paths=PackedStringArray("screenLogic") instance=ExtResource("2_d1gvp")]
 layout_mode = 1
 screenLogic = NodePath("..")
+levelLibrary = ExtResource("3_byecu")
 
 [node name="Level Button2" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="1"]
 disabled = true
