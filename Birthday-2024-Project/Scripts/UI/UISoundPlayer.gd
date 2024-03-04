@@ -1,4 +1,5 @@
 extends Node
+class_name UISoundPlayer
 
 func _ready():
 	# when _ready is called, there might already be nodes in the tree, so connect all existing buttons
