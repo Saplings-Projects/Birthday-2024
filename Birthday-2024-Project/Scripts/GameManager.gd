@@ -33,6 +33,8 @@ var _can_interact: bool
 var _current_state: GameState
 var _is_inititialized: bool
 var _previous_state: GameState
+var _gm : GameMaster
+var _levelData : LevelSetup
 
 signal initialized_event()
 signal state_changed_event(state)
@@ -98,6 +100,8 @@ func spawn_piece(pieceID : String):
 	_reset_settled()
 
 func _ready():
+	_gm = get_node(GameMaster.GLOBAL_GAME_MASTER_NODE)
+	
 	# State
 	_current_state = empty_state
 	empty_state.set_manager(self)
@@ -113,10 +117,10 @@ func _process(delta):
 		initialized_event.emit()
 		switch_to_play_state()
 		
-		var levelData : LevelSetup = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] #as LevelSetup
-		grid.LoadLevel(levelData)
-		levelNameText.text = levelData.levelName
-		authorText.text = str("By: ", levelData.author)
+		_levelData = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] #as LevelSetup
+		grid.LoadLevel(_levelData)
+		levelNameText.text = _levelData.levelName
+		authorText.text = str("By: ", _levelData.author)
 	
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()

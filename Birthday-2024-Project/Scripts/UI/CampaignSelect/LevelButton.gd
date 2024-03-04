@@ -11,13 +11,18 @@ enum LevelButtonMode {
 @export var levelPreviewRenderer : TextureRect
 @export var monochromeShader : ShaderMaterial
 
+var _levelIndex : int
+
 func GoToLevel():
 	var levelMenu : LevelsSelectMenu = get_node("../../..") as LevelsSelectMenu
-	levelMenu.on_level_selected(levelData)
+	levelMenu.on_level_selected(levelData, _levelIndex)
 
-func SetupButtonMode(buttonMode : LevelButtonMode):
+func SetupButtonMode(buttonMode : LevelButtonMode, levelIndex : int):
+	_levelIndex = levelIndex
+	
 	#tooltip_text = str(levelData.levelName, " by ", levelData.author)
 	tooltip_text = levelData.author
+	
 	match buttonMode:
 		LevelButtonMode.LOCKED:
 			disabled = true

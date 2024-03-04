@@ -18,9 +18,9 @@ const SAPLING_LEVELS = "res://MainScenes/sapling_level_select_"
 @export var nextArrow : Button
 
 var _gm: GameMaster
-var levelIndex : int
 
-func on_level_selected(levelData : LevelSetup):
+
+func on_level_selected(levelData : LevelSetup, levelIndex : int):
 	var transitionData = {}
 	transitionData[PASS_LEVEL_DATA_KEY] = levelData
 	transitionData[PASS_LEVEL_INDEX_KEY] = levelIndex
@@ -59,23 +59,23 @@ func _ready():
 	pageText.visible = lastPageNumber > 1
 	pageText.text = str(pageNumber, "/", lastPageNumber)
 	
-	levelIndex = (pageNumber - 1) * selectableButtons.size()
+	var levelIndex : int = (pageNumber - 1) * selectableButtons.size()
 	for button in selectableButtons:
 		if levelLibrary.Levels.size() > levelIndex:
 			var levelData = levelLibrary.Levels[levelIndex]
 			button.levelData = levelData
 			if isCampaign:
 				if levelIndex > _gm.progression_tracker.GetLastCampaignLevelCompleted() + 1:
-					button.SetupButtonMode(LevelButton.LevelButtonMode.LOCKED)
+					button.SetupButtonMode(LevelButton.LevelButtonMode.LOCKED, levelIndex)
 				elif levelIndex == _gm.progression_tracker.GetLastCampaignLevelCompleted() + 1:
-					button.SetupButtonMode(LevelButton.LevelButtonMode.INCOMPLETE)
+					button.SetupButtonMode(LevelButton.LevelButtonMode.INCOMPLETE, levelIndex)
 				else:
-					button.SetupButtonMode(LevelButton.LevelButtonMode.COMPLETE)
+					button.SetupButtonMode(LevelButton.LevelButtonMode.COMPLETE, levelIndex)
 			else:
 				if _gm.progression_tracker.IsLevelCompleted(levelData.levelName):
-					button.SetupButtonMode(LevelButton.LevelButtonMode.COMPLETE)
+					button.SetupButtonMode(LevelButton.LevelButtonMode.COMPLETE, levelIndex)
 				else:
-					button.SetupButtonMode(LevelButton.LevelButtonMode.INCOMPLETE)
+					button.SetupButtonMode(LevelButton.LevelButtonMode.INCOMPLETE, levelIndex)
 		else:
 			button.visible = false
 		levelIndex += 1
