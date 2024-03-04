@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bjqluj600yhja" path="res://Art/Map_ResolutionClearance.png" id="2_hsx3y"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_rkf2x"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_1cxrf"]
+[ext_resource type="Texture2D" uid="uid://d3nvakmtiupxf" path="res://Art/GridTileSetHDAK.png" id="4_3a30x"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="4_dufh1"]
-[ext_resource type="Texture2D" uid="uid://c8qlsh0oxe5md" path="res://Art/GridTileSet2.png" id="4_qgsc6"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GameEmptyState.gd" id="5_wmt6j"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GamePlayState.gd" id="6_jk8at"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GameWinState.gd" id="7_bviq6"]
@@ -14,14 +14,11 @@
 [ext_resource type="Script" path="res://Scripts/Game/States/GameEditState.gd" id="8_e6fwe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5322b"]
-texture = ExtResource("4_qgsc6")
+texture = ExtResource("4_3a30x")
 texture_region_size = Vector2i(120, 120)
 0:0/0 = 0
-0:0/0/modulate = Color(1, 1, 1, 0)
 1:0/0 = 0
-1:0/0/modulate = Color(0.894118, 0.823529, 0.627451, 0.25098)
 2:0/0 = 0
-2:0/0/modulate = Color(0.894118, 0.823529, 0.627451, 1)
 
 [sub_resource type="TileSet" id="TileSet_ntt55"]
 tile_size = Vector2i(120, 120)

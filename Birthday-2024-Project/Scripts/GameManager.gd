@@ -132,6 +132,7 @@ func spawn_piece(pieceID : String):
 		return
 		
 	held_piece = grid.LoadPiece(pieceID)
+	held_piece_cell = 0
 	held_piece.global_position = get_global_mouse_position()
 	_reset_settled()
 
