@@ -4,7 +4,7 @@ class_name GridLogic
 const MAX_HEIGHT : int = 4 #doubled for negative
 const MAX_WIDTH : int = 5 #doubled for negative
 const TILE_ATLAS_OPEN = Vector2i(1, 0)
-const TILE_ATLAS_OCCUPIED = Vector2i(1, 0)
+const TILE_ATLAS_OCCUPIED = Vector2i(2, 0)
 const TILE_ATLAS_CLOSED = Vector2i(0, 0)
 const TILE_ATLAS_CLOSED_VISIBLE = Vector2i(2, 0)
 const SAFE_HEIGHT : int = 4 #doubled for negative
@@ -19,7 +19,6 @@ enum GridMode {
 
 @export var gameManager : GameManager
 @export var gridCenterOffset : Vector2
-@export var startingPositions : Array[Vector2i]
 
 var availablePieces : Array[PieceLogic]
 var blockerPieces : Array[PieceLogic]

@@ -22,6 +22,7 @@ buses/default_bus_layout="res://Resources/Audio/audio_bus.tres"
 [autoload]
 
 GlobalGameMaster="*res://ScenePrefabs/GameMaster.tscn"
+UiSoundPlayer="*res://ScenePrefabs/UISoundPlayer.tscn"
 
 [display]
 
