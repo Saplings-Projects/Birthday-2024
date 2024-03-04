@@ -25,7 +25,7 @@ texture = ExtResource("15_qlyp1")
 texture = ExtResource("14_pg7lu")
 modulate_color = Color(0.784314, 0.784314, 0.784314, 0.784314)
 
-[node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("pageText", "prevArrow", "nextArrow")]
+[node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("selectableButtons", "pageText", "prevArrow", "nextArrow")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_f0s32")
 script = ExtResource("2_qje3g")
+selectableButtons = [NodePath("Panel/Level Select Buttons/Level Button"), NodePath("Panel/Level Select Buttons/Level Button2"), NodePath("Panel/Level Select Buttons/Level Button3"), NodePath("Panel/Level Select Buttons/Level Button4"), NodePath("Panel/Level Select Buttons/Level Button5"), NodePath("Panel/Level Select Buttons/Level Button6"), NodePath("Panel/Level Select Buttons/Level Button7"), NodePath("Panel/Level Select Buttons/Level Button8"), NodePath("Panel/Level Select Buttons/Level Button9"), NodePath("Panel/Level Select Buttons/Level Button10"), NodePath("Panel/Level Select Buttons/Level Button11"), NodePath("Panel/Level Select Buttons/Level Button12"), NodePath("Panel/Level Select Buttons/Level Button13"), NodePath("Panel/Level Select Buttons/Level Button14"), NodePath("Panel/Level Select Buttons/Level Button15"), NodePath("Panel/Level Select Buttons/Level Button16"), NodePath("Panel/Level Select Buttons/Level Button17"), NodePath("Panel/Level Select Buttons/Level Button18"), NodePath("Panel/Level Select Buttons/Level Button19"), NodePath("Panel/Level Select Buttons/Level Button20")]
 isCampaign = true
 pageText = NodePath("Panel/Page")
 pageNumber = 1

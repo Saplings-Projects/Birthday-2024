@@ -49,7 +49,7 @@ func _play_sample(stream: AudioStream, player: AudioStreamPlayer2D):
 	player.play()
 #region Node
 func _ready():
-	_gm = get_node("/root/GlobalGameMaster")
+	_gm = get_node(GameMaster.GLOBAL_GAME_MASTER_NODE)
 	
 	revert_changes()
 	

@@ -15,7 +15,7 @@ func on_close_clicked():
 #region Node
 
 func _ready():
-	_gm = get_node("/root/GlobalGameMaster")
+	_gm = get_node(GameMaster.GLOBAL_GAME_MASTER_NODE)
 
 
 #endregion Node

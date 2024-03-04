@@ -7,11 +7,9 @@ func reset_puzzle():
 
 func back_to_menu():
 	manager.go_to_main_menu()
-	#TODO remember where to go back (campaign or saplings' levels and go there)
 
 func skip_puzzle():
-	print("skip_puzzle is not fully implemented", self)
-	reset_puzzle() # TODO: DELETE THIS WHEN NO LONGER NEEDED.
+	manager.go_to_next_level()
 
 func go_to_edit_mode():
 	manager.switch_to_edit_state()

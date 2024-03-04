@@ -3,8 +3,7 @@ extends GameState
 
 
 func next_puzzle():
-	print("next_puzzle is not fully implemented", self)
-	reset_puzzle() # TODO: DELETE THIS WHEN NO LONGER NEEDED.
+	manager.go_to_next_level()
 
 
 func reset_puzzle():
@@ -14,7 +13,6 @@ func reset_puzzle():
 
 func back_to_menu():
 	manager.go_to_main_menu()
-	#TODO remember where to go back (campaign or saplings' levels and go there)
 
 
 #region GameState
@@ -22,6 +20,11 @@ func back_to_menu():
 func enter_state():
 	print("Entering Game Win State")
 	manager._can_interact = false
+	if manager.myScreen.transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY]:
+		var thisLevelIndex : int = manager.myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
+		manager._gm.progression_tracker.SetLatestCampaignLevelCompleted(thisLevelIndex)
+	else:
+		manager._gm.progression_tracker.MarkLevelCompleted(manager._levelData.levelName)
 
 
 func exit_state():

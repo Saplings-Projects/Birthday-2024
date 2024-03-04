@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://bn7tm7ibpe4rk"]
+[gd_scene load_steps=24 format=3 uid="uid://bn7tm7ibpe4rk"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_ylpox"]
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/LevelSelectMenu.tscn" id="2_glrcg"]
 [ext_resource type="Resource" uid="uid://cs5f2g007qdbp" path="res://Resources/SubmittedLevels/Acheronta.tres" id="3_gcyq4"]
+[ext_resource type="Resource" uid="uid://d28aaakfobygm" path="res://Resources/SubmittedLevelLibrary.tres" id="3_uuipb"]
 [ext_resource type="Resource" uid="uid://udwfauxcffqk" path="res://Resources/SubmittedLevels/Alfin.tres" id="4_depea"]
 [ext_resource type="Resource" uid="uid://dl3mppio5oh5o" path="res://Resources/SubmittedLevels/Cory.tres" id="5_sv7we"]
 [ext_resource type="Resource" uid="uid://b8lglpb2ln104" path="res://Resources/SubmittedLevels/ArcaneNrok.tres" id="6_22keo"]
@@ -35,6 +36,7 @@ script = ExtResource("1_ylpox")
 [node name="LevelSelectMenu" parent="." node_paths=PackedStringArray("screenLogic") instance=ExtResource("2_glrcg")]
 layout_mode = 1
 screenLogic = NodePath("..")
+levelLibrary = ExtResource("3_uuipb")
 isCampaign = false
 lastPageNumber = 4
 
