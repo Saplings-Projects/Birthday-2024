@@ -3,6 +3,8 @@ extends Control
 
 @export var controller: MainMenuController
 @export var screenLogic : ScreenLogic
+@export var titleNode : Control
+@export var animator : AnimationPlayer
 
 @export_group("Screens")
 @export var start_screen: MainMenuStartScreen
@@ -11,6 +13,11 @@ extends Control
 @export var start_state: MainMenuUiStartState
 
 var _current_state: MainMenuUiState
+
+func PlayIntro():
+	animator.play("TitleIntro")
+	await get_tree().create_timer(0.05).timeout
+	titleNode.visible = true
 
 func on_main_menu_initialized():
 	pass

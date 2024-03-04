@@ -38,6 +38,11 @@ func GoToScreen(screen : PackedScene, data : Dictionary, transitionStyle: Transi
 	popupRoot.add_child(newScreen)
 	_screenStack.push_back(newScreen)
 	
+	if transitionStyle == TransitionStyle.NONE:
+		screenLogic.ScreenEnter.emit()
+
+func TransitionAnimationFinished():
+	var screenLogic : ScreenLogic = _screenStack.back()
 	screenLogic.ScreenEnter.emit()
 
 func IsTopScreen(screen : ScreenLogic) -> bool:
