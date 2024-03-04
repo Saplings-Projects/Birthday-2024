@@ -9,6 +9,7 @@ enum TransitionStyle {
 
 @export var popupRoot : CanvasLayer
 @export var screenTexture : TextureRect
+@export var bgmPlayer : AudioStreamPlayer
 
 var lastScreen : String
 var _screenStack : Array[Node]
@@ -57,6 +58,13 @@ func CloseTopScreen(data : Dictionary):
 	var topScreen : ScreenLogic = _screenStack.back() as ScreenLogic
 	topScreen.transitionData = data
 	topScreen.ScreenEnter.emit()
+
+func StartBGM():
+	if bgmPlayer.playing == false:
+		#var bgmFadeIn = get_tree().create_tween()
+		#bgmFadeIn.tween_property(bgmPlayer, "volume_db", 0, 2)
+		#bgmFadeIn.set_ease(Tween.EASE_IN)
+		bgmPlayer.play()
 
 func ShowSettings():
 	GoToScreen(load("res://MainScenes/settings_popup.tscn"), {}, TransitionStyle.NONE)

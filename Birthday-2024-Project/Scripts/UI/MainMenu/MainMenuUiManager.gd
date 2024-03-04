@@ -16,6 +16,7 @@ var _current_state: MainMenuUiState
 
 func PlayIntro():
 	animator.play("TitleIntro")
+	screenLogic.screenManager.StartBGM()
 	await get_tree().create_timer(0.05).timeout
 	titleNode.visible = true
 

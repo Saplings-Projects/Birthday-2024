@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://crnv5o8nb1u1k"]
+[gd_scene load_steps=36 format=3 uid="uid://crnv5o8nb1u1k"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenManager.gd" id="1_karo4"]
 [ext_resource type="Texture2D" uid="uid://b63lb17d6eycv" path="res://Art/UI/PageTransition/PageTurnAnimation-01.png" id="2_01n30"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://depqo0d48we60" path="res://Art/UI/PageTransition/PageTurnAnimMaskInverted-02.png" id="26_wwaiw"]
 [ext_resource type="Texture2D" uid="uid://ivivtbjoawvw" path="res://Art/UI/PageTransition/PageTurnAnimMaskInverted-01.png" id="27_bke14"]
 [ext_resource type="AudioStream" uid="uid://2vm5kcx88djm" path="res://Resources/Audio/PageTurnNextRandomPitch.tres" id="29_m40jo"]
+[ext_resource type="AudioStream" uid="uid://b34xb00xtfi3d" path="res://Resources/Audio/Fon_OST.wav" id="30_xbmmb"]
 
 [sub_resource type="Animation" id="Animation_tvgw8"]
 resource_name = "fade_in"
@@ -296,10 +297,11 @@ _data = {
 "page_turn_back": SubResource("Animation_8q065")
 }
 
-[node name="ScreenMngrInitScene" type="Node2D" node_paths=PackedStringArray("popupRoot", "screenTexture")]
+[node name="ScreenMngrInitScene" type="Node2D" node_paths=PackedStringArray("popupRoot", "screenTexture", "bgmPlayer")]
 script = ExtResource("1_karo4")
 popupRoot = NodePath("PopupRoot")
 screenTexture = NodePath("TransitionLayer/AnimationPlayer/Control/MaskTexture/ScreenTexture")
+bgmPlayer = NodePath("bgmPlayer")
 
 [node name="BaseLayer" type="CanvasLayer" parent="."]
 
@@ -375,3 +377,7 @@ grow_vertical = 2
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TransitionLayer/AnimationPlayer"]
 stream = ExtResource("29_m40jo")
 bus = &"SFX"
+
+[node name="bgmPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_xbmmb")
+bus = &"Music"
