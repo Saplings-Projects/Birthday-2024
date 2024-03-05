@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=5 format=3 uid="uid://dslxkxtioxstc"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/CampaignTutorialData.gd" id="1_duadq"]
+[ext_resource type="PackedScene" uid="uid://cvx660iqikvys" path="res://ScenePrefabs/Pieces/gold_apple.tscn" id="1_r7epj"]
+[ext_resource type="PackedScene" uid="uid://cdlhh56v1qobi" path="res://ScenePrefabs/Pieces/ele_fauna.tscn" id="2_dbuba"]
+[ext_resource type="PackedScene" uid="uid://dgas6i2w16oks" path="res://ScenePrefabs/Pieces/kimono_fauna.tscn" id="3_f18fg"]
+
+[resource]
+script = ExtResource("1_duadq")
+title = "Test Display Popup"
+body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut"
+displayPieces = Array[PackedScene]([ExtResource("1_r7epj"), ExtResource("2_dbuba"), ExtResource("3_f18fg")])

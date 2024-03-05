@@ -13,9 +13,8 @@ grow_vertical = 2
 script = ExtResource("1_h6slw")
 clearScreenStack = false
 
-[node name="SettingsWindow" parent="." instance=ExtResource("2_v4jg0")]
+[node name="SettingsWindow" parent="." node_paths=PackedStringArray("myScreen") instance=ExtResource("2_v4jg0")]
 layout_mode = 1
-
-[connection signal="close_settings_window" from="SettingsWindow" to="." method="ClosePopup" binds= [{}]]
+myScreen = NodePath("..")
 
 [editable path="SettingsWindow"]

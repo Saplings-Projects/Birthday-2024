@@ -154,13 +154,16 @@ func _process(delta):
 		initialized_event.emit()
 		switch_to_play_state()
 		
-		_levelData = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] #as LevelSetup
+		_levelData = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY]
 		grid.LoadLevel(_levelData)
 		levelNameText.text = _levelData.levelName
 		if _levelData.author.is_empty():
 			authorText.text = ""
 		else:
 			authorText.text = str("By: ", _levelData.author)
+		
+		if _levelData.tutorialData != null:
+			myScreen.ScreenEnter.connect(_show_tutorial)
 	
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()
@@ -177,6 +180,14 @@ func _process(delta):
 		_held_piece_towards_cursor(delta)
 		_rotate_held_piece()
 		_do_place_held_piece()
+
+func _show_tutorial():
+	myScreen.ScreenEnter.disconnect(_show_tutorial)
+	var tutorialData = _levelData.tutorialData
+	if _levelData.tutorialData.displayPieces.size() > 0:
+		myScreen.ShowDisplayPopup(tutorialData.title, tutorialData.body, tutorialData.displayPieces)
+	else:
+		myScreen.ShowTextPopup(tutorialData.title, tutorialData.body)
 
 func _remove_occupied_cells(piece: PieceLogic):
 	if piece.current_placement_state != PieceLogic.PlacementStates.PLACED:

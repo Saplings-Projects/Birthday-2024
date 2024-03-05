@@ -9,20 +9,23 @@ signal ScreenExit
 var screenManager : ScreenManager
 var transitionData : Dictionary
 
-func ClosePopup(data : Dictionary):
-	screenManager.CloseTopScreen(data)
-	
-func ClosePopupBySignal():
-	screenManager.CloseTopScreen({})
+func ClosePopup():
+	screenManager.CloseTopScreen(transitionData)
 
 func GoToScreen(screen : PackedScene, data : Dictionary, transitionStyle : ScreenManager.TransitionStyle):
 	screenManager.GoToScreen(screen, data, transitionStyle)
 
 func ShowSettings():
-	screenManager.ShowSettings()
+	screenManager.ShowSettings(transitionData)
+
+func ShowTextPopup(title : String, body : String, confirm : String = "Close"):
+	screenManager.ShowTextPopup(title, body, transitionData, confirm)
 
 func ShowConfirmationPopup(title : String, body : String, confirm : String = "OK", cancel : String = "Cancel"):
-	screenManager.ShowConfirmationPopup(title, body, confirm, cancel)
+	screenManager.ShowConfirmationPopup(title, body, transitionData, confirm, cancel)
+
+func ShowDisplayPopup(title : String, body : String, displayPieces : Array[PackedScene], confirm : String = "Close"):
+	screenManager.ShowDisplayPopup(title, body, displayPieces, transitionData, confirm)
 
 func ExitApplication():
 	ScreenEnter.connect(ExitConfirmation)
