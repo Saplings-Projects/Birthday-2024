@@ -5,19 +5,6 @@ extends PuzzleUiState
 var _state: GameWinState
 
 
-func _on_exit_clicked():
-	_state.exit_game()
-
-func _on_next_clicked():
-	_state.next_puzzle()
-
-func _on_reset_clicked():
-	_state.reset_puzzle()
-
-func _on_back_clicked():
-	_state.back_to_menu()
-
-
 #region PuzzleUiState
 
 func enter_state():
@@ -33,24 +20,23 @@ func enter_state():
 	
 	var screen = _ui_manager.main_screen
 	screen.show_hide_win_text(true)
-	screen.context_button.text = "Next"
-	screen.context_button.button_up.connect(_on_next_clicked)
-	screen.exit_button.button_up.connect(_on_exit_clicked)
-	screen.reset_button.button_up.connect(_on_reset_clicked)
-	screen.back_button.button_up.connect(_on_back_clicked)
+	screen.skip_button.button_up.connect(_state.next_puzzle)
+	screen.exit_button.button_up.connect(_state.exit_game)
+	screen.reset_button.button_up.connect(_state.reset_puzzle)
+	screen.back_button.button_up.connect(_state.back_to_menu)
 	screen.settings_button.button_up.connect(_on_settings_clicked)
 	screen.edit_button.hide()
+	screen.library_button.hide()
 
 
 func exit_state():
-	_state = null
-	
 	var screen = _ui_manager.main_screen
-	screen.context_button.button_up.disconnect(_on_next_clicked)
-	screen.exit_button.button_up.disconnect(_on_exit_clicked)
-	screen.reset_button.button_up.disconnect(_on_reset_clicked)
-	screen.back_button.button_up.disconnect(_on_back_clicked)
+	screen.skip_button.button_up.disconnect(_state.next_puzzle)
+	screen.exit_button.button_up.disconnect(_state.exit_game)
+	screen.reset_button.button_up.disconnect(_state.reset_puzzle)
+	screen.back_button.button_up.disconnect(_state.back_to_menu)
 	screen.settings_button.button_up.disconnect(_on_settings_clicked)
+	_state = null
 
 
 func update_state():

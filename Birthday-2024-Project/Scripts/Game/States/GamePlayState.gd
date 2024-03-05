@@ -5,15 +5,8 @@ extends GameState
 func reset_puzzle():
 	manager.grid.ReloadLevel()
 
-func back_to_menu():
-	manager.go_to_main_menu()
-
-func skip_puzzle():
-	manager.go_to_next_level()
-
 func go_to_edit_mode():
 	manager.switch_to_edit_state()
-
 
 func _on_grid_updated():
 	if manager.grid.freeSpaces == 0:

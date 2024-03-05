@@ -4,9 +4,6 @@ extends GameState
 func reset_puzzle():
 	manager.grid.ClearLevel()
 
-func back_to_menu():
-	manager.go_to_main_menu()
-
 func go_to_play_mode():
 	manager.switch_to_play_state()
 

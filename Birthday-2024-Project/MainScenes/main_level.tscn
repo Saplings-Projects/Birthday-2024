@@ -67,6 +67,7 @@ patch_margin_right = 250
 patch_margin_bottom = 250
 
 [node name="Label" type="Label" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -136,7 +137,7 @@ held_piece_settle_delay = 0.01
 held_piece_settle_animation_duration = 0.25
 place_piece_delay = 0.4
 levelNameText = NodePath("../LevelName")
-authorText = NodePath("../Author")
+authorText = NodePath("../HBoxContainer/Author")
 empty_state = NodePath("States/GameEmptyState")
 play_state = NodePath("States/GamePlayState")
 win_state = NodePath("States/GameWinState")
@@ -165,34 +166,44 @@ controller = NodePath("../../GameManager")
 
 [node name="LevelName" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -500.0
-offset_top = 45.0
-offset_right = 500.0
-offset_bottom = 145.0
-grow_horizontal = 2
-theme = ExtResource("4_dufh1")
-theme_override_font_sizes/font_size = 72
-text = "One line name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Author" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 250.0
-offset_top = -145.0
-offset_right = 1250.0
-offset_bottom = -44.9998
+offset_left = 300.0
+offset_top = -120.0
+offset_right = 890.0
+offset_bottom = -57.0
 grow_vertical = 0
 theme = ExtResource("4_dufh1")
 theme_override_font_sizes/font_size = 50
-text = "By: One line name"
+text = "One line name that"
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -890.0
+offset_top = -120.0
+offset_right = -210.0
+offset_bottom = -57.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="Author" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(680, 0)
+layout_mode = 2
+theme = ExtResource("4_dufh1")
+theme_override_font_sizes/font_size = 50
+text = "By: One line"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
 [connection signal="state_changed_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_state_changed"]
