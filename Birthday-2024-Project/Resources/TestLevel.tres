@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/PieceSetup.gd" id="1_37gyb"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_43yik"]
+[ext_resource type="Resource" uid="uid://csa1vr3ys6mpl" path="res://Resources/TutorialData/TestTextOnlyTutorial.tres" id="3_vpslg"]
 
 [sub_resource type="Resource" id="Resource_ljtve"]
 script = ExtResource("1_37gyb")
@@ -27,12 +28,6 @@ pieceID = "idol_fauna"
 gridPosition = Vector2i(-2, -1)
 pieceRotation = 0
 
-[sub_resource type="Resource" id="Resource_pdn0s"]
-script = ExtResource("1_37gyb")
-pieceID = "nemu_fauna"
-gridPosition = Vector2i(4, -1)
-pieceRotation = 1
-
 [sub_resource type="Resource" id="Resource_0af60"]
 script = ExtResource("1_37gyb")
 pieceID = "smol_fauna"
@@ -41,8 +36,9 @@ pieceRotation = 3
 
 [resource]
 script = ExtResource("1_43yik")
-levelData = Array[ExtResource("1_37gyb")]([SubResource("Resource_ljtve"), SubResource("Resource_8c2vu"), SubResource("Resource_qls2v"), SubResource("Resource_gtw3y"), SubResource("Resource_pdn0s"), SubResource("Resource_0af60")])
+levelData = Array[ExtResource("1_37gyb")]([SubResource("Resource_ljtve"), SubResource("Resource_8c2vu"), SubResource("Resource_qls2v"), SubResource("Resource_gtw3y"), SubResource("Resource_0af60")])
 jsonData = ""
 author = ""
 message = ""
 levelName = ""
+tutorialData = ExtResource("3_vpslg")

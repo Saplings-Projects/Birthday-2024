@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=10 format=3 uid="uid://uesitppugrmo"]
+
+[ext_resource type="Script" path="res://Scripts/PieceSetup.gd" id="1_j7bjv"]
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="2_t2nj7"]
+[ext_resource type="Resource" uid="uid://dslxkxtioxstc" path="res://Resources/TutorialData/TestDisplayTutorial.tres" id="3_txmjo"]
+
+[sub_resource type="Resource" id="Resource_ljtve"]
+script = ExtResource("1_j7bjv")
+pieceID = "original_fauna"
+gridPosition = Vector2i(1, -1)
+pieceRotation = 0
+
+[sub_resource type="Resource" id="Resource_8c2vu"]
+script = ExtResource("1_j7bjv")
+pieceID = "hitman_fauna"
+gridPosition = Vector2i(0, -2)
+pieceRotation = 0
+
+[sub_resource type="Resource" id="Resource_qls2v"]
+script = ExtResource("1_j7bjv")
+pieceID = "faunashi"
+gridPosition = Vector2i(0, -3)
+pieceRotation = 1
+
+[sub_resource type="Resource" id="Resource_gtw3y"]
+script = ExtResource("1_j7bjv")
+pieceID = "idol_fauna"
+gridPosition = Vector2i(-2, -1)
+pieceRotation = 0
+
+[sub_resource type="Resource" id="Resource_pdn0s"]
+script = ExtResource("1_j7bjv")
+pieceID = "nemu_fauna"
+gridPosition = Vector2i(4, -1)
+pieceRotation = 1
+
+[sub_resource type="Resource" id="Resource_0af60"]
+script = ExtResource("1_j7bjv")
+pieceID = "smol_fauna"
+gridPosition = Vector2i(1, -3)
+pieceRotation = 3
+
+[resource]
+script = ExtResource("2_t2nj7")
+levelData = Array[ExtResource("1_j7bjv")]([SubResource("Resource_ljtve"), SubResource("Resource_8c2vu"), SubResource("Resource_qls2v"), SubResource("Resource_gtw3y"), SubResource("Resource_pdn0s"), SubResource("Resource_0af60")])
+jsonData = ""
+author = ""
+message = ""
+levelName = ""
+tutorialData = ExtResource("3_txmjo")
