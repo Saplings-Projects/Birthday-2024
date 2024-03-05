@@ -21,8 +21,14 @@ func GoToScreen(screen : PackedScene, data : Dictionary, transitionStyle : Scree
 func ShowSettings():
 	screenManager.ShowSettings()
 
+func ShowTextPopup(title : String, body : String, confirm : String = "Close"):
+	screenManager.ShowTextPopup(title, body, confirm)
+
 func ShowConfirmationPopup(title : String, body : String, confirm : String = "OK", cancel : String = "Cancel"):
 	screenManager.ShowConfirmationPopup(title, body, confirm, cancel)
+
+func ShowDisplayPopup(title : String, body : String, displayPieces : Array[PackedScene], confirm : String = "Close"):
+	screenManager.ShowDisplayPopup(title, body, displayPieces, confirm)
 
 func ExitApplication():
 	ScreenEnter.connect(ExitConfirmation)

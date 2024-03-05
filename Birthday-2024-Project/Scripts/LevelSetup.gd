@@ -8,6 +8,7 @@ class_name LevelSetup
 @export var levelName : String
 @export var levelPreview : CompressedTexture2D
 @export var levelComplete : CompressedTexture2D
+@export var tutorialData : CampaignTutorialData
 
 func RetrieveLevelData() -> Array[PieceSetup]:
 	#if setup in editor

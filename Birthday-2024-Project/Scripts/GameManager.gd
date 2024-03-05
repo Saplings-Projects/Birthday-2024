@@ -154,13 +154,20 @@ func _process(delta):
 		initialized_event.emit()
 		switch_to_play_state()
 		
-		_levelData = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] #as LevelSetup
+		_levelData = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY]
 		grid.LoadLevel(_levelData)
 		levelNameText.text = _levelData.levelName
 		if _levelData.author.is_empty():
 			authorText.text = ""
 		else:
 			authorText.text = str("By: ", _levelData.author)
+		
+		if _levelData.tutorialData != null:
+			var tutorialData = _levelData.tutorialData
+			if _levelData.tutorialData.displayPieces.size() > 0:
+				myScreen.ShowDisplayPopup(tutorialData.title, tutorialData.body, tutorialData.displayPieces)
+			else:
+				myScreen.ShowTextPopup(tutorialData.title, tutorialData.body)
 	
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()

@@ -13,15 +13,18 @@ extends Control
 @export var start_state: MainMenuUiStartState
 
 var _current_state: MainMenuUiState
+var _playOnce : bool = false
 
 func PlayIntro():
-	animator.play("TitleIntro")
-	screenLogic.screenManager.StartBGM()
-	await get_tree().create_timer(0.05).timeout
-	titleNode.visible = true
+	if _playOnce:
+		_playOnce = false
+		animator.play("TitleIntro")
+		screenLogic.screenManager.StartBGM()
+		await get_tree().create_timer(0.05).timeout
+		titleNode.visible = true
 
 func on_main_menu_initialized():
-	pass
+	_playOnce = true
 
 func on_main_menu_state_changed(state: MainMenuState):
 	if state is MainMenuStartState:
