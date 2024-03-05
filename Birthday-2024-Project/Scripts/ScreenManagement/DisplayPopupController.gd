@@ -15,10 +15,11 @@ func onScreenEnter():
 		
 	for piece in displayPieces:
 		var controlNode : Control = Control.new()
-		controlNode.custom_minimum_size.x = 300
+		controlNode.custom_minimum_size.x = 250
 		pieceDisplay.add_child(controlNode)
 		var pieceClone : Node2D = piece.instantiate() as Node2D
 		controlNode.add_child(pieceClone)
-		pieceClone.position = Vector2(150, 100)
+		pieceClone.position = Vector2(125, 100)
+		pieceClone.scale = Vector2(0.65, 0.65)
 		
 	super.onScreenEnter()

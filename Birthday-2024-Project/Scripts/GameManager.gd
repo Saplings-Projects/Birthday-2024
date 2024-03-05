@@ -163,11 +163,7 @@ func _process(delta):
 			authorText.text = str("By: ", _levelData.author)
 		
 		if _levelData.tutorialData != null:
-			var tutorialData = _levelData.tutorialData
-			if _levelData.tutorialData.displayPieces.size() > 0:
-				myScreen.ShowDisplayPopup(tutorialData.title, tutorialData.body, tutorialData.displayPieces)
-			else:
-				myScreen.ShowTextPopup(tutorialData.title, tutorialData.body)
+			myScreen.ScreenEnter.connect(_show_tutorial)
 	
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()
@@ -184,6 +180,14 @@ func _process(delta):
 		_held_piece_towards_cursor(delta)
 		_rotate_held_piece()
 		_do_place_held_piece()
+
+func _show_tutorial():
+	myScreen.ScreenEnter.disconnect(_show_tutorial)
+	var tutorialData = _levelData.tutorialData
+	if _levelData.tutorialData.displayPieces.size() > 0:
+		myScreen.ShowDisplayPopup(tutorialData.title, tutorialData.body, tutorialData.displayPieces)
+	else:
+		myScreen.ShowTextPopup(tutorialData.title, tutorialData.body)
 
 func _remove_occupied_cells(piece: PieceLogic):
 	if piece.current_placement_state != PieceLogic.PlacementStates.PLACED:
