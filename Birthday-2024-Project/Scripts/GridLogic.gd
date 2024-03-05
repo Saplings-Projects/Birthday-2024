@@ -49,7 +49,7 @@ func ClearLevel():
 	xMaxGrid = 0
 	yMinGrid = 0
 	yMaxGrid = 0
-	global_position = gridCenterOffset
+	position = gridCenterOffset
 
 func ImportLevel(jsonImportData : String):
 	var levelSetup : LevelSetup = LevelSetup.new()
@@ -82,7 +82,7 @@ func LoadLevel(levelSetupData : LevelSetup):
 		
 		#center grid map based on the width and height
 		var midPoint : Vector2i = _GridCoordinateToPosition(Vector2i(xMaxGrid, yMaxGrid)) + _GridCoordinateToPosition(Vector2i(xMinGrid, yMinGrid))
-		global_position = midPoint * -0.5 + gridCenterOffset
+		position = midPoint * -0.5 + gridCenterOffset
 		
 		if(gridMode == GridMode.PLAY):
 			var rng : RandomNumberGenerator = RandomNumberGenerator.new()
@@ -110,7 +110,7 @@ func LoadLevel(levelSetupData : LevelSetup):
 				availablePiece.SetPieceRotation(PieceLogic.RotationStates.DEG_0)
 				availablePiece._SetReturnPoint()
 		else:
-			global_position = gridCenterOffset
+			position = gridCenterOffset
 			for availablePiece in availablePieces:
 				availablePiece.return_piece(true)
 
@@ -287,7 +287,7 @@ func CheckIfOffGridPos(pos: Vector2) -> bool:
 
 func CheckIfOutsideSafeZone(piece : PieceLogic) -> bool:
 	# offset by grid centering
-	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition() + global_position - gridCenterOffset)
+	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition() + position - gridCenterOffset)
 	var cellOffsetsArray : Array[Vector2i] = piece.GetPieceShapeOffsetArray()
 	for shapeCell in cellOffsetsArray:
 		var spaceCoord : Vector2i = pieceCoords + shapeCell
