@@ -1,10 +1,6 @@
 class_name GamePlayState
 extends GameState
 
-
-func reset_puzzle():
-	manager.grid.ReloadLevel()
-
 func go_to_edit_mode():
 	manager.switch_to_edit_state()
 
