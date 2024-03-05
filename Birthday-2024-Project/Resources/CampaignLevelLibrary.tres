@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="LevelLibrary" load_steps=3 format=3 uid="uid://bg5rtt2c4srhw"]
+[gd_resource type="Resource" script_class="LevelLibrary" load_steps=4 format=3 uid="uid://bg5rtt2c4srhw"]
 
 [ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="1_301rl"]
 [ext_resource type="Script" path="res://Scripts/Game/LevelLibrary.gd" id="1_x6n8b"]
+[ext_resource type="Resource" uid="uid://uesitppugrmo" path="res://Resources/TestLevel2.tres" id="2_t65ah"]
 
 [resource]
 script = ExtResource("1_x6n8b")
-Levels = Array[Resource("res://Scripts/LevelSetup.gd")]([ExtResource("1_301rl"), ExtResource("1_301rl"), ExtResource("1_301rl"), ExtResource("1_301rl"), ExtResource("1_301rl")])
+Levels = Array[Resource("res://Scripts/LevelSetup.gd")]([ExtResource("1_301rl"), ExtResource("2_t65ah"), ExtResource("1_301rl"), ExtResource("2_t65ah"), ExtResource("1_301rl")])

@@ -7,10 +7,6 @@ enum TransitionStyle {
 	BACK_PAGE
 }
 
-const TITLE_KEY : String = "POPUP_TITLE"
-const BODY_KEY : String = "POPUP_BODY"
-const CONFIRM_KEY : String = "POPUP_CONFIRM"
-
 @export var popupRoot : CanvasLayer
 @export var screenTexture : TextureRect
 @export var bgmPlayer : AudioStreamPlayer
@@ -70,29 +66,29 @@ func StartBGM():
 		#bgmFadeIn.set_ease(Tween.EASE_IN)
 		bgmPlayer.play()
 
-func ShowSettings():
-	GoToScreen(load("res://MainScenes/settings_popup.tscn"), {}, TransitionStyle.NONE)
+func ShowSettings(existingData : Dictionary = {}):
+	GoToScreen(load("res://MainScenes/settings_popup.tscn"), existingData, TransitionStyle.NONE)
 
-func ShowTextPopup(title : String, body : String, confirm : String = "Close"):
-	var popupParameters = {}
-	popupParameters[TITLE_KEY] = title
-	popupParameters[BODY_KEY] = body
-	popupParameters[CONFIRM_KEY] = confirm
+func ShowTextPopup(title : String, body : String, existingData : Dictionary = {}, confirm : String = "Close"):
+	var popupParameters = existingData
+	popupParameters[TextPopupController.TITLE_KEY] = title
+	popupParameters[TextPopupController.BODY_KEY] = body
+	popupParameters[TextPopupController.CONFIRM_KEY] = confirm
 	GoToScreen(load("res://MainScenes/text_popup.tscn"), popupParameters, TransitionStyle.NONE)
 
-func ShowConfirmationPopup(title : String, body : String, confirm : String = "Confirm", cancel : String = "Cancel"):
-	var popupParameters = {}
-	popupParameters[TITLE_KEY] = title
-	popupParameters[BODY_KEY] = body
-	popupParameters[CONFIRM_KEY] = confirm
+func ShowConfirmationPopup(title : String, body : String, existingData : Dictionary = {}, confirm : String = "Confirm", cancel : String = "Cancel"):
+	var popupParameters = existingData
+	popupParameters[TextPopupController.TITLE_KEY] = title
+	popupParameters[TextPopupController.BODY_KEY] = body
+	popupParameters[TextPopupController.CONFIRM_KEY] = confirm
 	popupParameters[ConfirmationPopupController.CANCEL_KEY] = cancel
 	GoToScreen(load("res://MainScenes/confirmation_popup.tscn"), popupParameters, TransitionStyle.NONE)
 
-func ShowDisplayPopup(title : String, body : String, displayPieces : Array[PackedScene], confirm : String = "Close"):
-	var popupParameters = {}
-	popupParameters[TITLE_KEY] = title
-	popupParameters[BODY_KEY] = body
-	popupParameters[CONFIRM_KEY] = confirm
+func ShowDisplayPopup(title : String, body : String, displayPieces : Array[PackedScene], existingData : Dictionary = {}, confirm : String = "Close"):
+	var popupParameters = existingData
+	popupParameters[TextPopupController.TITLE_KEY] = title
+	popupParameters[TextPopupController.BODY_KEY] = body
+	popupParameters[TextPopupController.CONFIRM_KEY] = confirm
 	popupParameters[DisplayPopupController.PIECES_KEY] = displayPieces
 	GoToScreen(load("res://MainScenes/display_popup.tscn"), popupParameters, TransitionStyle.NONE)
 

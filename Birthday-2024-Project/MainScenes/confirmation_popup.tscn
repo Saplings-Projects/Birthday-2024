@@ -113,17 +113,17 @@ theme = ExtResource("3_rg6pl")
 theme_override_font_sizes/font_size = 32
 text = "Cancel"
 
-[node name="Controller" type="Control" parent="." node_paths=PackedStringArray("myScreen", "titleText", "bodyText", "confirmButtonText", "cancelButtonText", "animator")]
+[node name="Controller" type="Control" parent="." node_paths=PackedStringArray("cancelButtonText", "myScreen", "titleText", "bodyText", "confirmButtonText", "animator")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_m15bs")
+cancelButtonText = NodePath("../Panel/CancelButton")
 myScreen = NodePath("..")
 titleText = NodePath("../Panel/Title")
 bodyText = NodePath("../Panel/Body")
 confirmButtonText = NodePath("../Panel/ConfirmButton")
-cancelButtonText = NodePath("../Panel/CancelButton")
 animator = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

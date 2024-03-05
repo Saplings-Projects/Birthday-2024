@@ -39,7 +39,7 @@ offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
-pivot_offset = Vector2(450, 375)
+pivot_offset = Vector2(450, 500)
 texture = ExtResource("2_ir2en")
 patch_margin_left = 100
 patch_margin_top = 125
@@ -113,16 +113,17 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Controller" type="Control" parent="." node_paths=PackedStringArray("myScreen", "titleText", "bodyText", "pieceDisplay", "animator")]
+[node name="Controller" type="Control" parent="." node_paths=PackedStringArray("pieceDisplay", "myScreen", "titleText", "bodyText", "confirmButtonText", "animator")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_j4evi")
+pieceDisplay = NodePath("../Panel/HorizontalContainer")
 myScreen = NodePath("..")
 titleText = NodePath("../Panel/Title")
 bodyText = NodePath("../Panel/Body")
-pieceDisplay = NodePath("../Panel/HorizontalContainer")
+confirmButtonText = NodePath("../Panel/ConfirmButton")
 animator = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -131,4 +132,4 @@ libraries = {
 }
 
 [connection signal="ScreenEnter" from="." to="Controller" method="onScreenEnter"]
-[connection signal="button_up" from="Panel/ConfirmButton" to="Controller" method="onConfirm"]
+[connection signal="button_up" from="Panel/ConfirmButton" to="Controller" method="onClose"]

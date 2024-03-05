@@ -38,7 +38,8 @@ offset_right = 300.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(450, 375)
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(300, 250)
 texture = ExtResource("2_1c2ku")
 patch_margin_left = 100
 patch_margin_top = 125
@@ -98,11 +99,13 @@ theme = ExtResource("3_1dm6w")
 theme_override_font_sizes/font_size = 32
 text = "Confirm"
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("myScreen", "titleText", "bodyText", "animator")]
+[node name="Controller" type="Control" parent="." node_paths=PackedStringArray("myScreen", "titleText", "bodyText", "confirmButtonText", "animator")]
+anchors_preset = 0
 script = ExtResource("4_3ahrd")
 myScreen = NodePath("..")
 titleText = NodePath("../Panel/Title")
 bodyText = NodePath("../Panel/Body")
+confirmButtonText = NodePath("../Panel/ConfirmButton")
 animator = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -111,3 +114,4 @@ libraries = {
 }
 
 [connection signal="ScreenEnter" from="." to="Controller" method="onScreenEnter"]
+[connection signal="button_up" from="Panel/ConfirmButton" to="Controller" method="onClose"]
