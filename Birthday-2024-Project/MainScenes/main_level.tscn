@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=15 format=3 uid="uid://bkys348mactw2"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_4oukr"]
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_rkf2x"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_1cxrf"]
 [ext_resource type="Texture2D" uid="uid://d3nvakmtiupxf" path="res://Art/GridTileSetHDAK.png" id="4_3a30x"]
-[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="4_dufh1"]
+[ext_resource type="Texture2D" uid="uid://ru0coew3d4w3" path="res://Art/UI/WhiteLabel.png" id="4_x055w"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GameEmptyState.gd" id="5_wmt6j"]
+[ext_resource type="Theme" uid="uid://brhrooxlo0rxq" path="res://Art/UI/Themes/HandwrittenLabel.tres" id="5_ycc46"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GamePlayState.gd" id="6_jk8at"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GameWinState.gd" id="7_bviq6"]
 [ext_resource type="PackedScene" uid="uid://cosap7ka4jc6c" path="res://ScenePrefabs/PuzzleUiManager.tscn" id="8_40gag"]
@@ -80,46 +81,75 @@ Drag pieces off the grid into the red to delete"
 vertical_alignment = 2
 autowrap_mode = 3
 
-[node name="LevelName" type="Label" parent="Control"]
+[node name="TextureRect" type="NinePatchRect" parent="Control"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 300.0
-offset_top = -120.0
-offset_right = 890.0
-offset_bottom = -57.0
-grow_vertical = 0
-theme = ExtResource("4_dufh1")
-theme_override_font_sizes/font_size = 40
-text = "One line name that"
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 3
+anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -890.0
-offset_top = -120.0
-offset_right = -210.0
-offset_bottom = -57.0
-grow_horizontal = 0
-grow_vertical = 0
-alignment = 2
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -279.0
+offset_right = 23.0
+offset_bottom = -169.0
+rotation = 0.174533
+texture = ExtResource("4_x055w")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
 
-[node name="Author" type="Label" parent="Control/HBoxContainer"]
-custom_minimum_size = Vector2(680, 0)
-layout_mode = 2
-theme = ExtResource("4_dufh1")
-theme_override_font_sizes/font_size = 40
-text = "By: One line"
-horizontal_alignment = 2
+[node name="LevelName" type="Label" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -55.0
+offset_right = 150.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_ycc46")
+text = "Last Dinosaurs: In A Million Years"
+horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
+autowrap_mode = 2
+
+[node name="TextureRect2" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = 166.0
+offset_right = -18.0
+offset_bottom = 276.0
+rotation = -0.436332
+texture = ExtResource("4_x055w")
+
+[node name="Author" type="Label" parent="Control/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -55.0
+offset_right = 150.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_ycc46")
+text = "Not The Real Northernlion"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="DeletionZone" type="ColorRect" parent="."]
 visible = false
@@ -160,8 +190,8 @@ held_piece_distance_speed = 15.0
 held_piece_settle_delay = 0.01
 held_piece_settle_animation_duration = 0.25
 place_piece_delay = 0.4
-levelNameText = NodePath("../Control/LevelName")
-authorText = NodePath("../Control/HBoxContainer/Author")
+levelNameText = NodePath("../Control/TextureRect/LevelName")
+authorText = NodePath("../Control/TextureRect2/Author")
 empty_state = NodePath("States/GameEmptyState")
 play_state = NodePath("States/GamePlayState")
 win_state = NodePath("States/GameWinState")

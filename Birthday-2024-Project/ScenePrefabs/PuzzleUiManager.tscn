@@ -67,6 +67,7 @@ win_state = NodePath("../States/PuzzleUiWinState")
 edit_state = NodePath("../States/PuzzleUiEditState")
 
 [node name="Fade" type="ColorRect" parent="MainScreen"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
