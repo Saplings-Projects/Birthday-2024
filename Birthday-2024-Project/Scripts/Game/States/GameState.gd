@@ -3,12 +3,21 @@ extends Node2D
 
 var manager: GameManager
 
-func next_puzzle():
-	manager.go_to_next_level()
+func next_puzzle(skipConfirm : bool = true):
+	if skipConfirm:
+		manager.myScreen.ScreenEnter.connect(SkipConfirmation)
+		manager.myScreen.ShowConfirmationPopup("Skip Level", "Do you want to skip to the next level?", "Yes", "No")
+	else:
+		manager.go_to_next_level()
+		
+func SkipConfirmation():
+	manager.myScreen.ScreenEnter.disconnect(SkipConfirmation)
+	if manager.myScreen.transitionData[ConfirmationPopupController.RESPONSE_KEY]:
+		manager.go_to_next_level()
 
 func reset_puzzle():
 	manager.myScreen.ScreenEnter.connect(ResetConfirmation)
-	manager.myScreen.ShowConfirmationPopup("Restart?", "Are you sure you want to restart from the beginning?", "Yes", "No")
+	manager.myScreen.ShowConfirmationPopup("Restart", "Clear pieces and restart from the beginning?", "Yes", "No")
 	
 func ResetConfirmation():
 	manager.myScreen.ScreenEnter.disconnect(ResetConfirmation)
@@ -18,8 +27,17 @@ func ResetConfirmation():
 func _reset_puzzle():
 	manager.grid.ReloadLevel()
 
-func back_to_menu():
-	manager.go_to_main_menu()
+func back_to_menu(askConfirm : bool = true):
+	if askConfirm:
+		manager.myScreen.ScreenEnter.connect(BackToMenuConfirmation)
+		manager.myScreen.ShowConfirmationPopup("Main Menu", "Go back to the Main Menu?", "Yes", "No")
+	else:
+		manager.go_to_main_menu()
+		
+func BackToMenuConfirmation():
+	manager.myScreen.ScreenEnter.disconnect(BackToMenuConfirmation)
+	if manager.myScreen.transitionData[ConfirmationPopupController.RESPONSE_KEY]:
+		manager.go_to_main_menu()
 
 func exit_game():
 	manager.myScreen.ExitApplication()
