@@ -156,11 +156,7 @@ func _process(delta):
 		
 		_levelData = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY]
 		grid.LoadLevel(_levelData)
-		levelNameText.text = _levelData.levelName
-		if _levelData.author.is_empty():
-			authorText.text = ""
-		else:
-			authorText.text = str("By: ", _levelData.author)
+		_setup_level_labels()
 		
 		if _levelData.tutorialData != null:
 			myScreen.ScreenEnter.connect(_show_tutorial)
@@ -180,6 +176,21 @@ func _process(delta):
 		_held_piece_towards_cursor(delta)
 		_rotate_held_piece()
 		_do_place_held_piece()
+
+func _setup_level_labels():
+	var labelSticker : Control = levelNameText.get_parent() as Control
+	if _levelData.levelName.is_empty():
+		labelSticker.visible = false
+	else:
+		labelSticker.visible = true
+		levelNameText.text = _levelData.levelName
+	
+	labelSticker = authorText.get_parent() as Control
+	if _levelData.author.is_empty():
+		labelSticker.visible = false
+	else:
+		labelSticker.visible = true
+		authorText.text = str("By: ", _levelData.author)
 
 func _show_tutorial():
 	myScreen.ScreenEnter.disconnect(_show_tutorial)
