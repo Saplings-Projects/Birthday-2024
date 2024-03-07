@@ -8,18 +8,6 @@ extends PuzzleUiState
 
 var _state: GameEditState
 
-func _on_exit_clicked():
-	_state.exit_game()
-
-func _on_reset_clicked():
-	_state.reset_puzzle()
-
-func _on_back_clicked():
-	_state.back_to_menu()
-
-func _on_play_mode_clicked():
-	_state.go_to_play_mode()
-
 func _on_show_library_clicked():
 	if pieceLibrary.visible:
 		pieceLibrary.hide()
@@ -64,15 +52,16 @@ func enter_state():
 	
 	var screen = _ui_manager.main_screen
 	screen.show_hide_win_text(false)
-	screen.context_button.text = "Library"
-	screen.context_button.button_up.connect(_on_show_library_clicked)
-	screen.exit_button.button_up.connect(_on_exit_clicked)
-	screen.reset_button.button_up.connect(_on_reset_clicked)
-	screen.back_button.button_up.connect(_on_back_clicked)
+	screen.exit_button.button_up.connect(_state.exit_game)
+	screen.reset_button.button_up.connect(_state.reset_puzzle)
+	screen.back_button.button_up.connect(_state.back_to_level_select)
+	screen.skip_button.button_up.connect(_state.next_puzzle)
 	screen.settings_button.button_up.connect(_on_settings_clicked)
 	screen.edit_button.show()
 	screen.edit_button.text = "Play"
-	screen.edit_button.button_up.connect(_on_play_mode_clicked)
+	screen.edit_button.button_up.connect(_state.go_to_play_mode)
+	screen.library_button.show()
+	screen.library_button.button_up.connect(_on_show_library_clicked)
 	screen.import_button.show()
 	screen.import_button.button_up.connect(_on_import_clicked)
 	screen.export_button.show()
@@ -80,19 +69,20 @@ func enter_state():
 
 
 func exit_state():
-	_state = null
 	pieceLibrary.hide()
 	var screen = _ui_manager.main_screen
+	screen.library_button.hide()
 	screen.import_button.hide()
 	screen.export_button.hide()
-	screen.context_button.button_up.disconnect(_on_show_library_clicked)
-	screen.exit_button.button_up.disconnect(_on_exit_clicked)
-	screen.reset_button.button_up.disconnect(_on_reset_clicked)
-	screen.back_button.button_up.disconnect(_on_back_clicked)
+	screen.exit_button.button_up.disconnect(_state.exit_game)
+	screen.reset_button.button_up.disconnect(_state.reset_puzzle)
+	screen.back_button.button_up.disconnect(_state.back_to_level_select)
 	screen.settings_button.button_up.disconnect(_on_settings_clicked)
-	screen.edit_button.button_up.disconnect(_on_play_mode_clicked)
+	screen.edit_button.button_up.disconnect(_state.go_to_play_mode)
+	screen.library_button.button_up.disconnect(_on_show_library_clicked)
 	screen.import_button.button_up.disconnect(_on_import_clicked)
 	screen.export_button.button_up.disconnect(_on_export_clicked)
+	_state = null
 
 
 func update_state():

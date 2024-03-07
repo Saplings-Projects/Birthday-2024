@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=38 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_0axgr"]
@@ -8,9 +8,12 @@
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="4_3804r"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="5_kgic0"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/LibraryPiece.gd" id="5_umaa4"]
+[ext_resource type="Theme" uid="uid://gvji6stl3xbw" path="res://Art/UI/Themes/Skip_Button_theme.tres" id="6_pw105"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_pwysr"]
 [ext_resource type="PackedScene" uid="uid://k7op5iqng1g3" path="res://ScenePrefabs/Pieces/casual_fauna.tscn" id="8_7xd20"]
+[ext_resource type="Theme" uid="uid://c0e0e8cd45ihb" path="res://Art/UI/Themes/Reset_Button_theme.tres" id="8_fa1xk"]
 [ext_resource type="PackedScene" uid="uid://do712r6j516kq" path="res://ScenePrefabs/Pieces/casual_fauna_wave.tscn" id="9_46j5t"]
+[ext_resource type="Texture2D" uid="uid://brxer7ld41we" path="res://Art/UI/Button_normal_128.png" id="9_aa587"]
 [ext_resource type="PackedScene" uid="uid://lsby14fmqnqx" path="res://ScenePrefabs/Pieces/cowkini_fauna.tscn" id="10_qy6ph"]
 [ext_resource type="PackedScene" uid="uid://cdlhh56v1qobi" path="res://ScenePrefabs/Pieces/ele_fauna.tscn" id="11_drf77"]
 [ext_resource type="PackedScene" uid="uid://ddhymvh5q6hoy" path="res://ScenePrefabs/Pieces/faunashi.tscn" id="12_da6up"]
@@ -31,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://kehoouuydau5" path="res://ScenePrefabs/Pieces/wide_fauna.tscn" id="26_gjtm0"]
 [ext_resource type="PackedScene" uid="uid://ctrg6ts07xcf5" path="res://ScenePrefabs/Pieces/wrench.tscn" id="27_2038e"]
 [ext_resource type="PackedScene" uid="uid://cvx660iqikvys" path="res://ScenePrefabs/Pieces/gold_apple.tscn" id="28_kcfq2"]
-[ext_resource type="PackedScene" path="res://ScenePrefabs/Pieces/happy_fauna.tscn" id="29_13ob1"]
+[ext_resource type="PackedScene" uid="uid://dxgaffv7w5t28" path="res://ScenePrefabs/Pieces/happy_fauna.tscn" id="29_13ob1"]
 [ext_resource type="PackedScene" path="res://ScenePrefabs/Pieces/maid_fauna.tscn" id="30_6d7gv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
@@ -64,6 +67,7 @@ win_state = NodePath("../States/PuzzleUiWinState")
 edit_state = NodePath("../States/PuzzleUiEditState")
 
 [node name="Fade" type="ColorRect" parent="MainScreen"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +96,7 @@ text = "WIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("context_button", "exit_button", "reset_button", "back_button", "settings_button", "win_text", "edit_button", "import_button", "export_button")]
+[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("exit_button", "reset_button", "back_button", "skip_button", "settings_button", "win_text", "edit_button", "library_button", "import_button", "export_button")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,13 +105,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8uao3")
 script = ExtResource("2_fxt11")
-context_button = NodePath("Level Buttons/Context Button")
 exit_button = NodePath("Exit Button")
-reset_button = NodePath("Level Buttons/Reset Button")
+reset_button = NodePath("Reset Button")
 back_button = NodePath("Back Button")
+skip_button = NodePath("Skip Button")
 settings_button = NodePath("Settings Button")
 win_text = NodePath("../Fade")
 edit_button = NodePath("Level Buttons/Edit Mode Button")
+library_button = NodePath("Level Buttons/Library Button")
 import_button = NodePath("Level Buttons/Import Button")
 export_button = NodePath("Level Buttons/Export Button")
 
@@ -133,6 +138,16 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("5_kgic0")
 
+[node name="Skip Button" type="Button" parent="MainScreen/Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 260.0
+offset_right = 388.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("6_pw105")
+
 [node name="Exit Button" type="Button" parent="MainScreen/Panel"]
 layout_mode = 1
 anchors_preset = 1
@@ -145,31 +160,53 @@ offset_bottom = 120.0
 grow_horizontal = 0
 theme = ExtResource("6_pwysr")
 
-[node name="Level Buttons" type="HBoxContainer" parent="MainScreen/Panel"]
+[node name="Reset Button" type="Button" parent="MainScreen/Panel"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -110.0
+offset_right = 50.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("8_fa1xk")
+
+[node name="Box" type="TextureRect" parent="MainScreen/Panel/Reset Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_aa587")
+
+[node name="Level Buttons" type="VBoxContainer" parent="MainScreen/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -142.0
 offset_top = -100.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
-alignment = 1
-
-[node name="Reset Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Reset"
-
-[node name="Context Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "<context>"
+alignment = 2
 
 [node name="Edit Mode Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
 custom_minimum_size = Vector2(100, 100)
@@ -177,6 +214,14 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Edit"
+
+[node name="Library Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Library"
 
 [node name="Import Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
 visible = false

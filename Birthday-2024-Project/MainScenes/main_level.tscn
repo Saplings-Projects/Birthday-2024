@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_4oukr"]
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
-[ext_resource type="Texture2D" uid="uid://bjqluj600yhja" path="res://Art/Map_ResolutionClearance.png" id="2_hsx3y"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_rkf2x"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_1cxrf"]
 [ext_resource type="Texture2D" uid="uid://d3nvakmtiupxf" path="res://Art/GridTileSetHDAK.png" id="4_3a30x"]
-[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="4_dufh1"]
+[ext_resource type="Texture2D" uid="uid://ru0coew3d4w3" path="res://Art/UI/WhiteLabel.png" id="4_x055w"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GameEmptyState.gd" id="5_wmt6j"]
+[ext_resource type="Theme" uid="uid://brhrooxlo0rxq" path="res://Art/UI/Themes/HandwrittenLabel.tres" id="5_ycc46"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GamePlayState.gd" id="6_jk8at"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GameWinState.gd" id="7_bviq6"]
 [ext_resource type="PackedScene" uid="uid://cosap7ka4jc6c" path="res://ScenePrefabs/PuzzleUiManager.tscn" id="8_40gag"]
@@ -42,18 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(960, 540)
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_hsx3y")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="TextureRect2" type="NinePatchRect" parent="Control"]
+[node name="Background" type="NinePatchRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,6 +56,7 @@ patch_margin_right = 250
 patch_margin_bottom = 250
 
 [node name="Label" type="Label" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -91,6 +81,76 @@ Drag pieces off the grid into the red to delete"
 vertical_alignment = 2
 autowrap_mode = 3
 
+[node name="TextureRect" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -279.0
+offset_right = 23.0
+offset_bottom = -169.0
+rotation = 0.174533
+texture = ExtResource("4_x055w")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="LevelName" type="Label" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -55.0
+offset_right = 150.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_ycc46")
+text = "Last Dinosaurs: In A Million Years"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect2" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = 166.0
+offset_right = -18.0
+offset_bottom = 276.0
+rotation = -0.436332
+texture = ExtResource("4_x055w")
+
+[node name="Author" type="Label" parent="Control/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -55.0
+offset_right = 150.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_ycc46")
+text = "Not The Real Northernlion"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="DeletionZone" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
@@ -102,28 +162,23 @@ grow_vertical = 2
 color = Color(1, 0, 0, 0.196078)
 
 [node name="GridCenter" type="Control" parent="."]
+self_modulate = Color(1, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GridMap" type="TileMap" parent="GridCenter" node_paths=PackedStringArray("gameManager")]
-position = Vector2(20, 20)
 tile_set = SubResource("TileSet_ntt55")
 rendering_quadrant_size = 120
 format = 2
 layer_0/tile_data = PackedInt32Array(-131075, 0, 0, -65539, 0, 0, -65538, 0, 0, -196612, 0, 0, -131076, 0, 0, -65540, 0, 0, -4, 0, 0, 65532, 0, 0, 131068, 0, 0, 196604, 0, 0, 262140, 0, 0, -196611, 0, 0, -3, 0, 0, 65533, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 0, 0, -196610, 0, 0, -131074, 0, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, -196609, 0, 0, -131073, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, -262144, 0, 0, -196608, 0, 0, -131072, 0, 0, -65536, 0, 0, 0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, -262143, 0, 0, -196607, 0, 0, -131071, 0, 0, -65535, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, -262142, 0, 0, -196606, 0, 0, -131070, 0, 0, -65534, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, -262141, 0, 0, -196605, 0, 0, -131069, 0, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0)
 script = ExtResource("1_ywtrj")
 gameManager = NodePath("../../GameManager")
-gridCenterOffset = Vector2(960, 540)
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid", "deletionZone", "myScreen", "levelNameText", "authorText", "empty_state", "play_state", "win_state", "edit_state")]
 script = ExtResource("4_1cxrf")
@@ -135,8 +190,8 @@ held_piece_distance_speed = 15.0
 held_piece_settle_delay = 0.01
 held_piece_settle_animation_duration = 0.25
 place_piece_delay = 0.4
-levelNameText = NodePath("../LevelName")
-authorText = NodePath("../Author")
+levelNameText = NodePath("../Control/TextureRect/LevelName")
+authorText = NodePath("../Control/TextureRect2/Author")
 empty_state = NodePath("States/GameEmptyState")
 play_state = NodePath("States/GamePlayState")
 win_state = NodePath("States/GameWinState")
@@ -162,37 +217,6 @@ controller = NodePath("../GameManager")
 
 [node name="MainScreen" parent="PuzzleUiManager" index="0" node_paths=PackedStringArray("controller")]
 controller = NodePath("../../GameManager")
-
-[node name="LevelName" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -500.0
-offset_top = 45.0
-offset_right = 500.0
-offset_bottom = 145.0
-grow_horizontal = 2
-theme = ExtResource("4_dufh1")
-theme_override_font_sizes/font_size = 72
-text = "One line name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Author" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 250.0
-offset_top = -145.0
-offset_right = 1250.0
-offset_bottom = -44.9998
-grow_vertical = 0
-theme = ExtResource("4_dufh1")
-theme_override_font_sizes/font_size = 50
-text = "By: One line name"
-vertical_alignment = 1
 
 [connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
 [connection signal="state_changed_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_state_changed"]

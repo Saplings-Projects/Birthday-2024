@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://brhrooxlo0rxq"]
+
+[ext_resource type="FontFile" uid="uid://cky7j42mlhuil" path="res://Fonts/PermanentMarker-Regular.ttf" id="1_ngenb"]
+
+[resource]
+Label/colors/font_color = Color(0.392157, 0.392157, 0.392157, 1)
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_ngenb")

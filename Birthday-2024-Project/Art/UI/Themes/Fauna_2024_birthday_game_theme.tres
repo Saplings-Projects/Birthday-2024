@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=40 format=3 uid="uid://cp1430xlncsx2"]
+[gd_resource type="Theme" load_steps=41 format=3 uid="uid://cp1430xlncsx2"]
 
 [ext_resource type="FontFile" uid="uid://b4qxnl5c1be6s" path="res://Fonts/Baskerville Bold.otf" id="1_4p44h"]
 [ext_resource type="Texture2D" uid="uid://b2pihf1eh3ak" path="res://Art/UI/Button_Hover_128.png" id="2_suw1a"]
@@ -125,6 +125,17 @@ texture_margin_top = 125.0
 texture_margin_right = 100.0
 texture_margin_bottom = 125.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qpjb0"]
+content_margin_left = 25.0
+content_margin_top = 10.0
+content_margin_right = 25.0
+content_margin_bottom = 10.0
+texture = ExtResource("13_372fq")
+texture_margin_left = 60.0
+texture_margin_top = 60.0
+texture_margin_right = 60.0
+texture_margin_bottom = 60.0
+
 [sub_resource type="ImageTexture" id="ImageTexture_tus2t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dco6o"]
@@ -224,6 +235,7 @@ OptionButton/styles/hover = SubResource("StyleBoxTexture_p0pgm")
 OptionButton/styles/normal = SubResource("StyleBoxTexture_wrjwq")
 OptionButton/styles/pressed = SubResource("StyleBoxTexture_kec8l")
 Panel/styles/panel = SubResource("StyleBoxTexture_peyps")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_qpjb0")
 PopupMenu/colors/font_color = Color(0.894118, 0.823529, 0.627451, 1)
 PopupMenu/colors/font_hover_color = Color(1, 1, 1, 1)
 PopupMenu/font_sizes/font_size = 24
