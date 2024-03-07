@@ -39,7 +39,7 @@ var _levelData : LevelSetup
 signal initialized_event()
 signal state_changed_event(state)
 
-func go_to_main_menu():
+func go_to_level_select():
 	var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
 	var buttonsPerPage : int = myScreen.transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY]
 	var pageNum : int = 1 + floori(thisLevelIndex / buttonsPerPage)
@@ -59,7 +59,7 @@ func go_to_next_level():
 	if myScreen.transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY]:
 		#last level
 		if thisLevelIndex + 1 >= _gm.campaign_level_library.Levels.size():
-			go_to_main_menu()
+			go_to_level_select()
 		#next level is unlocked
 		elif _gm.progression_tracker.GetLastCampaignLevelCompleted() + 1 > thisLevelIndex:
 			transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY] = true
@@ -67,11 +67,11 @@ func go_to_next_level():
 			myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), transitionData, ScreenManager.TransitionStyle.TURN_PAGE)
 		else:
 			#you haven't unlocked the next level, so go back to level select
-			go_to_main_menu()
+			go_to_level_select()
 	else:
 		#last level
 		if thisLevelIndex + 1 >= _gm.submitted_level_library.Levels.size():
-			go_to_main_menu()
+			go_to_level_select()
 		else:
 			transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY] = false
 			transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] = _gm.submitted_level_library.Levels[thisLevelIndex + 1]

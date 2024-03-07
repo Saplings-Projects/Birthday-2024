@@ -1,6 +1,12 @@
 class_name GameWinState
 extends GameState
 
+func next_puzzle(skipConfirm : bool = true):
+	manager.go_to_next_level()
+
+func back_to_level_select(askConfirm : bool = true):
+	manager.go_to_level_select()
+
 func _reset_puzzle():
 	manager.grid.ReloadLevel()
 	manager.switch_to_play_state()

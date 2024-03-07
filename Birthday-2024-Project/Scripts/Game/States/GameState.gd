@@ -27,17 +27,17 @@ func ResetConfirmation():
 func _reset_puzzle():
 	manager.grid.ReloadLevel()
 
-func back_to_menu(askConfirm : bool = true):
+func back_to_level_select(askConfirm : bool = true):
 	if askConfirm:
 		manager.myScreen.ScreenEnter.connect(BackToMenuConfirmation)
-		manager.myScreen.ShowConfirmationPopup("Main Menu", "Go back to the Main Menu?", "Yes", "No")
+		manager.myScreen.ShowConfirmationPopup("Level Select", "Go back to Level Select?", "Yes", "No")
 	else:
-		manager.go_to_main_menu()
+		manager.go_to_level_select()
 		
 func BackToMenuConfirmation():
 	manager.myScreen.ScreenEnter.disconnect(BackToMenuConfirmation)
 	if manager.myScreen.transitionData[ConfirmationPopupController.RESPONSE_KEY]:
-		manager.go_to_main_menu()
+		manager.go_to_level_select()
 
 func exit_game():
 	manager.myScreen.ExitApplication()

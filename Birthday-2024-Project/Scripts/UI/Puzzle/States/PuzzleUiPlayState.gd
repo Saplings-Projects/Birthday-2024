@@ -26,7 +26,7 @@ func enter_state():
 	screen.skip_button.button_up.connect(_state.next_puzzle)
 	screen.exit_button.button_up.connect(_state.exit_game)
 	screen.reset_button.button_up.connect(_state.reset_puzzle)
-	screen.back_button.button_up.connect(_state.back_to_menu)
+	screen.back_button.button_up.connect(_state.back_to_level_select)
 	screen.settings_button.button_up.connect(_on_settings_clicked)
 	screen.edit_button.show()
 	screen.edit_button.text = "Edit"
@@ -39,7 +39,7 @@ func exit_state():
 	screen.skip_button.button_up.disconnect(_state.next_puzzle)
 	screen.exit_button.button_up.disconnect(_state.exit_game)
 	screen.reset_button.button_up.disconnect(_state.reset_puzzle)
-	screen.back_button.button_up.disconnect(_state.back_to_menu)
+	screen.back_button.button_up.disconnect(_state.back_to_level_select)
 	screen.settings_button.button_up.disconnect(_on_settings_clicked)
 	screen.edit_button.button_up.disconnect(_on_edit_mode_clicked)
 	_state = null
