@@ -20,8 +20,7 @@ func GoToLevel():
 func SetupButtonMode(buttonMode : LevelButtonMode, levelIndex : int):
 	_levelIndex = levelIndex
 	
-	#tooltip_text = str(levelData.levelName, " by ", levelData.author)
-	tooltip_text = levelData.author
+	tooltip_text = str(levelData.levelName, "\nBy ", levelData.author)
 	
 	match buttonMode:
 		LevelButtonMode.LOCKED:
