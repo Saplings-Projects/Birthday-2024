@@ -100,6 +100,8 @@ func LoadLevel(levelSetupData : LevelSetup):
 					2:
 						startingPos.x = xMinGrid - 2
 						startingPos.y = rng.randi_range(-SAFE_HEIGHT + 1, -1)
+						if !_levelData.levelName.is_empty() || !_levelData.author.is_empty():
+							quadrant = -1
 					3:
 						startingPos.x = xMaxGrid + 2
 						startingPos.y = rng.randi_range(-SAFE_HEIGHT + 1, -1)
