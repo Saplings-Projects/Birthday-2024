@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://lma3uuskmlpo" path="res://ScenePrefabs/LevelSelectMenu.tscn" id="2_knknw"]
 [ext_resource type="Resource" uid="uid://bb5mq111w4rv2" path="res://Resources/SubmittedLevels/Plagesama.tres" id="3_67mgc"]
 [ext_resource type="Resource" uid="uid://d28aaakfobygm" path="res://Resources/SubmittedLevelLibrary.tres" id="3_inwu4"]
-[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/SubmittedLevels/wanderer.tres" id="4_wpqw4"]
+[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/SubmittedLevels/Wanderer.tres" id="4_wpqw4"]
 [ext_resource type="Resource" uid="uid://dhudvic5t4ch" path="res://Resources/SubmittedLevels/Reis.tres" id="4_xn6je"]
 [ext_resource type="Resource" uid="uid://mrwd3nmyd2of" path="res://Resources/SubmittedLevels/ROBBERGON.tres" id="5_kq32c"]
 [ext_resource type="Resource" uid="uid://cgam3hyrewdlr" path="res://Resources/SubmittedLevels/Roxas_1050.tres" id="6_l5pym"]
