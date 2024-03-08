@@ -24,7 +24,7 @@
 [ext_resource type="Resource" uid="uid://dh866o0aim8pk" path="res://Resources/SubmittedLevels/MrRyzGuy.tres" id="18_fe6ed"]
 [ext_resource type="Resource" uid="uid://3sdoy0njw7ti" path="res://Resources/SubmittedLevels/NoEscapeOnlyCuddles.tres" id="21_wxuu2"]
 
-[node name="SaplingLevelSelection" type="Control"]
+[node name="SaplingLevelSelection3" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +39,7 @@ screenLogic = NodePath("..")
 levelLibrary = ExtResource("3_w2pga")
 isCampaign = false
 pageNumber = 2
-lastPageNumber = 4
+lastPageNumber = 5
 
 [node name="Title" parent="LevelSelectMenu/Panel" index="0"]
 text = "COMMUNITY"

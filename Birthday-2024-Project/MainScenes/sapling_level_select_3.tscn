@@ -39,7 +39,7 @@ screenLogic = NodePath("..")
 levelLibrary = ExtResource("3_inwu4")
 isCampaign = false
 pageNumber = 3
-lastPageNumber = 4
+lastPageNumber = 5
 
 [node name="Title" parent="LevelSelectMenu/Panel" index="0"]
 text = "COMMUNITY"
