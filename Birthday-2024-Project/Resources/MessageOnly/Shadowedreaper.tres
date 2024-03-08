@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://dufkf5gp61vho"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_1df0p"]
+
+[resource]
+script = ExtResource("1_1df0p")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "Shadowedreaper"
+message = "Happy birthday, Fauna! It’s been three amazing years full of amazing fun times and hopefully, we’ll get many more. Thank you for all the shared memories laughter, and joy that you bring into all of our lives every single day. Please make sure to treat yourself to something nice. I remember when I first found your streams over 2 years ago you immediately became my kamioshi"
+levelName = ""

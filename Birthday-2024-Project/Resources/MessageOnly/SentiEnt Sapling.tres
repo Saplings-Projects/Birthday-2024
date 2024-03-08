@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://61ur07yrjccu"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_0dxyb"]
+
+[resource]
+script = ExtResource("1_0dxyb")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "SentiEnt Sapling"
+message = "Happy Birthday Fauna! May this year be filled with more comfy zatsudans, extreme kirin gaming moments, and all the wonderful (and sometimes delightfully cursed) tangents that come along with your streams. We've all seen the awesome work you continue to put in and are inspired by how you always strive to do better and better. Cheers to another year of streaming and your continued success!"
+levelName = ""

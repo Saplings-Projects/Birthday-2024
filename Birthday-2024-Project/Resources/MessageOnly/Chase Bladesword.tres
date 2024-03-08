@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://dmy1fltn6i24j"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_5oonm"]
+
+[resource]
+script = ExtResource("1_5oonm")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "Chase Bladesword (Fauladin)"
+message = "Happy Birthday to you Fauna, the wonderful and silly gaming Kirin :FaunaCheerYT: ! I remember when I first saw your debut, I was absolutely entranced by your soothing voice and beautiful elegance, and as I kept watching your streams and saw how smart and hilarious you were, I realized I finally had found my oshi in you! And now it's been around 3 years! Tell Kronii to slow down! :FaunaLOLYT: I truly hope you have lots of fun on this birthday and treat yourself to something nice because you deserve it and so much more! :FaunaLoveRedYT:"
+levelName = ""
