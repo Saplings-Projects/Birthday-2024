@@ -24,7 +24,7 @@
 [ext_resource type="Resource" uid="uid://c7n80pitssu1t" path="res://Resources/SubmittedLevels/EndyStarBoy.tres" id="21_atpgh"]
 [ext_resource type="Resource" uid="uid://0p0xj8an8m6e" path="res://Resources/SubmittedLevels/Colin.tres" id="22_agmuu"]
 
-[node name="SaplingLevelSelection2" type="Control"]
+[node name="SaplingLevelSelection" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

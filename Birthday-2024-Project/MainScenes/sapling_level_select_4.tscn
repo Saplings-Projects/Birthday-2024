@@ -24,7 +24,7 @@
 [ext_resource type="Resource" uid="uid://cjuv771fmaded" path="res://Resources/SubmittedLevels/Weeboss.tres" id="21_02pk6"]
 [ext_resource type="Resource" uid="uid://dsdm3efm4p8fb" path="res://Resources/SubmittedLevels/Weirder.tres" id="22_0cjpw"]
 
-[node name="SaplingLevelSelection3" type="Control"]
+[node name="SaplingLevelSelection" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
