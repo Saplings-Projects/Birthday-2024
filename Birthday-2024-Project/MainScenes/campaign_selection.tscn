@@ -12,9 +12,9 @@
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="7_oegh3"]
 [ext_resource type="Texture2D" uid="uid://desw56y28pjg0" path="res://Art/OfficialPieceArt/Campaign_pressed.png" id="8_rhoq1"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="8_v563t"]
-[ext_resource type="Texture2D" uid="uid://sl1ws80g8vg8" path="res://Art/OfficialPieceArt/Level_type_normal.png" id="9_qbigt"]
-[ext_resource type="Texture2D" uid="uid://b67l646wekv14" path="res://Art/OfficialPieceArt/Level_type_Hover.png" id="10_1bhoh"]
-[ext_resource type="Texture2D" uid="uid://dhewfyr5qkrr" path="res://Art/OfficialPieceArt/Level_type_Pressed.png" id="11_rxsjp"]
+[ext_resource type="Texture2D" uid="uid://1jx7yieeyub7" path="res://Art/OfficialPieceArt/Level_type_Normal.png" id="9_wu1xu"]
+[ext_resource type="Texture2D" uid="uid://b7blcauij5qkf" path="res://Art/OfficialPieceArt/Level_type_Hover.png" id="10_ut252"]
+[ext_resource type="Texture2D" uid="uid://bssuo7x5c4dd" path="res://Art/OfficialPieceArt/Level_type_Pressed.png" id="11_7q3fa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0nye"]
 texture = ExtResource("6_i8jrm")
@@ -26,13 +26,13 @@ texture = ExtResource("7_eo82e")
 texture = ExtResource("8_rhoq1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbvc3"]
-texture = ExtResource("9_qbigt")
+texture = ExtResource("9_wu1xu")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awk44"]
-texture = ExtResource("10_1bhoh")
+texture = ExtResource("10_ut252")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p12qm"]
-texture = ExtResource("11_rxsjp")
+texture = ExtResource("11_7q3fa")
 
 [node name="CampaignSelection" type="Control"]
 layout_mode = 3
