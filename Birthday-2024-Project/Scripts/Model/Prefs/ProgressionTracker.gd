@@ -3,7 +3,7 @@ class_name ProgressionTracker
 
 const _SECTION_NAME: String = "PROGRESS"
 const CAMPAIGN_KEY : String = "CAMPAIGN"
-const COMMUNITY_KEY : String = "COMMUNITY"
+const SAPLINGS_KEY : String = "SAPLINGS"
 
 var _gm: GameMaster
 var _campaignProgress : int
@@ -30,7 +30,7 @@ func _apply_config(config: ConfigFile):
 		return
 	
 	_campaignProgress = config.get_value(_SECTION_NAME, CAMPAIGN_KEY, -1)
-	var jsonDictionary : String = config.get_value(_SECTION_NAME, COMMUNITY_KEY, "")
+	var jsonDictionary : String = config.get_value(_SECTION_NAME, SAPLINGS_KEY, "")
 	if jsonDictionary == "":
 		_levelCompletionDictionary = {}
 		return
@@ -55,4 +55,4 @@ func _init(config: ConfigFile = null):
 
 func _save_config(config: ConfigFile):
 	config.set_value(_SECTION_NAME, CAMPAIGN_KEY, _campaignProgress)
-	config.set_value(_SECTION_NAME, COMMUNITY_KEY, JSON.stringify(_levelCompletionDictionary))
+	config.set_value(_SECTION_NAME, SAPLINGS_KEY, JSON.stringify(_levelCompletionDictionary))

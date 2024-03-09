@@ -91,7 +91,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Title" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
-visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -100,7 +99,7 @@ offset_bottom = 210.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
-text = "FAUNA'S 2024 BIRTHDAY"
+text = "CAMPAIGN SELECTION"
 horizontal_alignment = 1
 
 [node name="Campaign Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
