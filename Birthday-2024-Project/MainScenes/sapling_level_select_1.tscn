@@ -38,7 +38,7 @@ layout_mode = 1
 screenLogic = NodePath("..")
 levelLibrary = ExtResource("3_uuipb")
 isCampaign = false
-lastPageNumber = 4
+lastPageNumber = 5
 
 [node name="Title" parent="LevelSelectMenu/Panel" index="0"]
 text = "COMMUNITY"

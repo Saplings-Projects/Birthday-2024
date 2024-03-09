@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bhp3wrmvpsr6a"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_cmlui"]
+
+[resource]
+script = ExtResource("1_cmlui")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "Sylven"
+message = "Happy Birthday Fauna. Its your special day. I'm glad that through all the hard times that have been happening, this community has been staying strong together. I wish you the best throughout this year and beyond. I and many others take pleasure in seeing you grow. We look forward to watching you reach out for your dreams. Keep on dreaming. Keep on pushing. Be yourself and have fun. The saplings are right behind you."
+levelName = ""

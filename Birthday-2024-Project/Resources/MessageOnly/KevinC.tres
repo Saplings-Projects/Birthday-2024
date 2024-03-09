@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://c47bxl5i3h4se"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_rfb2k"]
+
+[resource]
+script = ExtResource("1_rfb2k")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "KevinC"
+message = "Happy Birthday Fauna! It's been another Fauning awesome year with you and the Saplings. From karaoke streams with the best song choices to your 4th fes and Connect the World performances and every Minecraft M'(Insert Weekday Here) stream in between, I can honestly say that being a Sapling and watching your content has been some of the best parts of my year. So for all the comfiness and happiness you have brought us, I hope you have the amazing Birthday you deserve :FaunaCheerYT: :FaunaLoveRedYT:"
+levelName = ""
