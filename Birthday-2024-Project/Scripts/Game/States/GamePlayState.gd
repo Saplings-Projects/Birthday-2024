@@ -1,21 +1,8 @@
 class_name GamePlayState
 extends GameState
 
-
-func reset_puzzle():
-	manager.grid.ReloadLevel()
-
-func back_to_menu():
-	manager.go_to_main_menu()
-	#TODO remember where to go back (campaign or saplings' levels and go there)
-
-func skip_puzzle():
-	print("skip_puzzle is not fully implemented", self)
-	reset_puzzle() # TODO: DELETE THIS WHEN NO LONGER NEEDED.
-
 func go_to_edit_mode():
 	manager.switch_to_edit_state()
-
 
 func _on_grid_updated():
 	if manager.grid.freeSpaces == 0:

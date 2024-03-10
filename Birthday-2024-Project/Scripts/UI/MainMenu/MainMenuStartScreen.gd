@@ -7,4 +7,5 @@ extends Control
 @export var exit_button: Button
 @export var gallery_button: Button
 @export var play_button: Button
+@export var messages_button: Button
 @export var settings_button: Button

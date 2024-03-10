@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dom7l5hw3eii5"]
+[gd_scene load_steps=6 format=3 uid="uid://dom7l5hw3eii5"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_hpcja"]
 [ext_resource type="Texture2D" uid="uid://bh6ef2hoft8cb" path="res://Art/UI/Textbox_QuarterSize.png" id="2_poh35"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ConfirmationPopupController.gd" id="3_m15bs"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="3_rg6pl"]
+[ext_resource type="AnimationLibrary" uid="uid://bskceqjctxne2" path="res://Animations/PopupAnimations.res" id="5_e8du3"]
 
 [node name="ConfirmationPopup" type="Control"]
 layout_mode = 3
@@ -37,6 +38,8 @@ offset_right = 300.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(300, 250)
 texture = ExtResource("2_poh35")
 patch_margin_left = 100
 patch_margin_top = 125
@@ -110,17 +113,23 @@ theme = ExtResource("3_rg6pl")
 theme_override_font_sizes/font_size = 32
 text = "Cancel"
 
-[node name="Controller" type="Control" parent="." node_paths=PackedStringArray("myScreen", "titleText", "bodyText", "confirmButtonText", "cancelButtonText")]
+[node name="Controller" type="Control" parent="." node_paths=PackedStringArray("cancelButtonText", "myScreen", "titleText", "bodyText", "confirmButtonText", "animator")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_m15bs")
+cancelButtonText = NodePath("../Panel/CancelButton")
 myScreen = NodePath("..")
 titleText = NodePath("../Panel/Title")
 bodyText = NodePath("../Panel/Body")
 confirmButtonText = NodePath("../Panel/ConfirmButton")
-cancelButtonText = NodePath("../Panel/CancelButton")
+animator = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"PopupAnimations": ExtResource("5_e8du3")
+}
 
 [connection signal="ScreenEnter" from="." to="Controller" method="onScreenEnter"]
 [connection signal="button_up" from="Panel/ConfirmButton" to="Controller" method="onConfirm"]

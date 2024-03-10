@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://2vm5kcx88djm"]
+
+[ext_resource type="AudioStream" uid="uid://cdi4asddpi7xo" path="res://Resources/Audio/SFX/PageTurnNext.wav" id="1_38q4d"]
+
+[resource]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("1_38q4d")
+stream_0/weight = 1.0

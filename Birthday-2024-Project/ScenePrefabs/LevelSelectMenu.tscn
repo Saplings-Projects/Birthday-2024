@@ -1,0 +1,252 @@
+[gd_scene load_steps=16 format=3 uid="uid://lma3uuskmlpo"]
+
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_f0s32"]
+[ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/LevelsSelectMenu.gd" id="2_qje3g"]
+[ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_n1ct6"]
+[ext_resource type="PackedScene" uid="uid://shy8qxvm8ys6" path="res://ScenePrefabs/level_button.tscn" id="4_5jxwy"]
+[ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="11_1sl5b"]
+[ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="12_fsl8b"]
+[ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="13_hp0wu"]
+[ext_resource type="Texture2D" uid="uid://db3rvquwfp1ls" path="res://Art/UI/Arrow_button_normal.png" id="14_pg7lu"]
+[ext_resource type="Texture2D" uid="uid://cyeqlujr0xudm" path="res://Art/UI/Arrow_button_pressed.png" id="15_qlyp1"]
+[ext_resource type="Texture2D" uid="uid://pfq2xiycjshy" path="res://Art/UI/Arrow_button_Hover.png" id="16_w3ija"]
+[ext_resource type="Texture2D" uid="uid://daeokhww64r8d" path="res://Art/UI/UiReferencesAndMockups/CampaignLevelScreen.png" id="17_30ude"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jq74l"]
+texture = ExtResource("14_pg7lu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7muh8"]
+texture = ExtResource("16_w3ija")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vq17u"]
+texture = ExtResource("15_qlyp1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ey6ba"]
+texture = ExtResource("14_pg7lu")
+modulate_color = Color(0.784314, 0.784314, 0.784314, 0.784314)
+
+[node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("selectableButtons", "pageText", "prevArrow", "nextArrow")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_f0s32")
+script = ExtResource("2_qje3g")
+selectableButtons = [NodePath("Panel/Level Select Buttons/Level Button"), NodePath("Panel/Level Select Buttons/Level Button2"), NodePath("Panel/Level Select Buttons/Level Button3"), NodePath("Panel/Level Select Buttons/Level Button4"), NodePath("Panel/Level Select Buttons/Level Button5"), NodePath("Panel/Level Select Buttons/Level Button6"), NodePath("Panel/Level Select Buttons/Level Button7"), NodePath("Panel/Level Select Buttons/Level Button8"), NodePath("Panel/Level Select Buttons/Level Button9"), NodePath("Panel/Level Select Buttons/Level Button10"), NodePath("Panel/Level Select Buttons/Level Button11"), NodePath("Panel/Level Select Buttons/Level Button12"), NodePath("Panel/Level Select Buttons/Level Button13"), NodePath("Panel/Level Select Buttons/Level Button14"), NodePath("Panel/Level Select Buttons/Level Button15"), NodePath("Panel/Level Select Buttons/Level Button16"), NodePath("Panel/Level Select Buttons/Level Button17"), NodePath("Panel/Level Select Buttons/Level Button18"), NodePath("Panel/Level Select Buttons/Level Button19"), NodePath("Panel/Level Select Buttons/Level Button20")]
+isCampaign = true
+pageText = NodePath("Panel/Page")
+pageNumber = 1
+lastPageNumber = 1
+prevArrow = NodePath("Panel/PrevPageButton")
+nextArrow = NodePath("Panel/NextPageButton")
+
+[node name="TextureRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_n1ct6")
+patch_margin_left = 300
+patch_margin_top = 250
+patch_margin_right = 250
+patch_margin_bottom = 250
+
+[node name="Panel" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 85.0
+offset_bottom = 210.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "CAMPAIGN"
+horizontal_alignment = 1
+
+[node name="Page" type="Label" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+offset_bottom = -99.9998
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+
+[node name="Level Select Buttons" type="GridContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.5
+offset_top = -298.0
+offset_right = 356.5
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="Level Button" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button2" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button3" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button4" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button5" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button6" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button7" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button8" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button9" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button10" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button11" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button12" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button13" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button14" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button15" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button16" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button17" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button18" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button19" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Level Button20" parent="Panel/Level Select Buttons" instance=ExtResource("4_5jxwy")]
+layout_mode = 2
+
+[node name="Settings Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = -200.0
+offset_right = -96.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("11_1sl5b")
+
+[node name="Exit Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = -200.0
+offset_right = -26.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("12_fsl8b")
+
+[node name="Back Button" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 130.0
+offset_right = 258.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("13_hp0wu")
+
+[node name="PrevPageButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -685.0
+offset_top = -128.0
+offset_right = -429.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_jq74l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7muh8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vq17u")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ey6ba")
+
+[node name="NextPageButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 429.0
+offset_top = -128.0
+offset_right = 685.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(128, 128)
+theme_override_styles/normal = SubResource("StyleBoxTexture_jq74l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7muh8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vq17u")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ey6ba")
+
+[node name="CampaignLevelScreen" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.505882)
+position = Vector2(958.981, 527)
+scale = Vector2(1.19099, 1.19099)
+texture = ExtResource("17_30ude")
+
+[connection signal="button_up" from="Panel/Settings Button" to="." method="on_settings_clicked"]
+[connection signal="button_up" from="Panel/Exit Button" to="." method="on_exit_clicked"]
+[connection signal="button_up" from="Panel/Back Button" to="." method="on_back_clicked"]
+[connection signal="button_up" from="Panel/PrevPageButton" to="." method="on_prev_clicked"]
+[connection signal="button_up" from="Panel/NextPageButton" to="." method="on_next_clicked"]

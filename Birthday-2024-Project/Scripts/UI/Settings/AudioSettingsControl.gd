@@ -31,7 +31,6 @@ func _on_master_slider_value_changed(value: float):
 	
 func _on_music_slider_value_changed(value: float):
 	_gm.audio_controller.set_music_volume(value)
-	_play_sample(tone_sample, music_sample_player) # TODO: Remove when BGM is added.
 	
 func _on_sfx_slider_value_changed(value: float):
 	_gm.audio_controller.set_sfx_volume(value)
@@ -49,7 +48,7 @@ func _play_sample(stream: AudioStream, player: AudioStreamPlayer2D):
 	player.play()
 #region Node
 func _ready():
-	_gm = get_node("/root/GlobalGameMaster")
+	_gm = get_node(GameMaster.GLOBAL_GAME_MASTER_NODE)
 	
 	revert_changes()
 	

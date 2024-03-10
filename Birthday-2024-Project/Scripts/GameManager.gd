@@ -11,15 +11,14 @@ extends Node2D
 @export var held_piece_settle_animation_duration: float # The amount of time the held piece takes to move to it's settled position
 @export var place_piece_delay: float # The amount of time user input is blocked while the piece is being placed
 
+@export var levelNameText : Label
+@export var authorText : Label
+
 @export_group("States")
 @export var empty_state: GameEmptyState
 @export var play_state: GamePlayState
 @export var win_state: GameWinState
 @export var edit_state: GameEditState
-
-@export_group("")
-#TODO: have this passed by the level selector in the future
-@export var debug_setupData : LevelSetup
 
 var held_piece: PieceLogic
 var held_piece_cell: int
@@ -34,13 +33,51 @@ var _can_interact: bool
 var _current_state: GameState
 var _is_inititialized: bool
 var _previous_state: GameState
+var _gm : GameMaster
+var _levelData : LevelSetup
 
 signal initialized_event()
 signal state_changed_event(state)
 
-func go_to_main_menu():
-	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, true)
-	pass
+func go_to_level_select():
+	var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
+	var buttonsPerPage : int = myScreen.transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY]
+	var pageNum : int = 1 + floori(thisLevelIndex / buttonsPerPage)
+	
+	if myScreen.transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY]:
+		myScreen.GoToScreen(load(str(LevelsSelectMenu.CAMPAIGN_LEVELS, pageNum, ".tscn")), {}, ScreenManager.TransitionStyle.BACK_PAGE)
+	else:
+		myScreen.GoToScreen(load(str(LevelsSelectMenu.SAPLING_LEVELS, pageNum, ".tscn")), {}, ScreenManager.TransitionStyle.BACK_PAGE)
+
+func go_to_next_level():
+	var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
+	var transitionData : Dictionary = {}
+	transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY] = thisLevelIndex + 1
+	var buttonsPerPage : int = myScreen.transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY]
+	transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY] = buttonsPerPage
+	
+	if myScreen.transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY]:
+		#last level
+		if thisLevelIndex + 1 >= _gm.campaign_level_library.Levels.size():
+			go_to_level_select()
+		#next level is unlocked
+		elif _gm.progression_tracker.GetLastCampaignLevelCompleted() + 1 > thisLevelIndex:
+			transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY] = true
+			transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] = _gm.campaign_level_library.Levels[thisLevelIndex + 1]
+			myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), transitionData, ScreenManager.TransitionStyle.TURN_PAGE)
+		else:
+			#you haven't unlocked the next level, so go back to level select
+			go_to_level_select()
+	else:
+		#last level
+		if thisLevelIndex + 1 >= _gm.submitted_level_library.Levels.size():
+			go_to_level_select()
+		else:
+			transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY] = false
+			transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] = _gm.submitted_level_library.Levels[thisLevelIndex + 1]
+			myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), transitionData, ScreenManager.TransitionStyle.TURN_PAGE)
+		
+	
 
 func get_current_state() -> GameState:
 	return _current_state
@@ -95,10 +132,13 @@ func spawn_piece(pieceID : String):
 		return
 		
 	held_piece = grid.LoadPiece(pieceID)
+	held_piece_cell = 0
 	held_piece.global_position = get_global_mouse_position()
 	_reset_settled()
 
 func _ready():
+	_gm = get_node(GameMaster.GLOBAL_GAME_MASTER_NODE)
+	
 	# State
 	_current_state = empty_state
 	empty_state.set_manager(self)
@@ -113,8 +153,13 @@ func _process(delta):
 		
 		initialized_event.emit()
 		switch_to_play_state()
-		#TODO: Load level using Level Select
-		grid.LoadLevel(debug_setupData)
+		
+		_levelData = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY]
+		grid.LoadLevel(_levelData)
+		_setup_level_labels()
+		
+		if _levelData.tutorialData != null:
+			myScreen.ScreenEnter.connect(_show_tutorial)
 	
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()
@@ -131,6 +176,29 @@ func _process(delta):
 		_held_piece_towards_cursor(delta)
 		_rotate_held_piece()
 		_do_place_held_piece()
+
+func _setup_level_labels():
+	var labelSticker : Control = levelNameText.get_parent() as Control
+	if _levelData.levelName.is_empty():
+		labelSticker.visible = false
+	else:
+		labelSticker.visible = true
+		levelNameText.text = _levelData.levelName
+	
+	labelSticker = authorText.get_parent() as Control
+	if _levelData.author.is_empty():
+		labelSticker.visible = false
+	else:
+		labelSticker.visible = true
+		authorText.text = str("By: ", _levelData.author)
+
+func _show_tutorial():
+	myScreen.ScreenEnter.disconnect(_show_tutorial)
+	var tutorialData = _levelData.tutorialData
+	if _levelData.tutorialData.displayPieces.size() > 0:
+		myScreen.ShowDisplayPopup(tutorialData.title, tutorialData.body, tutorialData.displayPieces)
+	else:
+		myScreen.ShowTextPopup(tutorialData.title, tutorialData.body)
 
 func _remove_occupied_cells(piece: PieceLogic):
 	if piece.current_placement_state != PieceLogic.PlacementStates.PLACED:

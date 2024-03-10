@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://vpl40wo37cah"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_c6fhf"]
+
+[resource]
+script = ExtResource("1_c6fhf")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "Totu"
+message = "Heyja Fauna Happy Birthday. Gald to have you Here with us in Hololive. Big Vod watcher and Asmr Enjoyer you granted me alot of Wonderfull Nights. Thank you.Many more awesome years to come"

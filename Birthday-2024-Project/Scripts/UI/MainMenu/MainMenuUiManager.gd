@@ -3,60 +3,34 @@ extends Control
 
 @export var controller: MainMenuController
 @export var screenLogic : ScreenLogic
+@export var titleNode : Control
+@export var animator : AnimationPlayer
 
 @export_group("Screens")
 @export var start_screen: MainMenuStartScreen
-@export var campaign_select: CampaignSelectMenu
-@export var campaign_levels: CampaignLevelsSelectMenu
-@export var gallery_screen: GalleryScreen
-@export var credits_screen: CreditsScreen
 
 @export_group("States")
 @export var start_state: MainMenuUiStartState
 
 var _current_state: MainMenuUiState
+var _playOnce : bool = false
+
+func PlayIntro():
+	if _playOnce:
+		_playOnce = false
+		animator.play("TitleIntro")
+		screenLogic.screenManager.StartBGM()
+		await get_tree().create_timer(0.05).timeout
+		titleNode.visible = true
 
 func on_main_menu_initialized():
-	pass
+	_playOnce = true
 
 func on_main_menu_state_changed(state: MainMenuState):
 	if state is MainMenuStartState:
 		_switch_state(start_state)
 	else:
 		printerr("Unhandled main menu state in main menu UI Manager")
-
-func show_settings_window():
-	screenLogic.screenManager.ShowSettings()
-
-
-func show_start_screen():
-	_disable_all_screens()
-	start_screen.show()
-
-
-func show_campaign_select():
-	_disable_all_screens()
-	campaign_select.show()
-
-
-func show_campaign_levels():
-	_disable_all_screens()
-	campaign_levels.show()
-
-func show_gallery_screen():
-	_disable_all_screens()
-	gallery_screen.show()
-	
-func show_credits_screen():
-	_disable_all_screens()
-	credits_screen.show()
-
-func _disable_all_screens():
-	start_screen.hide()
-	campaign_select.hide()
-	campaign_levels.hide()
-	gallery_screen.hide()
-	credits_screen.hide()
 
 
 func _switch_state(state: MainMenuUiState):

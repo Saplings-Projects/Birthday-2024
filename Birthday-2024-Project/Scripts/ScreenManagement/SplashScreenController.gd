@@ -12,7 +12,7 @@ func ScreenEnter():
 	pass
 
 func GoToMainMenu():
-	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, true)
+	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.TURN_PAGE)
 
 func _process(delta):
 	if _active == false:

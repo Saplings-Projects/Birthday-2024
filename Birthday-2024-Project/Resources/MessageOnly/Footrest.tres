@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bh73oh7jj6dxn"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_xam6d"]
+
+[resource]
+script = ExtResource("1_xam6d")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "Footrest"
+message = "I’ve been watching Hololive for over 3 years, but I’ve only really discovered you last year. After watching your Hitman endurance I finally became a Sapling. Happy birthday Fauna and here’s to the bloody suit. Fauna Sweep! :FaunaLoveRedYT: :FaunaSlapYTL: :FaunaSlapYTR: :FaunaWaveYT: :FaunaBaldYT:"
+levelName = ""

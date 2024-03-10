@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bq07lnfuer206"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_u712m"]
+
+[resource]
+script = ExtResource("1_u712m")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "Mononorail"
+message = "Happy Birthday Fauna! :FaunaCheerYT: I wish you nothing but the very best for your birthday, and I hope you treat yourself to something nice. Thank you for the fun comfy streams and the kind community! :FaunaLoveRedYT:"
+levelName = ""

@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c0e0e8cd45ihb"]
+
+[ext_resource type="Texture2D" uid="uid://ceu7kuly4fjoa" path="res://Art/UI/Undo_arrow_hover.png" id="1_t023k"]
+[ext_resource type="Texture2D" uid="uid://byj7vv184qs16" path="res://Art/UI/Undo_arrow.png" id="2_xlucl"]
+[ext_resource type="Texture2D" uid="uid://daau15k0wc2yv" path="res://Art/UI/Undo_arrow_pressed.png" id="3_gf2wd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhdp3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7xp4h"]
+texture = ExtResource("1_t023k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qhmrp"]
+texture = ExtResource("2_xlucl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cro2b"]
+texture = ExtResource("3_gf2wd")
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_jhdp3")
+Button/styles/hover = SubResource("StyleBoxTexture_7xp4h")
+Button/styles/normal = SubResource("StyleBoxTexture_qhmrp")
+Button/styles/pressed = SubResource("StyleBoxTexture_cro2b")

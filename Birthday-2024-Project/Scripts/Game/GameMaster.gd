@@ -1,6 +1,7 @@
 class_name GameMaster
 extends Node2D
 
+const GLOBAL_GAME_MASTER_NODE : String = "/root/GlobalGameMaster"
 
 # Controllers
 @export var audio_controller: AudioController
@@ -10,6 +11,11 @@ extends Node2D
 var user_prefs: UserPreferences
 
 var _save_system: SaveSystem
+
+@export var campaign_level_library : LevelLibrary
+@export var submitted_level_library : LevelLibrary
+
+var progression_tracker : ProgressionTracker
 
 
 func save_preferences():
@@ -26,6 +32,8 @@ func _load_data():
 	
 	audio_controller._prefs = user_prefs.audio
 	video_controller._prefs = user_prefs.video
+	progression_tracker = user_prefs.progress
+	progression_tracker._gm = self
 
 
 #region Node

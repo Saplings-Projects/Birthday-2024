@@ -2,10 +2,11 @@ class_name GameEditState
 extends GameState
 
 func reset_puzzle():
-	manager.grid.ClearLevel()
+	manager.myScreen.ScreenEnter.connect(ResetConfirmation)
+	manager.myScreen.ShowConfirmationPopup("Restart?", "Are you sure you want clear all pieces?", "Yes", "No")
 
-func back_to_menu():
-	manager.go_to_main_menu()
+func _reset_puzzle():
+	manager.grid.ClearLevel()
 
 func go_to_play_mode():
 	manager.switch_to_play_state()

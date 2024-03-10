@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://hmaxwwofisa1"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_rxsqp"]
+
+[resource]
+script = ExtResource("1_rxsqp")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "Kk"
+message = "Thank you for making this sapling's life better for the past 2.5 years. Your streams have helped me and many others through a lot of tough times, and my gratitude goes beyond words. You've brought together an amazing community of saplings through your hard work and authenticity, and I feel blessed to be a part of it. I'm looking forward to what you'll cook up next! Keep up the good work; I'm proud of you :FaunaLoveRedYT:"
+levelName = ""

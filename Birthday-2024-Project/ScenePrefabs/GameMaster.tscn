@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6xsrisrdefrq"]
+[gd_scene load_steps=9 format=3 uid="uid://c6xsrisrdefrq"]
 
 [ext_resource type="Script" path="res://Scripts/Game/GameMaster.gd" id="1_agon8"]
 [ext_resource type="Script" path="res://Scripts/Game/AudioController.gd" id="2_1oy3c"]
+[ext_resource type="Resource" uid="uid://bg5rtt2c4srhw" path="res://Resources/CampaignLevelLibrary.tres" id="2_glquv"]
+[ext_resource type="Resource" uid="uid://d28aaakfobygm" path="res://Resources/SubmittedLevelLibrary.tres" id="3_5c5w5"]
 [ext_resource type="Script" path="res://Scripts/Game/VideoController.gd" id="3_ayqci"]
 [ext_resource type="Resource" uid="uid://c8jpl3lhgb7f6" path="res://Resources/Video/1920x1080.tres" id="4_53h28"]
 [ext_resource type="Resource" uid="uid://b3r8hjt7pd3dl" path="res://Resources/Video/1440x900.tres" id="5_8a61i"]
@@ -11,6 +13,8 @@
 script = ExtResource("1_agon8")
 audio_controller = NodePath("AudioController")
 video_controller = NodePath("VideoController")
+campaign_level_library = ExtResource("2_glquv")
+submitted_level_library = ExtResource("3_5c5w5")
 
 [node name="AudioController" type="Node2D" parent="."]
 script = ExtResource("2_1oy3c")

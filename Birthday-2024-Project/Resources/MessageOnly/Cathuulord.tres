@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bhrrdbr8y4cif"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_ie44r"]
+
+[resource]
+script = ExtResource("1_ie44r")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "Cathuulord"
+message = "A FaunkaFauna's saplings dance,Today, her birthday's embrace,Nature's guardian,Another year she has spun,Majestic gaming Kirin"
+levelName = ""
