@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_14d3v")
 levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
-jsonData = ""
+jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"casual_fauna_wave\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\"]"
 author = ""
 message = ""
 levelName = ""
