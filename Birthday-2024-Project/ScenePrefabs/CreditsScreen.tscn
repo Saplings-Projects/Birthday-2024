@@ -104,9 +104,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -450.0
+offset_left = -550.0
 offset_top = -400.0
-offset_right = 450.0
+offset_right = 550.0
 offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -120,6 +120,30 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 40
 alignment = 1
 
+[node name="Lead" type="RichTextLabel" parent="HBoxContainer/LeftColumn"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center][font_size=50]Lead[/font_size]
+[font_size=30]Casulono[/font_size]
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Game Idea" type="RichTextLabel" parent="HBoxContainer/LeftColumn"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center][font_size=50]Game Idea[/font_size]
+[font_size=30]Mikotey[/font_size]
+[/center]"
+fit_content = true
+scroll_active = false
+
 [node name="Developers" type="RichTextLabel" parent="HBoxContainer/LeftColumn"]
 clip_contents = false
 layout_mode = 2
@@ -127,31 +151,14 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "[center][font_size=40]Developers[/font_size]
-Bishop
-Casulono
-Duarpeto
-Diego A.
-Mikotey
-Sambino
-Vorthein
-[/center]"
-fit_content = true
-scroll_active = false
-
-[node name="Art" type="RichTextLabel" parent="HBoxContainer/LeftColumn"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-text = "[center][font_size=40]Art[/font_size]
-crashairsprig
-Cyanophycée
-EndyStarBoy
-HDAK art
-Lunar
-mpmrpjb
+text = "[center][font_size=50]Developers[/font_size]
+[font_size=30]Bishop[/font_size]
+[font_size=30]Casulono[/font_size]
+[font_size=30]Duarpeto[/font_size]
+[font_size=30]Diego A.[/font_size]
+[font_size=30]Mikotey[/font_size]
+[font_size=30]Sambino[/font_size]
+[font_size=30]Vorthein[/font_size]
 [/center]"
 fit_content = true
 scroll_active = false
@@ -160,14 +167,52 @@ scroll_active = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 1
 
 [node name="Credits" type="RichTextLabel" parent="HBoxContainer/CenterColumn"]
 layout_mode = 2
+size_flags_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]Credits[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Margin" type="RichTextLabel" parent="HBoxContainer/CenterColumn"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "
+
+"
+fit_content = true
+scroll_active = false
+
+[node name="Art" type="RichTextLabel" parent="HBoxContainer/CenterColumn"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center][font_size=50]Art[/font_size]
+[center][font_size=40]Pieces Assets[/font_size]
+[font_size=30]crashairsprig[/font_size]
+[font_size=30]Cyanophycée[/font_size]
+[font_size=30]EndyStarBoy[/font_size]
+[font_size=30]HDAK art[/font_size]
+[font_size=30]Lunar[/font_size]
+[font_size=30]mpmrpjb[/font_size]
+
+[font_size=40]UI Assets[/font_size]
+[font_size=30]HDAK art[/font_size]
+
+[font_size=40]Animations[/font_size]
+[font_size=30]Mikotey[/font_size]"
 fit_content = true
 scroll_active = false
 
@@ -186,47 +231,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[center][font_size=40]Testing[/font_size]
-Tester Name1
-Tester Name2
-Tester Name3
-[/center]"
-fit_content = true
-scroll_active = false
-
-[node name="Lead" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-text = "[center][font_size=40]Lead[/font_size]
-Casulono
-[/center]"
-fit_content = true
-scroll_active = false
-
-[node name="Game Idea" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "[center][font_size=40]Game Idea[/font_size]
-Mikotey
-[/center]"
-fit_content = true
-scroll_active = false
-
-[node name="General Help" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "[center][font_size=40]General Help[/font_size]
-DarkEcoFreak
-RaddLad
+text = "[center][font_size=50]Game Testing[/font_size]
+[font_size=30]Tester Name1[/font_size]
+[font_size=30]Tester Name2[/font_size]
+[font_size=30]Tester Name3[/font_size]
 [/center]"
 fit_content = true
 scroll_active = false
@@ -237,8 +245,39 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[center][font_size=40]Music[/font_size]
--
+text = "[center][font_size=50]Audio[/font_size]
+[font_size=40]Music[/font_size]
+[font_size=30]DarkEcoFreak[/font_size]
+[font_size=40]SFX[/font_size]
+[font_size=30]Casulono[/font_size]
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Level Design" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center][font_size=50]Level Design[/font_size]
+[font_size=30]DarkEcoFreak[/font_size]
+[font_size=30]HDAK art[/font_size]
+[font_size=30]RaddLad[/font_size]
+[font_size=30]Vorthein[/font_size]
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="General Help" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center][font_size=50]General Help[/font_size]
+[font_size=30]DarkEcoFreak[/font_size]
+[font_size=30]RaddLad[/font_size]
 [/center]"
 fit_content = true
 scroll_active = false
