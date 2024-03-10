@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://desw56y28pjg0"
-path="res://.godot/imported/Campaign_pressed.png-d361cf0beedb8a39a230288b6e6e4b36.ctex"
+uid="uid://b1wnjeiltasgg"
+path="res://.godot/imported/Campaign_Pressed.png-d5fadd7f38e3a348c0e4a29b829bdd2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/OfficialPieceArt/Campaign_pressed.png"
-dest_files=["res://.godot/imported/Campaign_pressed.png-d361cf0beedb8a39a230288b6e6e4b36.ctex"]
+source_file="res://Art/OfficialPieceArt/Campaign_Pressed.png"
+dest_files=["res://.godot/imported/Campaign_Pressed.png-d5fadd7f38e3a348c0e4a29b829bdd2a.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

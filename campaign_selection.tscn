@@ -6,24 +6,24 @@
 [ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/CampaignSelectStartScreen.gd" id="3_k52jr"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="5_5vjk0"]
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="6_anpq0"]
-[ext_resource type="Texture2D" uid="uid://xgmlqugfjb00" path="res://Art/OfficialPieceArt/Campaign_Normal.png" id="6_cc3ui"]
 [ext_resource type="Texture2D" uid="uid://5fr6mp3yk6bj" path="res://Art/UI/UiReferencesAndMockups/CollectionSelectScreen.png" id="6_i1bcf"]
-[ext_resource type="Texture2D" uid="uid://b7jmya8c7al0t" path="res://Art/OfficialPieceArt/Campaign_Hover.png" id="7_eo82e"]
+[ext_resource type="Texture2D" uid="uid://cbnkutg81o7w5" path="res://Art/OfficialPieceArt/Campaign_normal.png" id="6_i8jrm"]
+[ext_resource type="Texture2D" uid="uid://juonhqaafapd" path="res://Art/OfficialPieceArt/Campaign_Hover.png" id="7_eo82e"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="7_oegh3"]
-[ext_resource type="Texture2D" uid="uid://b1wnjeiltasgg" path="res://Art/OfficialPieceArt/Campaign_Pressed.png" id="8_bdkyx"]
+[ext_resource type="Texture2D" uid="uid://desw56y28pjg0" path="res://Art/OfficialPieceArt/Campaign_pressed.png" id="8_rhoq1"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="8_v563t"]
 [ext_resource type="Texture2D" uid="uid://bgp7ytyux5ax4" path="res://Art/OfficialPieceArt/Level_type_Normal.png" id="9_6n0xi"]
 [ext_resource type="Texture2D" uid="uid://jpu45bfgsavl" path="res://Art/OfficialPieceArt/Level_type_Hover.png" id="10_ut252"]
 [ext_resource type="Texture2D" uid="uid://plb8jwpj3giv" path="res://Art/OfficialPieceArt/Level_type_Pressed.png" id="11_7q3fa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0nye"]
-texture = ExtResource("6_cc3ui")
+texture = ExtResource("6_i8jrm")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8h43p"]
 texture = ExtResource("7_eo82e")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wtv88"]
-texture = ExtResource("8_bdkyx")
+texture = ExtResource("8_rhoq1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbvc3"]
 texture = ExtResource("9_6n0xi")
@@ -175,6 +175,16 @@ offset_bottom = 128.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("8_v563t")
+
+[node name="SaplingButtonLabel" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+layout_mode = 0
+offset_left = 1112.0
+offset_top = 779.0
+offset_right = 1551.0
+offset_bottom = 842.0
+rotation = 0.0226893
+theme_override_font_sizes/font_size = 50
+text = "SAPLING LEVELS"
 
 [node name="CollectionSelectScreenRef" type="Sprite2D" parent="."]
 visible = false
