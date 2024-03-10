@@ -67,7 +67,7 @@ back_button = NodePath("Panel/Back Button")
 exit_button = NodePath("Panel/Exit Button")
 settings_button = NodePath("Panel/Settings Button")
 campaign_button = NodePath("Panel/Campaign Levels")
-saplings_button = NodePath("Panel/Sapling\'s Levels")
+saplings_button = NodePath("Panel/Sapling Levels")
 
 [node name="TextureRect" type="NinePatchRect" parent="CampaignSelectUiManager/CampaignSelectStartScreen"]
 layout_mode = 1
@@ -122,7 +122,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_d0nye")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8h43p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wtv88")
 
-[node name="Sapling\'s Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+[node name="Sapling Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -175,6 +175,25 @@ offset_bottom = 128.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("8_v563t")
+
+[node name="Campaign Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 785.0
+offset_right = 722.0
+offset_bottom = 848.0
+rotation = -0.0349066
+theme_override_font_sizes/font_size = 50
+text = "CAMPAIGN"
+
+[node name="Saplings Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+offset_left = 1114.0
+offset_top = 779.0
+offset_right = 1580.0
+offset_bottom = 842.0
+rotation = 0.0226893
+theme_override_font_sizes/font_size = 50
+text = "SAPLING LEVELS"
 
 [node name="CollectionSelectScreenRef" type="Sprite2D" parent="."]
 visible = false
