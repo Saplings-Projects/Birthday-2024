@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xgmlqugfjb00"
-path="res://.godot/imported/Campaign_Normal.png-7eb3bb182fa84a80d4563ebaee4000ce.ctex"
+uid="uid://juonhqaafapd"
+path="res://.godot/imported/Campaign_Hover.png-d6ad8e1e43a403b6ada5be8bc9352c7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/OfficialPieceArt/Campaign_Normal.png"
-dest_files=["res://.godot/imported/Campaign_Normal.png-7eb3bb182fa84a80d4563ebaee4000ce.ctex"]
+source_file="res://Art/OfficialPieceArt/old/Campaign_Hover.png"
+dest_files=["res://.godot/imported/Campaign_Hover.png-d6ad8e1e43a403b6ada5be8bc9352c7b.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

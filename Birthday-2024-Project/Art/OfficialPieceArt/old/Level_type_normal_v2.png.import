@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xgmlqugfjb00"
-path="res://.godot/imported/Campaign_Normal.png-7eb3bb182fa84a80d4563ebaee4000ce.ctex"
+uid="uid://1jx7yieeyub7"
+path="res://.godot/imported/Level_type_normal_v2.png-01e3b6229189ac5a32a03e7beefa1e01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/OfficialPieceArt/Campaign_Normal.png"
-dest_files=["res://.godot/imported/Campaign_Normal.png-7eb3bb182fa84a80d4563ebaee4000ce.ctex"]
+source_file="res://Art/OfficialPieceArt/old/Level_type_normal_v2.png"
+dest_files=["res://.godot/imported/Level_type_normal_v2.png-01e3b6229189ac5a32a03e7beefa1e01.ctex"]
 
 [params]
 
