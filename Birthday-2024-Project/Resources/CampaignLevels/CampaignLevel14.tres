@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cwvfgeg8fqqj1"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_o0gnp"]
+
+[resource]
+script = ExtResource("1_o0gnp")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = ""
+message = ""
+levelName = ""
