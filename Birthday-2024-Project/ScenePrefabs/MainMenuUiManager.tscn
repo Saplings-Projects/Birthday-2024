@@ -972,10 +972,6 @@ expand_mode = 1
 stretch_mode = 5
 flip_h = true
 
-[node name="CreditsScreen" parent="." instance=ExtResource("5_typ2d")]
-visible = false
-layout_mode = 1
-
 [node name="States" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0

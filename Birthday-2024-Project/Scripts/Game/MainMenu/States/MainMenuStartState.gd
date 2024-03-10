@@ -8,8 +8,7 @@ func exit_game():
 
 
 func go_to_credits():
-	# TODO: Implement function
-	print("go_to_credits is not implemented in MainMenuStartState")
+	myScreen.GoToScreen(load("res://MainScenes/credits_screen.tscn"), {}, ScreenManager.TransitionStyle.TURN_PAGE)
 
 
 func go_to_gallery():
