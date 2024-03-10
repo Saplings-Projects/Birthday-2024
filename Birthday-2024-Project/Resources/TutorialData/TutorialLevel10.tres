@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=2 format=3 uid="uid://c3x2ku2v3ophq"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/CampaignTutorialData.gd" id="1_5pg0n"]
+
+[resource]
+script = ExtResource("1_5pg0n")
+title = ""
+body = ""
+displayPieces = Array[PackedScene]([])
