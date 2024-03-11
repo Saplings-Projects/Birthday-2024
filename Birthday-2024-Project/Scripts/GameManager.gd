@@ -60,14 +60,12 @@ func go_to_next_level():
 		#last level
 		if thisLevelIndex + 1 >= _gm.campaign_level_library.Levels.size():
 			go_to_level_select()
-		#next level is unlocked
-		elif _gm.progression_tracker.GetLastCampaignLevelCompleted() + 1 > thisLevelIndex:
+		#go to next level if present, it will go to it no matter if it's unlocked but won't mark it as complete
+		else:
 			transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY] = true
 			transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] = _gm.campaign_level_library.Levels[thisLevelIndex + 1]
+			_gm.progression_tracker.SetLatestCampaignLevelCompleted(thisLevelIndex)
 			myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), transitionData, ScreenManager.TransitionStyle.TURN_PAGE)
-		else:
-			#you haven't unlocked the next level, so go back to level select
-			go_to_level_select()
 	else:
 		#last level
 		if thisLevelIndex + 1 >= _gm.submitted_level_library.Levels.size():
