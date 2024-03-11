@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=4 format=3 uid="uid://cj4yxr8i8wmno"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/CampaignTutorialData.gd" id="1_b2kek"]
+[ext_resource type="PackedScene" uid="uid://lsby14fmqnqx" path="res://ScenePrefabs/Pieces/cowkini_fauna.tscn" id="1_uwxui"]
+[ext_resource type="PackedScene" uid="uid://cdlhh56v1qobi" path="res://ScenePrefabs/Pieces/ele_fauna.tscn" id="2_76lrx"]
+
+[resource]
+script = ExtResource("1_b2kek")
+title = "New Faunas"
+body = "Straight from the animal department it's Fauna in her cowkini and EleFauna ready to roll out!"
+displayPieces = Array[PackedScene]([ExtResource("1_uwxui"), ExtResource("2_76lrx")])

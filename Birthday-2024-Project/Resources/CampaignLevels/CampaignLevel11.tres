@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=3 format=3 uid="uid://o87hew4q6f02"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_muuev"]
+[ext_resource type="Resource" uid="uid://cj4yxr8i8wmno" path="res://Resources/TutorialData/TutorialLevel11.tres" id="2_dxpi6"]
+
+[resource]
+script = ExtResource("1_muuev")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"cowkini_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"ele_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":0,\\\"PIECE_SETUP_ID_KEY\\\":\\\"smol_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"faunashi\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":1}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"idol_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"hitman_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"snail\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"gold_apple\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\"]"
+author = ""
+message = ""
+levelName = ""
+tutorialData = ExtResource("2_dxpi6")

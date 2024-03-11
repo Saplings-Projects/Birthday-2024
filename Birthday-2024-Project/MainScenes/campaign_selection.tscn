@@ -6,13 +6,13 @@
 [ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/CampaignSelectStartScreen.gd" id="3_k52jr"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="5_5vjk0"]
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="6_anpq0"]
-[ext_resource type="Texture2D" uid="uid://xgmlqugfjb00" path="res://Art/OfficialPieceArt/Campaign_Normal.png" id="6_cc3ui"]
+[ext_resource type="Texture2D" uid="uid://xgmlqugfjb00" path="res://Art/OfficialPieceArt/Campaign_normal.png" id="6_cc3ui"]
 [ext_resource type="Texture2D" uid="uid://5fr6mp3yk6bj" path="res://Art/UI/UiReferencesAndMockups/CollectionSelectScreen.png" id="6_i1bcf"]
 [ext_resource type="Texture2D" uid="uid://b7jmya8c7al0t" path="res://Art/OfficialPieceArt/Campaign_Hover.png" id="7_eo82e"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="7_oegh3"]
-[ext_resource type="Texture2D" uid="uid://b1wnjeiltasgg" path="res://Art/OfficialPieceArt/Campaign_Pressed.png" id="8_bdkyx"]
+[ext_resource type="Texture2D" uid="uid://b1wnjeiltasgg" path="res://Art/OfficialPieceArt/Campaign_pressed.png" id="8_bdkyx"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="8_v563t"]
-[ext_resource type="Texture2D" uid="uid://bgp7ytyux5ax4" path="res://Art/OfficialPieceArt/Level_type_Normal.png" id="9_6n0xi"]
+[ext_resource type="Texture2D" uid="uid://bgp7ytyux5ax4" path="res://Art/OfficialPieceArt/Level_type_normal.png" id="9_6n0xi"]
 [ext_resource type="Texture2D" uid="uid://jpu45bfgsavl" path="res://Art/OfficialPieceArt/Level_type_Hover.png" id="10_ut252"]
 [ext_resource type="Texture2D" uid="uid://plb8jwpj3giv" path="res://Art/OfficialPieceArt/Level_type_Pressed.png" id="11_7q3fa"]
 
@@ -122,6 +122,24 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_d0nye")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8h43p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wtv88")
 
+[node name="Campaign Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/Campaign Levels"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -142.5
+offset_top = -80.0
+offset_right = 142.5
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "CAMPAIGN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Sapling Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -141,6 +159,24 @@ size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_pbvc3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_awk44")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p12qm")
+
+[node name="Saplings Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/Sapling Levels"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -233.0
+offset_top = -80.0
+offset_right = 233.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "SAPLING LEVELS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Settings Button" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
 layout_mode = 1
@@ -175,25 +211,6 @@ offset_bottom = 128.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("8_v563t")
-
-[node name="Campaign Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
-layout_mode = 0
-offset_left = 437.0
-offset_top = 785.0
-offset_right = 722.0
-offset_bottom = 848.0
-rotation = -0.0349066
-theme_override_font_sizes/font_size = 50
-text = "CAMPAIGN"
-
-[node name="Saplings Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
-offset_left = 1114.0
-offset_top = 779.0
-offset_right = 1580.0
-offset_bottom = 842.0
-rotation = 0.0226893
-theme_override_font_sizes/font_size = 50
-text = "SAPLING LEVELS"
 
 [node name="CollectionSelectScreenRef" type="Sprite2D" parent="."]
 visible = false

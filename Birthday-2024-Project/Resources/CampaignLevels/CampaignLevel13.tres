@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=3 format=3 uid="uid://bpvm078rj0xrc"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_sjwdw"]
+[ext_resource type="Resource" uid="uid://gq5qcjqaj74" path="res://Resources/TutorialData/TutorialLevel13.tres" id="2_fp5ip"]
+
+[resource]
+script = ExtResource("1_sjwdw")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"smol_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":1}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":3,\\\"PIECE_SETUP_ID_KEY\\\":\\\"smol_faunya\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":2}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-4,\\\"PIECE_SETUP_ID_KEY\\\":\\\"ele_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-4,\\\"PIECE_SETUP_ID_KEY\\\":\\\"cowkini_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-4,\\\"PIECE_SETUP_ID_KEY\\\":\\\"faunya\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":0,\\\"PIECE_SETUP_ID_KEY\\\":\\\"original_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":0,\\\"PIECE_SETUP_ID_KEY\\\":\\\"maid_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"matcha_1\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"gold_apple\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\"]"
+author = ""
+message = ""
+levelName = ""
+tutorialData = ExtResource("2_fp5ip")

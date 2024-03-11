@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=5 format=3 uid="uid://c3x2ku2v3ophq"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/CampaignTutorialData.gd" id="1_5pg0n"]
+[ext_resource type="PackedScene" uid="uid://co44a00v7r6ma" path="res://ScenePrefabs/Pieces/smol_fauna.tscn" id="1_16p12"]
+[ext_resource type="PackedScene" uid="uid://f135covfq5n3" path="res://ScenePrefabs/Pieces/smol_faunya.tscn" id="2_a7a6t"]
+[ext_resource type="PackedScene" uid="uid://phpjmox7w72m" path="res://ScenePrefabs/Pieces/matcha_2.tscn" id="3_c4r0o"]
+
+[resource]
+script = ExtResource("1_5pg0n")
+title = "New Faunas"
+body = "Man, smol Faunas' cuteness is beyond Saplings' comprehension. Whether it's the first iteration or the Halloween edition, you just can't get enough of them. Just be careful. They might destroy this matcha set."
+displayPieces = Array[PackedScene]([ExtResource("1_16p12"), ExtResource("2_a7a6t"), ExtResource("3_c4r0o")])
