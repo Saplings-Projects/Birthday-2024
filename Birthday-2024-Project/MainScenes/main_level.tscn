@@ -219,13 +219,7 @@ controller = NodePath("../GameManager")
 controller = NodePath("../../GameManager")
 
 [node name="Fade" parent="PuzzleUiManager/MainScreen" index="0"]
-color = Color(0.941176, 0.8, 0.627451, 0)
-
-[node name="Win Text" parent="PuzzleUiManager/MainScreen/Fade" index="0"]
-text = ""
-
-[node name="Reset Button" parent="PuzzleUiManager/MainScreen/Panel" index="4"]
-visible = false
+color = Color(0.894118, 0.823529, 0.627451, 0.25098)
 
 [connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
 [connection signal="state_changed_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_state_changed"]
