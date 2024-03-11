@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://e5r8ufelwltl"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_uly65"]
+
+[resource]
+script = ExtResource("1_uly65")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"casual_fauna_wave\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"ele_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":1}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-4,\\\"PIECE_SETUP_ID_KEY\\\":\\\"idol_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":1}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"mitts_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":2}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"nemu_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"original_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":3}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":2,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":0,\\\"PIECE_SETUP_ID_KEY\\\":\\\"nemu_fauna\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":2}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"matcha_1\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"gold_apple\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\",\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-2,\\\"PIECE_SETUP_ID_KEY\\\":\\\"gold_apple\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\"]"
+author = ""
+message = ""
+levelName = ""

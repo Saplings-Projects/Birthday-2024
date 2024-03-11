@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=5 format=3 uid="uid://i8n7uxrbu6pm"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/CampaignTutorialData.gd" id="1_gw210"]
+[ext_resource type="PackedScene" uid="uid://difm5n532kkm5" path="res://ScenePrefabs/Pieces/hungry_fauna.tscn" id="1_viddd"]
+[ext_resource type="PackedScene" uid="uid://qgaf0pv44vcf" path="res://ScenePrefabs/Pieces/happy_fauna.tscn" id="2_0v142"]
+[ext_resource type="PackedScene" uid="uid://cvx660iqikvys" path="res://ScenePrefabs/Pieces/gold_apple.tscn" id="3_qgr4u"]
+
+[resource]
+script = ExtResource("1_gw210")
+title = "New Faunas"
+body = "Nice! Now in addition to new Faunas you might see also decorations. These pieces can't be moved but you can enjoy looking at them. Here's the fabled golden apple accompanied by Hungry Faunya and Happy Fauna."
+displayPieces = Array[PackedScene]([ExtResource("1_viddd"), ExtResource("2_0v142"), ExtResource("3_qgr4u")])

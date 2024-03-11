@@ -420,7 +420,7 @@ scale = Vector2(0.4, 0.4)
 [node name="LibraryPiece13" type="Button" parent="MainScreen/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
-tooltip_text = "Fauna Mitts
+tooltip_text = "Cape Fauna
 These are not oversized oven mitts.
 These are oversized horn warmers."
 mouse_filter = 1
