@@ -646,7 +646,7 @@ text = "Play"
 
 [node name="Messages Button" type="Button" parent="StartScreen/Panel/Navigation Buttons"]
 layout_mode = 2
-text = "Sapling's Messages"
+text = "Sapling Messages"
 
 [node name="Gallery Button" type="Button" parent="StartScreen/Panel/Navigation Buttons"]
 layout_mode = 2

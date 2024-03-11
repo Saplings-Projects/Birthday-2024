@@ -20,7 +20,7 @@
 [ext_resource type="Resource" uid="uid://bdh0kf0y6d0df" path="res://Resources/SubmittedLevels/Tradgore.tres" id="18_03wlg"]
 [ext_resource type="Resource" uid="uid://cwwvdlqy245k1" path="res://Resources/SubmittedLevels/Turtyo.tres" id="19_1g2m0"]
 [ext_resource type="Resource" uid="uid://cmrspgq3v36k6" path="res://Resources/SubmittedLevels/WamWarcen.tres" id="20_c4lru"]
-[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/SubmittedLevels/Wanderer.tres" id="21_uc760"]
+[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/SubmittedLevels/wanderer.tres" id="21_uc760"]
 [ext_resource type="Resource" uid="uid://cjuv771fmaded" path="res://Resources/SubmittedLevels/Weeboss.tres" id="22_rttov"]
 [ext_resource type="Resource" uid="uid://dsdm3efm4p8fb" path="res://Resources/SubmittedLevels/Weirder.tres" id="23_4pbp8"]
 
@@ -42,7 +42,7 @@ pageNumber = 5
 lastPageNumber = 5
 
 [node name="Title" parent="LevelSelectMenu/Panel" index="0"]
-text = "COMMUNITY"
+text = "SAPLING LEVELS"
 
 [node name="Level Button" parent="LevelSelectMenu/Panel/Level Select Buttons" index="0"]
 levelData = ExtResource("4_mvxxg")
