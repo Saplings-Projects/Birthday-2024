@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=5 format=3 uid="uid://dp6i2782nx6bj"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/CampaignTutorialData.gd" id="1_ogd1l"]
+[ext_resource type="PackedScene" uid="uid://baib15bjrkayn" path="res://ScenePrefabs/Pieces/hitman_fauna.tscn" id="1_x5uhy"]
+[ext_resource type="PackedScene" uid="uid://ck50aqlumrne0" path="res://ScenePrefabs/Pieces/idol_fauna.tscn" id="2_3qquh"]
+[ext_resource type="PackedScene" uid="uid://ctrg6ts07xcf5" path="res://ScenePrefabs/Pieces/wrench.tscn" id="3_wxxfb"]
+
+[resource]
+script = ExtResource("1_ogd1l")
+title = "New Faunas"
+body = "Agent Fauna7 and her trusty wrench have arrived just in time to see Idol Fauna's performance. Wait, what do you mean 5th fes is already over?!"
+displayPieces = Array[PackedScene]([ExtResource("1_x5uhy"), ExtResource("2_3qquh"), ExtResource("3_wxxfb")])

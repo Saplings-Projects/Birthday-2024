@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://wsfsjuc1t31q"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_1mp2w"]
+[ext_resource type="PackedScene" uid="uid://cr52r13hg2vlu" path="res://ScenePrefabs/CreditsScreen.tscn" id="1_fmmbs"]
+
+[node name="CreditsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1mp2w")
+
+[node name="CreditsScreen" parent="." node_paths=PackedStringArray("myScreen") instance=ExtResource("1_fmmbs")]
+layout_mode = 1
+myScreen = NodePath("..")

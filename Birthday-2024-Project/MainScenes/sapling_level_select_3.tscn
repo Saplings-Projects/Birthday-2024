@@ -42,7 +42,7 @@ pageNumber = 3
 lastPageNumber = 5
 
 [node name="Title" parent="LevelSelectMenu/Panel" index="0"]
-text = "COMMUNITY"
+text = "SAPLING LEVELS"
 
 [node name="Level Button" parent="LevelSelectMenu/Panel/Level Select Buttons" index="0"]
 levelData = ExtResource("3_67mgc")

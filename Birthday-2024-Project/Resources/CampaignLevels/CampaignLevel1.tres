@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=3 format=3 uid="uid://b2tco3xr6sxna"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_14d3v"]
+[ext_resource type="Resource" uid="uid://tyyw6kpycqnv" path="res://Resources/TutorialData/TutorialLevel1.tres" id="2_21u84"]
+
+[resource]
+script = ExtResource("1_14d3v")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_POSITION_Y_KEY\\\":-1,\\\"PIECE_SETUP_ID_KEY\\\":\\\"casual_fauna_wave\\\",\\\"PIECE_SETUP_ROTATION_KEY\\\":0}\"]"
+author = ""
+message = ""
+levelName = ""
+tutorialData = ExtResource("2_21u84")

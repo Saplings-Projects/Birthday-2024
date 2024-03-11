@@ -1,9 +1,24 @@
-[gd_resource type="Resource" script_class="LevelLibrary" load_steps=4 format=3 uid="uid://bg5rtt2c4srhw"]
+[gd_resource type="Resource" script_class="LevelLibrary" load_steps=19 format=3 uid="uid://bg5rtt2c4srhw"]
 
-[ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="1_301rl"]
+[ext_resource type="Resource" uid="uid://b2tco3xr6sxna" path="res://Resources/CampaignLevels/CampaignLevel1.tres" id="1_rdpg2"]
 [ext_resource type="Script" path="res://Scripts/Game/LevelLibrary.gd" id="1_x6n8b"]
-[ext_resource type="Resource" uid="uid://uesitppugrmo" path="res://Resources/TestLevel2.tres" id="2_t65ah"]
+[ext_resource type="Resource" uid="uid://ditmohdfb7nsp" path="res://Resources/CampaignLevels/CampaignLevel2.tres" id="2_uc8o4"]
+[ext_resource type="Resource" uid="uid://dfno2p43e4g1d" path="res://Resources/CampaignLevels/CampaignLevel3.tres" id="3_2wwm7"]
+[ext_resource type="Resource" uid="uid://c3y3p1hvhn2o2" path="res://Resources/CampaignLevels/CampaignLevel4.tres" id="4_wk4hv"]
+[ext_resource type="Resource" uid="uid://bvuh7hb4x6yqg" path="res://Resources/CampaignLevels/CampaignLevel5.tres" id="5_2w0na"]
+[ext_resource type="Resource" uid="uid://56uryq40nvj3" path="res://Resources/CampaignLevels/CampaignLevel6.tres" id="6_qd3e3"]
+[ext_resource type="Resource" uid="uid://rvydn0ua2ywc" path="res://Resources/CampaignLevels/CampaignLevel7.tres" id="7_1sha6"]
+[ext_resource type="Resource" uid="uid://cvlm5htl0jgkf" path="res://Resources/CampaignLevels/CampaignLevel8.tres" id="8_faqjm"]
+[ext_resource type="Resource" uid="uid://cy2xbgm14khx2" path="res://Resources/CampaignLevels/CampaignLevel9.tres" id="9_hv6ue"]
+[ext_resource type="Resource" uid="uid://cmb6gl3lx6o7l" path="res://Resources/CampaignLevels/CampaignLevel10.tres" id="10_x5ct4"]
+[ext_resource type="Resource" uid="uid://o87hew4q6f02" path="res://Resources/CampaignLevels/CampaignLevel11.tres" id="11_wpiut"]
+[ext_resource type="Resource" uid="uid://bmtyubrxcnchx" path="res://Resources/CampaignLevels/CampaignLevel12.tres" id="12_52gi8"]
+[ext_resource type="Resource" uid="uid://bpvm078rj0xrc" path="res://Resources/CampaignLevels/CampaignLevel13.tres" id="13_nyhi0"]
+[ext_resource type="Resource" uid="uid://cwvfgeg8fqqj1" path="res://Resources/CampaignLevels/CampaignLevel14.tres" id="14_aaj6x"]
+[ext_resource type="Resource" uid="uid://e5r8ufelwltl" path="res://Resources/CampaignLevels/CampaignLevel15.tres" id="15_haqib"]
+[ext_resource type="Resource" uid="uid://ctdxdhw8e2m53" path="res://Resources/CampaignLevels/CampaignLevel16.tres" id="16_3f5gc"]
+[ext_resource type="Resource" uid="uid://c65qvmq3kx7ak" path="res://Resources/CampaignLevels/CampaignLevel17.tres" id="17_rxus5"]
 
 [resource]
 script = ExtResource("1_x6n8b")
-Levels = Array[Resource("res://Scripts/LevelSetup.gd")]([ExtResource("1_301rl"), ExtResource("2_t65ah"), ExtResource("1_301rl"), ExtResource("2_t65ah"), ExtResource("1_301rl")])
+Levels = Array[Resource("res://Scripts/LevelSetup.gd")]([ExtResource("1_rdpg2"), ExtResource("2_uc8o4"), ExtResource("3_2wwm7"), ExtResource("4_wk4hv"), ExtResource("5_2w0na"), ExtResource("6_qd3e3"), ExtResource("7_1sha6"), ExtResource("8_faqjm"), ExtResource("9_hv6ue"), ExtResource("10_x5ct4"), ExtResource("11_wpiut"), ExtResource("12_52gi8"), ExtResource("13_nyhi0"), ExtResource("14_aaj6x"), ExtResource("15_haqib"), ExtResource("16_3f5gc"), ExtResource("17_rxus5")])
