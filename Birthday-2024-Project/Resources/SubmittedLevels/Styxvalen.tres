@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://c37hquqhl3grb"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://c37hquqhl3grb"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_81nvf"]
+[ext_resource type="Texture2D" uid="uid://blajf0m7i0q3b" path="res://Art/LevelPreviews/Styxvalen.png" id="1_ov056"]
+[ext_resource type="Texture2D" uid="uid://dqy7rvkjc40qj" path="res://Art/LevelPreviews/StyxvalenFinished.png" id="1_xk8f0"]
 
 [resource]
 script = ExtResource("1_81nvf")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_
 author = "Styxvalen"
 message = "Happy birthday Fauna! :FaunaCheerYT: I can't believe it's already your 3rd birthday here with all of us. It's been a really great year full of great moments, and I've had a lot of fun with you and all the saplings. I'm really excited to see what Future Fauna has prepared for us this new year. :FaunaZoomYT: Hope you have a great day with a tasty cake for your special day :FaunaLoveRedYT: (let me guess, is it matcha latte flavored? :WideFauna2:)"
 levelName = "Agent Fauna 7"
+levelPreview = ExtResource("1_ov056")
+levelComplete = ExtResource("1_xk8f0")

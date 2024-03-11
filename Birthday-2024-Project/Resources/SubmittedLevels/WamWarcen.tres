@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cmrspgq3v36k6"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://cmrspgq3v36k6"]
 
+[ext_resource type="Texture2D" uid="uid://d3fhksloxea7d" path="res://Art/LevelPreviews/WamwarcenFinished.png" id="1_eufhj"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_lsu27"]
+[ext_resource type="Texture2D" uid="uid://ospswsryvhu3" path="res://Art/LevelPreviews/Wamwarcen.png" id="1_mieft"]
 
 [resource]
 script = ExtResource("1_lsu27")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "WamWarcen"
 message = "KonFauna~ and Happy Birthday Fauna! :FaunaCheerYT: I hope your birthday cake is delicious! Catching your live streams has been tough but always felt special. But now, my schedule is more free, so I don’t have to watch Past Fauna anymore, hahaha! :FaunaLOLYT: (Sorry, I was just joking, Past Fauna. You’ve always been there for us VOD-watchers :FaunaCryYT:) Birthday Fauna, please enjoy this banana-shaped puzzle as I wish you another great year and for more monkey bgm! :FaunaLoveRedYT:"
 levelName = "Is that a bruised banana"
+levelPreview = ExtResource("1_mieft")
+levelComplete = ExtResource("1_eufhj")

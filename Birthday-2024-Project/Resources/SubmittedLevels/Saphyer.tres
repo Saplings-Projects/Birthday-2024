@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://ddl0osmlogcu8"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://ddl0osmlogcu8"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_hi7co"]
+[ext_resource type="Texture2D" uid="uid://cjcu3i170o5ci" path="res://Art/LevelPreviews/Saphyer.png" id="1_q6440"]
+[ext_resource type="Texture2D" uid="uid://cnttkcnjmqqhm" path="res://Art/LevelPreviews/SaphyerFinished.png" id="1_tp64h"]
 
 [resource]
 script = ExtResource("1_hi7co")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":3,\\\"PIECE_SETUP_GRID_P
 author = "Saphyer"
 message = "Happy Birthday Fauna! Hope you have tons of fun today and the years that come! I'll always be happy to be a sapling and part of this amazing forest :FaunaLoveRedYT:Can't wait to keep cheering for you this coming year :FaunaCheerYT: Thanks for inspiring me to always do my best :FaunaHugsSnailYT:"
 levelName = "Faunyas Snails"
+levelPreview = ExtResource("1_q6440")
+levelComplete = ExtResource("1_tp64h")

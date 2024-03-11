@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://3gktuyrn7urq"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://3gktuyrn7urq"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_11m6s"]
+[ext_resource type="Texture2D" uid="uid://ck07v4ynn8kdy" path="res://Art/LevelPreviews/Olerasmussen.png" id="1_ic45v"]
+[ext_resource type="Texture2D" uid="uid://xllddvyyiywd" path="res://Art/LevelPreviews/OlerasmussenFinished.png" id="1_k1vif"]
 
 [resource]
 script = ExtResource("1_11m6s")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_P
 author = "Ole Rasmussen"
 message = "Hi Fauna! First of all, I'm sorry about the level. I didn't mean for it to be so hard. But in a sense, it's an allegory for sapling life. I think one of the reasons we're drawn to you is that we've had it rough, many of us. You make us feel taken care of. Without even talking directly to me, you make me feel like you're there for me. That's the energy you radiate, every time, whether you're full of energy :FaunaZoomYT: or alphapuddle :FaunaDeadYT: Happy birthday, Fauna :FaunaLoveRedYT: You deserve the best day ever :MembersFaunaYayCheer:"
 levelName = "Sorry it's so Hard"
+levelPreview = ExtResource("1_ic45v")
+levelComplete = ExtResource("1_k1vif")

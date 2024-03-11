@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://i613mrkl2wtd"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://i613mrkl2wtd"]
 
+[ext_resource type="Texture2D" uid="uid://dsdq5oopfrbmj" path="res://Art/LevelPreviews/Ceresfan.png" id="1_5f7tg"]
+[ext_resource type="Texture2D" uid="uid://bb1bohsrccnf" path="res://Art/LevelPreviews/CeresfanFinished.png" id="1_pl32b"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_x7ee5"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_
 author = "CeresFan"
 message = "It was around this time last year that I started watching streams again thanks to you, and it made my 2023 incredibly fun. Your content is peak entertainment, the saplings are all very chill, and I even bought what ended up being two of my favorite games of all time thanks to you!Thank you for everything you do for me and all the saplings, you inject a lot of joy and positivity into our lives. I'm looking forward to another year with y'all! :FaunaLoveRedYT: :FaunaCheerYT: Happy birthday Fauna! Hope it's a great one! :FaunaCheerYT:"
 levelName = "This is Fauna7"
+levelPreview = ExtResource("1_5f7tg")
+levelComplete = ExtResource("1_pl32b")

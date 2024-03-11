@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://d4kaf8v0tnjed"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://d4kaf8v0tnjed"]
 
+[ext_resource type="Texture2D" uid="uid://dkvpg70mxxxb2" path="res://Art/LevelPreviews/Darkecofreak.png" id="1_lbx2m"]
+[ext_resource type="Texture2D" uid="uid://baggxbghjwytw" path="res://Art/LevelPreviews/DarkecofreakFinished.png" id="1_m8sb6"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_o5faw"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_
 author = "DarkEcoFreak"
 message = "Happy birthday to the best most amazing Kirin ever :FaunaCheerYT:! Your streams never fail to entertain, whenever you're giggling and having fun I can't help but have a big smile on my face. From comfy block placing in Minecraft to cooking up something like a killer goth outfit we are always in for a treat. I hope you're able to enjoy yourself and eat some delicious bday food, and here's to another great year of fun times :FaunaLoveRedYT:"
 levelName = "Simple Level... Unless"
+levelPreview = ExtResource("1_lbx2m")
+levelComplete = ExtResource("1_m8sb6")

@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bg0mrtja3j8yv"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://bg0mrtja3j8yv"]
 
+[ext_resource type="Texture2D" uid="uid://bcbdt4u58a6un" path="res://Art/LevelPreviews/EldienFinished.png" id="1_4woy1"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_mk34v"]
+[ext_resource type="Texture2D" uid="uid://c01jimk8a6m3q" path="res://Art/LevelPreviews/Eldien.png" id="1_ovg0r"]
 
 [resource]
 script = ExtResource("1_mk34v")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_
 author = "Eldien"
 message = "Happy Birthday Fauna!:FaunaCheerYT: I wish there had been a perfect astronomical event like the opposition of Ceres again this year so I could get a cool space photo for you once more. But if you look back on that now, hopefully it'll make you think of Outer Wilds!:FaunaLOLYT: I've said it many times, but thank you for being who you are. You've inspired me, always make me laugh & fostered a great community. I'll always have your back! HBD & love from us all! :FaunaLoveRedYT: My level is loosely based off the art I drew of you in Okami."
 levelName = "Ryoshima Coast"
+levelPreview = ExtResource("1_ovg0r")
+levelComplete = ExtResource("1_4woy1")

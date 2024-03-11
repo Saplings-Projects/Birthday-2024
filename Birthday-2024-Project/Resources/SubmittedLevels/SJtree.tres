@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bxcb6umxg325w"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://bxcb6umxg325w"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_20k58"]
+[ext_resource type="Texture2D" uid="uid://dpuj6e7teipj0" path="res://Art/LevelPreviews/SjtreeFinished.png" id="1_r1w16"]
+[ext_resource type="Texture2D" uid="uid://b0jqxfoadf4m2" path="res://Art/LevelPreviews/Sjtree.png" id="1_tyiiu"]
 
 [resource]
 script = ExtResource("1_20k58")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "SJtree"
 message = "Oooh my goodness?! :FaunaCloverYT: Hey Green Lady! Is it your birthday again already?! :FaunaCheerYT: What are you like 5 billion now? :FaunaSmugYT:  Out of all those billions of birthdays, I hope we can make this year's one to remember. :FaunaLoveRedYT: To repay a bit of my gratitude for you always cooking up something special for the Saps, I cooked up this level for you! I hope you're hungry! It's kinda like a Fauna sandwich or something...? :FaunaAngelYT:"
 levelName = "Oh My Goodness"
+levelPreview = ExtResource("1_tyiiu")
+levelComplete = ExtResource("1_r1w16")

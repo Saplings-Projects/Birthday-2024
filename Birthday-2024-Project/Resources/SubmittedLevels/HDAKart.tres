@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://dlpm245dkhr4e"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://dlpm245dkhr4e"]
 
+[ext_resource type="Texture2D" uid="uid://d3mno5fqu2s40" path="res://Art/LevelPreviews/HDAKFinished.png" id="1_higmr"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_kefi3"]
+[ext_resource type="Texture2D" uid="uid://c1faif4l8ktar" path="res://Art/LevelPreviews/HDAK.png" id="1_n6g3b"]
 
 [resource]
 script = ExtResource("1_kefi3")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_
 author = "HDAK art"
 message = "Happy birthday, Fauna! I'm happy to be a part of this project designing the UI/UX. Working with the other saplings on the game was fun, and I hope it will be fun for you and for everyone who plays it. I made this level with the 2 pieces that I worked on, hopefully it won't be difficult."
 levelName = "Into The Faunaverse"
+levelPreview = ExtResource("1_n6g3b")
+levelComplete = ExtResource("1_higmr")

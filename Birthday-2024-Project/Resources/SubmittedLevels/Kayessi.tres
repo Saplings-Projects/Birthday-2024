@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://b4hc4a6c2spa6"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://b4hc4a6c2spa6"]
 
+[ext_resource type="Texture2D" uid="uid://ctiyw48ishmbc" path="res://Art/LevelPreviews/KayessiFinished.png" id="1_7u87g"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_foefh"]
+[ext_resource type="Texture2D" uid="uid://dbbi6k0v8vbin" path="res://Art/LevelPreviews/Kayessi.png" id="1_fv1im"]
 
 [resource]
 script = ExtResource("1_foefh")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_
 author = "Kayessi"
 message = "Happy birthday Fauna! Thank you so much for everything! Good luck with my level and I hope you have a wonderful birthday! :FaunaLoveRedYT:"
 levelName = "Matcha"
+levelPreview = ExtResource("1_fv1im")
+levelComplete = ExtResource("1_7u87g")

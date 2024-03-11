@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://cs5f2g007qdbp"]
 
+[ext_resource type="Texture2D" uid="uid://dqp3wri6lvnuh" path="res://Art/LevelPreviews/Acheronta.png" id="1_02ixy"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_4bojn"]
-[ext_resource type="Texture2D" uid="uid://xtx7higf8dtk" path="res://Art/LevelPreviews/AcheBlockLevel.png" id="1_7tutn"]
-[ext_resource type="Texture2D" uid="uid://qelajxlr3071" path="res://Art/LevelPreviews/AcheBlockLevelDone.png" id="1_yjwyv"]
+[ext_resource type="Texture2D" uid="uid://b3u8ad345slb7" path="res://Art/LevelPreviews/AcherontaFinished.png" id="1_lao5w"]
 
 [resource]
 script = ExtResource("1_4bojn")
@@ -11,5 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_
 author = "Acheronta"
 message = "Wow, you're really getting up there in age, huh?"
 levelName = "AcheBlockLevel"
-levelPreview = ExtResource("1_7tutn")
-levelComplete = ExtResource("1_yjwyv")
+levelPreview = ExtResource("1_02ixy")
+levelComplete = ExtResource("1_lao5w")

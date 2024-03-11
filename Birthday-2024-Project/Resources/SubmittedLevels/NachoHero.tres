@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://ciwkgdqw62k84"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://ciwkgdqw62k84"]
 
+[ext_resource type="Texture2D" uid="uid://b8chtbeuehkcu" path="res://Art/LevelPreviews/Nachohero.png" id="1_mkydf"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_q1myb"]
+[ext_resource type="Texture2D" uid="uid://b3pkx8x6k7477" path="res://Art/LevelPreviews/NachoheroFinished.png" id="1_rjtut"]
 
 [resource]
 script = ExtResource("1_q1myb")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_
 author = "NachoHero"
 message = "Happy Birthday Fauna! It's already your third birthday! :0 I still remember watching your debut like it was just yesterday. You've had so many moments that were really funny, cute, and sweet. Your goofiness never fails to make us laugh, your cute & adorable moments that sometimes makes you cringe, and your educational tangents about different kinds of topics. (Your space-related ones are my favorite!) I can say that the times we've spent with you is time well spent! Cheers to more birthdays! "
 levelName = "Sapling"
+levelPreview = ExtResource("1_mkydf")
+levelComplete = ExtResource("1_rjtut")

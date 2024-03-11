@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cagvipu6hy0pq"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://cagvipu6hy0pq"]
 
+[ext_resource type="Texture2D" uid="uid://rqyq44k4rk3r" path="res://Art/LevelPreviews/WandererFinished.png" id="1_nae56"]
+[ext_resource type="Texture2D" uid="uid://cyeeycf3yw6qd" path="res://Art/LevelPreviews/Wanderer.png" id="1_s3yvw"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_u0okp"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_
 author = "Wanderer"
 message = "Happy birthday to our silly Kirin! Thank you for making us appreciate Nature! Good wishes from VOD friends, we may not always be there, but we love you no less!"
 levelName = "Wanderer's Level"
+levelPreview = ExtResource("1_s3yvw")
+levelComplete = ExtResource("1_nae56")

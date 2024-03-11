@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://ceibu7sxclvsm"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://ceibu7sxclvsm"]
 
+[ext_resource type="Texture2D" uid="uid://cuj1rw247fjjq" path="res://Art/LevelPreviews/Vorthein.png" id="1_2mvje"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_k7gxo"]
+[ext_resource type="Texture2D" uid="uid://djmph87pawrm5" path="res://Art/LevelPreviews/VortheinFinished.png" id="1_ndyxy"]
 
 [resource]
 script = ExtResource("1_k7gxo")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":3,\\\"PIECE_SETUP_GRID_P
 author = "Vorthein (Sam)"
 message = "Happy Birthday Fauna!:FaunaCheerYT: It's hard to believe it's already been another year since the last one. You've created such a wonderful community which has encouraged me to be more involved. I've enjoyed getting to talk to so many different saplings. I feel very spoiled as a sapling, you do so much for us so I hope to give some of that back Whatever happens in the future, I'll always be sure to cheer you on. Thank you for everything you do for us Fauna!:FaunaLoveRedYT:(I tried to make the level look sort of like a cat :FaunaLOLYT:)"
 levelName = "Cat"
+levelPreview = ExtResource("1_2mvje")
+levelComplete = ExtResource("1_ndyxy")

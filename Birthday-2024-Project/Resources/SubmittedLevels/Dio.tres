@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://gearf6d5cekv"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://gearf6d5cekv"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_2m7ij"]
+[ext_resource type="Texture2D" uid="uid://s5qn5anojjj1" path="res://Art/LevelPreviews/Dio.png" id="1_ighvf"]
+[ext_resource type="Texture2D" uid="uid://cbks4gh83wbdh" path="res://Art/LevelPreviews/DioFinished.png" id="1_ue5jw"]
 
 [resource]
 script = ExtResource("1_2m7ij")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_P
 author = "Dio"
 message = "Happy Birthday Fauna!!! :FaunaCheerYT:  Thank you for all these great memories :FaunaLoveRedYT: , you were the highlight of my 2023 and will definitely be this year too. I am proud of being a sapling and being part of this GREAT forest. Thank you for being the best Kirin a sapling could ever ask for. :FaunaHugsSnailYT:  Good luck with the Pumpukirin puzzle I've made.Man I Love Fauna."
 levelName = "Pumpukirin level"
+levelPreview = ExtResource("1_ighvf")
+levelComplete = ExtResource("1_ue5jw")

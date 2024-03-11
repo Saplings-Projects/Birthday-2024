@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://b7usm8vqlq13d"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://b7usm8vqlq13d"]
 
+[ext_resource type="Texture2D" uid="uid://7dvd6mwgx126" path="res://Art/LevelPreviews/JasvFinished.png" id="1_6g3nb"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_af50h"]
+[ext_resource type="Texture2D" uid="uid://dnapfu7q31xa2" path="res://Art/LevelPreviews/Jasv.png" id="1_l27iq"]
 
 [resource]
 script = ExtResource("1_af50h")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_P
 author = "Jas V"
 message = "Happy Birthday Fauna! Wishing you all the mac n cheese milkshakes you could want. For most people, that would be zero."
 levelName = "Faunas Organized Neatly"
+levelPreview = ExtResource("1_l27iq")
+levelComplete = ExtResource("1_6g3nb")

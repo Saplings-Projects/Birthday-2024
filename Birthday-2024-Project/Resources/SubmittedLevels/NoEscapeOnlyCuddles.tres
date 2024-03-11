@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://3sdoy0njw7ti"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://3sdoy0njw7ti"]
 
+[ext_resource type="Texture2D" uid="uid://defpxphxbxug6" path="res://Art/LevelPreviews/Noescape.png" id="1_a4qtc"]
+[ext_resource type="Texture2D" uid="uid://5477piwhdild" path="res://Art/LevelPreviews/NoescapeFinished.png" id="1_grrcg"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_hsmj2"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "NoEscapeOnlyCuddles"
 message = "Happy birthday Fauna, hope you're having a wonderful day! Thanks for all that you do and for being such a wealth of joy for the last 3 years, its been a wonderful journey so far and I can't wait to see what the future has in store."
 levelName = "NoEscape's Level"
+levelPreview = ExtResource("1_a4qtc")
+levelComplete = ExtResource("1_grrcg")

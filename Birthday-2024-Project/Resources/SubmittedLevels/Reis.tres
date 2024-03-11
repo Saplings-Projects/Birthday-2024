@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://dhudvic5t4ch"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://dhudvic5t4ch"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_njlkp"]
+[ext_resource type="Texture2D" uid="uid://tlgv3fhow4e0" path="res://Art/LevelPreviews/ReisFinished.png" id="1_nyh7a"]
+[ext_resource type="Texture2D" uid="uid://bxqdyrxi2p1we" path="res://Art/LevelPreviews/Reis.png" id="1_rgdyk"]
 
 [resource]
 script = ExtResource("1_njlkp")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_
 author = "Reis"
 message = "Happy Birthday Fauna! Thank you for always being an awesome Kirin!"
 levelName = "Reis level"
+levelPreview = ExtResource("1_rgdyk")
+levelComplete = ExtResource("1_nyh7a")

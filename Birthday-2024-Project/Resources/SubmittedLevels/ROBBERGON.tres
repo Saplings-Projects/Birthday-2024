@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://mrwd3nmyd2of"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://mrwd3nmyd2of"]
 
+[ext_resource type="Texture2D" uid="uid://bwmwcskukthm5" path="res://Art/LevelPreviews/RobbergonFinished.png" id="1_by7tw"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_raskq"]
+[ext_resource type="Texture2D" uid="uid://ctvlnlybj0fdj" path="res://Art/LevelPreviews/Robbergon.png" id="1_us6yx"]
 
 [resource]
 script = ExtResource("1_raskq")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_P
 author = "ROBBERGON"
 message = "I can't believe our four and a half billion year old Kirin is turning 3! Snuggle Snail and get yourself a nice treat. Any HBD song requests for the Saplings? I know I'm guilty of asking you to do wacky voices for songs, so its only fair."
 levelName = "Llama"
+levelPreview = ExtResource("1_us6yx")
+levelComplete = ExtResource("1_by7tw")

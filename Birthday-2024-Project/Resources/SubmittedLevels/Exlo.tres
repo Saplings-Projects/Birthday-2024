@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://deq50prbhuwj5"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://deq50prbhuwj5"]
 
+[ext_resource type="Texture2D" uid="uid://b5jckdefb3jes" path="res://Art/LevelPreviews/Exlo.png" id="1_3kxt5"]
+[ext_resource type="Texture2D" uid="uid://bx3xpilrbhq3q" path="res://Art/LevelPreviews/ExloFinished.png" id="1_bh1ib"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_qfnpy"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_
 author = "Exlo"
 message = "Konfauna~! Once again we celebrate funny green lady birthday, another year of fun memories both on stream and in the community in general! It seems like forever ago that Council debuted, and at the same time as if it were just the other day. I know that I along with many other saplings are in much better points in our lives thanks to all you've done for us over the years Fauna, so thanks again, and HABUDAHHH :3 :FaunaCheerYT:"
 levelName = "Exlo's Shrine Level"
+levelPreview = ExtResource("1_3kxt5")
+levelComplete = ExtResource("1_bh1ib")
