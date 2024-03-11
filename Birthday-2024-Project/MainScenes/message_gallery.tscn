@@ -1,0 +1,191 @@
+[gd_scene load_steps=15 format=3 uid="uid://cwdsrwiqnn7nh"]
+
+[ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_u6whk"]
+[ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_304n6"]
+[ext_resource type="Script" path="res://Scripts/UI/MessageGallery.gd" id="3_1tm00"]
+[ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="4_wkeg3"]
+[ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="5_l36m2"]
+[ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="6_fsgkj"]
+[ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="7_x7j7o"]
+[ext_resource type="Texture2D" uid="uid://db3rvquwfp1ls" path="res://Art/UI/Arrow_button_normal.png" id="8_fc48a"]
+[ext_resource type="Texture2D" uid="uid://pfq2xiycjshy" path="res://Art/UI/Arrow_button_Hover.png" id="9_42onf"]
+[ext_resource type="Texture2D" uid="uid://cyeqlujr0xudm" path="res://Art/UI/Arrow_button_pressed.png" id="10_mefs4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky78o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kof7u"]
+texture = ExtResource("8_fc48a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r4683"]
+texture = ExtResource("9_42onf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlxyn"]
+texture = ExtResource("10_mefs4")
+
+[node name="GalleryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u6whk")
+
+[node name="Gallery" type="Control" parent="." node_paths=PackedStringArray("myScreen")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_304n6")
+script = ExtResource("3_1tm00")
+myScreen = NodePath("..")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Gallery"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_wkeg3")
+patch_margin_left = 300
+patch_margin_top = 250
+patch_margin_right = 250
+patch_margin_bottom = 250
+
+[node name="Panel" type="Panel" parent="Gallery"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ky78o")
+
+[node name="Back Button" type="Button" parent="Gallery/Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 130.0
+offset_right = 258.0
+offset_bottom = 128.0
+theme = ExtResource("5_l36m2")
+
+[node name="Settings Button" type="Button" parent="Gallery/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = -200.0
+offset_right = -96.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("6_fsgkj")
+
+[node name="Exit Button" type="Button" parent="Gallery/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = -200.0
+offset_right = -26.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme = ExtResource("7_x7j7o")
+
+[node name="Previous Art Button" type="Button" parent="Gallery"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -128.0
+offset_right = -504.0
+offset_bottom = 128.0
+theme = ExtResource("2_304n6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kof7u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r4683")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
+
+[node name="Next Art Button" type="Button" parent="Gallery"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 860.0
+offset_top = -128.0
+offset_right = 1116.0
+offset_bottom = 128.0
+scale = Vector2(-1, 1)
+theme = ExtResource("2_304n6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kof7u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r4683")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
+
+[node name="Text Display" type="Panel" parent="Gallery"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -300.0
+offset_right = 560.0
+offset_bottom = 300.0
+
+[node name="Piece Name" type="Label" parent="Gallery/Text Display"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.045
+anchor_right = 0.5
+anchor_bottom = 0.045
+offset_left = -200.0
+offset_top = 8.0
+offset_right = 200.0
+offset_bottom = 83.0
+text = "Lunar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Piece Description" type="Label" parent="Gallery/Text Display"]
+layout_mode = 1
+offset_left = 45.0
+offset_top = 100.0
+offset_right = 455.0
+offset_bottom = 500.0
+theme = ExtResource("2_304n6")
+theme_override_font_sizes/font_size = 27
+text = "\"Konfauna! I’m Ceres Fauna from Hololive Promise, here to make you return to nature as all humans should.”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Piece Artists" type="Label" parent="Gallery/Text Display"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.947
+anchor_right = 0.5
+anchor_bottom = 0.947
+offset_left = -200.0
+offset_top = -78.2
+offset_right = 200.0
+offset_bottom = -3.20001
+text = "Art by: Lunar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="Gallery/Panel/Back Button" to="Gallery" method="_on_back_button_button_up"]
+[connection signal="button_up" from="Gallery/Panel/Settings Button" to="Gallery" method="_on_settings_button_button_up"]
+[connection signal="button_up" from="Gallery/Panel/Exit Button" to="Gallery" method="_on_exit_button_button_up"]
+[connection signal="button_up" from="Gallery/Previous Art Button" to="Gallery" method="TestTransitionAnimationBack"]
+[connection signal="button_up" from="Gallery/Next Art Button" to="Gallery" method="TestTransitionAnimation"]
