@@ -25,48 +25,44 @@ const SMALL_MESSAGE_SIZE : int = 1
 var _currentPage : int
 var _pageBreakdown : Array[MessagePageHandler]
 
-func TransitionForward():
-	print_debug("animation requested")
-	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.TURN_PAGE, LoadPage, _AnimFinished)
-
-func TransitionBack():
-	print_debug("animation requested")
-	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.BACK_PAGE, LoadPage, _AnimFinished)
-
 func LoadPage():
-	var currentSize = 0
-	pageNumberText.text = str(_currentPage + 1, "/", _pageBreakdown.size())
-	
-	for msgIndex in _pageBreakdown[_currentPage]._messages:
-		var levelSetup : LevelSetup = messageLibrary.Levels[msgIndex]
-		if levelSetup.message.length() < smallMessageThreshold:
-			match currentSize:
-				0:
-					topLeftSmallMsgBox.get_parent()
-					pass
-				1:
-					pass
-				2:
-					pass
-				3:
-					pass
-		else:
-			pass
-		pass
+	#var currentSize = 0
+	#pageNumberText.text = str(_currentPage + 1, "/", _pageBreakdown.size())
+	#
+	#for msgIndex in _pageBreakdown[_currentPage]._messages:
+		#var levelSetup : LevelSetup = messageLibrary.Levels[msgIndex]
+		#if levelSetup.message.length() < smallMessageThreshold:
+			#match currentSize:
+				#0:
+					#topLeftSmallMsgBox.get_parent()
+					#pass
+				#1:
+					#pass
+				#2:
+					#pass
+				#3:
+					#pass
+		#else:
+			#pass
+	pass
 
 func PrevPage():
 	if _currentPage == 0:
 		_currentPage = _pageBreakdown.size() - 1
 	else:
 		_currentPage -= 1
-	TransitionBack()
+	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.BACK_PAGE, LoadPage, _AnimFinished)
 
 func NextPage():
 	if _currentPage + 1 == _pageBreakdown.size():
 		_currentPage = 0
 	else:
 		_currentPage += 1
-	TransitionForward()
+	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.TURN_PAGE, LoadPage, _AnimFinished)
+
+func on_back_clicked():
+	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
+
 
 func _AnimFinished():
 	#print_debug("animation finished call")

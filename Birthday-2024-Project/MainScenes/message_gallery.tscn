@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cwdsrwiqnn7nh"]
+[gd_scene load_steps=16 format=3 uid="uid://cwdsrwiqnn7nh"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_u6whk"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_304n6"]
 [ext_resource type="Script" path="res://Scripts/UI/MessageGallery.gd" id="3_1tm00"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="4_wkeg3"]
+[ext_resource type="Resource" uid="uid://c8fwg7knp7eop" path="res://Resources/MessageLibrary.tres" id="4_xh0q5"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="5_l36m2"]
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="6_fsgkj"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="7_x7j7o"]
@@ -31,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u6whk")
 
-[node name="Gallery" type="Control" parent="." node_paths=PackedStringArray("myScreen")]
+[node name="Gallery" type="Control" parent="." node_paths=PackedStringArray("myScreen", "pageNumberText")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,6 +42,8 @@ grow_vertical = 2
 theme = ExtResource("2_304n6")
 script = ExtResource("3_1tm00")
 myScreen = NodePath("..")
+messageLibrary = ExtResource("4_xh0q5")
+pageNumberText = NodePath("Page")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Gallery"]
 layout_mode = 1
@@ -96,7 +99,7 @@ offset_bottom = 120.0
 grow_horizontal = 0
 theme = ExtResource("7_x7j7o")
 
-[node name="Previous Art Button" type="Button" parent="Gallery"]
+[node name="Previous Button" type="Button" parent="Gallery"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -112,7 +115,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_kof7u")
 theme_override_styles/hover = SubResource("StyleBoxTexture_r4683")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
 
-[node name="Next Art Button" type="Button" parent="Gallery"]
+[node name="Next Button" type="Button" parent="Gallery"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -184,8 +187,35 @@ text = "Art by: Lunar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="button_up" from="Gallery/Panel/Back Button" to="Gallery" method="_on_back_button_button_up"]
-[connection signal="button_up" from="Gallery/Panel/Settings Button" to="Gallery" method="_on_settings_button_button_up"]
-[connection signal="button_up" from="Gallery/Panel/Exit Button" to="Gallery" method="_on_exit_button_button_up"]
-[connection signal="button_up" from="Gallery/Previous Art Button" to="Gallery" method="TestTransitionAnimationBack"]
-[connection signal="button_up" from="Gallery/Next Art Button" to="Gallery" method="TestTransitionAnimation"]
+[node name="Page" type="Label" parent="Gallery"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+offset_bottom = -99.9998
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "1/1"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="Gallery"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 85.0
+offset_bottom = 210.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "MESSAGES"
+horizontal_alignment = 1
+
+[connection signal="button_up" from="Gallery/Panel/Back Button" to="Gallery" method="on_back_clicked"]
+[connection signal="button_up" from="Gallery/Panel/Settings Button" to="." method="ShowSettings"]
+[connection signal="button_up" from="Gallery/Panel/Exit Button" to="." method="ExitApplication"]
+[connection signal="button_up" from="Gallery/Previous Button" to="Gallery" method="PrevPage"]
+[connection signal="button_up" from="Gallery/Next Button" to="Gallery" method="NextPage"]
