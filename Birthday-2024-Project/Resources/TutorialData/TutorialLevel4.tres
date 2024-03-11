@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=2 format=3 uid="uid://bh448bg2xrnxl"]
+[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=3 format=3 uid="uid://bh448bg2xrnxl"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/CampaignTutorialData.gd" id="1_tl8hh"]
+[ext_resource type="PackedScene" uid="uid://b38fclggnxgnu" path="res://ScenePrefabs/Pieces/maid_fauna.tscn" id="1_woxfq"]
 
 [resource]
 script = ExtResource("1_tl8hh")
-title = ""
-body = ""
-displayPieces = Array[PackedScene]([])
+title = "New Fauna"
+body = "Good job so far! I know you might be hungry by now just like Hungry Fauna when she sees the apple. Worry not! Maid Fauna has brought something to eat."
+displayPieces = Array[PackedScene]([ExtResource("1_woxfq")])

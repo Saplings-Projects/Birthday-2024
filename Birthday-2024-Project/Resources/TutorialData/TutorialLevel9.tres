@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=2 format=3 uid="uid://b3mw1gm5844vq"]
+[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=5 format=3 uid="uid://b3mw1gm5844vq"]
 
+[ext_resource type="PackedScene" uid="uid://kehoouuydau5" path="res://ScenePrefabs/Pieces/wide_fauna.tscn" id="1_7pd24"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/CampaignTutorialData.gd" id="1_8vhnj"]
+[ext_resource type="PackedScene" uid="uid://di7ymuk56q8d" path="res://ScenePrefabs/Pieces/mitts_fauna.tscn" id="2_jnedm"]
+[ext_resource type="PackedScene" uid="uid://dw50giad0r2m3" path="res://ScenePrefabs/Pieces/snail.tscn" id="3_hibpk"]
 
 [resource]
 script = ExtResource("1_8vhnj")
-title = ""
-body = ""
-displayPieces = Array[PackedScene]([])
+title = "New Faunas"
+body = "What is wider? Wide Fauna's head or Cape Fauna's horn warmer? Well, it's not that important now. A fine cat gentleman is waiting for your attention"
+displayPieces = Array[PackedScene]([ExtResource("1_7pd24"), ExtResource("2_jnedm"), ExtResource("3_hibpk")])

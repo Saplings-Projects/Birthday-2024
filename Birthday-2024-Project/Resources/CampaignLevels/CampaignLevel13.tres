@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bpvm078rj0xrc"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=3 format=3 uid="uid://bpvm078rj0xrc"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_sjwdw"]
+[ext_resource type="Resource" uid="uid://gq5qcjqaj74" path="res://Resources/TutorialData/TutorialLevel13.tres" id="2_fp5ip"]
 
 [resource]
 script = ExtResource("1_sjwdw")
@@ -9,3 +10,4 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = ""
 message = ""
 levelName = ""
+tutorialData = ExtResource("2_fp5ip")

@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=2 format=3 uid="uid://b06n0hwteyyyv"]
+[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=3 format=3 uid="uid://b06n0hwteyyyv"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/CampaignTutorialData.gd" id="1_3tiub"]
+[ext_resource type="PackedScene" uid="uid://bxi32das560mk" path="res://ScenePrefabs/Pieces/nemu_fauna.tscn" id="1_eljlq"]
 
 [resource]
 script = ExtResource("1_3tiub")
-title = ""
-body = ""
-displayPieces = Array[PackedScene]([])
+title = "New Fauna"
+body = "I hope you are reenergized after the meal. But what's that? Fauna jumped into Nemu onesie and now can't fit into her space! Now all is lost! If only there was a way to rotate her... Maybe if you will try using Right Mouse Button or A and D keys while holding her?"
+displayPieces = Array[PackedScene]([ExtResource("1_eljlq")])

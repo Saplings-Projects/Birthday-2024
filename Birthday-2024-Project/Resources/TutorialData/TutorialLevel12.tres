@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=2 format=3 uid="uid://md0pw4vgcr7a"]
+[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=4 format=3 uid="uid://md0pw4vgcr7a"]
 
+[ext_resource type="PackedScene" uid="uid://d0tvukmuwmhjr" path="res://ScenePrefabs/Pieces/original_fauna.tscn" id="1_bwp1w"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/CampaignTutorialData.gd" id="1_qy57g"]
+[ext_resource type="PackedScene" uid="uid://dgas6i2w16oks" path="res://ScenePrefabs/Pieces/kimono_fauna.tscn" id="2_q6080"]
 
 [resource]
 script = ExtResource("1_qy57g")
-title = ""
-body = ""
-displayPieces = Array[PackedScene]([])
+title = "New Faunas"
+body = "Last but not least, we introduce to you OG Fauna and Fauna in her first ever outfit, New Year's Kimono. It's been already over two years since we first got to see them. Time does fly when you have a great time"
+displayPieces = Array[PackedScene]([ExtResource("1_bwp1w"), ExtResource("2_q6080")])

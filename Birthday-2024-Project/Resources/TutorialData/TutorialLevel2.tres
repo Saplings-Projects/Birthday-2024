@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=2 format=3 uid="uid://du4kubo5a1y3a"]
+[gd_resource type="Resource" script_class="CampaignTutorialData" load_steps=3 format=3 uid="uid://du4kubo5a1y3a"]
 
+[ext_resource type="PackedScene" uid="uid://r4yd455agjgx" path="res://ScenePrefabs/Pieces/faunya.tscn" id="1_4id2o"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/CampaignTutorialData.gd" id="1_8ln64"]
 
 [resource]
 script = ExtResource("1_8ln64")
-title = ""
-body = ""
-displayPieces = Array[PackedScene]([])
+title = "New Fauna"
+body = "Good job! Fauna is now happily tucked into her space :) But there's a lot more of them to come. Now it's time for Casual Faunya to enter the stage."
+displayPieces = Array[PackedScene]([ExtResource("1_4id2o")])
