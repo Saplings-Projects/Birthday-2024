@@ -66,18 +66,13 @@ func _ready():
 		if levelLibrary.Levels.size() > levelIndex:
 			var levelData = levelLibrary.Levels[levelIndex]
 			button.levelData = levelData
-			if isCampaign:
-				if levelIndex > _gm.progression_tracker.GetLastCampaignLevelCompleted() + 1:
-					button.SetupButtonMode(LevelButton.LevelButtonMode.LOCKED, levelIndex)
-				elif levelIndex == _gm.progression_tracker.GetLastCampaignLevelCompleted() + 1:
-					button.SetupButtonMode(LevelButton.LevelButtonMode.INCOMPLETE, levelIndex)
-				else:
-					button.SetupButtonMode(LevelButton.LevelButtonMode.COMPLETE, levelIndex)
+			
+			if isCampaign and levelIndex > _gm.progression_tracker.GetLastCampaignLevelCompleted() + 1:
+				button.SetupButtonMode(LevelButton.LevelButtonMode.LOCKED, levelIndex)
+			elif _gm.progression_tracker.IsLevelCompleted(levelData.resource_path):
+				button.SetupButtonMode(LevelButton.LevelButtonMode.COMPLETE, levelIndex)
 			else:
-				if _gm.progression_tracker.IsLevelCompleted(levelData.levelName):
-					button.SetupButtonMode(LevelButton.LevelButtonMode.COMPLETE, levelIndex)
-				else:
-					button.SetupButtonMode(LevelButton.LevelButtonMode.INCOMPLETE, levelIndex)
+				button.SetupButtonMode(LevelButton.LevelButtonMode.INCOMPLETE, levelIndex)
 		else:
 			button.visible = false
 		levelIndex += 1
