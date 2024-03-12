@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://dl3mppio5oh5o"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://dl3mppio5oh5o"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_c6fhf"]
+[ext_resource type="Texture2D" uid="uid://c841cgvguqkfq" path="res://Art/LevelPreviews/Cory.png" id="1_f2j2w"]
+[ext_resource type="Texture2D" uid="uid://dio20ftuoor1b" path="res://Art/LevelPreviews/CoryFinished.png" id="1_sovbx"]
 
 [resource]
 script = ExtResource("1_c6fhf")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "Cory"
 message = "Hello! Thank you for being you, and for being an important part of what makes Promise so special!"
 levelName = "castle"
+levelPreview = ExtResource("1_f2j2w")
+levelComplete = ExtResource("1_sovbx")

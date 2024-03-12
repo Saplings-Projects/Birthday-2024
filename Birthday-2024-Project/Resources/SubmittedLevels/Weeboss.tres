@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cjuv771fmaded"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://cjuv771fmaded"]
 
+[ext_resource type="Texture2D" uid="uid://co2pr4lh6l4fx" path="res://Art/LevelPreviews/WeebossFinished.png" id="1_6iufe"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_dkf6t"]
+[ext_resource type="Texture2D" uid="uid://xgf6ih7wya5u" path="res://Art/LevelPreviews/Weeboss.png" id="1_dqjab"]
 
 [resource]
 script = ExtResource("1_dkf6t")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_
 author = "Weeboss"
 message = "HBD Fauna, also known as the no.1 gaming kirin in the world.Your streams are always fun to watch or listen to, they’ve brought countless smiles on our faces. Also, your 3d debut was so entertaining, luckily I could watch that in live (usually I could only see past Fauna).Wait it’s almost reaching the word limit noo :FaunaNotLikeThisYT: I still want to talk about the unexpected long wholesome valentine letter in 2022 anyway hope you snail also your loved ones always doing well again HB-"
 levelName = "Missing Fauna Ring as Pacifier"
+levelPreview = ExtResource("1_dqjab")
+levelComplete = ExtResource("1_6iufe")

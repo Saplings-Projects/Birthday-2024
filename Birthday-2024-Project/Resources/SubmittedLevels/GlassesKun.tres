@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://xdmv4a7gyyk"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://xdmv4a7gyyk"]
 
+[ext_resource type="Texture2D" uid="uid://ciqjyqr5rax3k" path="res://Art/LevelPreviews/GlasseskunFinished.png" id="1_2mwoe"]
+[ext_resource type="Texture2D" uid="uid://de5ctuqp0dwco" path="res://Art/LevelPreviews/Glasseskun.png" id="1_4lhlc"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_c6fhf"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "GlassesKun"
 message = "Just like the stairs of Fauna in this level, your comfy vibes have brought us to new heights. Thanks for everything and more, I'm proud of all the stuff you and we Saplings have done for each other over the years. Cheers many and more funny and comfy Fauna moments! =w=7"
 levelName = "Stairs"
+levelPreview = ExtResource("1_4lhlc")
+levelComplete = ExtResource("1_2mwoe")

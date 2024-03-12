@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://56yv87hnoqi7"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://56yv87hnoqi7"]
 
+[ext_resource type="Texture2D" uid="uid://bfwaf4vqwsiiw" path="res://Art/LevelPreviews/EveyFinished.png" id="1_f101r"]
+[ext_resource type="Texture2D" uid="uid://cdl5v2on780g6" path="res://Art/LevelPreviews/Evey.png" id="1_muixo"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_rihul"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "Evey"
 message = "Konfauna and Happy birthday Fauna!! Made a cherry blossom tree theme level and I  hope you enjoy it. Just want to give a big thank you for all that you do and I'm so proud to be supporting such a talented Kirin, lastly thank you for all your streams for always brightening my day along with meeting such amazing saps from the community. "
 levelName = "Cherry Blossom"
+levelPreview = ExtResource("1_muixo")
+levelComplete = ExtResource("1_f101r")

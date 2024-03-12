@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bn34dmbojy2u"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://bn34dmbojy2u"]
 
+[ext_resource type="Texture2D" uid="uid://b5mhdrj8gum0s" path="res://Art/LevelPreviews/Zannmaster.png" id="1_4xd7i"]
+[ext_resource type="Texture2D" uid="uid://blw3g418x7jrm" path="res://Art/LevelPreviews/ZannmasterFinished.png" id="1_ulc51"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_v3533"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_P
 author = "Zannmaster"
 message = "Happy birthday, Fauna! I can't believe it has been 3 years already! From past Fauna to future Fauna, I think present Fauna will always be my favorite. :FaunaLoveRedYT: Thank you for all the smiles, laughs, and inspiration to do better these last 3 year. Have the happiest of birthdays, and here's to many more to come! :FaunaCheerYT: "
 levelName = "Zannmaster apple puzzle"
+levelPreview = ExtResource("1_4xd7i")
+levelComplete = ExtResource("1_ulc51")

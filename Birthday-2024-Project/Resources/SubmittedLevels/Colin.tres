@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://0p0xj8an8m6e"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://0p0xj8an8m6e"]
 
+[ext_resource type="Texture2D" uid="uid://bywgtsasqbia5" path="res://Art/LevelPreviews/ColinFinished.png" id="1_7tsyw"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_52fx3"]
+[ext_resource type="Texture2D" uid="uid://dmml3ammlpdv2" path="res://Art/LevelPreviews/Colin.png" id="1_68sr1"]
 
 [resource]
 script = ExtResource("1_52fx3")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_
 author = "Colin"
 message = "Goobert me"
 levelName = "Goobert"
+levelPreview = ExtResource("1_68sr1")
+levelComplete = ExtResource("1_7tsyw")

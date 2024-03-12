@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cxgb27v4nx3tv"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://cxgb27v4nx3tv"]
 
+[ext_resource type="Texture2D" uid="uid://cs6x7ajgnjpe2" path="res://Art/LevelPreviews/Kaijuranger.png" id="1_keyws"]
+[ext_resource type="Texture2D" uid="uid://2tw4ltk70sfb" path="res://Art/LevelPreviews/KaijurangerFinished.png" id="1_qddgu"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_va3mw"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_
 author = "KaijuRanger"
 message = "Happy Birthday Fauna!!!:FaunaCheerYT:  You've been working really hard as of late, so now it's time to have fun on your special day with us saplings! Watching your streams is always a blast, whether it'd be minecraft, hitman:FaunaBaldYT: , asmr:FaunaComfyYT: , a collab, karaoke, or just chatting. That's the gaming idol kirin we know and love! Always know that we're proud of you for the things you've accomplished and we'll always support you through the good and bad times. Treat yourself, give snail a hug:FaunaHugsSnailYT: , and keep shinning bright!:FaunaLoveRedYT:"
 levelName = "Nemu"
+levelPreview = ExtResource("1_keyws")
+levelComplete = ExtResource("1_qddgu")

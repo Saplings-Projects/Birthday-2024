@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bb5mq111w4rv2"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://bb5mq111w4rv2"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_55m75"]
+[ext_resource type="Texture2D" uid="uid://bolhiqk86ta48" path="res://Art/LevelPreviews/PlagesamaFinished.png" id="1_ahom5"]
+[ext_resource type="Texture2D" uid="uid://dy1qpr2qt4ejg" path="res://Art/LevelPreviews/Plagesama.png" id="1_t4mdn"]
 
 [resource]
 script = ExtResource("1_55m75")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":2,\\\"PIECE_SETUP_GRID_P
 author = "Plagesama"
 message = "Happy Fauna Celebration Day! :FaunaCheerYT: Thanks for all the comfy times and laughs dearest kirin! :FaunaLoveRedYT: Also love that progress on the World Tree continues! Keep at it, all the work you put into such a medium big project will certainly pay off and I know it will look amazing when you finish one day!"
 levelName = "World Tree"
+levelPreview = ExtResource("1_t4mdn")
+levelComplete = ExtResource("1_ahom5")

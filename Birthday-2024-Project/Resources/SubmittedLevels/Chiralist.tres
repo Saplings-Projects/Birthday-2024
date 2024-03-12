@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://v5fjcy2srr7g"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://v5fjcy2srr7g"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_hi24l"]
+[ext_resource type="Texture2D" uid="uid://b0dcjxlesnhts" path="res://Art/LevelPreviews/Chiralist.png" id="1_oylcr"]
+[ext_resource type="Texture2D" uid="uid://djyn0ln4rbhe" path="res://Art/LevelPreviews/ChiralistFinished.png" id="1_p4k18"]
 
 [resource]
 script = ExtResource("1_hi24l")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "Chiralist"
 message = "Happy Birthday, Fauna! I'm very happy to be here and to celebrate your birthday with all the Saplings. You've been a significant influence for my growth as I go through university and as a person. You're my inspiration, my laughter, and my peace. I look forward to many more years with everyone."
 levelName = "fbi files"
+levelPreview = ExtResource("1_oylcr")
+levelComplete = ExtResource("1_p4k18")

@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cp25ty8caqtyn"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://cp25ty8caqtyn"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_asjyn"]
+[ext_resource type="Texture2D" uid="uid://s3r1mjhg33e6" path="res://Art/LevelPreviews/VantablackFinished.png" id="1_qst5d"]
+[ext_resource type="Texture2D" uid="uid://bbib2ymasfbyy" path="res://Art/LevelPreviews/Vantablack.png" id="1_vuvp5"]
 
 [resource]
 script = ExtResource("1_asjyn")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_P
 author = "Vantablack"
 message = "4.54 billion (+3) years and still going strong! Happy Birthday to our beloved (Emo) Keeper of Nature! Your comfiness, sweetness, and silliness never fail to brighten my days, so thank you so much for everything you do, Fauna. Hope you have a wonderful birthday, go treat yourself to something nice, and have Snail be extra snuggled at least for today please, lol. Take care of yourself and stay froggin' awesome!p.s.: Man I love Fauna.p.p.s. (related to this level): idk, it's kinda sus.."
 levelName = "sus"
+levelPreview = ExtResource("1_vuvp5")
+levelComplete = ExtResource("1_qst5d")

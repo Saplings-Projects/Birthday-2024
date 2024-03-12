@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cm5l2vwy3qmup"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://cm5l2vwy3qmup"]
 
+[ext_resource type="Texture2D" uid="uid://cc12j0xk4m2hk" path="res://Art/LevelPreviews/ScrimpfriedriceFinished.png" id="1_3sa3c"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_um67x"]
+[ext_resource type="Texture2D" uid="uid://cunvldh0mmg0s" path="res://Art/LevelPreviews/Scrimpfriedrice.png" id="1_uwjwc"]
 
 [resource]
 script = ExtResource("1_um67x")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":4,\\\"PIECE_SETUP_GRID_P
 author = "ScrimpFriedRice"
 message = "Heya Fauna! Happy Birthday, you're lookin' pretty spry for a 4.54 billion year old lady. :FaunaLOLYT:  3 years with the saps just flew by, thanks for always hanging out with us, 2023 was a stacked year for streams and projects so let's see what 2024 brings (maybe a completed world tree?) :FaunaLoveRedYT:"
 levelName = "Fauned Up Blocks"
+levelPreview = ExtResource("1_uwjwc")
+levelComplete = ExtResource("1_3sa3c")

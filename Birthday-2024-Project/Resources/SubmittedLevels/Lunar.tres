@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://des2i6l5dpdk7"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://des2i6l5dpdk7"]
 
+[ext_resource type="Texture2D" uid="uid://ciffxip1dlbr7" path="res://Art/LevelPreviews/LunarFinished.png" id="1_3xpuj"]
+[ext_resource type="Texture2D" uid="uid://ckc37thxlui46" path="res://Art/LevelPreviews/Lunar.png" id="1_eply3"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_vj2c5"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_
 author = "Lunar"
 message = "Happy Birthday Fauna! :FaunaCheerYT: Wow, it's your 3rd birthday already? Hope you treat yourself to whatever you want today, you deserve it, and hope you have an amazing day! :FaunaLoveRedYT: Here's a birthday cake level I made using the pieces I worked on, hope you enjoy it! I'm glad I got to work together with other saplings to make this game for your Birthday! :FaunaComfyYT: Thanks for all the fun times, always fun watching you and hanging out with the saplings! Looking forward to what future fauna has planned! :FaunaZoomYT:"
 levelName = "Fauna Birthday Cake"
+levelPreview = ExtResource("1_eply3")
+levelComplete = ExtResource("1_3xpuj")

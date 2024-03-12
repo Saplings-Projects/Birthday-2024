@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://gyuxoswfnsj7"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://gyuxoswfnsj7"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_6wbna"]
+[ext_resource type="Texture2D" uid="uid://bo7djlku1vknv" path="res://Art/LevelPreviews/NottherealnorthernlionFinished.png" id="1_60x3c"]
+[ext_resource type="Texture2D" uid="uid://qu1i6ej8c2d1" path="res://Art/LevelPreviews/Nottherealnorthernlion.png" id="1_88b6v"]
 
 [resource]
 script = ExtResource("1_6wbna")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":4,\\\"PIECE_SETUP_GRID_P
 author = "Not The Real Northernlion"
 message = "\"Esports Legend 'Northern',\"The very first sentence that I heard from a seemingly innocent green lady that officially made me into a Sapling and entertained a niche community with the cheeky references and \"original\" jokes for the past 3 years. Keep bringing up the jokes that only 10% of the audience will understand and we'll +2 it anyway. Hoping for a great year again this year, shine on with your bald cap and keep being you, you piece!"
 levelName = "Northern"
+levelPreview = ExtResource("1_88b6v")
+levelComplete = ExtResource("1_60x3c")

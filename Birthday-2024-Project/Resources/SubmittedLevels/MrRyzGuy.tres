@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://dh866o0aim8pk"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://dh866o0aim8pk"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_57ts4"]
+[ext_resource type="Texture2D" uid="uid://bte6opvpvrhxh" path="res://Art/LevelPreviews/Mrryzguy.png" id="1_271xn"]
+[ext_resource type="Texture2D" uid="uid://cmppppmuurvl2" path="res://Art/LevelPreviews/MrryzguyFinished.png" id="1_n72in"]
 
 [resource]
 script = ExtResource("1_57ts4")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_
 author = "MrRyzGuy"
 message = "Happy birthday Fauna! :FaunaLoveRedYT::FaunaLoveRedYT::FaunaLoveRedYT: You were my very first and biggest oshi! I really love coming home after class or work to watch your streams and hear your cute voice! I hope you're able to feel all the appreciation that I and other Saplings have for you on your special day! "
 levelName = "Fauna is cute"
+levelPreview = ExtResource("1_271xn")
+levelComplete = ExtResource("1_n72in")

@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cbohsqatyxa2t"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://cbohsqatyxa2t"]
 
+[ext_resource type="Texture2D" uid="uid://3hbmpotk6kc0" path="res://Art/LevelPreviews/SplintermanFinished.png" id="1_2byc5"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_og6nr"]
+[ext_resource type="Texture2D" uid="uid://cb8pp610aki8p" path="res://Art/LevelPreviews/Splinterman.png" id="1_xotj0"]
 
 [resource]
 script = ExtResource("1_og6nr")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":2,\\\"PIECE_SETUP_GRID_P
 author = "Splinterman"
 message = "My room used to look mostly the same for years, but after collecting your merch, I've noticed it getting a little more lively over here every year. Pre-birthday 2024 has been a little crazy, so here's to a crazy good rest of the year; Happy Birthday Fauna! :FaunaCheerYT: (I don't really know how cat birthdays work, so a Happy Bel-early Birthday to Snail too! :FaunaHugsSnailYT:)I was debating if I should make you an easy or hard puzzle; so here, have a premium one instead."
 levelName = "Premium Difficulty"
+levelPreview = ExtResource("1_xotj0")
+levelComplete = ExtResource("1_2byc5")

@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://sxs32bryu4rs"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://sxs32bryu4rs"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_c6fhf"]
+[ext_resource type="Texture2D" uid="uid://btfchn3h8wom6" path="res://Art/LevelPreviews/NekojashFinished.png" id="1_jqfyy"]
+[ext_resource type="Texture2D" uid="uid://cvln6jur7glfs" path="res://Art/LevelPreviews/Nekojash.png" id="1_quvbp"]
 
 [resource]
 script = ExtResource("1_c6fhf")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "NekoJash"
 message = "Happy birthday Fauna! Enjoy this puzzle in the shape of JASH from OMORI (The character in my profile pic). It has been a fun year to watch you grow and I can't wait for what you get up to in the future! I tried my hand at clipping and have really enjoyed it. I hope to make more clips from your streams soon! I wasn't able to make it to Connect the World last year, but I will do everything I can to see you perform if hololive does another concert in the US! P.S. Give Snail a hug for me!"
 levelName = "NekoJash's level"
+levelPreview = ExtResource("1_quvbp")
+levelComplete = ExtResource("1_jqfyy")

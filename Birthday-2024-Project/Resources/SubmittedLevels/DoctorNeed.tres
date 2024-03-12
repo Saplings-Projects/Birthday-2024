@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://2rf7xmxqewhl"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://2rf7xmxqewhl"]
 
+[ext_resource type="Texture2D" uid="uid://d3fq2dhjvdemc" path="res://Art/LevelPreviews/Doctor.png" id="1_auo32"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_hssnp"]
+[ext_resource type="Texture2D" uid="uid://dh7ios64hkjof" path="res://Art/LevelPreviews/DoctorFinished.png" id="1_uxmw2"]
 
 [resource]
 script = ExtResource("1_hssnp")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_
 author = "Doctor Need"
 message = "Hey Fauna, thank you so much for everything! Your streams are always funny. You've inspired me to pick up a lot of stuff, including a musical instrument. I'm really grateful to be here with you and the saps for what's become the greatest times I've had in Hololive. Happy birthday Fauna and may your days be naturally fulfilled. PS: Thank you so much for introducing many saps to Last Dinosaurs! They're my favorite band now aaa. This is Last Dinosaur's album: In A Million Years."
 levelName = "Last Dinosaurs: In A Million Years"
+levelPreview = ExtResource("1_auo32")
+levelComplete = ExtResource("1_uxmw2")

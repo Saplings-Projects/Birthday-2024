@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://b6qoym2od367k"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://b6qoym2od367k"]
 
+[ext_resource type="Texture2D" uid="uid://bog23c1hsf7j0" path="res://Art/LevelPreviews/Chocolatte.png" id="1_0qe1h"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_88d35"]
+[ext_resource type="Texture2D" uid="uid://jotyxg03kw5l" path="res://Art/LevelPreviews/ChocolatteFinished.png" id="1_g5iny"]
 
 [resource]
 script = ExtResource("1_88d35")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "ChocoLatte"
 message = "HBD Fauna! It's been a year since I've been a Hololive fan, and my time here has been blessed. From convention meetups to PKMN Unite to getting featured on a Christmas collab and drawing my husky, I'm eternally grateful to be a sapling. Your streams have always been super comfy, despite the occasional cursed topics, and I wouldn't have it any other way. :FaunaLOLYT: Thank you for being the genuine, goofy, goth kamioshi who I will forever respect and even follow directions in PKMN Unite! :FaunaLoveRedYT:"
 levelName = "chocolatte"
+levelPreview = ExtResource("1_0qe1h")
+levelComplete = ExtResource("1_g5iny")

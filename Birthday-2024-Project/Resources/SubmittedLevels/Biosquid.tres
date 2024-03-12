@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bq1j1vun0y56b"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://bq1j1vun0y56b"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_1ha7k"]
+[ext_resource type="Texture2D" uid="uid://dmjby1av7p8v0" path="res://Art/LevelPreviews/Biosquid.png" id="1_g0qiy"]
+[ext_resource type="Texture2D" uid="uid://cje4p866ekpo2" path="res://Art/LevelPreviews/BiosquidFinished.png" id="1_ha4nk"]
 
 [resource]
 script = ExtResource("1_1ha7k")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "Biosquid"
 message = "Hello Fauna, Happy 4,543,109,584th Birthday! Thanks for all the hard work you put in with projects, concerts, and even regular streams! I said something similar last year but you allowed me to make so many new friends and actually see them at the first live big concert I’ve ever been to. I haven’t been able to catch many streams recently but I still love to watch you when I can and hope to do so for the foreseeable future! :FaunaLoveRedYT:Also, its always funny to see :FaunaBaldYT: play a game then you a few weeks later :FaunaLOLYT:"
 levelName = "Biosquid FON Submission"
+levelPreview = ExtResource("1_g0qiy")
+levelComplete = ExtResource("1_ha4nk")

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://b8lglpb2ln104"]
 
-[ext_resource type="Texture2D" uid="uid://86kie5b57gqd" path="res://Art/LevelPreviews/fauna_puzzleDone.png" id="1_vmcl8"]
+[ext_resource type="Texture2D" uid="uid://ba0a4h1cwme7k" path="res://Art/LevelPreviews/ArcaneFinished.png" id="1_j3sl2"]
+[ext_resource type="Texture2D" uid="uid://cis8dq5d7im5w" path="res://Art/LevelPreviews/Arcane.png" id="1_pjjus"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_wie7f"]
-[ext_resource type="Texture2D" uid="uid://cvfjtrrcu1p0o" path="res://Art/LevelPreviews/fauna_puzzle.png" id="2_ccovs"]
 
 [resource]
 script = ExtResource("1_wie7f")
@@ -11,5 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_
 author = "Arcane Nrok (Eric)"
 message = "Happy Birthday, Fauna :FaunaCheerYT: ! I don't remember exactly when I became a sapling; it was like falling asleep: slowly and then all at once (a throwback reference for the tumblr girlies :FaunaLOLYT: ). It did involve sleeping; I was hooked by your ASMR videos :FaunaComfyYT:. However, I have since been making time to catch the livestreams (while awake) and am proud to call you my first ever Oshi.You have been fun to watch, but also an inspiration for creative pursuits. Thank you for being our goofy yet elegant Kirin Onee-san :FaunaLoveRedYT:."
 levelName = "fauna puzzle"
-levelPreview = ExtResource("2_ccovs")
-levelComplete = ExtResource("1_vmcl8")
+levelPreview = ExtResource("1_pjjus")
+levelComplete = ExtResource("1_j3sl2")

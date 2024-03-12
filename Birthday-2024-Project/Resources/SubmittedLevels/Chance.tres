@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://umsg4fxsqltt"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://umsg4fxsqltt"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_bcxs4"]
+[ext_resource type="Texture2D" uid="uid://urs3ukp3ya2a" path="res://Art/LevelPreviews/ChanceFinished.png" id="1_t8iub"]
+[ext_resource type="Texture2D" uid="uid://dr1jf3ymdm67j" path="res://Art/LevelPreviews/Chance.png" id="1_wivin"]
 
 [resource]
 script = ExtResource("1_bcxs4")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_
 author = "Chance"
 message = "Happy Birthday Fauna!!!:FaunaCheerYT: Time always flew by too fast! (Seriously, slow down Kronii, nobody is chasing you! Jeez! :FaunaLOLYT: ) It's Kirin's birthday time again!! I've also been a fellow sapling for almost a year now! Thanks for bringing so many wonderful streams for saplings! Hope we can have even more fun time together this year !!!:FaunaLoveRedYT: :FaunaLoveRedYT: :FaunaLoveRedYT:"
 levelName = "SMOL"
+levelPreview = ExtResource("1_wivin")
+levelComplete = ExtResource("1_t8iub")

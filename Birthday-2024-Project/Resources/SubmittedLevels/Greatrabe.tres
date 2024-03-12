@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://c4pbsqwmye8e3"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://c4pbsqwmye8e3"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_cq7f0"]
+[ext_resource type="Texture2D" uid="uid://5i4gfvuphwk5" path="res://Art/LevelPreviews/Greatrabe.png" id="1_l0oxu"]
+[ext_resource type="Texture2D" uid="uid://dqu4rojchgp1d" path="res://Art/LevelPreviews/GreatrabeFinished.png" id="1_qlwu5"]
 
 [resource]
 script = ExtResource("1_cq7f0")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":4,\\\"PIECE_SETUP_GRID_P
 author = "Greatrabe"
 message = "Happy Birthday Fauna! Thanks for the year of fun streams, I'm looking forward to spending many more with :FaunaUUUYTGreen: :FaunaUUUYTPink: :FaunaUUUYTGreen: !"
 levelName = "U-full-of-Fauna"
+levelPreview = ExtResource("1_l0oxu")
+levelComplete = ExtResource("1_qlwu5")

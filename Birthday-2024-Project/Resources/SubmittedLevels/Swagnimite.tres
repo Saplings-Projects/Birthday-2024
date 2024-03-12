@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bfo318ocymc8f"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://bfo318ocymc8f"]
 
+[ext_resource type="Texture2D" uid="uid://rjg7ht6f1en4" path="res://Art/LevelPreviews/Swagnimite.png" id="1_bef45"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_dupwv"]
+[ext_resource type="Texture2D" uid="uid://dl6olltv3h6gm" path="res://Art/LevelPreviews/SwagnimiteFinished.png" id="1_ruqqn"]
 
 [resource]
 script = ExtResource("1_dupwv")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_P
 author = "Swagnimite"
 message = "Happy Birthday Fauna! It’s been so much fun to follow you for these past few years and I can’t wait for more years to come! You’ve helped me get through a lot of hard times, and your streams really let me forget about life for a while and just watch a silly green streamer. Truly, thank you so much! :FaunaHugsSnailYT:"
 levelName = "Heart to you level"
+levelPreview = ExtResource("1_bef45")
+levelComplete = ExtResource("1_ruqqn")

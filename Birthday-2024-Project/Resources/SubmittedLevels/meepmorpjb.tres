@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://dfiyjqkf5m0my"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://dfiyjqkf5m0my"]
 
+[ext_resource type="Texture2D" uid="uid://bve8uda3lvrb1" path="res://Art/LevelPreviews/MeepmorpjbFinished.png" id="1_lh6xj"]
+[ext_resource type="Texture2D" uid="uid://dm7sdr7kyuvfx" path="res://Art/LevelPreviews/Meepmorpjb.png" id="1_torw0"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_u30i2"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":3,\\\"PIECE_SETUP_GRID_P
 author = "meepmorpjb (mpmrpjb)"
 message = "Yaho~ Dude- can't believe it's your 3rd birthday already xD You may always kid about being crusty and dusty and old but to us, you'll always be the beautiful onee-san (funny cute plant kirin lady) who keeps us in her basement- we're in there voluntarily, we swear! xD I've been late to the party but I'm glad to be able to experience your gift of making everyone feel warm and welcome as they are :FaunaLoveRedYT:  (minus Grimace, I suppose xD)"
 levelName = "Dokidoki"
+levelPreview = ExtResource("1_torw0")
+levelComplete = ExtResource("1_lh6xj")

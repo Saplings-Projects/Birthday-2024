@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cuw3qm07qkmnj"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://cuw3qm07qkmnj"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_gag78"]
+[ext_resource type="Texture2D" uid="uid://bx6lkebt4qqs6" path="res://Art/LevelPreviews/JavastrikeFinished.png" id="1_mn6uf"]
+[ext_resource type="Texture2D" uid="uid://dtwnqp0pvg78n" path="res://Art/LevelPreviews/Javastrike.png" id="1_pt5o5"]
 
 [resource]
 script = ExtResource("1_gag78")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_
 author = "JavaStrike"
 message = "Hello Hello! Happy Birthday Fauna! Cheers to the best kind nerdy gaming Kirin around :FaunaWaveYT:~!"
 levelName = "Nice Day"
+levelPreview = ExtResource("1_pt5o5")
+levelComplete = ExtResource("1_mn6uf")

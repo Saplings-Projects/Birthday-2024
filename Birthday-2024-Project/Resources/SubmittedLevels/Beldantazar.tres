@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://dmh7scs86ghmj"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://dmh7scs86ghmj"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_17dl6"]
+[ext_resource type="Texture2D" uid="uid://3yuximpl7vih" path="res://Art/LevelPreviews/BeldantazarFinished.png" id="1_a7cfc"]
+[ext_resource type="Texture2D" uid="uid://lj4uliujkh8" path="res://Art/LevelPreviews/Beldantazar.png" id="1_kxa1b"]
 
 [resource]
 script = ExtResource("1_17dl6")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_P
 author = "Beldantazar"
 message = "Happy Birthday to the greenest Kirin oshi :FaunaLoveRedYT: I hope this puzzle manages to convey how much you have fit into our hearts over the years."
 levelName = "matchaless-kirin"
+levelPreview = ExtResource("1_kxa1b")
+levelComplete = ExtResource("1_a7cfc")
