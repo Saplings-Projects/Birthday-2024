@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjih77cmvq7fm"]
+[gd_scene load_steps=9 format=3 uid="uid://ccdq0btysgv1m"]
 
 [ext_resource type="Script" path="res://Scripts/PieceLogic.gd" id="1_pb07g"]
 [ext_resource type="Resource" uid="uid://cmj62i48fgfhq" path="res://Resources/Audio/Samples/SfxRotateSamples.tres" id="2_jtldj"]

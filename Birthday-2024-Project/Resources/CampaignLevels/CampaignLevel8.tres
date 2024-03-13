@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=3 format=3 uid="uid://cvlm5htl0jgkf"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=5 format=3 uid="uid://cvlm5htl0jgkf"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_gxnpt"]
+[ext_resource type="Texture2D" uid="uid://cx4qtp5plvyyy" path="res://Art/Emotes/comfy.png" id="1_wp1th"]
 [ext_resource type="Resource" uid="uid://dp6i2782nx6bj" path="res://Resources/TutorialData/TutorialLevel8.tres" id="2_1isu8"]
+[ext_resource type="Texture2D" uid="uid://4gj42xmp2266" path="res://Art/Emotes/angry.png" id="2_xxqx5"]
 
 [resource]
 script = ExtResource("1_gxnpt")
@@ -10,4 +12,6 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":2,\\\"PIECE_SETUP_GRID_P
 author = ""
 message = ""
 levelName = ""
+levelPreview = ExtResource("2_xxqx5")
+levelComplete = ExtResource("1_wp1th")
 tutorialData = ExtResource("2_1isu8")
