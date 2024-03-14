@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwdsrwiqnn7nh"]
+[gd_scene load_steps=18 format=3 uid="uid://cwdsrwiqnn7nh"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_u6whk"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_304n6"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://db3rvquwfp1ls" path="res://Art/UI/Arrow_button_normal.png" id="8_fc48a"]
 [ext_resource type="Texture2D" uid="uid://pfq2xiycjshy" path="res://Art/UI/Arrow_button_Hover.png" id="9_42onf"]
 [ext_resource type="Texture2D" uid="uid://cyeqlujr0xudm" path="res://Art/UI/Arrow_button_pressed.png" id="10_mefs4"]
+[ext_resource type="Theme" uid="uid://brhrooxlo0rxq" path="res://Art/UI/Themes/HandwrittenLabel.tres" id="12_jyjja"]
+[ext_resource type="Script" path="res://Scripts/UI/MessageEmoteSwapper.gd" id="13_khktn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky78o"]
 
@@ -32,7 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u6whk")
 
-[node name="Gallery" type="Control" parent="." node_paths=PackedStringArray("myScreen", "pageNumberText")]
+[node name="Gallery" type="Control" parent="." node_paths=PackedStringArray("myScreen", "pageNumberText", "topLeftSmallMsgBox", "topLeftAuthorText", "bottomLeftSmallMsgBox", "bottomLeftAuthorText", "leftBigMsgBox", "leftAuthorText", "topRightSmallMsgBox", "topRightAuthorText", "bottomRightSmallMsgBox", "bottomRightAuthorText", "rightBigMsgBox", "rightAuthorText")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,9 +43,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_304n6")
 script = ExtResource("3_1tm00")
+smallMessageThreshold = 225
 myScreen = NodePath("..")
 messageLibrary = ExtResource("4_xh0q5")
 pageNumberText = NodePath("Page")
+topLeftSmallMsgBox = NodePath("TopLeftMessageBox/Message")
+topLeftAuthorText = NodePath("TopLeftMessageBox/Author")
+bottomLeftSmallMsgBox = NodePath("BottomLeftMessageBox/Message")
+bottomLeftAuthorText = NodePath("BottomLeftMessageBox/Author")
+leftBigMsgBox = NodePath("LeftMessageBox/Message")
+leftAuthorText = NodePath("LeftMessageBox/Author")
+topRightSmallMsgBox = NodePath("TopRightLeftMessageBox/Message")
+topRightAuthorText = NodePath("TopRightLeftMessageBox/Author")
+bottomRightSmallMsgBox = NodePath("BottomRightMessageBox/Message")
+bottomRightAuthorText = NodePath("BottomRightMessageBox/Author")
+rightBigMsgBox = NodePath("RightMessageBox/Message")
+rightAuthorText = NodePath("RightMessageBox/Author")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Gallery"]
 layout_mode = 1
@@ -122,9 +137,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 860.0
+offset_left = 839.0
 offset_top = -128.0
-offset_right = 1116.0
+offset_right = 1095.0
 offset_bottom = 128.0
 scale = Vector2(-1, 1)
 theme = ExtResource("2_304n6")
@@ -132,47 +147,77 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_kof7u")
 theme_override_styles/hover = SubResource("StyleBoxTexture_r4683")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
 
-[node name="Text Display" type="Panel" parent="Gallery"]
+[node name="LeftMessageBox" type="Panel" parent="Gallery"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 60.0
-offset_top = -300.0
-offset_right = 560.0
-offset_bottom = 300.0
+offset_left = -481.0
+offset_top = -320.0
+offset_right = 19.0
+offset_bottom = 320.0
 
-[node name="Piece Name" type="Label" parent="Gallery/Text Display"]
+[node name="Message" type="RichTextLabel" parent="Gallery/LeftMessageBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 50.0
+offset_right = -45.0
+offset_bottom = -100.0
+theme = ExtResource("12_jyjja")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam ultrices sagittis orci a scelerisque purus semper. Maecenas pharetra convallis posuere morbi. Libero justo laoreet sit amet cursus. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Vitae elementum curabitur vitae nunc. Elementum integer enim neque volutpat ac tincidunt vitae."
+script = ExtResource("13_khktn")
+
+[node name="Author" type="Label" parent="Gallery/LeftMessageBox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.045
+anchor_top = 0.947
 anchor_right = 0.5
-anchor_bottom = 0.045
+anchor_bottom = 0.947
 offset_left = -200.0
-offset_top = 8.0
+offset_top = -62.08
 offset_right = 200.0
-offset_bottom = 83.0
-text = "Lunar"
-horizontal_alignment = 1
+offset_bottom = 12.92
+theme = ExtResource("12_jyjja")
+text = "-Lunar"
+horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Piece Description" type="Label" parent="Gallery/Text Display"]
+[node name="TopLeftMessageBox" type="Panel" parent="Gallery"]
 layout_mode = 1
-offset_left = 45.0
-offset_top = 100.0
-offset_right = 455.0
-offset_bottom = 500.0
-theme = ExtResource("2_304n6")
-theme_override_font_sizes/font_size = 27
-text = "\"Konfauna! I’m Ceres Fauna from Hololive Promise, here to make you return to nature as all humans should.”"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -481.0
+offset_top = -320.0
+offset_right = 19.0
+offset_bottom = 1.0
 
-[node name="Piece Artists" type="Label" parent="Gallery/Text Display"]
+[node name="Message" type="RichTextLabel" parent="Gallery/TopLeftMessageBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 50.0
+offset_right = -45.0
+offset_bottom = -71.0
+theme = ExtResource("12_jyjja")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam ultrices sagittis orci a scelerisque "
+scroll_active = false
+script = ExtResource("13_khktn")
+
+[node name="Author" type="Label" parent="Gallery/TopLeftMessageBox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -183,8 +228,181 @@ offset_left = -200.0
 offset_top = -78.2
 offset_right = 200.0
 offset_bottom = -3.20001
-text = "Art by: Lunar"
-horizontal_alignment = 1
+theme = ExtResource("12_jyjja")
+text = "-Lunar"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BottomLeftMessageBox" type="Panel" parent="Gallery"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -481.0
+offset_top = -1.0
+offset_right = 19.0
+offset_bottom = 320.0
+
+[node name="Message" type="RichTextLabel" parent="Gallery/BottomLeftMessageBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 50.0
+offset_right = -45.0
+offset_bottom = -71.0
+theme = ExtResource("12_jyjja")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam ultrices sagittis orci a scelerisque purus semper. Maecenas pharetra"
+scroll_active = false
+script = ExtResource("13_khktn")
+
+[node name="Author" type="Label" parent="Gallery/BottomLeftMessageBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.947
+anchor_right = 0.5
+anchor_bottom = 0.947
+offset_left = -200.0
+offset_top = -78.2
+offset_right = 200.0
+offset_bottom = -3.20001
+theme = ExtResource("12_jyjja")
+text = "-Lunar"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RightMessageBox" type="Panel" parent="Gallery"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -320.0
+offset_right = 560.0
+offset_bottom = 320.0
+
+[node name="Message" type="RichTextLabel" parent="Gallery/RightMessageBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 50.0
+offset_right = -45.0
+offset_bottom = -100.0
+theme = ExtResource("12_jyjja")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam ultrices sagittis orci a scelerisque purus semper. Maecenas pharetra convallis posuere morbi. Libero justo laoreet sit amet cursus. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Vitae elementum curabitur vitae nunc. Elementum integer enim neque volutpat ac tincidunt vitae."
+script = ExtResource("13_khktn")
+
+[node name="Author" type="Label" parent="Gallery/RightMessageBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.947
+anchor_right = 0.5
+anchor_bottom = 0.947
+offset_left = -200.0
+offset_top = -63.08
+offset_right = 200.0
+offset_bottom = 11.92
+theme = ExtResource("12_jyjja")
+text = "-Lunar"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TopRightLeftMessageBox" type="Panel" parent="Gallery"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -320.0
+offset_right = 560.0
+offset_bottom = 1.0
+
+[node name="Message" type="RichTextLabel" parent="Gallery/TopRightLeftMessageBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 50.0
+offset_right = -45.0
+offset_bottom = -71.0
+theme = ExtResource("12_jyjja")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam ultrices sagittis orci a scelerisque purus semper. Maecenas pharetra convallis posuere morbi. Libero justo laoreet sit amet cursus. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras."
+scroll_active = false
+script = ExtResource("13_khktn")
+
+[node name="Author" type="Label" parent="Gallery/TopRightLeftMessageBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.947
+anchor_right = 0.5
+anchor_bottom = 0.947
+offset_left = -200.0
+offset_top = -78.2
+offset_right = 200.0
+offset_bottom = -3.20001
+theme = ExtResource("12_jyjja")
+text = "-Lunar"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BottomRightMessageBox" type="Panel" parent="Gallery"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -1.0
+offset_right = 560.0
+offset_bottom = 320.0
+
+[node name="Message" type="RichTextLabel" parent="Gallery/BottomRightMessageBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 50.0
+offset_right = -45.0
+offset_bottom = -71.0
+theme = ExtResource("12_jyjja")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam ultrices sagittis orci a scelerisque purus semper. Maecenas pharetra convallis posuere morbi. Libero justo laoreet sit amet cursus. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Vitae elementum curabitur vitae nunc. Elementum integer enim neque volutpat ac tincidunt vitae."
+scroll_active = false
+script = ExtResource("13_khktn")
+
+[node name="Author" type="Label" parent="Gallery/BottomRightMessageBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.947
+anchor_right = 0.5
+anchor_bottom = 0.947
+offset_left = -200.0
+offset_top = -78.2
+offset_right = 200.0
+offset_bottom = -3.20001
+theme = ExtResource("12_jyjja")
+text = "-Lunar"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Page" type="Label" parent="Gallery"]
@@ -193,7 +411,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 40.0
 offset_top = -225.0
+offset_right = 40.0
 offset_bottom = -99.9998
 grow_horizontal = 2
 grow_vertical = 0
@@ -206,12 +426,14 @@ horizontal_alignment = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = 40.0
 offset_top = 85.0
+offset_right = 40.0
 offset_bottom = 210.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
-text = "MESSAGES"
+text = "SAPLING MESSAGES"
 horizontal_alignment = 1
 
 [connection signal="button_up" from="Gallery/Panel/Back Button" to="Gallery" method="on_back_clicked"]

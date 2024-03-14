@@ -8,9 +8,12 @@ var _tokenToImageDict : TokenToImageDict
 
 func _ready():
 	_tokenToImageDict = load("res://Resources/TokenEmoteDictionary.tres")
-	text = SwapTokens(text)
+	SwapTokens()
 
-func SwapTokens(message : String) -> String:
+func SwapTokens():
+	text = _SwapTokens(text)
+
+func _SwapTokens(message : String) -> String:
 	for pair in _tokenToImageDict.tokenData:
 		message = message.replace(pair.token, IMG_PREFIX + pair.image.resource_path + IMG_SUFFIX)
 	return message
