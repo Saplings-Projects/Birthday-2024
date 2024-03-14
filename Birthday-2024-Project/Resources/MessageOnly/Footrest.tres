@@ -7,5 +7,5 @@ script = ExtResource("1_xam6d")
 levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
 jsonData = ""
 author = "Footrest"
-message = "I’ve been watching Hololive for over 3 years, but I’ve only really discovered you last year. After watching your Hitman endurance I finally became a Sapling. Happy birthday Fauna and here’s to the bloody suit. Fauna Sweep! :FaunaLoveRedYT: :FaunaSlapYTL: :FaunaSlapYTR: :FaunaWaveYT: :FaunaBaldYT:"
+message = "I’ve been watching Hololive for over 3 years, but I’ve only really discovered you last year. After watching your Hitman endurance I finally became a Sapling. Happy birthday Fauna and here’s to the bloody suit. Fauna Sweep! :FaunaLoveRedYT: :FaunaSlapYTL: :FaunaSlapYTL: :FaunaWaveYT: :FaunaBaldYT:"
 levelName = ""
