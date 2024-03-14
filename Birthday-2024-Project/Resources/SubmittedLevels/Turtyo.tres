@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cwwvdlqy245k1"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://cwwvdlqy245k1"]
 
+[ext_resource type="Texture2D" uid="uid://bg7gbgm1fcywt" path="res://Art/LevelPreviews/TurtyoFinished.png" id="1_4whsm"]
+[ext_resource type="Texture2D" uid="uid://ylfv84uji4rn" path="res://Art/LevelPreviews/Turtyo.png" id="1_haq1m"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_omju0"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_
 author = "Turtyo"
 message = "Happy 4.54 × 10^9  ± 1% th birthday Fauna ! I hope you got a nice start of the year. Yes, you could be reading that in December, that still applies though :FaunaLOLYT: I love watching the streams, but I like how it's possible to just listen when doing something else, because you are very expressive and make lots of cute noises alsoTake care of yourself :FaunaLoveRedYT: "
 levelName = "Jumbled up Faunas"
+levelPreview = ExtResource("1_haq1m")
+levelComplete = ExtResource("1_4whsm")

@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://12qa0qvepdtt"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://12qa0qvepdtt"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_2jaq0"]
+[ext_resource type="Texture2D" uid="uid://cbs4x4bhdhe2x" path="res://Art/LevelPreviews/RrmanFinished.png" id="1_87h2e"]
+[ext_resource type="Texture2D" uid="uid://c4x55a2f378to" path="res://Art/LevelPreviews/Rrman.png" id="1_efc73"]
 
 [resource]
 script = ExtResource("1_2jaq0")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_
 author = "Rrman"
 message = "Happy Birthday Fauna! :FaunaCheerYT: Thank you for always putting a smile on my face. :FaunaLoveRedYT: Here's to another year of good times. :FaunaComfyYT:"
 levelName = "Heart"
+levelPreview = ExtResource("1_efc73")
+levelComplete = ExtResource("1_87h2e")

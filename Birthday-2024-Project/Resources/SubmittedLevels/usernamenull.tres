@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://mhirfn8gjvnk"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://mhirfn8gjvnk"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_cvkt5"]
+[ext_resource type="Texture2D" uid="uid://bfk615560smd2" path="res://Art/LevelPreviews/Usernamenull.png" id="1_ovyq8"]
+[ext_resource type="Texture2D" uid="uid://ci8ts2s6kmrad" path="res://Art/LevelPreviews/UsernamenullFinished.png" id="1_xvrtg"]
 
 [resource]
 script = ExtResource("1_cvkt5")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_P
 author = "usernamenull"
 message = "There must be some time dilation at play, because 4.543B(+3) years hardly Feels like it, Happy Birthday :FaunaCheerYT::FaunaZoomYT:  Excited for a year of hot takes :FaunaAngryYT:  and long tangents :FaunaComfyYT:. Here's a little puzzler just for you :FaunaLoveRedYT:."
 levelName = "Simple Flower"
+levelPreview = ExtResource("1_ovyq8")
+levelComplete = ExtResource("1_xvrtg")

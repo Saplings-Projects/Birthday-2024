@@ -16,11 +16,10 @@ func _reset_puzzle():
 func enter_state():
 	print("Entering Game Win State")
 	manager._can_interact = false
+	manager._gm.progression_tracker.MarkLevelCompleted(manager._levelData.resource_path)
 	if manager.myScreen.transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY]:
 		var thisLevelIndex : int = manager.myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
 		manager._gm.progression_tracker.SetLatestCampaignLevelCompleted(thisLevelIndex)
-	else:
-		manager._gm.progression_tracker.MarkLevelCompleted(manager._levelData.levelName)
 
 
 func exit_state():

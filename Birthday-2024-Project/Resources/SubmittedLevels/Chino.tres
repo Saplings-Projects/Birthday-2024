@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://di3t1bktrh71x"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://di3t1bktrh71x"]
 
+[ext_resource type="Texture2D" uid="uid://c14pbllbgtyv3" path="res://Art/LevelPreviews/Chino.png" id="1_dxxus"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_fy3mc"]
+[ext_resource type="Texture2D" uid="uid://d6qe3vc8l4n2" path="res://Art/LevelPreviews/ChinoFinished.png" id="1_p78wq"]
 
 [resource]
 script = ExtResource("1_fy3mc")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-5,\\\"PIECE_SETUP_GRID_
 author = "Chino"
 message = "Happy 3rd Birthday Fauna!  Thank you for continuing to be a part of my motivation to become a better version of myself and for being a cute and goofy kirin.  Hope you have a dang good birthday and many more! :FaunaLoveRedYT:"
 levelName = "A Dumbbell"
+levelPreview = ExtResource("1_dxxus")
+levelComplete = ExtResource("1_p78wq")

@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://ckc33cpeo2yvj"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://ckc33cpeo2yvj"]
 
+[ext_resource type="Texture2D" uid="uid://cjhdgtvopekwl" path="res://Art/LevelPreviews/RyuuyaFinished.png" id="1_rbe7r"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_w0xb7"]
+[ext_resource type="Texture2D" uid="uid://kp106ersujla" path="res://Art/LevelPreviews/Ryuuya.png" id="1_xodli"]
 
 [resource]
 script = ExtResource("1_w0xb7")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_
 author = "Ryuuya"
 message = "Happy Birthday Fauna! It's the third time celebrating your birthday together with us! May all your wishes come true and goals be achieved, I'll definitely be there to celebrate it with the wonderful Saplings. Let's have more great times together! Snuggle Snail!"
 levelName = "SnailsWrenches"
+levelPreview = ExtResource("1_xodli")
+levelComplete = ExtResource("1_rbe7r")

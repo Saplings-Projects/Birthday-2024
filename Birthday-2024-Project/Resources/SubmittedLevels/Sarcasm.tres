@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://ci0lkd5ph0ged"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://ci0lkd5ph0ged"]
 
+[ext_resource type="Texture2D" uid="uid://xftrvoeerpv1" path="res://Art/LevelPreviews/SarcasmFinished.png" id="1_hnjhv"]
+[ext_resource type="Texture2D" uid="uid://b3uoxxcirg7mt" path="res://Art/LevelPreviews/Sarcasm.png" id="1_pkbf2"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_rnd3p"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_
 author = "Sarcasm"
 message = "Thank you for the countless hours of joy, you always manage to cheer up a day. Came for the comfy, stayed for the brilliant humor. 🙂Here's a levelbert I put some thought into, I hope the gray pieces give enough clues to make it nice to deduct what goes where :3Happy Birthday! Sincerely, a Sapling from Finland."
 levelName = "JustLikeSpore"
+levelPreview = ExtResource("1_pkbf2")
+levelComplete = ExtResource("1_hnjhv")

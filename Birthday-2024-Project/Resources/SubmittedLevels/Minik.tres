@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://crjspe47yeyig"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://crjspe47yeyig"]
 
+[ext_resource type="Texture2D" uid="uid://d31f0m4fdskcq" path="res://Art/LevelPreviews/MinikFinished.png" id="1_gpxvk"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_kqjvp"]
+[ext_resource type="Texture2D" uid="uid://dm4isgo6nkdd7" path="res://Art/LevelPreviews/Minik.png" id="1_r445x"]
 
 [resource]
 script = ExtResource("1_kqjvp")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_
 author = "Minik"
 message = "This past year has been fun! All the events, collabs, and streams have been a blast! I have never been more happy to be a sapling, and it's all thanks to you! No matter what you do in the future, I will always be supporting you from your beautiful forest! As my gift to you, I have created a mecha fauna that will defend your world tree from all the dangerous mobs that may invade! Be sure to use wisely, it may have a fast reaction time...heh. Hope you enjoy, and have a wonderful birthday! <3"
 levelName = "Mecha Fauna"
+levelPreview = ExtResource("1_r445x")
+levelComplete = ExtResource("1_gpxvk")

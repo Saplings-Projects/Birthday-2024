@@ -60,7 +60,7 @@
 [ext_resource type="Resource" uid="uid://dlgivpymprc8r" path="res://Resources/SubmittedLevels/Ryussei.tres" id="45_cphyh"]
 [ext_resource type="Resource" uid="uid://ckc33cpeo2yvj" path="res://Resources/SubmittedLevels/Ryuuya.tres" id="46_fh8tj"]
 [ext_resource type="Resource" uid="uid://ddl0osmlogcu8" path="res://Resources/SubmittedLevels/Saphyer.tres" id="47_cdooo"]
-[ext_resource type="Resource" uid="uid://chqihbpwokdd1" path="res://Resources/SubmittedLevels/MooGoo.tres" id="48_dcdi8"]
+[ext_resource type="Resource" uid="uid://chqihbpwokdd1" path="res://Resources/SubmittedLevels/Moogoo.tres" id="48_dcdi8"]
 [ext_resource type="Resource" uid="uid://ci0lkd5ph0ged" path="res://Resources/SubmittedLevels/Sarcasm.tres" id="48_i1ku1"]
 [ext_resource type="Resource" uid="uid://c2jlnjag1mr6p" path="res://Resources/SubmittedLevels/Sevens.tres" id="49_ybbtc"]
 [ext_resource type="Resource" uid="uid://d1eng72jxh1qi" path="res://Resources/SubmittedLevels/Solace.tres" id="50_8l4fo"]
@@ -84,7 +84,7 @@
 [ext_resource type="Resource" uid="uid://mhirfn8gjvnk" path="res://Resources/SubmittedLevels/usernamenull.tres" id="77_u1ppy"]
 [ext_resource type="Resource" uid="uid://cp25ty8caqtyn" path="res://Resources/SubmittedLevels/Vantablack.tres" id="78_o0l0q"]
 [ext_resource type="Resource" uid="uid://ceibu7sxclvsm" path="res://Resources/SubmittedLevels/Vorthein.tres" id="79_vwu4f"]
-[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/SubmittedLevels/Wanderer.tres" id="81_6eltc"]
+[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/SubmittedLevels/wanderer.tres" id="81_6eltc"]
 [ext_resource type="Resource" uid="uid://bcp1q5ysu2hq3" path="res://Resources/SubmittedLevels/Wolfhound.tres" id="84_i2hlw"]
 
 [resource]

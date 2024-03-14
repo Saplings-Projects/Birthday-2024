@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://c2jlnjag1mr6p"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://c2jlnjag1mr6p"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_6a27x"]
+[ext_resource type="Texture2D" uid="uid://cx7k471gchpuo" path="res://Art/LevelPreviews/SevensFinished.png" id="1_ij0gj"]
+[ext_resource type="Texture2D" uid="uid://cfy5xp4uc2ghx" path="res://Art/LevelPreviews/Sevens.png" id="1_wdvem"]
 
 [resource]
 script = ExtResource("1_6a27x")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "Sevens!"
 message = "Happy birthday Fauna! I'm really lucky to have been your sapling all these years, onwards and upwards, always! :MembersHugSnail:"
 levelName = "Sevens level"
+levelPreview = ExtResource("1_wdvem")
+levelComplete = ExtResource("1_ij0gj")

@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bcp1q5ysu2hq3"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://bcp1q5ysu2hq3"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_4falw"]
+[ext_resource type="Texture2D" uid="uid://qqxc58mfeyg4" path="res://Art/LevelPreviews/WolfhoundFinished.png" id="1_cpg4n"]
+[ext_resource type="Texture2D" uid="uid://o03q276x27ga" path="res://Art/LevelPreviews/Wolfhound.png" id="1_w4hi3"]
 
 [resource]
 script = ExtResource("1_4falw")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":2,\\\"PIECE_SETUP_GRID_P
 author = "Wolfhound"
 message = "Hey Fauna, happy birthday! :FaunaCheerYT: Three years have gone by so fast, and before we know it many more will come by. You've inspired me a lot to try new things I wouldn't have before. I'm happy with anything you decide to do, but somehow you always got new surprises in store! You've made such a wonderful community that I'm glad to be part of, your hard work shows through everything you do, and I hope you know how much you mean to every Sap out there :FaunaLoveRedYT:"
 levelName = "The Many Seasons of Fauna"
+levelPreview = ExtResource("1_w4hi3")
+levelComplete = ExtResource("1_cpg4n")

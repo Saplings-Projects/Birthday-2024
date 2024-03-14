@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://dq78txqn56god"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://dq78txqn56god"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_dvvvb"]
+[ext_resource type="Texture2D" uid="uid://de7l77cyhnphd" path="res://Art/LevelPreviews/Chronos.png" id="1_lywom"]
+[ext_resource type="Texture2D" uid="uid://b6gjo4xjcl7k6" path="res://Art/LevelPreviews/ChronosFinished.png" id="1_q03a7"]
 
 [resource]
 script = ExtResource("1_dvvvb")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_P
 author = "Chronos"
 message = "Happy Birthday Fauna!It's been a year since you started building your world tree in Minecraft, so one of your saplings decided that we should make one to help motivate you! Hope you enjoy this little puzzle!Love from your speedrunner sapling, Chronos :FaunaLoveRedYT: "
 levelName = "The World Tree"
+levelPreview = ExtResource("1_lywom")
+levelComplete = ExtResource("1_q03a7")

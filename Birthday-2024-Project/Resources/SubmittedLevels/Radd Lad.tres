@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://c38815t5s83ri"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://c38815t5s83ri"]
 
+[ext_resource type="Texture2D" uid="uid://ool4i6viqrmk" path="res://Art/LevelPreviews/RaddladFinished.png" id="1_4mk15"]
+[ext_resource type="Texture2D" uid="uid://dvrbms81uxknh" path="res://Art/LevelPreviews/Raddlad.png" id="1_7grpt"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_h5x07"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":2,\\\"PIECE_SETUP_GRID_P
 author = "Radd Lad"
 message = "Happy Birthday Fauna!!! Thank you for all the hard work you've put in over the years! I still remember when I first discovered you from your ASMR videos almost 2 years ago. I'm glad I've been able to work with fellow saplings on this project and help make something bigger than just an edited png of a hat. Speaking of, I designed my level to look like the very same hat we all love to wear. Hope you enjoy playing it and I hope you have an amazing birthday!"
 levelName = "Radd Lad Hat"
+levelPreview = ExtResource("1_7grpt")
+levelComplete = ExtResource("1_4mk15")

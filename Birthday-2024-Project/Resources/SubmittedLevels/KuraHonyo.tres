@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://b01xvdnifxq0l"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://b01xvdnifxq0l"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_jj4i4"]
+[ext_resource type="Texture2D" uid="uid://by0m0jec2x1d7" path="res://Art/LevelPreviews/Kura.png" id="1_ptx67"]
+[ext_resource type="Texture2D" uid="uid://d7rixpjvavsn" path="res://Art/LevelPreviews/KuraFinished.png" id="1_sch61"]
 
 [resource]
 script = ExtResource("1_jj4i4")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_
 author = "Kura Honyo"
 message = "Happy Birthday Fauna! The first time I stumbled across your streams, I was having quite a bad time and your streams helped me to smile again after a long time. I am relatively new here, but I really want to say that you are a great Kirin and I'm really grateful to you! I hope you have a really great birthday wish you all the luck in the world."
 levelName = "DeerPat"
+levelPreview = ExtResource("1_ptx67")
+levelComplete = ExtResource("1_sch61")

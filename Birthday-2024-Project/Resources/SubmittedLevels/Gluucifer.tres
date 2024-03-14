@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://brx4plkjxoh58"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://brx4plkjxoh58"]
 
+[ext_resource type="Texture2D" uid="uid://b357qul37phsx" path="res://Art/LevelPreviews/Gluucifer.png" id="1_3jss3"]
+[ext_resource type="Texture2D" uid="uid://b2tgff45ievyj" path="res://Art/LevelPreviews/GluuciferFinished.png" id="1_nkpfh"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_rpsfr"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":3,\\\"PIECE_SETUP_GRID_P
 author = "Gluucifer"
 message = "Dayum gurl, are you a parasitic brain worm? Because you be on my mind fr :FaunaBaldYT:. Oh you're not a worm? Well even if you were I'd still love you (by choice... I think... right?) :FaunaNotLikeThisYT: Anyway, Happy Birthday Fauna! :FaunaCheerYT: :FaunaLoveRedYT:"
 levelName = "gluufauner"
+levelPreview = ExtResource("1_3jss3")
+levelComplete = ExtResource("1_nkpfh")

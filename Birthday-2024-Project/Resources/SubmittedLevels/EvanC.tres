@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://k1vyd3yuwkh"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://k1vyd3yuwkh"]
 
+[ext_resource type="Texture2D" uid="uid://bw0cs3de15nvn" path="res://Art/LevelPreviews/EvanFinished.png" id="1_8g6pw"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_unuao"]
+[ext_resource type="Texture2D" uid="uid://da5ry1odlrgyx" path="res://Art/LevelPreviews/Evan.png" id="1_xtjbx"]
 
 [resource]
 script = ExtResource("1_unuao")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_
 author = "Evan C"
 message = "Happy Birthday, Fauna! It's hard to believe that we're already celebrating your special day again! May your day be filled with yummy treats and joy! Thank you for cultivating this wonderful community, it truly makes my days to interact with you and the saplings. There's so much more I could say, but really, thanks for everything and keep on being you! :FaunaLoveRedYT: :FaunaLoveRedYT: P.S. Please enjoy the level I designed! The shape is a bit simple, but the solution is anything but. Put that nerd gamer brain in high gear! :FaunaLoveRedYT:"
 levelName = "Heart <3"
+levelPreview = ExtResource("1_xtjbx")
+levelComplete = ExtResource("1_8g6pw")

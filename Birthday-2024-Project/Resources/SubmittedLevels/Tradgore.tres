@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bdh0kf0y6d0df"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://bdh0kf0y6d0df"]
 
+[ext_resource type="Texture2D" uid="uid://do2qs4ufga0sj" path="res://Art/LevelPreviews/Tradgore.png" id="1_dcnj6"]
+[ext_resource type="Texture2D" uid="uid://c8q4jptowhyn0" path="res://Art/LevelPreviews/TradgoreFinished.png" id="1_etygb"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_ifhok"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_
 author = "Tradgore"
 message = "3 years with an incredible keeper of nature. It's gone so fast! I'm truly grateful that you're here, and have made so many wonderful memories with everyone. Whether you're serenading us with karaoke, performing onstage as an idol, or just being a goofy lovable kirin, You've changed so many lives. Happy Birthday, Fauna!"
 levelName = "13 Faunas and an Apple"
+levelPreview = ExtResource("1_dcnj6")
+levelComplete = ExtResource("1_etygb")

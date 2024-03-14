@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://bnswhxfv3b16r"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://bnswhxfv3b16r"]
 
+[ext_resource type="Texture2D" uid="uid://bt10mi2d1lefq" path="res://Art/LevelPreviews/IkarusFinished.png" id="1_dy1iq"]
+[ext_resource type="Texture2D" uid="uid://b5akux461o44b" path="res://Art/LevelPreviews/Ikarus.png" id="1_ls3sy"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_uyiof"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-1,\\\"PIECE_SETUP_GRID_
 author = "ikarus"
 message = "Happy Birthday Fauna! :FaunaCheerYT: I’m so grateful that you’re here with us and spreading joy through your content for another year! My favorite is always listening to whatever random things you’re fascinated with at the moment, whether it’s theoretical physics, cursed slime, or funny talking parrots. I’ll be looking forward to more tangents and whatever else you get up to this year too. Wishing you lots of fun and happiness! :FaunaLoveRedYT:"
 levelName = "ikarus level"
+levelPreview = ExtResource("1_ls3sy")
+levelComplete = ExtResource("1_dy1iq")

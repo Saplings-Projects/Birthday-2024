@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://c7n80pitssu1t"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://c7n80pitssu1t"]
 
+[ext_resource type="Texture2D" uid="uid://cy3d6p0uvwg3g" path="res://Art/LevelPreviews/Endystarboy.png" id="1_1i0mj"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_dacwt"]
+[ext_resource type="Texture2D" uid="uid://jnmlw5042mct" path="res://Art/LevelPreviews/EndystarboyFinished.png" id="1_n6ehs"]
 
 [resource]
 script = ExtResource("1_dacwt")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-4,\\\"PIECE_SETUP_GRID_
 author = "EndyStarBoy"
 message = "Happy happy 3rd birthday Fauna!! Another year to celebrate the green lady day!:FaunaCheerYT: Thanks for spoiling us with all of your fun streams this year, so let us the Saplings spoil you with our love and support:FaunaComfyYT:  Have a wonderful birthday! Man I love Fauna:FaunaLoveRedYT:"
 levelName = "StarBoy Level"
+levelPreview = ExtResource("1_1i0mj")
+levelComplete = ExtResource("1_n6ehs")

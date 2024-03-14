@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://dlgivpymprc8r"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://dlgivpymprc8r"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_54fhl"]
+[ext_resource type="Texture2D" uid="uid://cjw32puc8p0fp" path="res://Art/LevelPreviews/RyusseiFinished.png" id="1_0327p"]
+[ext_resource type="Texture2D" uid="uid://cmp85eyly058a" path="res://Art/LevelPreviews/Ryussei.png" id="1_glbf3"]
 
 [resource]
 script = ExtResource("1_54fhl")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":0,\\\"PIECE_SETUP_GRID_P
 author = "Ryussei"
 message = "Happy Birthday Fauna! I'm glad we're able to celebrate another birthday together with you and just like how you never fail to make us laugh and have a good time, I hope you can enjoy this special day having some yummy food and playing this cozy game. Here's to another fun year!"
 levelName = "RyusseiLevel"
+levelPreview = ExtResource("1_glbf3")
+levelComplete = ExtResource("1_0327p")

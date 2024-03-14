@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://ce260q0n2i8ay"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://ce260q0n2i8ay"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_6w6rf"]
+[ext_resource type="Texture2D" uid="uid://vjg061x3lbe3" path="res://Art/LevelPreviews/ExquisitecoffeeFinished.png" id="1_a383n"]
+[ext_resource type="Texture2D" uid="uid://oagxlooo2vla" path="res://Art/LevelPreviews/Exquisitecoffee.png" id="1_ph5fj"]
 
 [resource]
 script = ExtResource("1_6w6rf")
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-3,\\\"PIECE_SETUP_GRID_
 author = "ExquisiteCoffee"
 message = "HBD Fauna! :FaunaLoveRedYT: Here's to another banger year packed with content! :FaunaCheerYT: Enjoy this level containing many delicious flavours of Kirin! :FaunaBaldYT:"
 levelName = "Fauna Potluck"
+levelPreview = ExtResource("1_ph5fj")
+levelComplete = ExtResource("1_a383n")

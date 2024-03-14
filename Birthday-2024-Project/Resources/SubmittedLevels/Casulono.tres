@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://ddu8wyu7xa46b"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://ddu8wyu7xa46b"]
 
+[ext_resource type="Texture2D" uid="uid://chxqx02y03jlq" path="res://Art/LevelPreviews/CasualonoFinished.png" id="1_7omky"]
+[ext_resource type="Texture2D" uid="uid://cf0hoifvopw2a" path="res://Art/LevelPreviews/Casualono.png" id="1_8bliv"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_ldlg3"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_
 author = "Casulono"
 message = "Happy 3rd birthday, Fauna! :FaunaCheerYT: It's been a crazy year since the previous celebration. Connect the World concert, long JP arc and your very own showcase alongside other Promise girls! :FaunaZoomYT: And I can't not mention the Goth Fauna outfit. Man, it's gorgeous. :FaunaComfyYT: Anyway, it's been a busy year and I can only hope you won't be a puddle next time you'll have your schedule packed to the brim. I wish you good health and still being able to do what you love, more streams, tangents, and many, many more! :FaunaLoveRedYT: "
 levelName = "Snail on a Cake"
+levelPreview = ExtResource("1_8bliv")
+levelComplete = ExtResource("1_7omky")

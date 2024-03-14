@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://dac6lhsvdb24r"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://dac6lhsvdb24r"]
 
+[ext_resource type="Texture2D" uid="uid://kraqmtyoc8cu" path="res://Art/LevelPreviews/CyanophyceeFinished.png" id="1_e1tt8"]
+[ext_resource type="Texture2D" uid="uid://ogbpjd1sdt5v" path="res://Art/LevelPreviews/Cyanophycee.png" id="1_ttrhx"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_vce6t"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":2,\\\"PIECE_SETUP_GRID_P
 author = "Cyanophycée"
 message = "Happy birthday Fauna!!! This kirin is getting old, but fear not, she hasn't turned crusty and dusty yet (or maybe just a little :FaunaSmugYT: ). All jokes aside, I hope you're satisfied about everything you've achieved this year, we've been so proud of you all along :TakoSapling:  I hope you're having a good day and treating yourself to something yummy, you deserve it :FaunaLoveRedYT: My level is inspired by my favorite expression of your 3D model: smug ( ಡᴗಡ). I hope anyone playing it will have a little bit of fun :FaunaCheerYT:"
 levelName = "Smug"
+levelPreview = ExtResource("1_ttrhx")
+levelComplete = ExtResource("1_e1tt8")

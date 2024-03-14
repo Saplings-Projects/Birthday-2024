@@ -1,5 +1,7 @@
-[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://cf2y8dlmv0oj2"]
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://cf2y8dlmv0oj2"]
 
+[ext_resource type="Texture2D" uid="uid://clmh5ph0tsa2e" path="res://Art/LevelPreviews/CheesefrycookFinished.png" id="1_a4ixe"]
+[ext_resource type="Texture2D" uid="uid://cp57x0jhaomfj" path="res://Art/LevelPreviews/Cheesefrycook.png" id="1_gwxwi"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_ure8c"]
 
 [resource]
@@ -9,3 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_
 author = "Cheesefrycook"
 message = "Happy birthday Fauna! You're the best. Hope you have a great one :FaunaLoveRedYT:"
 levelName = "Rectangular"
+levelPreview = ExtResource("1_gwxwi")
+levelComplete = ExtResource("1_a4ixe")
