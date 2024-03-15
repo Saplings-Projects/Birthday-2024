@@ -15,11 +15,21 @@ var lastScreen : String
 var _screenStack : Array[Node]
 @onready var transition = $TransitionLayer/AnimationPlayer
 
+signal AnimationFinished
+
+var _transitionFinishCallable : Callable
+var _animationActive : bool = false
+
 func GoToScreen(screen : PackedScene, data : Dictionary, transitionStyle: TransitionStyle):
+	if _animationActive:
+		return
+
 	if transitionStyle != TransitionStyle.NONE:
+		_animationActive = true
 		var screenCapture = get_viewport().get_texture().get_image()
 		var tex = ImageTexture.create_from_image(screenCapture)
 		screenTexture.texture = tex
+		AnimationFinished.connect(_completeSceneTransition)
 		match transitionStyle:
 			TransitionStyle.TURN_PAGE:
 				transition.play("page_turn")
@@ -43,8 +53,8 @@ func GoToScreen(screen : PackedScene, data : Dictionary, transitionStyle: Transi
 		screenLogic.ScreenEnter.emit()
 
 func TransitionAnimationFinished():
-	var screenLogic : ScreenLogic = _screenStack.back()
-	screenLogic.ScreenEnter.emit()
+	_animationActive = false
+	AnimationFinished.emit()
 
 func IsTopScreen(screen : ScreenLogic) -> bool:
 	var topScreen : ScreenLogic = _screenStack.back() as ScreenLogic
@@ -92,6 +102,23 @@ func ShowDisplayPopup(title : String, body : String, displayPieces : Array[Packe
 	popupParameters[DisplayPopupController.PIECES_KEY] = displayPieces
 	GoToScreen(load("res://MainScenes/display_popup.tscn"), popupParameters, TransitionStyle.NONE)
 
+func ShowTransitionAnimation(transitionStyle: TransitionStyle, animationStarted : Callable, animationFinished : Callable):
+	if _animationActive:
+		return
+
+	var screenCapture = get_viewport().get_texture().get_image()
+	var tex = ImageTexture.create_from_image(screenCapture)
+	screenTexture.texture = tex
+	_transitionFinishCallable = animationFinished
+	AnimationFinished.connect(_completeTransitionAnimation)
+	match transitionStyle:
+		TransitionStyle.TURN_PAGE:
+			transition.play("page_turn")
+		TransitionStyle.BACK_PAGE:
+			transition.play("page_turn_back")
+	await get_tree().create_timer(0.05).timeout
+	animationStarted.call()
+
 func _ready():
 	GoToScreen(load("res://MainScenes/splash_screen.tscn"), {}, TransitionStyle.NONE)
 
@@ -101,3 +128,13 @@ func _closeTopScreen():
 	screenLogic.ScreenExit.emit()
 	lastScreen = oldScreen.name
 	oldScreen.queue_free()
+
+func _completeSceneTransition():
+	AnimationFinished.disconnect(_completeSceneTransition)
+	var screenLogic : ScreenLogic = _screenStack.back()
+	screenLogic.ScreenEnter.emit()
+
+func _completeTransitionAnimation():
+	AnimationFinished.disconnect(_completeTransitionAnimation)
+	if _transitionFinishCallable != null:
+		_transitionFinishCallable.call()

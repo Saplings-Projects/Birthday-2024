@@ -16,8 +16,7 @@ func go_to_gallery():
 
 
 func go_to_messages():
-	# TODO: Implement function
-	print("go_to_messages is not implemented in MainMenuStartState")
+	myScreen.GoToScreen(load("res://MainScenes/message_gallery.tscn"), {}, ScreenManager.TransitionStyle.TURN_PAGE)
 	
 func show_settings():
 	myScreen.screenManager.ShowSettings()

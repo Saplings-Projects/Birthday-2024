@@ -6,3 +6,6 @@
 Label/colors/font_color = Color(0.392157, 0.392157, 0.392157, 1)
 Label/font_sizes/font_size = 28
 Label/fonts/font = ExtResource("1_ngenb")
+RichTextLabel/colors/default_color = Color(0.392157, 0.392157, 0.392157, 1)
+RichTextLabel/font_sizes/normal_font_size = 21
+RichTextLabel/fonts/normal_font = ExtResource("1_ngenb")
