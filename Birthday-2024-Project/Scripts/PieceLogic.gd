@@ -55,23 +55,27 @@ func on_piece_held():
 
 func play_grab_audio():
 	_play_sample(sfx_grab_samples.get_random_sample(), sfx_player)
-	_play_sample(fauna_grab_samples.get_random_sample(), fauna_player)
+	_play_fauna_sample(fauna_grab_samples.get_random_sample(), fauna_player)
 
 
 func play_place_audio():
 	_play_sample(sfx_place_samples.get_random_sample(), sfx_player)
-	_play_sample(fauna_place_samples.get_random_sample(), fauna_player)
+	_play_fauna_sample(fauna_place_samples.get_random_sample(), fauna_player)
 
 
 func play_rotate_audio():
 	_play_sample(sfx_rotate_samples.get_random_sample(), sfx_player)
-	_play_sample(fauna_rotate_samples.get_random_sample(), fauna_player)
+	_play_fauna_sample(fauna_rotate_samples.get_random_sample(), fauna_player)
 
 
+func _play_fauna_sample(sample: AudioStream, player: AudioStreamPlayer2D):
+	if player.playing:
+		return
+	_play_sample(sample, player)
+	
 func _play_sample(sample: AudioStream, player: AudioStreamPlayer2D):
 	if sample == null:
 		return
-	
 	player.stop()
 	player.stream = sample
 	player.play()
