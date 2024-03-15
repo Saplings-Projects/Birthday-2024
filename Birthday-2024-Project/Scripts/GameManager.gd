@@ -28,6 +28,8 @@ var previous_mouse_grid_pos: Vector2i
 var remaining_settle_delay: float
 var overPieceLibrary : bool
 var placing_piece: bool #Track when _do_place_held_piece is running and prevent rotation
+var remaining_placing_delay : float
+var placing_locked_position : Vector2
 
 var _can_interact: bool
 var _current_state: GameState
@@ -38,6 +40,11 @@ var _levelData : LevelSetup
 
 signal initialized_event()
 signal state_changed_event(state)
+
+func retrieve_mouse_position() -> Vector2:
+	if !placing_piece:
+		return get_global_mouse_position()
+	return placing_locked_position
 
 func go_to_level_select():
 	var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
@@ -169,11 +176,11 @@ func _process(delta):
 	if _current_state is GameEditState:
 		deletionZone.show()
 	
+	_do_held_piece_settle(delta)
+	_held_piece_towards_cursor(delta)
 	if !placing_piece:
-		_do_held_piece_settle(delta)
-		_held_piece_towards_cursor(delta)
 		_rotate_held_piece()
-		_do_place_held_piece()
+	_do_place_held_piece(delta)
 
 func _setup_level_labels():
 	var labelSticker : Control = levelNameText.get_parent() as Control
@@ -204,7 +211,7 @@ func _remove_occupied_cells(piece: PieceLogic):
 	grid.RemovePieceByCoordinates(piece.placed_grid_position)
 
 func _get_held_piece_target_vector() -> Vector2:
-	var target_position: Vector2 = get_global_mouse_position()
+	var target_position: Vector2 = retrieve_mouse_position()
 	if not grid.CheckIfOffGridPos(target_position):
 		target_position = grid.GridCoordinateToPosition(grid.PositionToGridCoordinate(target_position))
 	return held_piece.target_vector(target_position, held_piece_cell)
@@ -238,7 +245,7 @@ func _rotate_held_piece():
 		remaining_settle_delay = held_piece.ROTATION_ANIMATION_DURATION
 
 func _mouse_has_moved() -> bool:
-	var mouse_position : Vector2 = get_global_mouse_position()
+	var mouse_position : Vector2 = retrieve_mouse_position()
 	var mouse_distance_moved : float = (mouse_position - previous_mouse_position).length()
 	previous_mouse_position = mouse_position
 	return mouse_distance_moved > 0.01 # Has the mouse position changed beyond floating point errors?
@@ -247,7 +254,7 @@ func _get_held_piece_grid_origin() -> Vector2i:
 	return grid.PositionToGridCoordinate(held_piece.GetOriginCellPosition())
 
 func _do_held_piece_settle(delta):
-	var mouse_position : Vector2 = get_global_mouse_position()
+	var mouse_position : Vector2 = retrieve_mouse_position()
 	var mouse_has_moved : bool = _mouse_has_moved()
 	var mouse_grid_pos : Vector2i = grid.PositionToGridCoordinate(mouse_position)
 	if (mouse_has_moved and mouse_grid_pos != previous_mouse_grid_pos) or grid.CheckIfOffGridPos(mouse_position):
@@ -279,37 +286,46 @@ func _held_piece_placed_position(held_piece_grid_origin: Vector2i) -> Vector2:
 	placed_position -= held_piece.GetOriginCellOffset()
 	return placed_position
 
-func _do_place_held_piece():
-	# Try to place the held piece
-	if !Input.is_action_just_released("PlacePiece"):
-		return # Place piece input was not given
-	if held_piece == null:
-		return # There is no held piece to place
-		
-	# check if the grid can accommodate the held piece
-	if grid.CheckLegalToPlace(held_piece) == false:
-		if _current_state is GameEditState:
-			if grid.CheckIfInDeletionZone(held_piece):
-				grid.DeletePiece(held_piece)
-			else:
-				held_piece.return_piece()
-		else:
-			# Moving the piece around like organizing a jigsaw puzzle
-			if grid.CheckIfOffGrid(held_piece) and grid.CheckIfOutsideSafeZone(held_piece) == false:
-				held_piece._SetReturnPoint()
-			held_piece.return_piece()
-		held_piece = null
-		return # Piece does not fit
+func _do_place_held_piece(delta):
+	if !placing_piece:
+		# Try to place the held piece
+		if !Input.is_action_just_released("PlacePiece"):
+			return # Place piece input was not given
+		if held_piece == null:
+			return # There is no held piece to place
 
-	#Prevents rotation while the timer is running
-	placing_piece = true
-	await get_tree().create_timer(place_piece_delay).timeout	
-	
-	# Find the grid aligned position on screen to move the placed piece to
-	var held_piece_grid_origin : Vector2i = _get_held_piece_grid_origin()
-	var placed_position : Vector2 = _held_piece_placed_position(held_piece_grid_origin)
-	held_piece.place_piece(held_piece_grid_origin, placed_position)
-	held_piece.play_place_audio()
-	held_piece = null # Piece is no longer being held
-  
-	placing_piece = false
+		#Prevents rotation while the timer is running
+		placing_piece = true
+		placing_locked_position = get_global_mouse_position()
+		remaining_placing_delay = place_piece_delay
+	else:
+		if held_piece == null:
+			placing_piece = false
+			return # There is no held piece to place
+			
+		remaining_placing_delay -= delta
+		if remaining_placing_delay > 0:
+			return
+		placing_piece = false
+		
+		# check if the grid can accommodate the held piece
+		if grid.CheckLegalToPlace(held_piece) == false:
+			if _current_state is GameEditState:
+				if grid.CheckIfInDeletionZone(held_piece):
+					grid.DeletePiece(held_piece)
+				else:
+					held_piece.return_piece()
+			else:
+				# Moving the piece around like organizing a jigsaw puzzle
+				if grid.CheckIfOffGrid(held_piece) and grid.CheckIfOutsideSafeZone(held_piece) == false:
+					held_piece._SetReturnPoint()
+				held_piece.return_piece()
+			held_piece = null
+			return # Piece does not fit
+		
+		# Find the grid aligned position on screen to move the placed piece to
+		var held_piece_grid_origin : Vector2i = _get_held_piece_grid_origin()
+		var placed_position : Vector2 = _held_piece_placed_position(held_piece_grid_origin)
+		held_piece.place_piece(held_piece_grid_origin, placed_position)
+		held_piece.play_place_audio()
+		held_piece = null # Piece is no longer being held
