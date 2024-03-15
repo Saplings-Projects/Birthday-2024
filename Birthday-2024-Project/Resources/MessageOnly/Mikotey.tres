@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelSetup" load_steps=2 format=3 uid="uid://c8bsudr6ibu6j"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_b0x7q"]
+
+[resource]
+script = ExtResource("1_b0x7q")
+levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
+jsonData = ""
+author = "Mikotey"
+message = "It's been over a year and a half since I met you at Crunchyroll Expo, and asked you what kind of games you wanted to see more of. Finally, here it is! :_yay: However, this wouldn't have been possible without the help of the Sapling community :_love: Without them, this project probably would have been much, much later, and nowhere near as good of visuals :_lol: Happy birthday, Fauna! Hope you like it! :_zoom:"
+levelName = ""
