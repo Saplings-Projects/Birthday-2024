@@ -44,6 +44,7 @@ var _last_grid_position : Vector2i = Vector2i(GridLogic.MAX_WIDTH + 1, GridLogic
 var _last_grid_rotation : RotationStates = RotationStates.DEG_0
 var _cellStartingWidth : int
 var _cellStartingHeight : int
+var rng = RandomNumberGenerator.new()
 
 func on_clicked(clicked_cell : int):
 	game_manager.on_piece_clicked(self, clicked_cell)
@@ -69,9 +70,12 @@ func play_rotate_audio():
 
 
 func _play_fauna_sample(sample: AudioStream, player: AudioStreamPlayer2D):
-	if player.playing:
+	var freq = game_manager.get_fauna_frequency()
+	if player.playing && freq != 100.0:
 		return
-	_play_sample(sample, player)
+	rng.randomize()
+	if rng.randf_range(0.0, 100.0) <= freq:
+		_play_sample(sample, player)
 	
 func _play_sample(sample: AudioStream, player: AudioStreamPlayer2D):
 	if sample == null:
