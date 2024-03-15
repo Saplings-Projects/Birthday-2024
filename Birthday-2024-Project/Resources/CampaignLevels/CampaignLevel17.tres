@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="LevelSetup" load_steps=4 format=3 uid="uid://c65qvmq3kx7ak"]
 
+[ext_resource type="Texture2D" uid="uid://dbcjidpwrqffb" path="res://Art/LevelPreviews/Campaign17Finished.png" id="1_4vwgw"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_7ajel"]
-[ext_resource type="Texture2D" uid="uid://cx4qtp5plvyyy" path="res://Art/Emotes/comfy.png" id="1_ol7gx"]
-[ext_resource type="Texture2D" uid="uid://4gj42xmp2266" path="res://Art/Emotes/angry.png" id="2_kxpp4"]
+[ext_resource type="Texture2D" uid="uid://nax6wd581tdi" path="res://Art/LevelPreviews/Campaign17.png" id="2_6vjt0"]
 
 [resource]
 script = ExtResource("1_7ajel")
@@ -11,5 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":-2,\\\"PIECE_SETUP_GRID_
 author = ""
 message = ""
 levelName = ""
-levelPreview = ExtResource("2_kxpp4")
-levelComplete = ExtResource("1_ol7gx")
+levelPreview = ExtResource("2_6vjt0")
+levelComplete = ExtResource("1_4vwgw")

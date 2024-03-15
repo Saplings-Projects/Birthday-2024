@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="LevelSetup" load_steps=5 format=3 uid="uid://56uryq40nvj3"]
 
-[ext_resource type="Texture2D" uid="uid://cx4qtp5plvyyy" path="res://Art/Emotes/comfy.png" id="1_8cfv8"]
+[ext_resource type="Texture2D" uid="uid://d3x6tehoo088j" path="res://Art/LevelPreviews/Campaign6Finished.png" id="1_35gp0"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_kkscd"]
 [ext_resource type="Resource" uid="uid://btc703qoc3i5m" path="res://Resources/TutorialData/TutorialLevel6.tres" id="2_20rdr"]
-[ext_resource type="Texture2D" uid="uid://4gj42xmp2266" path="res://Art/Emotes/angry.png" id="2_obxeh"]
+[ext_resource type="Texture2D" uid="uid://csl04hkpxx4ov" path="res://Art/LevelPreviews/Campaign6.png" id="2_epqg8"]
 
 [resource]
 script = ExtResource("1_kkscd")
@@ -12,6 +12,6 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_P
 author = ""
 message = ""
 levelName = ""
-levelPreview = ExtResource("2_obxeh")
-levelComplete = ExtResource("1_8cfv8")
+levelPreview = ExtResource("2_epqg8")
+levelComplete = ExtResource("1_35gp0")
 tutorialData = ExtResource("2_20rdr")
