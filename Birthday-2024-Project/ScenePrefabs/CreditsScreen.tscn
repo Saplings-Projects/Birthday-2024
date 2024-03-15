@@ -96,7 +96,7 @@ theme_override_font_sizes/font_size = 100
 text = "CREDITS"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -110,10 +110,15 @@ offset_right = 550.0
 offset_bottom = 460.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="LeftColumn" type="VBoxContainer" parent="HBoxContainer"]
+[node name="LeftColumn" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -121,7 +126,7 @@ size_flags_vertical = 0
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Lead" type="RichTextLabel" parent="HBoxContainer/LeftColumn"]
+[node name="Lead" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/LeftColumn"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
@@ -131,7 +136,7 @@ Casulono
 fit_content = true
 scroll_active = false
 
-[node name="Game Idea" type="RichTextLabel" parent="HBoxContainer/LeftColumn"]
+[node name="Game Idea" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/LeftColumn"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
@@ -142,7 +147,7 @@ Mikotey
 fit_content = true
 scroll_active = false
 
-[node name="Developers" type="RichTextLabel" parent="HBoxContainer/LeftColumn"]
+[node name="Developers" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/LeftColumn"]
 clip_contents = false
 layout_mode = 2
 theme_override_constants/outline_size = 0
@@ -160,7 +165,7 @@ Vorthein
 fit_content = true
 scroll_active = false
 
-[node name="CenterColumn" type="VBoxContainer" parent="HBoxContainer"]
+[node name="CenterColumn" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -168,7 +173,7 @@ size_flags_vertical = 0
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Art" type="RichTextLabel" parent="HBoxContainer/CenterColumn"]
+[node name="Art" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/CenterColumn"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
@@ -190,7 +195,7 @@ Mikotey"
 fit_content = true
 scroll_active = false
 
-[node name="RightColumn" type="VBoxContainer" parent="HBoxContainer"]
+[node name="RightColumn" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -198,7 +203,7 @@ size_flags_vertical = 0
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Music" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
+[node name="Music" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/RightColumn"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
@@ -211,7 +216,7 @@ Casulono
 fit_content = true
 scroll_active = false
 
-[node name="Level Design" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
+[node name="Level Design" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/RightColumn"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
@@ -224,13 +229,24 @@ Vorthein
 fit_content = true
 scroll_active = false
 
-[node name="General Help" type="RichTextLabel" parent="HBoxContainer/RightColumn"]
+[node name="General Help" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/RightColumn"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center][font_size=50]Submissions[/font_size]
 DarkEcoFreak
 RaddLad
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Cover Credits" type="RichTextLabel" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=25]Hololive and its Talents copyrights are reserved by COVER Corp. © 2016[/font_size]
 [/center]"
 fit_content = true
 scroll_active = false
