@@ -185,7 +185,7 @@ func AssignMapGridCoordinates(assignedCoords : Vector2i):
 func RecordGridPosition(gridCoords : Vector2i):
 	_last_grid_position = gridCoords
 	_last_grid_rotation = current_rotation_state
-	_return_position = levelGridReference.GridCoordinateToPosition(gridCoords) - GetOriginCellOffset()
+	_return_position = levelGridReference.GridCoordinateToPosition(gridCoords) - GetOriginCellGoalOffset()
 	
 func return_piece(moveInstantly : bool = false):
 	current_placement_state = PlacementStates.UNPLACED
