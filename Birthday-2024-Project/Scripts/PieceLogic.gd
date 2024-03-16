@@ -7,7 +7,7 @@ enum RotationStates { DEG_0 = 0, DEG_90, DEG_180, DEG_270 }
 const GAME_MANAGER_NODE_PATH = "/root/MainLevel/GameManager"
 const ROTATION_ANIMATION_DURATION: float = 0.35 # Number of seconds a piece takes to rotate
 const RETURN_ANIMATION_DURATION: float = 0.5 # Number of seconds a piece takes to return to it's return position when dropped
-const PLACED_ANIMATION_DURATION: float = 0.2 # Number of seconds a piece take to move into it's placed position
+const PLACED_ANIMATION_DURATION: float = 0.15 # Number of seconds a piece take to move into it's placed position
 const NO_CELL_CLICKED: int = -1
 
 @export_multiline var pieceShape : String
@@ -91,7 +91,6 @@ func cancel_movement_tween():
 	_movement_tween = null
 	
 func rotate_clockwise(center_cell : int):
-	var previous_cell_pos: Vector2 = get_cell_pos(center_cell)
 	# Update rotation variables
 	if current_rotation_state == RotationStates.DEG_270:
 		current_rotation_state = RotationStates.DEG_0
@@ -100,14 +99,9 @@ func rotate_clockwise(center_cell : int):
 	
 	_current_angle_target += PI * 0.5
 	update_current_cells()
-	var origin_cell_movement: Vector2 = _originOffset.rotated(_current_angle_target) - GetOriginCellOffset()
-	var center_cell_movement: Vector2 = (get_cell_pos(center_cell) + origin_cell_movement) - previous_cell_pos
-		
 	_start_rotation_tween()
-	movement_tween_to(global_position - center_cell_movement, ROTATION_ANIMATION_DURATION)
 	
 func rotate_anticlockwise(center_cell : int):
-	var previous_cell_pos: Vector2 = get_cell_pos(center_cell)
 	# Update rotation variables
 	if current_rotation_state == RotationStates.DEG_0:
 		current_rotation_state = RotationStates.DEG_270
@@ -116,11 +110,7 @@ func rotate_anticlockwise(center_cell : int):
 	
 	_current_angle_target -= PI * 0.5
 	update_current_cells()
-	var origin_cell_movement: Vector2 = _originOffset.rotated(_current_angle_target) - GetOriginCellOffset()
-	var center_cell_movement: Vector2 = (get_cell_pos(center_cell) + origin_cell_movement) - previous_cell_pos
-		
 	_start_rotation_tween()
-	movement_tween_to(global_position - center_cell_movement, ROTATION_ANIMATION_DURATION)
 	
 func cancel_rotation_tween():
 	if _rotation_tween != null:
@@ -146,6 +136,19 @@ func update_current_cells():
 #when not rotated, the origin cell is the top-most, left-most cell
 func GetOriginCellOffset() -> Vector2:
 	return _originOffset.rotated(rotation)
+	
+func GetOriginCellGoalOffset() -> Vector2:
+	var result : Vector2 = _originOffset.rotated(0)
+	match current_rotation_state:
+		RotationStates.DEG_0: # No change from base cells
+			result = _originOffset.rotated(0)
+		RotationStates.DEG_90: # Ascending x -> Ascending y | Ascending y -> Descending x
+			result = _originOffset.rotated(deg_to_rad(90))
+		RotationStates.DEG_180: # Ascending x -> Descending x | Ascending y -> Descending y
+			result = _originOffset.rotated(deg_to_rad(180))
+		RotationStates.DEG_270: # Ascending x -> Descending y | Ascending y -> Ascending x
+			result = _originOffset.rotated(deg_to_rad(270))
+	return result
 	
 #when not rotated, the origin cell is the top-most, left-most cell
 func GetOriginCellPosition() -> Vector2:
@@ -220,16 +223,19 @@ func movement_tween_to(move_to: Vector2, duration: float):
 	_movement_tween.tween_callback(func(): _movement_tween = null)
 	
 func place_piece(grid_position: Vector2i, move_to: Vector2):
-	if levelGridReference.PlacePiece(self) == false:
+	if levelGridReference.PlacePieceByCoordinates(self, grid_position) == false:
 		return_piece()
 		return
 	current_placement_state = PlacementStates.PLACED
 	movement_tween_to(move_to, PLACED_ANIMATION_DURATION)
 
-func get_cell_pos(cell_index: int) -> Vector2:
+func origin_to_cell(cell_index : int) -> Vector2:
 	var cell : Vector2i = _current_cells[cell_index]
 	var tile_size = levelGridReference.tile_set.tile_size
-	return GetOriginCellPosition() + Vector2(cell.x * tile_size.x, cell.y * tile_size.y)
+	return Vector2(cell.x * tile_size.x, cell.y * tile_size.y)
+
+func get_cell_pos(cell_index: int) -> Vector2:
+	return GetOriginCellPosition() + origin_to_cell(cell_index)
 
 func target_vector(target_pos: Vector2, target_cell_index: int) -> Vector2:
 	# Returns vector that moves the center of the targeted cell to the target position
