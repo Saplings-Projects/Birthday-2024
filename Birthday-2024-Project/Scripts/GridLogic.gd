@@ -235,7 +235,9 @@ func SetGridSpacesByPieceShape(gridCoords : Vector2i, newValue : GridSpaceInfo.G
 
 func CheckLegalToPlace(piece : PieceLogic) -> bool:
 	var pieceCoords : Vector2i = PositionToGridCoordinate(piece.GetOriginCellPosition())
-	
+	return CheckLegalToPlaceAtCoords(piece, pieceCoords)
+
+func CheckLegalToPlaceAtCoords(piece : PieceLogic, pieceCoords : Vector2i) -> bool:
 	#if outside the level bounding box
 	if gridMode == GridMode.PLAY:
 		if pieceCoords.x < xMinGrid or pieceCoords.x > xMaxGrid:
@@ -304,7 +306,7 @@ func PlacePiece(piece : PieceLogic) -> bool:
 
 func PlacePieceByCoordinates(piece : PieceLogic, gridCoord : Vector2i) -> bool:
 	if gridMode == GridMode.PLAY:
-		if CheckLegalToPlace(piece) == false:
+		if CheckLegalToPlaceAtCoords(piece, gridCoord) == false:
 			return false
 	SetGridSpacesByPieceShape(gridCoord, GridSpaceInfo.GridSpaceStatus.OCCUPIED, piece)
 	piece.AssignMapGridCoordinates(gridCoord)
