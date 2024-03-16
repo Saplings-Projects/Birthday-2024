@@ -7,5 +7,10 @@ script = ExtResource("1_ie44r")
 levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
 jsonData = ""
 author = "Cathuulord"
-message = "A FaunkaFauna's saplings dance,Today, her birthday's embrace,Nature's guardian,Another year she has spun,Majestic gaming Kirin"
+message = "A Faunka
+Fauna's saplings dance,
+Today, her birthday's embrace,
+Nature's guardian,
+Another year she has spun,
+Majestic gaming Kirin"
 levelName = ""
