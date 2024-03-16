@@ -110,6 +110,7 @@ offset_right = 550.0
 offset_bottom = 460.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -174,6 +175,7 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Art" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/CenterColumn"]
+clip_contents = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
