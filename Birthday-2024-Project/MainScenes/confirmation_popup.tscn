@@ -132,5 +132,5 @@ libraries = {
 }
 
 [connection signal="ScreenEnter" from="." to="Controller" method="onScreenEnter"]
-[connection signal="button_up" from="Panel/ConfirmButton" to="Controller" method="onConfirm"]
-[connection signal="button_up" from="Panel/CancelButton" to="Controller" method="onCancel"]
+[connection signal="pressed" from="Panel/ConfirmButton" to="Controller" method="onConfirm"]
+[connection signal="pressed" from="Panel/CancelButton" to="Controller" method="onCancel"]

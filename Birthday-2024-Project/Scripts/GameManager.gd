@@ -12,6 +12,8 @@ extends Node2D
 @export var levelNameText : Label
 @export var authorText : Label
 
+@export var puzzle_main_screen : PuzzleMainScreen
+
 @export_group("States")
 @export var empty_state: GameEmptyState
 @export var play_state: GamePlayState
@@ -41,7 +43,10 @@ func retrieve_mouse_position() -> Vector2:
 	if !placing_piece:
 		return get_global_mouse_position()
 	return placing_locked_position
-
+	
+func is_mouse_over_button() -> bool:
+	return puzzle_main_screen.is_a_button_hovered()
+	
 func go_to_level_select():
 	var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
 	var buttonsPerPage : int = myScreen.transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY]
@@ -290,3 +295,7 @@ func _do_place_held_piece(delta):
 		held_piece.play_place_audio()
 		held_piece = null # Piece is no longer being held
 		placing_piece = false
+
+func get_fauna_frequency():
+	return _gm.audio_controller._prefs.freq
+	

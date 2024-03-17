@@ -21,11 +21,11 @@ func enter_state():
 	var screen = _ui_manager.main_screen
 	screen.show_hide_win_text(true)
 	screen.skip_button.set_theme(load("res://Art/UI/Themes/Next_Level_Button_theme.tres"))
-	screen.skip_button.button_up.connect(_state.next_puzzle)
-	screen.exit_button.button_up.connect(_state.exit_game)
-	screen.reset_button.button_up.connect(_state.reset_puzzle)
-	screen.back_button.button_up.connect(_state.back_to_level_select)
-	screen.settings_button.button_up.connect(_on_settings_clicked)
+	screen.skip_button.pressed.connect(_state.next_puzzle)
+	screen.exit_button.pressed.connect(_state.exit_game)
+	screen.reset_button.pressed.connect(_state.reset_puzzle)
+	screen.back_button.pressed.connect(_state.back_to_level_select)
+	screen.settings_button.pressed.connect(_on_settings_clicked)
 	screen.edit_button.hide()
 	screen.library_button.hide()
 
@@ -33,11 +33,11 @@ func enter_state():
 func exit_state():
 	var screen = _ui_manager.main_screen
 	screen.skip_button.set_theme(load("res://Art/UI/Themes/Skip_Button_theme.tres"))
-	screen.skip_button.button_up.disconnect(_state.next_puzzle)
-	screen.exit_button.button_up.disconnect(_state.exit_game)
-	screen.reset_button.button_up.disconnect(_state.reset_puzzle)
-	screen.back_button.button_up.disconnect(_state.back_to_level_select)
-	screen.settings_button.button_up.disconnect(_on_settings_clicked)
+	screen.skip_button.pressed.disconnect(_state.next_puzzle)
+	screen.exit_button.pressed.disconnect(_state.exit_game)
+	screen.reset_button.pressed.disconnect(_state.reset_puzzle)
+	screen.back_button.pressed.disconnect(_state.back_to_level_select)
+	screen.settings_button.pressed.disconnect(_on_settings_clicked)
 	_state = null
 
 

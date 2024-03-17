@@ -44,7 +44,7 @@ texture = ExtResource("8_r3use")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlxyn"]
 texture = ExtResource("9_mksxb")
 
-[node name="Gallery" type="Control" node_paths=PackedStringArray("piece", "pieces", "description", "artist_credit", "piece_name")]
+[node name="Gallery" type="Control" node_paths=PackedStringArray("piece", "pieces", "description", "artist_credit", "piece_name", "page_num")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -60,6 +60,7 @@ descriptions = Array[String](["\"Konfauna! I’m Ceres Fauna from Hololive Promi
 artist_credit = NodePath("Text Display/Piece Artists")
 piece_name = NodePath("Text Display/Piece Name")
 piece_names = Array[String](["Casual Fauna Waving", "Casual Faunya", "Hungry Faunya", "Happy Fauna", "Golden Apple", "Maid Fauna", "Nemu Fauna", "Casual Fauna", "Faunashi", "Big Matcha", "Agent Fauna7", "Idol Fauna", "Wrench", "Wide Fauna", "Cape Fauna", "Snail", "Smol Fauna", "Smol Faunya", "Matcha Set", "Cowkini Fauna", "EleFauna", "Kimono Fauna", "Original Fauna"])
+page_num = NodePath("Page")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -414,8 +415,38 @@ offset_bottom = 577.0
 scale = Vector2(0.895, 0.895)
 texture = ExtResource("29_6sbw5")
 
-[connection signal="button_up" from="Panel/Back Button" to="." method="_on_back_button_button_up"]
-[connection signal="button_up" from="Panel/Settings Button" to="." method="_on_settings_button_button_up"]
-[connection signal="button_up" from="Panel/Exit Button" to="." method="_on_exit_button_button_up"]
-[connection signal="button_up" from="Previous Art Button" to="." method="_on_previous_art_button_button_up"]
-[connection signal="button_up" from="Next Art Button" to="." method="_on_next_art_button_button_up"]
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 50.0
+offset_top = 85.0
+offset_right = 50.0
+offset_bottom = 210.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "PIECE GALLERY"
+horizontal_alignment = 1
+
+[node name="Page" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 49.0
+offset_top = -225.0
+offset_right = 49.0
+offset_bottom = -99.9998
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Panel/Back Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Panel/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/Exit Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Previous Art Button" to="." method="_on_previous_art_button_pressed"]
+[connection signal="pressed" from="Next Art Button" to="." method="_on_next_art_button_pressed"]

@@ -5,6 +5,7 @@ extends Control
 @export var music_slider: Slider
 @export var sfx_slider: Slider
 @export var fauna_slider: Slider
+@export var freq_slider: Slider
 
 @export_group("Audio Players")
 @export var music_sample_player: AudioStreamPlayer2D # TODO: DELETE WHEN NO LONGER NEEDED
@@ -24,6 +25,7 @@ func revert_changes():
 	music_slider.value = audio.music
 	sfx_slider.value = audio.sfx
 	fauna_slider.value = audio.fauna
+	freq_slider.value = audio.freq
 
 
 func _on_master_slider_value_changed(value: float):
@@ -39,6 +41,9 @@ func _on_sfx_slider_value_changed(value: float):
 func _on_fauna_slider_value_changed(value: float):
 	_gm.audio_controller.set_fauna_volume(value)
 	_play_sample(fauna_samples.get_random_sample(), fauna_sample_player)
+
+func _on_freq_slider_value_changed(value: float):
+	_gm.audio_controller.set_fauna_freq(value)
 	
 func _play_sample(stream: AudioStream, player: AudioStreamPlayer2D):
 	if stream == null or player.playing:
@@ -56,6 +61,7 @@ func _ready():
 	music_slider.value_changed.connect(_on_music_slider_value_changed)
 	sfx_slider.value_changed.connect(_on_sfx_slider_value_changed)
 	fauna_slider.value_changed.connect(_on_fauna_slider_value_changed)
+	freq_slider.value_changed.connect(_on_freq_slider_value_changed)
 
 
 #endregion Node
