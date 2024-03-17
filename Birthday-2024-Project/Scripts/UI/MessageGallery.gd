@@ -93,6 +93,21 @@ func LoadPage():
 				rightBigMsgBox.text = levelSetup.message
 				rightBigMsgBox.SwapTokens()
 				rightAuthorText.text = str(AUTHOR_PREFIX, levelSetup.author)
+	
+	#cleanup unused
+	if availableBoxes[0]:
+		(topLeftSmallMsgBox.get_parent() as Control).visible = false
+		(leftBigMsgBox.get_parent() as Control).visible = false
+	
+	if availableBoxes[1]:
+		(bottomLeftSmallMsgBox.get_parent() as Control).visible = false
+		
+	if availableBoxes[2]:
+		(topRightSmallMsgBox.get_parent() as Control).visible = false
+		(rightBigMsgBox.get_parent() as Control).visible = false
+		
+	if availableBoxes[3]:
+		(bottomRightSmallMsgBox.get_parent() as Control).visible = false
 
 func PrevPage():
 	if _currentPage == 0:
