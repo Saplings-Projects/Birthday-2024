@@ -129,9 +129,15 @@ func _process(delta):
 			if is_playing():
 				return
 			
+			#wait a moment so animation can finish
+			await get_tree().create_timer(0.02)
 			pressAnimFinished.emit()
 			
-			myState = ButtonState.INITIAL
 			if queueEnter:
+				myState = ButtonState.ENTER
 				onButtonEnter()
+			else:
+				myState = ButtonState.IDLE
+				if !onIdle.is_empty():
+					play(onIdle)
 	
