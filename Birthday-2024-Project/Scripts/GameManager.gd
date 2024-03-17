@@ -19,6 +19,7 @@ extends Node2D
 @export var play_state: GamePlayState
 @export var win_state: GameWinState
 @export var edit_state: GameEditState
+@export var test_state: GameTestState
 
 var held_piece: PieceLogic
 var held_piece_cell: int
@@ -101,6 +102,10 @@ func switch_to_edit_state():
 	_switch_state(edit_state)
 
 
+func switch_to_test_state():
+	_switch_state(test_state)
+
+
 func _switch_state(state: GameState):
 	_previous_state = _current_state
 	_current_state = state
@@ -149,6 +154,7 @@ func _ready():
 	play_state.set_manager(self)
 	win_state.set_manager(self)
 	edit_state.set_manager(self)
+	test_state.set_manager(self)
 	overPieceLibrary = false
 
 func _process(delta):

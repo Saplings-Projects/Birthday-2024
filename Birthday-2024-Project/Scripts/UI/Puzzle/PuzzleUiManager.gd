@@ -10,6 +10,7 @@ extends Control
 @export var play_state: PuzzleUiPlayState
 @export var win_state: PuzzleUiWinState
 @export var edit_state: PuzzleUiEditState
+@export var test_state: PuzzleUiTestState
 
 var _current_state: PuzzleUiState
 
@@ -25,6 +26,8 @@ func on_puzzle_state_changed(state: GameState):
 		_switch_state(win_state)
 	elif state is GameEditState:
 		_switch_state(edit_state)
+	elif state is GameTestState:
+		_switch_state(test_state)
 	else:
 		printerr("Unhandled puzzle state in puzzle UI Manager", self)
 
@@ -66,6 +69,8 @@ func _ready():
 	win_state._ui_manager = self
 	edit_state._controller = controller
 	edit_state._ui_manager = self
+	test_state._controller = controller
+	test_state._ui_manager = self
 
 
 #endregion Node

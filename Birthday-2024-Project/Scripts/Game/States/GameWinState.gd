@@ -9,7 +9,13 @@ func back_to_level_select(askConfirm : bool = true):
 
 func _reset_puzzle():
 	manager.grid.ReloadLevel()
-	manager.switch_to_play_state()
+	if manager._previous_state == manager.test_state:
+		manager.switch_to_test_state()
+	else:
+		manager.switch_to_play_state()
+	
+func go_to_edit_mode():
+	manager.switch_to_edit_state()
 
 #region GameState
 

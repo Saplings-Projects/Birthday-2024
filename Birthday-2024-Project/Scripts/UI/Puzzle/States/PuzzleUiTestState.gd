@@ -1,8 +1,8 @@
-class_name PuzzleUiPlayState
+class_name PuzzleUiTestState
 extends PuzzleUiState
 
 
-var _state: GamePlayState
+var _state: GameTestState
 
 
 func _on_edit_mode_clicked():
@@ -13,8 +13,8 @@ func _on_edit_mode_clicked():
 func enter_state():
 	var state = _controller.get_current_state()
 	
-	if not state is GamePlayState:
-		printerr("Puzzle is not in play state", self)
+	if not state is GameTestState:
+		printerr("Puzzle is not in test state", self)
 		return
 	
 	_state = state
@@ -23,8 +23,7 @@ func enter_state():
 	
 	var screen = _ui_manager.main_screen
 	screen.show_hide_win_text(false)
-	screen.skip_button.show()
-	screen.skip_button.pressed.connect(_state.next_puzzle)
+	screen.skip_button.hide()
 	screen.exit_button.pressed.connect(_state.exit_game)
 	screen.reset_button.pressed.connect(_state.reset_puzzle)
 	screen.back_button.pressed.connect(_state.back_to_level_select)
@@ -37,7 +36,6 @@ func enter_state():
 
 func exit_state():
 	var screen = _ui_manager.main_screen
-	screen.skip_button.pressed.disconnect(_state.next_puzzle)
 	screen.exit_button.pressed.disconnect(_state.exit_game)
 	screen.reset_button.pressed.disconnect(_state.reset_puzzle)
 	screen.back_button.pressed.disconnect(_state.back_to_level_select)
@@ -48,6 +46,4 @@ func exit_state():
 
 func update_state():
 	pass
-
-
-#endregion PuzzleUiState
+	
