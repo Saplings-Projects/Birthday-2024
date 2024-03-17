@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=37 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_o8ptf"]
@@ -25,6 +25,46 @@
 [ext_resource type="Texture2D" uid="uid://bdki73vfmwpjl" path="res://Art/TitleLogo/TitleLeaf2.png" id="17_f1xcb"]
 [ext_resource type="Texture2D" uid="uid://cstdpe2o76en" path="res://Art/TitleLogo/TitleLeaf3.png" id="18_hyw7m"]
 [ext_resource type="Texture2D" uid="uid://e1wnogtn8s8r" path="res://Art/TitleLogo/TitleLeaf4.png" id="19_r861o"]
+
+[sub_resource type="Animation" id="Animation_v4ssh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
+_data = {
+"RESET": SubResource("Animation_v4ssh")
+}
+
+[sub_resource type="Animation" id="Animation_cdav8"]
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dobgm"]
+_data = {
+"ButtonEnter": SubResource("Animation_cdav8")
+}
 
 [sub_resource type="Animation" id="Animation_4f1s0"]
 length = 0.001
@@ -629,11 +669,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_n7aum")
-credits_button = NodePath("Panel/Navigation Buttons/Credits Button")
+credits_button = NodePath("Panel/Navigation Buttons/Credits ButtonAnchor/Credits Button")
 exit_button = NodePath("Panel/Exit Button")
-gallery_button = NodePath("Panel/Navigation Buttons/Gallery Button")
-play_button = NodePath("Panel/Navigation Buttons/Play Button")
-messages_button = NodePath("Panel/Navigation Buttons/Messages Button")
+gallery_button = NodePath("Panel/Navigation Buttons/Gallery ButtonAnchor/Gallery Button")
+play_button = NodePath("Panel/Navigation Buttons/Play ButtonAnchor/Play Button")
+messages_button = NodePath("Panel/Navigation Buttons/Messages ButtonAnchor/Messages Button")
 settings_button = NodePath("Panel/Settings Button")
 
 [node name="TextureRect" type="NinePatchRect" parent="StartScreen"]
@@ -670,7 +710,7 @@ theme_override_font_sizes/font_size = 100
 text = "FAUNA'S 2024 BIRTHDAY"
 horizontal_alignment = 1
 
-[node name="Navigation Buttons" type="VBoxContainer" parent="StartScreen/Panel"]
+[node name="Navigation Buttons" type="Control" parent="StartScreen/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -684,30 +724,109 @@ offset_bottom = 392.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play Button" type="Button" parent="StartScreen/Panel/Navigation Buttons"]
+[node name="Play ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
 layout_mode = 2
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 100.0
+
+[node name="Play Button" type="Button" parent="StartScreen/Panel/Navigation Buttons/Play ButtonAnchor"]
+layout_mode = 2
+offset_right = 400.0
+offset_bottom = 100.0
 text = "Play"
 
-[node name="Messages Button" type="Button" parent="StartScreen/Panel/Navigation Buttons"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Play ButtonAnchor/Play Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": SubResource("AnimationLibrary_dobgm")
+}
+script = ExtResource("8_8gfbx")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "RESET"
+keepDown = true
+
+[node name="Messages ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
 layout_mode = 2
+anchors_preset = 0
+offset_top = 104.0
+offset_right = 400.0
+offset_bottom = 204.0
+
+[node name="Messages Button" type="Button" parent="StartScreen/Panel/Navigation Buttons/Messages ButtonAnchor"]
+layout_mode = 2
+offset_right = 400.0
+offset_bottom = 100.0
 text = "Sapling Messages"
 
-[node name="Gallery Button" type="Button" parent="StartScreen/Panel/Navigation Buttons"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Messages ButtonAnchor/Messages Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": SubResource("AnimationLibrary_dobgm")
+}
+script = ExtResource("8_8gfbx")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "RESET"
+keepDown = true
+
+[node name="Gallery ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
 layout_mode = 2
+anchors_preset = 0
+offset_top = 208.0
+offset_right = 400.0
+offset_bottom = 308.0
+
+[node name="Gallery Button" type="Button" parent="StartScreen/Panel/Navigation Buttons/Gallery ButtonAnchor"]
+layout_mode = 2
+offset_right = 400.0
+offset_bottom = 100.0
 text = "Piece Gallery"
 
-[node name="Credits Button" type="Button" parent="StartScreen/Panel/Navigation Buttons"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Gallery ButtonAnchor/Gallery Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": SubResource("AnimationLibrary_dobgm")
+}
+script = ExtResource("8_8gfbx")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "RESET"
+keepDown = true
+
+[node name="Credits ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
 layout_mode = 2
+anchors_preset = 0
+offset_top = 312.0
+offset_right = 400.0
+offset_bottom = 412.0
+
+[node name="Credits Button" type="Button" parent="StartScreen/Panel/Navigation Buttons/Credits ButtonAnchor"]
+layout_mode = 2
+offset_right = 400.0
+offset_bottom = 100.0
 text = "Credits"
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Credits ButtonAnchor/Credits Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": SubResource("AnimationLibrary_dobgm")
+}
+script = ExtResource("8_8gfbx")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "RESET"
+keepDown = true
 
 [node name="Settings Button" type="Button" parent="StartScreen/Panel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1760.0
+offset_left = -160.0
 offset_top = -400.0
-offset_right = 1824.0
+offset_right = -96.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)
@@ -729,9 +848,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1830.0
+offset_left = -90.0
 offset_top = -400.0
-offset_right = 1894.0
+offset_right = -26.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)
