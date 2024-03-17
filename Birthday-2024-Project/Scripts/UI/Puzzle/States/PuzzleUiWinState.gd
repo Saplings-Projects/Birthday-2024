@@ -20,6 +20,7 @@ func enter_state():
 	
 	var screen = _ui_manager.main_screen
 	screen.show_hide_win_text(true)
+	screen.skip_button.set_theme(load("res://Art/UI/Themes/Next_Level_Button_theme.tres"))
 	screen.skip_button.pressed.connect(_state.next_puzzle)
 	screen.exit_button.pressed.connect(_state.exit_game)
 	screen.reset_button.pressed.connect(_state.reset_puzzle)
@@ -31,6 +32,7 @@ func enter_state():
 
 func exit_state():
 	var screen = _ui_manager.main_screen
+	screen.skip_button.set_theme(load("res://Art/UI/Themes/Skip_Button_theme.tres"))
 	screen.skip_button.pressed.disconnect(_state.next_puzzle)
 	screen.exit_button.pressed.disconnect(_state.exit_game)
 	screen.reset_button.pressed.disconnect(_state.reset_puzzle)
