@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwt8jgyh763xh"]
+[gd_scene load_steps=11 format=3 uid="uid://dwt8jgyh763xh"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_xw8xb"]
 [ext_resource type="Texture2D" uid="uid://bh6ef2hoft8cb" path="res://Art/UI/Textbox_QuarterSize.png" id="2_1c2ku"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="3_1dm6w"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/TextPopupController.gd" id="4_3ahrd"]
 [ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="4_agpio"]
+[ext_resource type="AnimationLibrary" uid="uid://dlrngmk2gejou" path="res://Animations/ButtonLift.res" id="4_lefs0"]
 [ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="5_bmqud"]
 [ext_resource type="AnimationLibrary" uid="uid://bskceqjctxne2" path="res://Animations/PopupAnimations.res" id="5_jbtyi"]
 
@@ -26,26 +27,6 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
 _data = {
 "RESET": SubResource("Animation_v4ssh")
-}
-
-[sub_resource type="Animation" id="Animation_cdav8"]
-length = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -10)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dobgm"]
-_data = {
-"ButtonEnter": SubResource("Animation_cdav8")
 }
 
 [node name="TextPopup" type="Control"]
@@ -157,12 +138,12 @@ text = "Confirm"
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/ConfirmButtonAnchor/ConfirmButton"]
 libraries = {
 "": SubResource("AnimationLibrary_h4btv"),
-"ButtonLift": SubResource("AnimationLibrary_dobgm")
+"ButtonLift": ExtResource("4_lefs0")
 }
 script = ExtResource("4_agpio")
 onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
-onExit = "RESET"
+onExit = "ButtonLift/ButtonExit"
 keepDown = true
 
 [node name="StaticButtonCapture" parent="Panel/ConfirmButtonAnchor/ConfirmButton" instance=ExtResource("5_bmqud")]

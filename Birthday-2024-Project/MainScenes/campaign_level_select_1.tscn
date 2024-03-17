@@ -75,29 +75,6 @@ disabled = true
 [node name="Level Button20" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="19"]
 disabled = true
 
-[node name="Settings Button" parent="CampaignLevelSelectMenu/Panel" index="3"]
-offset_left = 1760.0
-offset_right = 1824.0
-
-[node name="Exit Button" parent="CampaignLevelSelectMenu/Panel" index="4"]
-offset_left = 1830.0
-offset_right = 1894.0
-
-[node name="PrevPageButton" parent="CampaignLevelSelectMenu/Panel/PrevPageButtonAnchor" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 256.0
-offset_bottom = 256.0
-
-[node name="NextPageButton" parent="CampaignLevelSelectMenu/Panel/NextPageButton2" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 256.0
-offset_bottom = 256.0
-
-[node name="CaptureAnchor" parent="CampaignLevelSelectMenu/Panel/NextPageButton2/NextPageButton" index="1"]
-layout_mode = 0
-
 [node name="GoldBar" parent="CampaignLevelSelectMenu/Panel" index="8"]
 visible = false
 

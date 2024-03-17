@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://k787vo3otomq"]
+[gd_scene load_steps=52 format=3 uid="uid://k787vo3otomq"]
 
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_307mc"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/GalleryScreen.gd" id="2_fvqdg"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://csmg8ouqt6ydf" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksMaidFaunaMacCheeseMilkShakeNoBg.png" id="12_ubwjx"]
 [ext_resource type="Texture2D" uid="uid://dikhfqewphv82" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksNemuFaunaNoBg.png" id="13_eyp7p"]
 [ext_resource type="Texture2D" uid="uid://bv7x7urulm0hl" path="res://Art/OfficialPieceArt/FaunaBdayProject2024CasualFaunaNoBg.png" id="14_f4p8f"]
+[ext_resource type="AnimationLibrary" uid="uid://dlrngmk2gejou" path="res://Animations/ButtonLift.res" id="15_35usr"]
 [ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="15_dcwmk"]
 [ext_resource type="Texture2D" uid="uid://bjy2uu066xde6" path="res://Art/OfficialPieceArt/faunashi.png" id="15_r3bdn"]
 [ext_resource type="Texture2D" uid="uid://drg2trhl7s24l" path="res://Art/OfficialPieceArt/Matcha1.png" id="16_6xybw"]
@@ -128,26 +129,6 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
 _data = {
 "RESET": SubResource("Animation_v4ssh")
-}
-
-[sub_resource type="Animation" id="Animation_cdav8"]
-length = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -10)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dobgm"]
-_data = {
-"ButtonEnter": SubResource("Animation_cdav8")
 }
 
 [node name="Gallery" type="Control" node_paths=PackedStringArray("piece", "pieces", "description", "artist_credit", "piece_name", "page_num", "animators")]
@@ -296,15 +277,16 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="Previous Art ButtonAnchor/Previous Art Button"]
 libraries = {
 "": SubResource("AnimationLibrary_h4btv"),
-"ButtonLift": SubResource("AnimationLibrary_dobgm")
+"ButtonLift": ExtResource("15_35usr")
 }
 script = ExtResource("7_lqy8a")
 onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
-onExit = "RESET"
+onExit = "ButtonLift/ButtonExit"
 keepDown = true
 
 [node name="StaticButtonCapture" parent="Previous Art ButtonAnchor/Previous Art Button" instance=ExtResource("15_dcwmk")]
+layout_mode = 0
 offset_left = -200.0
 offset_top = -412.0
 offset_right = -200.0
@@ -346,12 +328,12 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="Next Art ButtonAnchor/Next Art Button"]
 libraries = {
 "": SubResource("AnimationLibrary_h4btv"),
-"ButtonLift": SubResource("AnimationLibrary_dobgm")
+"ButtonLift": ExtResource("15_35usr")
 }
 script = ExtResource("7_lqy8a")
 onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
-onExit = "RESET"
+onExit = "ButtonLift/ButtonExit"
 keepDown = true
 
 [node name="StaticButtonCapture" parent="Next Art ButtonAnchor/Next Art Button" instance=ExtResource("15_dcwmk")]

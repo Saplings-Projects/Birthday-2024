@@ -4,5 +4,5 @@
 
 [node name="StaticButtonCapture" type="ColorRect"]
 mouse_filter = 1
-color = Color(0, 1, 0, 0.388235)
+color = Color(0, 1, 0, 0)
 script = ExtResource("1_7hlv3")

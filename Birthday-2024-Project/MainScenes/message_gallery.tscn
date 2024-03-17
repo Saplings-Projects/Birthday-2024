@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cwdsrwiqnn7nh"]
+[gd_scene load_steps=33 format=3 uid="uid://cwdsrwiqnn7nh"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_u6whk"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_304n6"]
@@ -18,6 +18,7 @@
 [ext_resource type="Theme" uid="uid://brhrooxlo0rxq" path="res://Art/UI/Themes/HandwrittenLabel.tres" id="12_jyjja"]
 [ext_resource type="AnimationLibrary" uid="uid://dtbni4srk3qoi" path="res://Animations/ExitButton.res" id="13_4qfvg"]
 [ext_resource type="Script" path="res://Scripts/UI/MessageEmoteSwapper.gd" id="13_khktn"]
+[ext_resource type="AnimationLibrary" uid="uid://dlrngmk2gejou" path="res://Animations/ButtonLift.res" id="17_882ax"]
 [ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="17_efpuo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky78o"]
@@ -109,26 +110,6 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
 _data = {
 "RESET": SubResource("Animation_v4ssh")
-}
-
-[sub_resource type="Animation" id="Animation_cdav8"]
-length = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -10)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dobgm"]
-_data = {
-"ButtonEnter": SubResource("Animation_cdav8")
 }
 
 [node name="GalleryScreen" type="Control"]
@@ -292,12 +273,12 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="Gallery/Previous ButtonAnchor/Previous Button"]
 libraries = {
 "": SubResource("AnimationLibrary_h4btv"),
-"ButtonLift": SubResource("AnimationLibrary_dobgm")
+"ButtonLift": ExtResource("17_882ax")
 }
 script = ExtResource("9_qux2f")
 onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
-onExit = "RESET"
+onExit = "ButtonLift/ButtonExit"
 keepDown = true
 
 [node name="StaticButtonCapture" parent="Gallery/Previous ButtonAnchor/Previous Button" instance=ExtResource("17_efpuo")]
@@ -338,12 +319,12 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="Gallery/Next ButtonAnchor/Next Button"]
 libraries = {
 "": SubResource("AnimationLibrary_h4btv"),
-"ButtonLift": SubResource("AnimationLibrary_dobgm")
+"ButtonLift": ExtResource("17_882ax")
 }
 script = ExtResource("9_qux2f")
 onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
-onExit = "RESET"
+onExit = "ButtonLift/ButtonExit"
 keepDown = true
 
 [node name="StaticButtonCapture" parent="Gallery/Next ButtonAnchor/Next Button" instance=ExtResource("17_efpuo")]

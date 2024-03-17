@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=37 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_o8ptf"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b2dleburiy01u" path="res://Art/UI/UiReferencesAndMockups/MainMenuScreen.png" id="6_ltjow"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_umtno"]
 [ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="6_uti07"]
+[ext_resource type="AnimationLibrary" uid="uid://dlrngmk2gejou" path="res://Animations/ButtonLift.res" id="7_jkfwn"]
 [ext_resource type="Texture2D" uid="uid://b0xqm802awspx" path="res://Art/TitleLogo/FullTitleRef.png" id="7_o0e05"]
 [ext_resource type="AnimationLibrary" uid="uid://bq3kvfnhm75a0" path="res://Animations/SettingsButton.res" id="7_vqd2j"]
 [ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="8_8gfbx"]
@@ -45,26 +46,6 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
 _data = {
 "RESET": SubResource("Animation_v4ssh")
-}
-
-[sub_resource type="Animation" id="Animation_cdav8"]
-length = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -10)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dobgm"]
-_data = {
-"ButtonEnter": SubResource("Animation_cdav8")
 }
 
 [sub_resource type="Animation" id="Animation_4f1s0"]
@@ -740,12 +721,12 @@ text = "Play"
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Play ButtonAnchor/Play Button"]
 libraries = {
 "": SubResource("AnimationLibrary_h4btv"),
-"ButtonLift": SubResource("AnimationLibrary_dobgm")
+"ButtonLift": ExtResource("7_jkfwn")
 }
 script = ExtResource("8_8gfbx")
 onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
-onExit = "RESET"
+onExit = "ButtonLift/ButtonExit"
 keepDown = true
 
 [node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Play ButtonAnchor/Play Button" instance=ExtResource("6_uti07")]
@@ -767,12 +748,12 @@ text = "Sapling Messages"
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Messages ButtonAnchor/Messages Button"]
 libraries = {
 "": SubResource("AnimationLibrary_h4btv"),
-"ButtonLift": SubResource("AnimationLibrary_dobgm")
+"ButtonLift": ExtResource("7_jkfwn")
 }
 script = ExtResource("8_8gfbx")
 onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
-onExit = "RESET"
+onExit = "ButtonLift/ButtonExit"
 keepDown = true
 
 [node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Messages ButtonAnchor/Messages Button" instance=ExtResource("6_uti07")]
@@ -794,12 +775,12 @@ text = "Piece Gallery"
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Gallery ButtonAnchor/Gallery Button"]
 libraries = {
 "": SubResource("AnimationLibrary_h4btv"),
-"ButtonLift": SubResource("AnimationLibrary_dobgm")
+"ButtonLift": ExtResource("7_jkfwn")
 }
 script = ExtResource("8_8gfbx")
 onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
-onExit = "RESET"
+onExit = "ButtonLift/ButtonExit"
 keepDown = true
 
 [node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Gallery ButtonAnchor/Gallery Button" instance=ExtResource("6_uti07")]
@@ -821,12 +802,12 @@ text = "Credits"
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Credits ButtonAnchor/Credits Button"]
 libraries = {
 "": SubResource("AnimationLibrary_h4btv"),
-"ButtonLift": SubResource("AnimationLibrary_dobgm")
+"ButtonLift": ExtResource("7_jkfwn")
 }
 script = ExtResource("8_8gfbx")
 onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
-onExit = "RESET"
+onExit = "ButtonLift/ButtonExit"
 keepDown = true
 
 [node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Credits ButtonAnchor/Credits Button" instance=ExtResource("6_uti07")]
@@ -837,9 +818,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1760.0
+offset_left = -160.0
 offset_top = -400.0
-offset_right = 1824.0
+offset_right = -96.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)
@@ -861,9 +842,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1830.0
+offset_left = -90.0
 offset_top = -400.0
-offset_right = 1894.0
+offset_right = -26.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)
