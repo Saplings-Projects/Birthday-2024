@@ -245,8 +245,8 @@ position = Vector2(958.981, 527)
 scale = Vector2(1.19099, 1.19099)
 texture = ExtResource("17_30ude")
 
-[connection signal="button_up" from="Panel/Settings Button" to="." method="on_settings_clicked"]
-[connection signal="button_up" from="Panel/Exit Button" to="." method="on_exit_clicked"]
-[connection signal="button_up" from="Panel/Back Button" to="." method="on_back_clicked"]
-[connection signal="button_up" from="Panel/PrevPageButton" to="." method="on_prev_clicked"]
-[connection signal="button_up" from="Panel/NextPageButton" to="." method="on_next_clicked"]
+[connection signal="pressed" from="Panel/Settings Button" to="." method="on_settings_clicked"]
+[connection signal="pressed" from="Panel/Exit Button" to="." method="on_exit_clicked"]
+[connection signal="pressed" from="Panel/Back Button" to="." method="on_back_clicked"]
+[connection signal="pressed" from="Panel/PrevPageButton" to="." method="on_prev_clicked"]
+[connection signal="pressed" from="Panel/NextPageButton" to="." method="on_next_clicked"]

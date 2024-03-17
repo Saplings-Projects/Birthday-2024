@@ -52,9 +52,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -350.0
+offset_top = -436.0
 offset_right = 300.0
-offset_bottom = 350.0
+offset_bottom = 414.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
@@ -140,7 +140,7 @@ text = "Screen Resolution"
 [node name="ResolutionOptions" type="OptionButton" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container/ResolutionContainer"]
 layout_mode = 2
 
-[node name="Audio" type="TabBar" parent="Panel/ThemeHolder/TabContainer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "fauna_slider", "music_sample_player", "sfx_sample_player", "fauna_sample_player")]
+[node name="Audio" type="TabBar" parent="Panel/ThemeHolder/TabContainer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "fauna_slider", "freq_slider", "music_sample_player", "sfx_sample_player", "fauna_sample_player")]
 visible = false
 custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
@@ -149,6 +149,7 @@ master_slider = NodePath("MarginContainer/Settings Container/Master Container/Ma
 music_slider = NodePath("MarginContainer/Settings Container/Music Container/Music Slider")
 sfx_slider = NodePath("MarginContainer/Settings Container/SFX Container/SFX Slider")
 fauna_slider = NodePath("MarginContainer/Settings Container/Fauna Container/Fauna Slider")
+freq_slider = NodePath("MarginContainer/Settings Container/Freq Container/Freq Slider")
 music_sample_player = NodePath("../../MusicSamplePlayer")
 sfx_sample_player = NodePath("../../SfxSamplePlayer")
 fauna_sample_player = NodePath("../../FaunaSamplePlayer")
@@ -191,7 +192,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Music Container"]
 layout_mode = 2
-text = "Music"
+text = "Music Volume"
 
 [node name="Music Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Music Container"]
 layout_mode = 2
@@ -205,7 +206,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/SFX Container"]
 layout_mode = 2
-text = "SFX"
+text = "SFX Volume"
 
 [node name="SFX Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/SFX Container"]
 layout_mode = 2
@@ -219,7 +220,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
 layout_mode = 2
-text = "Fauna"
+text = "Fauna Volume"
 
 [node name="Fauna Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Fauna Container"]
 layout_mode = 2
@@ -227,6 +228,18 @@ min_value = 0.001
 max_value = 1.0
 step = 0.01
 value = 0.501
+
+[node name="Freq Container" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Freq Container"]
+layout_mode = 2
+text = "Fauna Frequency"
+
+[node name="Freq Slider" type="HSlider" parent="Panel/ThemeHolder/TabContainer/Audio/MarginContainer/Settings Container/Freq Container"]
+layout_mode = 2
+step = 25.0
+value = 50.0
 
 [node name="MusicSamplePlayer" type="AudioStreamPlayer2D" parent="Panel/ThemeHolder"]
 position = Vector2(0, 127)
@@ -275,4 +288,4 @@ libraries = {
 "PopupAnimations": ExtResource("16_plk2s")
 }
 
-[connection signal="button_up" from="Panel/Close Button" to="." method="on_close_clicked"]
+[connection signal="pressed" from="Panel/Close Button" to="." method="on_close_clicked"]
