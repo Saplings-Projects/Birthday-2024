@@ -253,6 +253,6 @@ text = "[center][font_size=25]Hololive and its Talents copyrights are reserved b
 fit_content = true
 scroll_active = false
 
-[connection signal="button_up" from="Panel/Settings Button" to="." method="_on_settings_button_button_up"]
-[connection signal="button_up" from="Panel/Back Button" to="." method="_on_back_button_button_up"]
-[connection signal="button_up" from="Panel/Exit Button" to="." method="_on_exit_button_button_up"]
+[connection signal="pressed" from="Panel/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/Back Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Panel/Exit Button" to="." method="_on_exit_button_pressed"]

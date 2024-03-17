@@ -414,8 +414,8 @@ offset_bottom = 577.0
 scale = Vector2(0.895, 0.895)
 texture = ExtResource("29_6sbw5")
 
-[connection signal="button_up" from="Panel/Back Button" to="." method="_on_back_button_button_up"]
-[connection signal="button_up" from="Panel/Settings Button" to="." method="_on_settings_button_button_up"]
-[connection signal="button_up" from="Panel/Exit Button" to="." method="_on_exit_button_button_up"]
-[connection signal="button_up" from="Previous Art Button" to="." method="_on_previous_art_button_button_up"]
-[connection signal="button_up" from="Next Art Button" to="." method="_on_next_art_button_button_up"]
+[connection signal="pressed" from="Panel/Back Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Panel/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/Exit Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Previous Art Button" to="." method="_on_previous_art_button_pressed"]
+[connection signal="pressed" from="Next Art Button" to="." method="_on_next_art_button_pressed"]

@@ -16,16 +16,16 @@ signal back_to_main_menu
 signal exit_game
 signal open_settings_window
 
-func _on_exit_button_button_up():
+func _on_exit_button_pressed():
 	myScreen.ExitApplication()
 
-func _on_back_button_button_up():
+func _on_back_button_pressed():
 	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 
-func _on_settings_button_button_up():
+func _on_settings_button_pressed():
 	myScreen.ShowSettings()
 
-func _on_next_art_button_button_up():
+func _on_next_art_button_pressed():
 	pieces[gallery_tracker].hide()
 	gallery_tracker += 1
 	if gallery_tracker > (pieces.size() - 1) : 
@@ -36,7 +36,7 @@ func _on_next_art_button_button_up():
 	_change_artist_credit()
 
 
-func _on_previous_art_button_button_up():
+func _on_previous_art_button_pressed():
 	pieces[gallery_tracker].hide()
 	gallery_tracker -= 1
 	if gallery_tracker < 0 : 
@@ -60,3 +60,4 @@ func _change_artist_credit():
 			artist_credit.text = "Art by: Cyanophycée"
 		21, 22: 
 			artist_credit.text = "Art by: HDAK art"
+
