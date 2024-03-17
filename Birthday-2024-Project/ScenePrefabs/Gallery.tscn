@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://k787vo3otomq"]
+[gd_scene load_steps=52 format=3 uid="uid://k787vo3otomq"]
 
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_307mc"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/GalleryScreen.gd" id="2_fvqdg"]
@@ -108,6 +108,46 @@ texture = ExtResource("8_r3use")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlxyn"]
 texture = ExtResource("9_mksxb")
+
+[sub_resource type="Animation" id="Animation_v4ssh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
+_data = {
+"RESET": SubResource("Animation_v4ssh")
+}
+
+[sub_resource type="Animation" id="Animation_cdav8"]
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dobgm"]
+_data = {
+"ButtonEnter": SubResource("Animation_cdav8")
+}
 
 [node name="Gallery" type="Control" node_paths=PackedStringArray("piece", "pieces", "description", "artist_credit", "piece_name", "page_num", "animators")]
 layout_mode = 3
@@ -221,9 +261,9 @@ introAnim = "ExitButton/ExitIntro"
 onEnter = "ButtonAnimations/ButtonEnter"
 onExit = "ButtonAnimations/ButtonExit"
 
-[node name="Previous Art Button" type="Button" parent="."]
+[node name="Previous Art ButtonAnchor" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -233,13 +273,37 @@ offset_top = -128.0
 offset_right = -504.0
 offset_bottom = 128.0
 theme = ExtResource("1_307mc")
+
+[node name="Previous Art Button" type="Button" parent="Previous Art ButtonAnchor"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+theme = ExtResource("1_307mc")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kof7u")
 theme_override_styles/hover = SubResource("StyleBoxTexture_r4683")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
 
-[node name="Next Art Button" type="Button" parent="."]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Previous Art ButtonAnchor/Previous Art Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": SubResource("AnimationLibrary_dobgm")
+}
+script = ExtResource("7_lqy8a")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "RESET"
+keepDown = true
+
+[node name="Next Art ButtonAnchor" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -248,11 +312,36 @@ offset_left = 860.0
 offset_top = -128.0
 offset_right = 1116.0
 offset_bottom = 128.0
+pivot_offset = Vector2(256, 0)
+theme = ExtResource("1_307mc")
+
+[node name="Next Art Button" type="Button" parent="Next Art ButtonAnchor"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
 scale = Vector2(-1, 1)
 theme = ExtResource("1_307mc")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kof7u")
 theme_override_styles/hover = SubResource("StyleBoxTexture_r4683")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Next Art ButtonAnchor/Next Art Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": SubResource("AnimationLibrary_dobgm")
+}
+script = ExtResource("7_lqy8a")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "RESET"
+keepDown = true
 
 [node name="Text Display" type="Panel" parent="."]
 layout_mode = 1
@@ -551,5 +640,5 @@ horizontal_alignment = 1
 [connection signal="pressed" from="Panel/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Panel/Settings Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Panel/Exit Button" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="Previous Art Button" to="." method="_on_previous_art_button_pressed"]
-[connection signal="pressed" from="Next Art Button" to="." method="_on_next_art_button_pressed"]
+[connection signal="pressed" from="Previous Art ButtonAnchor/Previous Art Button" to="." method="_on_previous_art_button_pressed"]
+[connection signal="pressed" from="Next Art ButtonAnchor/Next Art Button" to="." method="_on_next_art_button_pressed"]

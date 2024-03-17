@@ -75,10 +75,10 @@ disabled = true
 [node name="Level Button20" parent="CampaignLevelSelectMenu/Panel/Level Select Buttons" index="19"]
 disabled = true
 
-[node name="PrevPageButton" parent="CampaignLevelSelectMenu/Panel" index="6"]
+[node name="GoldBar" parent="CampaignLevelSelectMenu/Panel" index="8"]
 visible = false
 
-[node name="NextPageButton" parent="CampaignLevelSelectMenu/Panel" index="7"]
+[node name="GoldBar2" parent="CampaignLevelSelectMenu/Panel" index="9"]
 visible = false
 
 [editable path="CampaignLevelSelectMenu"]

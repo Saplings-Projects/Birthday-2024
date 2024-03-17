@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://lma3uuskmlpo"]
+[gd_scene load_steps=32 format=3 uid="uid://lma3uuskmlpo"]
 
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_f0s32"]
 [ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/LevelsSelectMenu.gd" id="2_qje3g"]
@@ -91,6 +91,46 @@ texture = ExtResource("15_qlyp1")
 texture = ExtResource("14_pg7lu")
 modulate_color = Color(0.784314, 0.784314, 0.784314, 0.784314)
 
+[sub_resource type="Animation" id="Animation_v4ssh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
+_data = {
+"RESET": SubResource("Animation_v4ssh")
+}
+
+[sub_resource type="Animation" id="Animation_cdav8"]
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dobgm"]
+_data = {
+"ButtonEnter": SubResource("Animation_cdav8")
+}
+
 [node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("selectableButtons", "pageText", "prevArrow", "nextArrow", "levelNameText", "authorNameText")]
 layout_mode = 3
 anchors_preset = 15
@@ -105,8 +145,8 @@ isCampaign = true
 pageText = NodePath("Panel/Page")
 pageNumber = 1
 lastPageNumber = 1
-prevArrow = NodePath("Panel/PrevPageButton")
-nextArrow = NodePath("Panel/NextPageButton")
+prevArrow = NodePath("Panel/PrevPageButtonAnchor/PrevPageButton")
+nextArrow = NodePath("Panel/NextPageButton2/NextPageButton")
 levelNameText = NodePath("Panel/GoldBar/LevelName")
 authorNameText = NodePath("Panel/GoldBar2/Author")
 
@@ -305,7 +345,7 @@ introAnim = "BackButton/BackIntro"
 onEnter = "ButtonAnimations/ButtonEnter"
 onExit = "ButtonAnimations/ButtonExit"
 
-[node name="PrevPageButton" type="Button" parent="Panel"]
+[node name="PrevPageButtonAnchor" type="Control" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -318,12 +358,37 @@ offset_right = -429.0
 offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PrevPageButton" type="Button" parent="Panel/PrevPageButtonAnchor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_jq74l")
 theme_override_styles/hover = SubResource("StyleBoxTexture_7muh8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vq17u")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_ey6ba")
 
-[node name="NextPageButton" type="Button" parent="Panel"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/PrevPageButtonAnchor/PrevPageButton"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": SubResource("AnimationLibrary_dobgm")
+}
+script = ExtResource("8_1r2fe")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "RESET"
+keepDown = true
+
+[node name="NextPageButton2" type="Control" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -336,12 +401,38 @@ offset_right = 685.0
 offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(128, 128)
+
+[node name="NextPageButton" type="Button" parent="Panel/NextPageButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(-1, 1)
 pivot_offset = Vector2(128, 128)
 theme_override_styles/normal = SubResource("StyleBoxTexture_jq74l")
 theme_override_styles/hover = SubResource("StyleBoxTexture_7muh8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vq17u")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_ey6ba")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/NextPageButton2/NextPageButton"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": SubResource("AnimationLibrary_dobgm")
+}
+script = ExtResource("8_1r2fe")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "RESET"
+keepDown = true
 
 [node name="GoldBar" type="ColorRect" parent="Panel"]
 layout_mode = 1
@@ -427,5 +518,5 @@ texture = ExtResource("17_30ude")
 [connection signal="pressed" from="Panel/Settings Button" to="." method="on_settings_clicked"]
 [connection signal="pressed" from="Panel/Exit Button" to="." method="on_exit_clicked"]
 [connection signal="pressed" from="Panel/Back Button" to="." method="on_back_clicked"]
-[connection signal="pressed" from="Panel/PrevPageButton" to="." method="on_prev_clicked"]
-[connection signal="pressed" from="Panel/NextPageButton" to="." method="on_next_clicked"]
+[connection signal="pressed" from="Panel/PrevPageButtonAnchor/PrevPageButton" to="." method="on_prev_clicked"]
+[connection signal="pressed" from="Panel/NextPageButton2/NextPageButton" to="." method="on_next_clicked"]

@@ -19,6 +19,8 @@ enum ButtonState {
 @export var onExit : String
 @export var onPress : String
 
+@export var keepDown : bool
+
 signal pressAnimFinished
 
 var awaitingSignal : bool
@@ -44,6 +46,9 @@ func onButtonEnter():
 		queueEnter = true
 		return
 		
+	if buttonDown and keepDown:
+		return
+	
 	myState = ButtonState.ENTER
 	if !onEnter.is_empty():
 		play(onEnter)
@@ -51,6 +56,9 @@ func onButtonEnter():
 func onButtonExit():
 	if myState == ButtonState.PRESS or myState == ButtonState.INITIAL:
 		queueEnter = false
+		return
+		
+	if buttonDown and keepDown:
 		return
 		
 	myState = ButtonState.EXIT
@@ -127,7 +135,10 @@ func _process(delta):
 		ButtonState.HOVER:
 			pass
 		ButtonState.DOWN:
-			pass
+			if buttonDown == false:
+				myState = ButtonState.IDLE
+				if !onIdle.is_empty():
+					play(onIdle)
 		ButtonState.EXIT:
 			if is_playing():
 				return
