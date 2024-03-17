@@ -289,7 +289,7 @@ func _input(event):
 			on_clicked(clicked_cell)
 
 func _check_shape_clicked() -> int:
-	if game_manager.is_mouse_in_button():
+	if game_manager.is_mouse_over_button():
 		return NO_CELL_CLICKED
 	
 	var relative_click_position : Vector2 = get_global_mouse_position() - GetOriginCellPosition()

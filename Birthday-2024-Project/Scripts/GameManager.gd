@@ -44,7 +44,7 @@ func retrieve_mouse_position() -> Vector2:
 		return get_global_mouse_position()
 	return placing_locked_position
 	
-func is_mouse_in_button() -> bool:
+func is_mouse_over_button() -> bool:
 	return puzzle_main_screen.is_a_button_hovered()
 	
 func go_to_level_select():
