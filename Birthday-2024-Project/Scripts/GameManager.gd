@@ -295,3 +295,7 @@ func _do_place_held_piece(delta):
 		held_piece.play_place_audio()
 		held_piece = null # Piece is no longer being held
 		placing_piece = false
+
+func get_fauna_frequency():
+	return _gm.audio_controller._prefs.freq
+	
