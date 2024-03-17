@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dom7l5hw3eii5"]
+[gd_scene load_steps=12 format=3 uid="uid://dom7l5hw3eii5"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_hpcja"]
 [ext_resource type="Texture2D" uid="uid://bh6ef2hoft8cb" path="res://Art/UI/Textbox_QuarterSize.png" id="2_poh35"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ConfirmationPopupController.gd" id="3_m15bs"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="3_rg6pl"]
 [ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="4_arch7"]
+[ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="5_1g7vh"]
 [ext_resource type="AnimationLibrary" uid="uid://bskceqjctxne2" path="res://Animations/PopupAnimations.res" id="5_e8du3"]
 
 [sub_resource type="Animation" id="Animation_v4ssh"]
@@ -157,6 +158,12 @@ onDown = "RESET"
 onExit = "RESET"
 keepDown = true
 
+[node name="StaticButtonCapture" parent="Panel/ConfirmButtonAnchor/ConfirmButton" instance=ExtResource("5_1g7vh")]
+offset_left = -720.0
+offset_top = -620.0
+offset_right = -720.0
+offset_bottom = -620.0
+
 [node name="CancelButtonAnchor" type="Control" parent="Panel"]
 layout_mode = 1
 anchors_preset = 3
@@ -197,6 +204,9 @@ onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
 onExit = "RESET"
 keepDown = true
+
+[node name="StaticButtonCapture" parent="Panel/CancelButtonAnchor/CancelButton" instance=ExtResource("5_1g7vh")]
+layout_mode = 0
 
 [node name="Controller" type="Control" parent="." node_paths=PackedStringArray("cancelButtonText", "myScreen", "titleText", "bodyText", "confirmButtonText", "animator")]
 layout_mode = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://lma3uuskmlpo"]
+[gd_scene load_steps=35 format=3 uid="uid://lma3uuskmlpo"]
 
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_f0s32"]
 [ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/LevelsSelectMenu.gd" id="2_qje3g"]
@@ -14,6 +14,7 @@
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="13_hp0wu"]
 [ext_resource type="Texture2D" uid="uid://db3rvquwfp1ls" path="res://Art/UI/Arrow_button_normal.png" id="14_pg7lu"]
 [ext_resource type="Texture2D" uid="uid://cyeqlujr0xudm" path="res://Art/UI/Arrow_button_pressed.png" id="15_qlyp1"]
+[ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="16_jw036"]
 [ext_resource type="Theme" uid="uid://brhrooxlo0rxq" path="res://Art/UI/Themes/HandwrittenLabel.tres" id="16_mno0u"]
 [ext_resource type="Texture2D" uid="uid://pfq2xiycjshy" path="res://Art/UI/Arrow_button_Hover.png" id="16_w3ija"]
 [ext_resource type="Texture2D" uid="uid://daeokhww64r8d" path="res://Art/UI/UiReferencesAndMockups/CampaignLevelScreen.png" id="17_30ude"]
@@ -112,23 +113,60 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_cdav8"]
-length = 0.01
+length = 0.15
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -10)]
+"values": [Vector2(0, 0), Vector2(0, -10)]
+}
+
+[sub_resource type="Animation" id="Animation_1q8b4"]
+resource_name = "ButtonExit"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sb14u"]
+resource_name = "ButtonExitFast"
+length = 0.03
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dobgm"]
 _data = {
-"ButtonEnter": SubResource("Animation_cdav8")
+"ButtonEnter": SubResource("Animation_cdav8"),
+"ButtonExit": SubResource("Animation_1q8b4"),
+"ButtonExitFast": SubResource("Animation_sb14u")
 }
 
 [node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("selectableButtons", "pageText", "prevArrow", "nextArrow", "levelNameText", "authorNameText")]
@@ -385,8 +423,11 @@ libraries = {
 script = ExtResource("8_1r2fe")
 onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
-onExit = "RESET"
+onExit = "ButtonLift/ButtonExit"
 keepDown = true
+
+[node name="StaticButtonCapture" parent="Panel/PrevPageButtonAnchor/PrevPageButton" instance=ExtResource("16_jw036")]
+layout_mode = 0
 
 [node name="NextPageButton2" type="Control" parent="Panel"]
 layout_mode = 1
@@ -431,8 +472,11 @@ libraries = {
 script = ExtResource("8_1r2fe")
 onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
-onExit = "RESET"
+onExit = "ButtonLift/ButtonExit"
 keepDown = true
+
+[node name="StaticButtonCapture" parent="Panel/NextPageButton2/NextPageButton" instance=ExtResource("16_jw036")]
+layout_mode = 0
 
 [node name="GoldBar" type="ColorRect" parent="Panel"]
 layout_mode = 1

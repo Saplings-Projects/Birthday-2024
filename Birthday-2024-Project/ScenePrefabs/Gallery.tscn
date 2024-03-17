@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://k787vo3otomq"]
+[gd_scene load_steps=53 format=3 uid="uid://k787vo3otomq"]
 
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_307mc"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/GalleryScreen.gd" id="2_fvqdg"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://csmg8ouqt6ydf" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksMaidFaunaMacCheeseMilkShakeNoBg.png" id="12_ubwjx"]
 [ext_resource type="Texture2D" uid="uid://dikhfqewphv82" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksNemuFaunaNoBg.png" id="13_eyp7p"]
 [ext_resource type="Texture2D" uid="uid://bv7x7urulm0hl" path="res://Art/OfficialPieceArt/FaunaBdayProject2024CasualFaunaNoBg.png" id="14_f4p8f"]
+[ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="15_dcwmk"]
 [ext_resource type="Texture2D" uid="uid://bjy2uu066xde6" path="res://Art/OfficialPieceArt/faunashi.png" id="15_r3bdn"]
 [ext_resource type="Texture2D" uid="uid://drg2trhl7s24l" path="res://Art/OfficialPieceArt/Matcha1.png" id="16_6xybw"]
 [ext_resource type="Texture2D" uid="uid://o02tlk51tt1k" path="res://Art/OfficialPieceArt/baldFauna.png" id="17_y4gvn"]
@@ -272,6 +273,8 @@ offset_left = -760.0
 offset_top = -128.0
 offset_right = -504.0
 offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_307mc")
 
 [node name="Previous Art Button" type="Button" parent="Previous Art ButtonAnchor"]
@@ -301,6 +304,12 @@ onDown = "RESET"
 onExit = "RESET"
 keepDown = true
 
+[node name="StaticButtonCapture" parent="Previous Art ButtonAnchor/Previous Art Button" instance=ExtResource("15_dcwmk")]
+offset_left = -200.0
+offset_top = -412.0
+offset_right = -200.0
+offset_bottom = -412.0
+
 [node name="Next Art ButtonAnchor" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -312,6 +321,8 @@ offset_left = 860.0
 offset_top = -128.0
 offset_right = 1116.0
 offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(256, 0)
 theme = ExtResource("1_307mc")
 
@@ -342,6 +353,9 @@ onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
 onExit = "RESET"
 keepDown = true
+
+[node name="StaticButtonCapture" parent="Next Art ButtonAnchor/Next Art Button" instance=ExtResource("15_dcwmk")]
+layout_mode = 0
 
 [node name="Text Display" type="Panel" parent="."]
 layout_mode = 1

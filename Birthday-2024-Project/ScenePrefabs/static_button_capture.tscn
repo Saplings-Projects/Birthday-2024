@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cprkdpxp0xfsl"]
+
+[ext_resource type="Script" path="res://Scripts/UI/StaticControlNode.gd" id="1_7hlv3"]
+
+[node name="StaticButtonCapture" type="ColorRect"]
+mouse_filter = 1
+color = Color(0, 1, 0, 0.388235)
+script = ExtResource("1_7hlv3")

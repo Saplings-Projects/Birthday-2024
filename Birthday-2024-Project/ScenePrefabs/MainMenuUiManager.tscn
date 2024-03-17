@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=38 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_o8ptf"]
@@ -9,6 +9,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://x3ltx0v8glt8" path="res://Animations/ButtonAnimations.res" id="6_dihdt"]
 [ext_resource type="Texture2D" uid="uid://b2dleburiy01u" path="res://Art/UI/UiReferencesAndMockups/MainMenuScreen.png" id="6_ltjow"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_umtno"]
+[ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="6_uti07"]
 [ext_resource type="Texture2D" uid="uid://b0xqm802awspx" path="res://Art/TitleLogo/FullTitleRef.png" id="7_o0e05"]
 [ext_resource type="AnimationLibrary" uid="uid://bq3kvfnhm75a0" path="res://Animations/SettingsButton.res" id="7_vqd2j"]
 [ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="8_8gfbx"]
@@ -747,6 +748,9 @@ onDown = "RESET"
 onExit = "RESET"
 keepDown = true
 
+[node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Play ButtonAnchor/Play Button" instance=ExtResource("6_uti07")]
+layout_mode = 0
+
 [node name="Messages ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
 layout_mode = 2
 anchors_preset = 0
@@ -770,6 +774,9 @@ onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
 onExit = "RESET"
 keepDown = true
+
+[node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Messages ButtonAnchor/Messages Button" instance=ExtResource("6_uti07")]
+layout_mode = 0
 
 [node name="Gallery ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
 layout_mode = 2
@@ -795,6 +802,9 @@ onDown = "RESET"
 onExit = "RESET"
 keepDown = true
 
+[node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Gallery ButtonAnchor/Gallery Button" instance=ExtResource("6_uti07")]
+layout_mode = 0
+
 [node name="Credits ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
 layout_mode = 2
 anchors_preset = 0
@@ -819,14 +829,17 @@ onDown = "RESET"
 onExit = "RESET"
 keepDown = true
 
+[node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Credits ButtonAnchor/Credits Button" instance=ExtResource("6_uti07")]
+layout_mode = 0
+
 [node name="Settings Button" type="Button" parent="StartScreen/Panel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -160.0
+offset_left = 1760.0
 offset_top = -400.0
-offset_right = -96.0
+offset_right = 1824.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)
@@ -848,9 +861,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -90.0
+offset_left = 1830.0
 offset_top = -400.0
-offset_right = -26.0
+offset_right = 1894.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwt8jgyh763xh"]
+[gd_scene load_steps=12 format=3 uid="uid://dwt8jgyh763xh"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_xw8xb"]
 [ext_resource type="Texture2D" uid="uid://bh6ef2hoft8cb" path="res://Art/UI/Textbox_QuarterSize.png" id="2_1c2ku"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="3_1dm6w"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/TextPopupController.gd" id="4_3ahrd"]
 [ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="4_agpio"]
+[ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="5_bmqud"]
 [ext_resource type="AnimationLibrary" uid="uid://bskceqjctxne2" path="res://Animations/PopupAnimations.res" id="5_jbtyi"]
 
 [sub_resource type="Animation" id="Animation_v4ssh"]
@@ -163,6 +164,9 @@ onEnter = "ButtonLift/ButtonEnter"
 onDown = "RESET"
 onExit = "RESET"
 keepDown = true
+
+[node name="StaticButtonCapture" parent="Panel/ConfirmButtonAnchor/ConfirmButton" instance=ExtResource("5_bmqud")]
+layout_mode = 0
 
 [node name="Controller" type="Control" parent="." node_paths=PackedStringArray("myScreen", "titleText", "bodyText", "confirmButtonText", "animator")]
 anchors_preset = 0
