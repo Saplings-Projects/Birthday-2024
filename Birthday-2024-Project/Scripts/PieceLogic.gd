@@ -281,7 +281,7 @@ func _SetReturnPoint():
 	#print(global_position)
 
 func _input(event):
-	if event.is_action_pressed("GrabPiece"):
+	if event.is_action_pressed("GrabPiece") and totalCells > 0:
 		# Check if the user has clicked on the piece's exact shape
 		var clicked_cell : int = _check_shape_clicked()
 		if clicked_cell != NO_CELL_CLICKED:
@@ -289,6 +289,9 @@ func _input(event):
 			on_clicked(clicked_cell)
 
 func _check_shape_clicked() -> int:
+	if game_manager.is_mouse_in_button():
+		return NO_CELL_CLICKED
+	
 	var relative_click_position : Vector2 = get_global_mouse_position() - GetOriginCellPosition()
 	for i in range(_current_cells.size()):
 		var cell00 : Vector2 = Vector2((_current_cells[i].x - 0.5) * levelGridReference.tile_set.tile_size.x, (_current_cells[i].y - 0.5) * levelGridReference.tile_set.tile_size.y)
