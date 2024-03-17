@@ -23,6 +23,7 @@ func _on_confirm_import():
 	_state.manager.grid.ImportLevel(inputField.text)
 	importPopup.hide()
 	_state.manager._can_interact = true
+	_state.go_to_test_mode()
 
 func _on_cancel_import():
 	importPopup.hide()
