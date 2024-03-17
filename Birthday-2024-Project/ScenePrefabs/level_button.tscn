@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://shy8qxvm8ys6"]
+[gd_scene load_steps=14 format=3 uid="uid://shy8qxvm8ys6"]
 
 [ext_resource type="Texture2D" uid="uid://dvawks3eilp65" path="res://Art/UI/Level_Selection_button_normal.png" id="1_0wlms"]
 [ext_resource type="Texture2D" uid="uid://dmyn110xk4kya" path="res://Art/UI/Level_Selection_button_Hover.png" id="2_t2lj3"]
 [ext_resource type="Texture2D" uid="uid://b1g0ps4f1inj3" path="res://Art/UI/Level_Selection_button_pressed.png" id="3_xjftg"]
 [ext_resource type="Texture2D" uid="uid://dgahqq8kwev51" path="res://Art/UI/Level_Selection_button_Disabled.png" id="4_37keo"]
 [ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/LevelButton.gd" id="5_cy0u4"]
-[ext_resource type="Resource" uid="uid://dtycllv72hokg" path="res://Resources/TestLevel.tres" id="6_5gm5i"]
 [ext_resource type="Material" uid="uid://c4wikcqpqchi2" path="res://Materials/monochromeMat.tres" id="7_j0kws"]
 [ext_resource type="Texture2D" uid="uid://rntlh0kkhd62" path="res://Art/UI/LevelPreviewMask.png" id="7_mjp2e"]
+[ext_resource type="AnimationLibrary" uid="uid://x3ltx0v8glt8" path="res://Animations/ButtonAnimations.res" id="9_3b2mh"]
+[ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="10_j0ygo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hlmj8"]
 texture = ExtResource("1_0wlms")
@@ -23,12 +24,13 @@ texture = ExtResource("4_37keo")
 
 [node name="Level Button" type="Button" node_paths=PackedStringArray("levelPreviewRenderer")]
 custom_minimum_size = Vector2(125, 125)
+pivot_offset = Vector2(62.5, 62.5)
+mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxTexture_hlmj8")
 theme_override_styles/hover = SubResource("StyleBoxTexture_x8buo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_r4470")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_oxmve")
 script = ExtResource("5_cy0u4")
-levelData = ExtResource("6_5gm5i")
 levelPreviewRenderer = NodePath("PhotoMask/PreviewImage")
 monochromeShader = ExtResource("7_j0kws")
 
@@ -56,5 +58,13 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 3
 stretch_mode = 5
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"ButtonAnimations": ExtResource("9_3b2mh")
+}
+script = ExtResource("10_j0ygo")
+onEnter = "ButtonAnimations/ButtonEnter_2"
+onExit = "ButtonAnimations/ButtonExit_2"
 
 [connection signal="pressed" from="." to="." method="GoToLevel"]

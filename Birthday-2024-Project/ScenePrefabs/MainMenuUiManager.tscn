@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://gfva2owqvlhw"]
+[gd_scene load_steps=33 format=3 uid="uid://gfva2owqvlhw"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenuUiManager.gd" id="1_lofx7"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_o8ptf"]
@@ -6,11 +6,15 @@
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/States/MainMenuUiStartState.gd" id="3_vnjds"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="4_bkid4"]
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="5_s3yha"]
+[ext_resource type="AnimationLibrary" uid="uid://x3ltx0v8glt8" path="res://Animations/ButtonAnimations.res" id="6_dihdt"]
 [ext_resource type="Texture2D" uid="uid://b2dleburiy01u" path="res://Art/UI/UiReferencesAndMockups/MainMenuScreen.png" id="6_ltjow"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_umtno"]
 [ext_resource type="Texture2D" uid="uid://b0xqm802awspx" path="res://Art/TitleLogo/FullTitleRef.png" id="7_o0e05"]
+[ext_resource type="AnimationLibrary" uid="uid://bq3kvfnhm75a0" path="res://Animations/SettingsButton.res" id="7_vqd2j"]
+[ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="8_8gfbx"]
 [ext_resource type="Texture2D" uid="uid://ruvwa3jlt8of" path="res://Art/TitleLogo/TitleText1.png" id="8_b1ctl"]
 [ext_resource type="Texture2D" uid="uid://db5a7q404cwh" path="res://Art/TitleLogo/TitleText2.png" id="9_kijf4"]
+[ext_resource type="AnimationLibrary" uid="uid://dtbni4srk3qoi" path="res://Animations/ExitButton.res" id="10_jpi4h"]
 [ext_resource type="Texture2D" uid="uid://cyvf1pie8krdn" path="res://Art/TitleLogo/TitleGem.png" id="10_nouof"]
 [ext_resource type="Texture2D" uid="uid://c4t0sxj272th3" path="res://Art/TitleLogo/TitleBar.png" id="11_qj3u6"]
 [ext_resource type="Texture2D" uid="uid://dvsmtd7670nsd" path="res://Art/TitleLogo/TitleSapling1.png" id="12_tplao"]
@@ -21,6 +25,46 @@
 [ext_resource type="Texture2D" uid="uid://bdki73vfmwpjl" path="res://Art/TitleLogo/TitleLeaf2.png" id="17_f1xcb"]
 [ext_resource type="Texture2D" uid="uid://cstdpe2o76en" path="res://Art/TitleLogo/TitleLeaf3.png" id="18_hyw7m"]
 [ext_resource type="Texture2D" uid="uid://e1wnogtn8s8r" path="res://Art/TitleLogo/TitleLeaf4.png" id="19_r861o"]
+
+[sub_resource type="Animation" id="Animation_4f1s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1760, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_luyfv"]
+_data = {
+"RESET": SubResource("Animation_4f1s0")
+}
+
+[sub_resource type="Animation" id="Animation_je6wi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1830, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pblbj"]
+_data = {
+"RESET": SubResource("Animation_je6wi")
+}
 
 [sub_resource type="Animation" id="Animation_6fki2"]
 length = 0.001
@@ -662,11 +706,23 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -160.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -96.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("5_s3yha")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Settings Button"]
+libraries = {
+"": SubResource("AnimationLibrary_luyfv"),
+"ButtonAnimations": ExtResource("6_dihdt"),
+"SettingsButton": ExtResource("7_vqd2j")
+}
+script = ExtResource("8_8gfbx")
+introAnim = "SettingsButton/SettingsIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Exit Button" type="Button" parent="StartScreen/Panel"]
 layout_mode = 1
@@ -674,11 +730,23 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -90.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -26.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("6_umtno")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Exit Button"]
+libraries = {
+"": SubResource("AnimationLibrary_pblbj"),
+"ButtonAnimations": ExtResource("6_dihdt"),
+"ExitButton": ExtResource("10_jpi4h")
+}
+script = ExtResource("8_8gfbx")
+introAnim = "ExitButton/ExitIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StartScreen/Panel"]
 libraries = {

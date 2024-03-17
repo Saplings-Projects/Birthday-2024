@@ -17,6 +17,8 @@ const SAPLING_LEVELS = "res://MainScenes/sapling_level_select_"
 @export var lastPageNumber : int
 @export var prevArrow : Button
 @export var nextArrow : Button
+@export var levelNameText : Label
+@export var authorNameText : Label
 
 var _gm: GameMaster
 
@@ -52,6 +54,10 @@ func on_exit_clicked():
 
 func on_settings_clicked():
 	screenLogic.screenManager.ShowSettings()
+
+func SetLevelAndAuthor(levelName : String, levelAuthor : String):
+	levelNameText.text = levelName
+	authorNameText.text = levelAuthor
 
 func _ready():
 	_gm = get_node(GameMaster.GLOBAL_GAME_MASTER_NODE)

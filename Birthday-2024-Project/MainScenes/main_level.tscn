@@ -217,6 +217,14 @@ controller = NodePath("../GameManager")
 [node name="MainScreen" parent="PuzzleUiManager" index="0" node_paths=PackedStringArray("controller")]
 controller = NodePath("../../GameManager")
 
+[node name="Settings Button" parent="PuzzleUiManager/MainScreen/Panel" index="0"]
+offset_left = 1760.0
+offset_right = 1824.0
+
+[node name="Exit Button" parent="PuzzleUiManager/MainScreen/Panel" index="3"]
+offset_left = 1830.0
+offset_right = 1894.0
+
 [connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
 [connection signal="state_changed_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_state_changed"]
 

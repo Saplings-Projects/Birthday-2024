@@ -26,8 +26,14 @@ var myButton : Button
 var myState : ButtonState
 var buttonDown : bool
 var queueEnter : bool
+var myScreen : ScreenLogic
+
+func reset():
+	_initialize()
+	play("RESET")
 
 func startOnScreenEnter():
+	myScreen.ScreenEnter.disconnect(startOnScreenEnter)
 	awaitingSignal = false
 	
 	if !introAnim.is_empty():
@@ -70,19 +76,23 @@ func onButtonPressed():
 	myState = ButtonState.PRESS
 	if !onPress.is_empty():
 		play(onPress)
-
-func _ready():
+		
+func _initialize():
 	buttonDown = false
 	queueEnter = false
 	awaitingSignal = true
 	myState = ButtonState.INITIAL
-	
+	myScreen.ScreenEnter.connect(startOnScreenEnter)
+
+func _ready():	
+	myScreen = _findScreenLogic()
 	myButton = get_parent() as Button
 	myButton.mouse_entered.connect(onButtonEnter)
 	myButton.mouse_exited.connect(onButtonExit)
 	myButton.button_down.connect(onButtonDown)
 	myButton.button_up.connect(onButtonUp)
 	myButton.pressed.connect(onButtonPressed)
+	_initialize()
 
 func _process(delta):
 	if awaitingSignal:
@@ -140,4 +150,12 @@ func _process(delta):
 				myState = ButtonState.IDLE
 				if !onIdle.is_empty():
 					play(onIdle)
+
+func _findScreenLogic() -> ScreenLogic:
+	var parentNode = get_parent()
+	while parentNode != null and parentNode is ScreenLogic == false:
+		parentNode = parentNode.get_parent()
 	
+	if parentNode != null:
+		return parentNode as ScreenLogic
+	return null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bvxs6val4gfwt"]
+[gd_scene load_steps=39 format=3 uid="uid://bvxs6val4gfwt"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_tp6rq"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_uvybp"]
@@ -12,9 +12,14 @@
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="7_oegh3"]
 [ext_resource type="Texture2D" uid="uid://b1wnjeiltasgg" path="res://Art/OfficialPieceArt/Campaign_pressed.png" id="8_bdkyx"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="8_v563t"]
+[ext_resource type="AnimationLibrary" uid="uid://x3ltx0v8glt8" path="res://Animations/ButtonAnimations.res" id="9_2jspl"]
 [ext_resource type="Texture2D" uid="uid://bgp7ytyux5ax4" path="res://Art/OfficialPieceArt/Level_type_normal.png" id="9_6n0xi"]
+[ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="9_w14jy"]
 [ext_resource type="Texture2D" uid="uid://jpu45bfgsavl" path="res://Art/OfficialPieceArt/Level_type_Hover.png" id="10_ut252"]
 [ext_resource type="Texture2D" uid="uid://plb8jwpj3giv" path="res://Art/OfficialPieceArt/Level_type_Pressed.png" id="11_7q3fa"]
+[ext_resource type="AnimationLibrary" uid="uid://bq3kvfnhm75a0" path="res://Animations/SettingsButton.res" id="15_sxdoy"]
+[ext_resource type="AnimationLibrary" uid="uid://dtbni4srk3qoi" path="res://Animations/ExitButton.res" id="17_dnqjq"]
+[ext_resource type="AnimationLibrary" uid="uid://ba0kskllgfuds" path="res://Animations/BackButton.res" id="19_6dbyg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0nye"]
 texture = ExtResource("6_cc3ui")
@@ -25,6 +30,56 @@ texture = ExtResource("7_eo82e")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wtv88"]
 texture = ExtResource("8_bdkyx")
 
+[sub_resource type="Animation" id="Animation_jhrgr"]
+resource_name = "CampaignIntro"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-240, 680), Vector2(-240, -320)]
+}
+
+[sub_resource type="Animation" id="Animation_lyk1v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-240, -320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5d8b2"]
+_data = {
+"CampaignIntro": SubResource("Animation_jhrgr"),
+"RESET": SubResource("Animation_lyk1v")
+}
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbvc3"]
 texture = ExtResource("9_6n0xi")
 
@@ -33,6 +88,116 @@ texture = ExtResource("10_ut252")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p12qm"]
 texture = ExtResource("11_7q3fa")
+
+[sub_resource type="Animation" id="Animation_t1onh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-240, -320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mv2d8"]
+resource_name = "SaplingIntro"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-240, 680), Vector2(-240, 680), Vector2(-240, -320)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2staw"]
+_data = {
+"RESET": SubResource("Animation_t1onh"),
+"SaplingIntro": SubResource("Animation_mv2d8")
+}
+
+[sub_resource type="Animation" id="Animation_4f1s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1760, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_luyfv"]
+_data = {
+"RESET": SubResource("Animation_4f1s0")
+}
+
+[sub_resource type="Animation" id="Animation_je6wi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1830, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pblbj"]
+_data = {
+"RESET": SubResource("Animation_je6wi")
+}
+
+[sub_resource type="Animation" id="Animation_ksk4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(130, -200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbdgh"]
+_data = {
+"RESET": SubResource("Animation_ksk4g")
+}
 
 [node name="CampaignSelection" type="Control"]
 layout_mode = 3
@@ -66,8 +231,8 @@ script = ExtResource("3_k52jr")
 back_button = NodePath("Panel/Back Button")
 exit_button = NodePath("Panel/Exit Button")
 settings_button = NodePath("Panel/Settings Button")
-campaign_button = NodePath("Panel/Campaign Levels")
-saplings_button = NodePath("Panel/Sapling Levels")
+campaign_button = NodePath("Panel/PositionAnchorL/Campaign Levels")
+saplings_button = NodePath("Panel/PositionAnchorR/Sapling Levels")
 
 [node name="TextureRect" type="NinePatchRect" parent="CampaignSelectUiManager/CampaignSelectStartScreen"]
 layout_mode = 1
@@ -102,27 +267,39 @@ theme_override_font_sizes/font_size = 100
 text = "CAMPAIGN SELECT"
 horizontal_alignment = 1
 
-[node name="Campaign Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+[node name="PositionAnchorL" type="Control" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -622.0
-offset_top = -316.0
-offset_right = -142.0
-offset_bottom = 324.0
+offset_left = -380.0
+offset_right = -380.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Campaign Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorL"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -320.0
+offset_right = 240.0
+offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.0349066
-pivot_offset = Vector2(230, 305)
+pivot_offset = Vector2(240, 320)
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_d0nye")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8h43p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wtv88")
 
-[node name="Campaign Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/Campaign Levels"]
+[node name="Campaign Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorL/Campaign Levels"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -140,27 +317,48 @@ text = "CAMPAIGN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sapling Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorL/Campaign Levels"]
+libraries = {
+"": SubResource("AnimationLibrary_5d8b2"),
+"ButtonAnimations": ExtResource("9_2jspl")
+}
+script = ExtResource("9_w14jy")
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
+
+[node name="PositionAnchorR" type="Control" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 137.0
-offset_top = -312.0
-offset_right = 617.0
-offset_bottom = 328.0
+offset_left = 380.0
+offset_right = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sapling Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -320.0
+offset_right = 240.0
+offset_bottom = 320.001
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.020944
-pivot_offset = Vector2(230, 305)
+pivot_offset = Vector2(240, 320)
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_pbvc3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_awk44")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p12qm")
 
-[node name="Saplings Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/Sapling Levels"]
+[node name="Saplings Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR/Sapling Levels"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -178,17 +376,38 @@ text = "SAPLING LEVELS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR/Sapling Levels"]
+libraries = {
+"": SubResource("AnimationLibrary_2staw"),
+"ButtonAnimations": ExtResource("9_2jspl")
+}
+script = ExtResource("9_w14jy")
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
+
 [node name="Settings Button" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -160.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -96.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("6_anpq0")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/Settings Button"]
+libraries = {
+"": SubResource("AnimationLibrary_luyfv"),
+"ButtonAnimations": ExtResource("9_2jspl"),
+"SettingsButton": ExtResource("15_sxdoy")
+}
+script = ExtResource("9_w14jy")
+introAnim = "SettingsButton/SettingsIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Exit Button" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
 layout_mode = 1
@@ -196,21 +415,46 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -90.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -26.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("7_oegh3")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/Exit Button"]
+libraries = {
+"": SubResource("AnimationLibrary_pblbj"),
+"ButtonAnimations": ExtResource("9_2jspl"),
+"ExitButton": ExtResource("17_dnqjq")
+}
+script = ExtResource("9_w14jy")
+introAnim = "ExitButton/ExitIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Back Button" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 offset_left = 130.0
+offset_top = -200.0
 offset_right = 258.0
-offset_bottom = 128.0
+offset_bottom = -72.0
+pivot_offset = Vector2(64, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("8_v563t")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/Back Button"]
+libraries = {
+"": SubResource("AnimationLibrary_wbdgh"),
+"BackButton": ExtResource("19_6dbyg"),
+"ButtonAnimations": ExtResource("9_2jspl")
+}
+script = ExtResource("9_w14jy")
+introAnim = "BackButton/BackIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="CollectionSelectScreenRef" type="Sprite2D" parent="."]
 visible = false
