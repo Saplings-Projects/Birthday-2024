@@ -35,7 +35,7 @@ func connect_buttons(root):
 
 func connect_to_button(button):
 	button.connect("pressed", _on_Button_pressed)
-	button.connect("mouse_entered", _on_Button_pressed)
+	button.connect("mouse_entered", _on_Button_hovered)
 
 func connect_to_tab(tab):
 	tab.connect("tab_clicked", _on_Tab_pressed)
