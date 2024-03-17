@@ -445,8 +445,8 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
 horizontal_alignment = 1
 
-[connection signal="button_up" from="Panel/Back Button" to="." method="_on_back_button_button_up"]
-[connection signal="button_up" from="Panel/Settings Button" to="." method="_on_settings_button_button_up"]
-[connection signal="button_up" from="Panel/Exit Button" to="." method="_on_exit_button_button_up"]
-[connection signal="button_up" from="Previous Art Button" to="." method="_on_previous_art_button_button_up"]
-[connection signal="button_up" from="Next Art Button" to="." method="_on_next_art_button_button_up"]
+[connection signal="pressed" from="Panel/Back Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Panel/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/Exit Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Previous Art Button" to="." method="_on_previous_art_button_pressed"]
+[connection signal="pressed" from="Next Art Button" to="." method="_on_next_art_button_pressed"]

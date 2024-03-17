@@ -40,23 +40,23 @@ func enter_state():
 	_state = state
 	
 	var screen = _ui_manager.start_screen
-	screen.credits_button.button_up.connect(_on_credits_clicked)
-	screen.exit_button.button_up.connect(_on_exit_clicked)
-	screen.gallery_button.button_up.connect(_on_gallery_clicked)
-	screen.messages_button.button_up.connect(_on_messages_clicked)
-	screen.play_button.button_up.connect(_on_play_clicked)
-	screen.settings_button.button_up.connect(_on_settings_clicked)
+	screen.credits_button.pressed.connect(_on_credits_clicked)
+	screen.exit_button.pressed.connect(_on_exit_clicked)
+	screen.gallery_button.pressed.connect(_on_gallery_clicked)
+	screen.messages_button.pressed.connect(_on_messages_clicked)
+	screen.play_button.pressed.connect(_on_play_clicked)
+	screen.settings_button.pressed.connect(_on_settings_clicked)
 
 
 func exit_state():	
 	_state = null
 	var screen = _ui_manager.start_screen
-	screen.credits_button.button_up.disconnect(_on_credits_clicked)
-	screen.exit_button.button_up.disconnect(_on_exit_clicked)
-	screen.gallery_button.button_up.disconnect(_on_gallery_clicked)
-	screen.messages_button.button_up.disconnect(_on_messages_clicked)
-	screen.play_button.button_up.disconnect(_on_play_clicked)
-	screen.settings_button.button_up.disconnect(_on_settings_clicked)
+	screen.credits_button.pressed.disconnect(_on_credits_clicked)
+	screen.exit_button.pressed.disconnect(_on_exit_clicked)
+	screen.gallery_button.pressed.disconnect(_on_gallery_clicked)
+	screen.messages_button.pressed.disconnect(_on_messages_clicked)
+	screen.play_button.pressed.disconnect(_on_play_clicked)
+	screen.settings_button.pressed.disconnect(_on_settings_clicked)
 
 
 func update_state():

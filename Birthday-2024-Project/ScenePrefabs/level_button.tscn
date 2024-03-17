@@ -57,4 +57,4 @@ grow_vertical = 2
 expand_mode = 3
 stretch_mode = 5
 
-[connection signal="button_up" from="." to="." method="GoToLevel"]
+[connection signal="pressed" from="." to="." method="GoToLevel"]

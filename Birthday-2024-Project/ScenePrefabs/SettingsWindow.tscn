@@ -275,4 +275,4 @@ libraries = {
 "PopupAnimations": ExtResource("16_plk2s")
 }
 
-[connection signal="button_up" from="Panel/Close Button" to="." method="on_close_clicked"]
+[connection signal="pressed" from="Panel/Close Button" to="." method="on_close_clicked"]

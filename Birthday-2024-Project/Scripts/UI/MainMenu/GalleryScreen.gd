@@ -17,16 +17,16 @@ signal back_to_main_menu
 signal exit_game
 signal open_settings_window
 
-func _on_exit_button_button_up():
+func _on_exit_button_pressed():
 	myScreen.ExitApplication()
 
-func _on_back_button_button_up():
+func _on_back_button_pressed():
 	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 
-func _on_settings_button_button_up():
+func _on_settings_button_pressed():
 	myScreen.ShowSettings()
 
-func _on_next_art_button_button_up():
+func _on_next_art_button_pressed():
 	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.TURN_PAGE, _transition_page_next, _animation_finished)
 
 func _transition_page_next():
@@ -36,7 +36,7 @@ func _transition_page_next():
 		gallery_tracker = 0;
 	_update_UI()
 
-func _on_previous_art_button_button_up():
+func _on_previous_art_button_pressed():
 	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.BACK_PAGE, _transition_page_back, _animation_finished)
 
 func _transition_page_back():

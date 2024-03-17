@@ -436,8 +436,8 @@ theme_override_font_sizes/font_size = 100
 text = "SAPLING MESSAGES"
 horizontal_alignment = 1
 
-[connection signal="button_up" from="Gallery/Panel/Back Button" to="Gallery" method="on_back_clicked"]
-[connection signal="button_up" from="Gallery/Panel/Settings Button" to="." method="ShowSettings"]
-[connection signal="button_up" from="Gallery/Panel/Exit Button" to="." method="ExitApplication"]
-[connection signal="button_up" from="Gallery/Previous Button" to="Gallery" method="PrevPage"]
-[connection signal="button_up" from="Gallery/Next Button" to="Gallery" method="NextPage"]
+[connection signal="pressed" from="Gallery/Panel/Back Button" to="Gallery" method="on_back_clicked"]
+[connection signal="pressed" from="Gallery/Panel/Settings Button" to="." method="ShowSettings"]
+[connection signal="pressed" from="Gallery/Panel/Exit Button" to="." method="ExitApplication"]
+[connection signal="pressed" from="Gallery/Previous Button" to="Gallery" method="PrevPage"]
+[connection signal="pressed" from="Gallery/Next Button" to="Gallery" method="NextPage"]
