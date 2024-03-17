@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ls18xb2vfjag" path="res://Art/LevelPreviews/ChocomintFinished.png" id="1_5tlpc"]
 [ext_resource type="Script" path="res://Scripts/LevelSetup.gd" id="1_g4t54"]
-[ext_resource type="Texture2D" uid="uid://bog23c1hsf7j0" path="res://Art/LevelPreviews/Chocolatte.png" id="1_hx5gu"]
+[ext_resource type="Texture2D" uid="uid://brrdjkp4dki5s" path="res://Art/LevelPreviews/Chocomint.png" id="2_i6mxh"]
 
 [resource]
 script = ExtResource("1_g4t54")
@@ -11,5 +11,5 @@ jsonData = "[\"{\\\"PIECE_SETUP_GRID_POSITION_X_KEY\\\":1,\\\"PIECE_SETUP_GRID_P
 author = "Chocomint"
 message = "Happy 4.54 billion and 3rd birthday! Thats not how numbers work? Well we saplings can't count after all! But ever since we first met you the seasons pass by and spring has arrived for the third time hence its time for your birthday to celebrate again. This sapling has so much to say to you but, really I just want to wish you happy birthday and health and happiness to our dearest kirin. I hope we can celebrate many more Fauna birthdays to come! Oh and by the time you read this, Fauna is really cute again at HoloFes! :FaunaComfyYT:"
 levelName = "Square Faunas"
-levelPreview = ExtResource("1_hx5gu")
+levelPreview = ExtResource("2_i6mxh")
 levelComplete = ExtResource("1_5tlpc")
