@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_3tiub")
 title = "New Fauna"
-body = "I hope you are reenergized after the meal. But what's that? Fauna jumped into Nemu onesie and now can't fit into her space! Now all is lost! If only there was a way to rotate her... Maybe if you will try using Right Mouse Button or A and D keys while holding her?"
+body = "I hope you are reenergized after that meal. But what's that? Fauna jumped into a Nemu onesie and now can't fit into her space! All is lost! If only there was a way to rotate her... Maybe if you try using the Right Mouse Button or A and D keys while holding her?"
 displayPieces = Array[PackedScene]([ExtResource("1_eljlq")])

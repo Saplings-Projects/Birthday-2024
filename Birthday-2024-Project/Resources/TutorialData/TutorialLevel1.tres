@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_ko2nw")
 title = "New Fauna"
-body = "Welcome! It's nice of you to come here. Many Faunas are yet to be organized neatly and you can help in changing this. Drag and drop many Faunas into the grid using Left Mouse Button. Let's start with this little Fauna that is waving to you."
+body = "Welcome! It's nice of you to come here. Many Faunas have yet to be organized neatly and you can help! Drag and drop Faunas into the grid using the Left Mouse Button. Let's start with this little Fauna who is waving to you."
 displayPieces = Array[PackedScene]([ExtResource("1_yiprv")])

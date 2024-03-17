@@ -8,5 +8,5 @@
 [resource]
 script = ExtResource("1_g7nnu")
 title = "New Faunas"
-body = "There's a lot more to see. Here we have Fauna in her casual outfit and Fauna in her less casual outfit. One is ready to stream, the other one is ready to teach Promise girls the art of speedrunning. Enormous matcha is here in case of caffeine withdrawal"
+body = "There's a lot more to see. Here we have Fauna in her casual outfit and Fauna in her less casual outfit. One is ready to stream, and the other is ready to teach the Promise girls the art of speedrunning. Enormous matcha is here in case of caffeine withdrawal"
 displayPieces = Array[PackedScene]([ExtResource("1_7cmpt"), ExtResource("2_4nmub"), ExtResource("3_slew5")])

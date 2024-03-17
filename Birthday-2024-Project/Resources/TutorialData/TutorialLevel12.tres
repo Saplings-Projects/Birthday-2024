@@ -7,5 +7,5 @@
 [resource]
 script = ExtResource("1_qy57g")
 title = "New Faunas"
-body = "Last but not least, we introduce to you OG Fauna and Fauna in her first ever outfit, New Year's Kimono. It's been already over two years since we first got to see them. Time does fly when you have a great time"
+body = "Last but not least, we introduce to you OG Fauna and Fauna in her first new outfit, her New Year's Kimono. It's already been over two years since we first got to see them. Time  sure flies when you’re having fun!"
 displayPieces = Array[PackedScene]([ExtResource("1_bwp1w"), ExtResource("2_q6080")])
