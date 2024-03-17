@@ -77,6 +77,7 @@ func exit_state():
 	screen.exit_button.pressed.disconnect(_state.exit_game)
 	screen.reset_button.pressed.disconnect(_state.reset_puzzle)
 	screen.back_button.pressed.disconnect(_state.back_to_level_select)
+	screen.skip_button.pressed.disconnect(_state.next_puzzle)
 	screen.settings_button.pressed.disconnect(_on_settings_clicked)
 	screen.edit_button.pressed.disconnect(_state.go_to_play_mode)
 	screen.library_button.pressed.disconnect(_on_show_library_clicked)
