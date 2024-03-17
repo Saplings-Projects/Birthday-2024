@@ -104,11 +104,4 @@ levelData = ExtResource("21_02pk6")
 [node name="Level Button20" parent="LevelSelectMenu/Panel/Level Select Buttons" index="19"]
 levelData = ExtResource("22_0cjpw")
 
-[node name="Edit Mode Button" parent="LevelSelectMenu/Panel" index="8"]
-layout_mode = 0
-offset_left = 260.0
-offset_top = 930.0
-offset_right = 560.0
-offset_bottom = 1030.0
-
 [editable path="LevelSelectMenu"]
