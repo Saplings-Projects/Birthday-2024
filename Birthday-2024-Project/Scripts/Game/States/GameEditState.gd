@@ -8,8 +8,8 @@ func reset_puzzle():
 func _reset_puzzle():
 	manager.grid.ClearLevel()
 
-func go_to_play_mode():
-	manager.switch_to_play_state()
+func go_to_test_mode():
+	manager.switch_to_test_state()
 
 
 #region GameState

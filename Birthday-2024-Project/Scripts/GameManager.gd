@@ -19,6 +19,7 @@ extends Node2D
 @export var play_state: GamePlayState
 @export var win_state: GameWinState
 @export var edit_state: GameEditState
+@export var test_state: GameTestState
 
 var held_piece: PieceLogic
 var held_piece_cell: int
@@ -101,6 +102,10 @@ func switch_to_edit_state():
 	_switch_state(edit_state)
 
 
+func switch_to_test_state():
+	_switch_state(test_state)
+
+
 func _switch_state(state: GameState):
 	_previous_state = _current_state
 	_current_state = state
@@ -149,6 +154,7 @@ func _ready():
 	play_state.set_manager(self)
 	win_state.set_manager(self)
 	edit_state.set_manager(self)
+	test_state.set_manager(self)
 	overPieceLibrary = false
 
 func _process(delta):
@@ -156,14 +162,18 @@ func _process(delta):
 		_is_inititialized = true
 		
 		initialized_event.emit()
-		switch_to_play_state()
 		
 		_levelData = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY]
-		grid.LoadLevel(_levelData)
-		_setup_level_labels()
-		
-		if _levelData.tutorialData != null:
-			myScreen.ScreenEnter.connect(_show_tutorial)
+		if _levelData != null:
+			switch_to_play_state()
+			grid.LoadLevel(_levelData)
+			_setup_level_labels()
+			
+			if _levelData.tutorialData != null:
+				myScreen.ScreenEnter.connect(_show_tutorial)
+		else:
+			switch_to_edit_state()
+			_setup_level_labels()
 	
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()
@@ -182,14 +192,14 @@ func _process(delta):
 
 func _setup_level_labels():
 	var labelSticker : Control = levelNameText.get_parent() as Control
-	if _levelData.levelName.is_empty():
+	if _levelData == null or _levelData.levelName.is_empty():
 		labelSticker.visible = false
 	else:
 		labelSticker.visible = true
 		levelNameText.text = _levelData.levelName
 	
 	labelSticker = authorText.get_parent() as Control
-	if _levelData.author.is_empty():
+	if _levelData == null or _levelData.author.is_empty():
 		labelSticker.visible = false
 	else:
 		labelSticker.visible = true

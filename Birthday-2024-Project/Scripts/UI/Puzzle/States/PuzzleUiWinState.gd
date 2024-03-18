@@ -5,6 +5,9 @@ extends PuzzleUiState
 var _state: GameWinState
 
 
+func _on_edit_mode_clicked():
+	_state.go_to_edit_mode()
+
 #region PuzzleUiState
 
 func enter_state():
@@ -26,7 +29,7 @@ func enter_state():
 	screen.reset_button.pressed.connect(_state.reset_puzzle)
 	screen.back_button.pressed.connect(_state.back_to_level_select)
 	screen.settings_button.pressed.connect(_on_settings_clicked)
-	screen.edit_button.hide()
+	screen.edit_button.pressed.connect(_on_edit_mode_clicked)
 	screen.library_button.hide()
 
 
@@ -38,6 +41,7 @@ func exit_state():
 	screen.reset_button.pressed.disconnect(_state.reset_puzzle)
 	screen.back_button.pressed.disconnect(_state.back_to_level_select)
 	screen.settings_button.pressed.disconnect(_on_settings_clicked)
+	screen.edit_button.pressed.disconnect(_on_edit_mode_clicked)
 	_state = null
 
 

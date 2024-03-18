@@ -17,6 +17,7 @@ const SAPLING_LEVELS = "res://MainScenes/sapling_level_select_"
 @export var lastPageNumber : int
 @export var prevArrow : Button
 @export var nextArrow : Button
+@export var editorButton : Button
 
 var _gm: GameMaster
 
@@ -52,6 +53,17 @@ func on_exit_clicked():
 
 func on_settings_clicked():
 	screenLogic.screenManager.ShowSettings()
+	
+	
+func on_editor_clicked():
+	var transitionData = {}
+	transitionData[PASS_LEVEL_DATA_KEY] = null
+	transitionData[PASS_LEVEL_INDEX_KEY] = (pageNumber - 1) * selectableButtons.size()
+	transitionData[IS_CAMPAIGN_KEY] = isCampaign
+	transitionData[BUTTONS_PER_PAGE_KEY] = selectableButtons.size()
+	
+	screenLogic.GoToScreen(load("res://MainScenes/main_level.tscn"), transitionData, ScreenManager.TransitionStyle.TURN_PAGE)
+	
 
 func _ready():
 	_gm = get_node(GameMaster.GLOBAL_GAME_MASTER_NODE)
@@ -60,6 +72,7 @@ func _ready():
 	nextArrow.visible = pageNumber < lastPageNumber
 	pageText.visible = lastPageNumber > 1
 	pageText.text = str(pageNumber, "/", lastPageNumber)
+	editorButton.visible = !isCampaign
 	
 	var levelIndex : int = (pageNumber - 1) * selectableButtons.size()
 	for button in selectableButtons:
@@ -76,3 +89,6 @@ func _ready():
 		else:
 			button.visible = false
 		levelIndex += 1
+
+
+
