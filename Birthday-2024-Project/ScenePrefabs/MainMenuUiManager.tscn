@@ -802,7 +802,7 @@ offset_bottom = 412.0
 layout_mode = 2
 offset_right = 400.0
 offset_bottom = 100.0
-text = "Level Editor"
+text = "Level Creator"
 
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Editor ButtonAnchor/Editor Button"]
 libraries = {
