@@ -1,13 +1,78 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr52r13hg2vlu"]
+[gd_scene load_steps=19 format=3 uid="uid://cr52r13hg2vlu"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/CreditsScreen.gd" id="1_6as2f"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_a7ojj"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_hr80e"]
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="4_nowih"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="5_0lgxm"]
+[ext_resource type="AnimationLibrary" uid="uid://x3ltx0v8glt8" path="res://Animations/ButtonAnimations.res" id="5_a78n8"]
+[ext_resource type="AnimationLibrary" uid="uid://bq3kvfnhm75a0" path="res://Animations/SettingsButton.res" id="6_7jb1w"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_qycl5"]
+[ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="7_4q3bv"]
+[ext_resource type="AnimationLibrary" uid="uid://ba0kskllgfuds" path="res://Animations/BackButton.res" id="9_hkyrf"]
+[ext_resource type="AnimationLibrary" uid="uid://dtbni4srk3qoi" path="res://Animations/ExitButton.res" id="11_paawd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmrw0"]
+
+[sub_resource type="Animation" id="Animation_4f1s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1760, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_luyfv"]
+_data = {
+"RESET": SubResource("Animation_4f1s0")
+}
+
+[sub_resource type="Animation" id="Animation_ksk4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(130, -200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbdgh"]
+_data = {
+"RESET": SubResource("Animation_ksk4g")
+}
+
+[sub_resource type="Animation" id="Animation_je6wi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1830, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pblbj"]
+_data = {
+"RESET": SubResource("Animation_je6wi")
+}
 
 [node name="CreditsScreen" type="Control"]
 layout_mode = 3
@@ -56,21 +121,46 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -160.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -96.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("4_nowih")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/Settings Button"]
+libraries = {
+"": SubResource("AnimationLibrary_luyfv"),
+"ButtonAnimations": ExtResource("5_a78n8"),
+"SettingsButton": ExtResource("6_7jb1w")
+}
+script = ExtResource("7_4q3bv")
+introAnim = "SettingsButton/SettingsIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Back Button" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 offset_left = 130.0
+offset_top = -200.0
 offset_right = 258.0
-offset_bottom = 128.0
+offset_bottom = -72.0
+pivot_offset = Vector2(64, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("5_0lgxm")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/Back Button"]
+libraries = {
+"": SubResource("AnimationLibrary_wbdgh"),
+"BackButton": ExtResource("9_hkyrf"),
+"ButtonAnimations": ExtResource("5_a78n8")
+}
+script = ExtResource("7_4q3bv")
+introAnim = "BackButton/BackIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Exit Button" type="Button" parent="Panel"]
 layout_mode = 1
@@ -78,11 +168,23 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -90.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -26.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("6_qycl5")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/Exit Button"]
+libraries = {
+"": SubResource("AnimationLibrary_pblbj"),
+"ButtonAnimations": ExtResource("5_a78n8"),
+"ExitButton": ExtResource("11_paawd")
+}
+script = ExtResource("7_4q3bv")
+introAnim = "ExitButton/ExitIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Title" type="Label" parent="Panel"]
 layout_mode = 1

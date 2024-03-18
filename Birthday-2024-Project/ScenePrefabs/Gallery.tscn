@@ -1,22 +1,29 @@
-[gd_scene load_steps=37 format=3 uid="uid://k787vo3otomq"]
+[gd_scene load_steps=52 format=3 uid="uid://k787vo3otomq"]
 
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_307mc"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/GalleryScreen.gd" id="2_fvqdg"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_y0rrw"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="4_76gbr"]
+[ext_resource type="AnimationLibrary" uid="uid://ba0kskllgfuds" path="res://Animations/BackButton.res" id="5_iwas6"]
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="5_memmo"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_4jhwh"]
+[ext_resource type="AnimationLibrary" uid="uid://x3ltx0v8glt8" path="res://Animations/ButtonAnimations.res" id="6_o2mt1"]
 [ext_resource type="Texture2D" uid="uid://dnu0m3v14cg0p" path="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksCasualFaunaWaveNoBg.png" id="7_bhbrs"]
 [ext_resource type="Texture2D" uid="uid://db3rvquwfp1ls" path="res://Art/UI/Arrow_button_normal.png" id="7_iuab1"]
+[ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="7_lqy8a"]
 [ext_resource type="Texture2D" uid="uid://bg44mdmlxp627" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksPt2FaunyaNoBg.png" id="8_ela8g"]
 [ext_resource type="Texture2D" uid="uid://pfq2xiycjshy" path="res://Art/UI/Arrow_button_Hover.png" id="8_r3use"]
 [ext_resource type="Texture2D" uid="uid://bnvw6ymm7yypy" path="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksHungryFaunyaNoBg.png" id="9_f62jw"]
 [ext_resource type="Texture2D" uid="uid://cyeqlujr0xudm" path="res://Art/UI/Arrow_button_pressed.png" id="9_mksxb"]
+[ext_resource type="AnimationLibrary" uid="uid://bq3kvfnhm75a0" path="res://Animations/SettingsButton.res" id="9_yds2h"]
 [ext_resource type="Texture2D" uid="uid://c5tfnb2mdy1f0" path="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksHappyFaunaNoBg.png" id="10_s0xwp"]
+[ext_resource type="AnimationLibrary" uid="uid://dtbni4srk3qoi" path="res://Animations/ExitButton.res" id="11_8v14p"]
 [ext_resource type="Texture2D" uid="uid://csbmmbti02bpt" path="res://Art/OfficialPieceArt/FaunaBdayProject2024SmolBlocksGoldenAppleBlockerNoBg.png" id="11_kjrro"]
 [ext_resource type="Texture2D" uid="uid://csmg8ouqt6ydf" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksMaidFaunaMacCheeseMilkShakeNoBg.png" id="12_ubwjx"]
 [ext_resource type="Texture2D" uid="uid://dikhfqewphv82" path="res://Art/OfficialPieceArt/FaunaBdayProject2024MediumBlocksNemuFaunaNoBg.png" id="13_eyp7p"]
 [ext_resource type="Texture2D" uid="uid://bv7x7urulm0hl" path="res://Art/OfficialPieceArt/FaunaBdayProject2024CasualFaunaNoBg.png" id="14_f4p8f"]
+[ext_resource type="AnimationLibrary" uid="uid://dlrngmk2gejou" path="res://Animations/ButtonLift.res" id="15_35usr"]
+[ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="15_dcwmk"]
 [ext_resource type="Texture2D" uid="uid://bjy2uu066xde6" path="res://Art/OfficialPieceArt/faunashi.png" id="15_r3bdn"]
 [ext_resource type="Texture2D" uid="uid://drg2trhl7s24l" path="res://Art/OfficialPieceArt/Matcha1.png" id="16_6xybw"]
 [ext_resource type="Texture2D" uid="uid://o02tlk51tt1k" path="res://Art/OfficialPieceArt/baldFauna.png" id="17_y4gvn"]
@@ -35,6 +42,66 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky78o"]
 
+[sub_resource type="Animation" id="Animation_ksk4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(130, -200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbdgh"]
+_data = {
+"RESET": SubResource("Animation_ksk4g")
+}
+
+[sub_resource type="Animation" id="Animation_4f1s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1760, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_luyfv"]
+_data = {
+"RESET": SubResource("Animation_4f1s0")
+}
+
+[sub_resource type="Animation" id="Animation_je6wi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1830, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pblbj"]
+_data = {
+"RESET": SubResource("Animation_je6wi")
+}
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kof7u"]
 texture = ExtResource("7_iuab1")
 
@@ -44,7 +111,27 @@ texture = ExtResource("8_r3use")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlxyn"]
 texture = ExtResource("9_mksxb")
 
-[node name="Gallery" type="Control" node_paths=PackedStringArray("piece", "pieces", "description", "artist_credit", "piece_name", "page_num")]
+[sub_resource type="Animation" id="Animation_v4ssh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
+_data = {
+"RESET": SubResource("Animation_v4ssh")
+}
+
+[node name="Gallery" type="Control" node_paths=PackedStringArray("piece", "pieces", "description", "artist_credit", "piece_name", "page_num", "animators")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,6 +148,7 @@ artist_credit = NodePath("Text Display/Piece Artists")
 piece_name = NodePath("Text Display/Piece Name")
 piece_names = Array[String](["Casual Fauna Waving", "Casual Faunya", "Hungry Faunya", "Happy Fauna", "Golden Apple", "Maid Fauna", "Nemu Fauna", "Casual Fauna", "Faunashi", "Big Matcha", "Agent Fauna7", "Idol Fauna", "Wrench", "Wide Fauna", "Cape Fauna", "Snail", "Smol Fauna", "Smol Faunya", "Matcha Set", "Cowkini Fauna", "EleFauna", "Kimono Fauna", "Original Fauna"])
 page_num = NodePath("Page")
+animators = [NodePath("Panel/Back Button/UIButtonAnimations"), NodePath("Panel/Settings Button/UIButtonAnimations"), NodePath("Panel/Exit Button/UIButtonAnimations")]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -90,9 +178,22 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ky78o")
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 offset_left = 130.0
+offset_top = -200.0
 offset_right = 258.0
-offset_bottom = 128.0
+offset_bottom = -72.0
+pivot_offset = Vector2(64, 0)
 theme = ExtResource("4_76gbr")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/Back Button"]
+libraries = {
+"": SubResource("AnimationLibrary_wbdgh"),
+"BackButton": ExtResource("5_iwas6"),
+"ButtonAnimations": ExtResource("6_o2mt1")
+}
+script = ExtResource("7_lqy8a")
+introAnim = "BackButton/BackIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Settings Button" type="Button" parent="Panel"]
 layout_mode = 1
@@ -100,11 +201,23 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -160.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -96.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("5_memmo")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/Settings Button"]
+libraries = {
+"": SubResource("AnimationLibrary_luyfv"),
+"ButtonAnimations": ExtResource("6_o2mt1"),
+"SettingsButton": ExtResource("9_yds2h")
+}
+script = ExtResource("7_lqy8a")
+introAnim = "SettingsButton/SettingsIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Exit Button" type="Button" parent="Panel"]
 layout_mode = 1
@@ -112,15 +225,27 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -90.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -26.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("6_4jhwh")
 
-[node name="Previous Art Button" type="Button" parent="."]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/Exit Button"]
+libraries = {
+"": SubResource("AnimationLibrary_pblbj"),
+"ButtonAnimations": ExtResource("6_o2mt1"),
+"ExitButton": ExtResource("11_8v14p")
+}
+script = ExtResource("7_lqy8a")
+introAnim = "ExitButton/ExitIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
+
+[node name="Previous Art ButtonAnchor" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -129,14 +254,47 @@ offset_left = -760.0
 offset_top = -128.0
 offset_right = -504.0
 offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_307mc")
+
+[node name="Previous Art Button" type="Button" parent="Previous Art ButtonAnchor"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
 theme = ExtResource("1_307mc")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kof7u")
 theme_override_styles/hover = SubResource("StyleBoxTexture_r4683")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
 
-[node name="Next Art Button" type="Button" parent="."]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Previous Art ButtonAnchor/Previous Art Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_35usr")
+}
+script = ExtResource("7_lqy8a")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="Previous Art ButtonAnchor/Previous Art Button" instance=ExtResource("15_dcwmk")]
+layout_mode = 0
+offset_left = -200.0
+offset_top = -412.0
+offset_right = -200.0
+offset_bottom = -412.0
+
+[node name="Next Art ButtonAnchor" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -145,11 +303,41 @@ offset_left = 860.0
 offset_top = -128.0
 offset_right = 1116.0
 offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(256, 0)
+theme = ExtResource("1_307mc")
+
+[node name="Next Art Button" type="Button" parent="Next Art ButtonAnchor"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
 scale = Vector2(-1, 1)
 theme = ExtResource("1_307mc")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kof7u")
 theme_override_styles/hover = SubResource("StyleBoxTexture_r4683")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Next Art ButtonAnchor/Next Art Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_35usr")
+}
+script = ExtResource("7_lqy8a")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="Next Art ButtonAnchor/Next Art Button" instance=ExtResource("15_dcwmk")]
+layout_mode = 0
 
 [node name="Text Display" type="Panel" parent="."]
 layout_mode = 1
@@ -448,5 +636,5 @@ horizontal_alignment = 1
 [connection signal="pressed" from="Panel/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Panel/Settings Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Panel/Exit Button" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="Previous Art Button" to="." method="_on_previous_art_button_pressed"]
-[connection signal="pressed" from="Next Art Button" to="." method="_on_next_art_button_pressed"]
+[connection signal="pressed" from="Previous Art ButtonAnchor/Previous Art Button" to="." method="_on_previous_art_button_pressed"]
+[connection signal="pressed" from="Next Art ButtonAnchor/Next Art Button" to="." method="_on_next_art_button_pressed"]

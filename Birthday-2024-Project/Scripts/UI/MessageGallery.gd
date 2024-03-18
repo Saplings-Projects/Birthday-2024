@@ -23,6 +23,8 @@ const AUTHOR_PREFIX : String = "-"
 @export var rightBigMsgBox : MessageEmoteInserter
 @export var rightAuthorText : Label
 
+@export var animators : Array[UIButtonAnimations]
+
 var _currentPage : int
 var _pageBreakdown : Array[MessagePageHandler]
 
@@ -114,21 +116,29 @@ func PrevPage():
 		_currentPage = _pageBreakdown.size() - 1
 	else:
 		_currentPage -= 1
-	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.BACK_PAGE, LoadPage, _AnimFinished)
+	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.BACK_PAGE, _LoadPageAnim, _AnimFinished)
 
 func NextPage():
 	if _currentPage + 1 == _pageBreakdown.size():
 		_currentPage = 0
 	else:
 		_currentPage += 1
-	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.TURN_PAGE, LoadPage, _AnimFinished)
+	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.TURN_PAGE, _LoadPageAnim, _AnimFinished)
 
 func on_back_clicked():
 	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 
+func _LoadPageAnim():
+	_ResetAnimators()
+	LoadPage()
+
+func _ResetAnimators():
+	for uiButton in animators:
+		uiButton.reset()
+
 func _AnimFinished():
-	#print_debug("animation finished call")
-	pass
+	for uiButton in animators:
+		uiButton.startOnScreenEnter()
 
 func _ready():
 	var currentIndex = 0

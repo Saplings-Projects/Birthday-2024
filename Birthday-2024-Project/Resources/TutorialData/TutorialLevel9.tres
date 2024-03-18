@@ -8,5 +8,5 @@
 [resource]
 script = ExtResource("1_8vhnj")
 title = "New Faunas"
-body = "What is wider? Wide Fauna's head or Cape Fauna's horn warmer? Well, it's not that important now. A fine cat gentleman is waiting for your attention"
+body = "What is wider? Wide Fauna's head or Cape Fauna's horn warmers? Well, it's not important now. This fine cat gentleman is waiting for your attention."
 displayPieces = Array[PackedScene]([ExtResource("1_7pd24"), ExtResource("2_jnedm"), ExtResource("3_hibpk")])

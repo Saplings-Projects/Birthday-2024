@@ -57,23 +57,23 @@ func enter_state():
 	screen.back_button.pressed.connect(_state.back_to_level_select)
 	screen.skip_button.hide()
 	screen.settings_button.pressed.connect(_on_settings_clicked)
-	screen.edit_button.show()
+	screen.edit_anchor.show()
 	screen.edit_button.text = "Play"
 	screen.edit_button.pressed.connect(_state.go_to_test_mode)
-	screen.library_button.show()
+	screen.library_anchor.show()
 	screen.library_button.pressed.connect(_on_show_library_clicked)
-	screen.import_button.show()
+	screen.import_anchor.show()
 	screen.import_button.pressed.connect(_on_import_clicked)
-	screen.export_button.show()
+	screen.export_anchor.show()
 	screen.export_button.pressed.connect(_on_export_clicked)
 
 
 func exit_state():
 	pieceLibrary.hide()
 	var screen = _ui_manager.main_screen
-	screen.library_button.hide()
-	screen.import_button.hide()
-	screen.export_button.hide()
+	screen.library_anchor.hide()
+	screen.import_anchor.hide()
+	screen.export_anchor.hide()
 	screen.exit_button.pressed.disconnect(_state.exit_game)
 	screen.reset_button.pressed.disconnect(_state.reset_puzzle)
 	screen.back_button.pressed.disconnect(_state.back_to_level_select)

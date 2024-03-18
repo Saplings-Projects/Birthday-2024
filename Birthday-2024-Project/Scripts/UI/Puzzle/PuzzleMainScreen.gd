@@ -9,9 +9,13 @@ extends Control
 @export var skip_button: Button
 @export var settings_button: Button
 @export var edit_button: Button
+@export var edit_anchor: Control
 @export var library_button: Button
+@export var library_anchor: Control
 @export var import_button: Button
+@export var import_anchor: Control
 @export var export_button: Button
+@export var export_anchor: Control
 
 @export var win_text: Control
 @export var win_particles : Array[GPUParticles2D]

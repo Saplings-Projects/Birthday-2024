@@ -1,10 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwt8jgyh763xh"]
+[gd_scene load_steps=11 format=3 uid="uid://dwt8jgyh763xh"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_xw8xb"]
 [ext_resource type="Texture2D" uid="uid://bh6ef2hoft8cb" path="res://Art/UI/Textbox_QuarterSize.png" id="2_1c2ku"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="3_1dm6w"]
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/TextPopupController.gd" id="4_3ahrd"]
+[ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="4_agpio"]
+[ext_resource type="AnimationLibrary" uid="uid://dlrngmk2gejou" path="res://Animations/ButtonLift.res" id="4_lefs0"]
+[ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="5_bmqud"]
 [ext_resource type="AnimationLibrary" uid="uid://bskceqjctxne2" path="res://Animations/PopupAnimations.res" id="5_jbtyi"]
+
+[sub_resource type="Animation" id="Animation_v4ssh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
+_data = {
+"RESET": SubResource("Animation_v4ssh")
+}
 
 [node name="TextPopup" type="Control"]
 layout_mode = 3
@@ -38,7 +61,6 @@ offset_right = 300.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(300, 250)
 texture = ExtResource("2_1c2ku")
 patch_margin_left = 100
@@ -82,7 +104,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="ConfirmButton" type="Button" parent="Panel"]
+[node name="ConfirmButtonAnchor" type="Control" parent="Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -96,8 +118,36 @@ offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_1dm6w")
+
+[node name="ConfirmButton" type="Button" parent="Panel/ConfirmButtonAnchor"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -120.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_1dm6w")
 theme_override_font_sizes/font_size = 32
 text = "Confirm"
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/ConfirmButtonAnchor/ConfirmButton"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("4_lefs0")
+}
+script = ExtResource("4_agpio")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="Panel/ConfirmButtonAnchor/ConfirmButton" instance=ExtResource("5_bmqud")]
+layout_mode = 0
 
 [node name="Controller" type="Control" parent="." node_paths=PackedStringArray("myScreen", "titleText", "bodyText", "confirmButtonText", "animator")]
 anchors_preset = 0
@@ -105,7 +155,7 @@ script = ExtResource("4_3ahrd")
 myScreen = NodePath("..")
 titleText = NodePath("../Panel/Title")
 bodyText = NodePath("../Panel/Body")
-confirmButtonText = NodePath("../Panel/ConfirmButton")
+confirmButtonText = NodePath("../Panel/ConfirmButtonAnchor/ConfirmButton")
 animator = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -114,4 +164,4 @@ libraries = {
 }
 
 [connection signal="ScreenEnter" from="." to="Controller" method="onScreenEnter"]
-[connection signal="pressed" from="Panel/ConfirmButton" to="Controller" method="onClose"]
+[connection signal="pressed" from="Panel/ConfirmButtonAnchor/ConfirmButton" to="Controller" method="onClose"]
