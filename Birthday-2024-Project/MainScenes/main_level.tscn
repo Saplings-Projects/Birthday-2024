@@ -152,7 +152,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="DeletionZone" type="ColorRect" parent="."]
+[node name="DeletionZone" type="Control" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -160,6 +160,51 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DeletionZone2" type="ColorRect" parent="DeletionZone"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = -610.0
+grow_vertical = 2
+color = Color(1, 0, 0, 0.196078)
+
+[node name="DeletionZone3" type="ColorRect" parent="DeletionZone"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 610.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(1, 0, 0, 0.196078)
+
+[node name="DeletionZone4" type="ColorRect" parent="DeletionZone"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -610.0
+offset_right = 610.0
+offset_bottom = -490.0
+grow_horizontal = 2
+color = Color(1, 0, 0, 0.196078)
+
+[node name="DeletionZone5" type="ColorRect" parent="DeletionZone"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -610.0
+offset_top = 490.0
+offset_right = 610.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(1, 0, 0, 0.196078)
 
 [node name="GridCenter" type="Control" parent="."]
@@ -221,6 +266,9 @@ controller = NodePath("../GameManager")
 
 [node name="MainScreen" parent="PuzzleUiManager" index="0" node_paths=PackedStringArray("controller")]
 controller = NodePath("../../GameManager")
+
+[node name="Button" parent="PuzzleUiManager/MainScreen/ExportPopup/Panel/ButtonAnchor" index="0"]
+offset_bottom = -0.000274658
 
 [connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
 [connection signal="state_changed_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_state_changed"]
