@@ -7,5 +7,5 @@ script = ExtResource("1_cmlui")
 levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
 jsonData = ""
 author = "Sylven"
-message = "Happy Birthday Fauna. Its your special day. I'm glad that through all the hard times that have been happening, this community has been staying strong together. I wish you the best throughout this year and beyond. I and many others take pleasure in seeing you grow. We look forward to watching you reach out for your dreams. Keep on dreaming. Keep on pushing. Be yourself and have fun. The saplings are right behind you."
+message = "Happy Birthday Fauna. It's your special day. I'm glad that through all the hard times that have been happening, this community has been staying strong together. I wish you the best throughout this year and beyond. I and many others take pleasure in seeing you grow. We look forward to watching you reach out for your dreams. Keep on dreaming. Keep on pushing. Be yourself and have fun. The saplings are right behind you."
 levelName = ""

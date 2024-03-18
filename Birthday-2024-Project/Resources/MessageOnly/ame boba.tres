@@ -7,5 +7,5 @@ script = ExtResource("1_jfvcd")
 levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
 jsonData = ""
 author = "ame boba"
-message = "I wish you a very good birthday Fauna and I am very proud of how far you've grown!! Keep that smile at any cost and let's hope for even a greater year full of amazing memories and happiness and accomplishments!!! Again very proud of you and wishing you the best :FaunaLoveRedYT:"
+message = "I wish you a very good birthday Fauna and I am very proud of how far you've grown!! Keep that smile at any cost and let's hope for an even greater year full of amazing memories, happiness, and accomplishments!!! Again very proud of you and wishing you the best :FaunaLoveRedYT:"
 levelName = ""
