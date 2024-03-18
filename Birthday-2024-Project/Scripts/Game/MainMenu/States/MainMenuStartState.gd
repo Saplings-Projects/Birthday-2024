@@ -17,7 +17,14 @@ func go_to_gallery():
 
 func go_to_messages():
 	myScreen.GoToScreen(load("res://MainScenes/message_gallery.tscn"), {}, ScreenManager.TransitionStyle.TURN_PAGE)
-	
+
+
+func go_to_editor():
+	var transitionData = {}
+	transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] = null
+	myScreen.GoToScreen(load("res://MainScenes/main_level.tscn"), transitionData, ScreenManager.TransitionStyle.TURN_PAGE)
+
+
 func show_settings():
 	myScreen.screenManager.ShowSettings()
 

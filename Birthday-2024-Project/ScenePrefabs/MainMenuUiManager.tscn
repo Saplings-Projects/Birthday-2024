@@ -643,7 +643,7 @@ animator = NodePath("StartScreen/Panel/AnimationPlayer")
 start_screen = NodePath("StartScreen")
 start_state = NodePath("States/MainMenuUiStartState")
 
-[node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallery_button", "play_button", "messages_button", "settings_button")]
+[node name="StartScreen" type="Control" parent="." node_paths=PackedStringArray("credits_button", "exit_button", "gallery_button", "play_button", "messages_button", "editor_button", "settings_button")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -656,6 +656,7 @@ exit_button = NodePath("Panel/Exit Button")
 gallery_button = NodePath("Panel/Navigation Buttons/Gallery ButtonAnchor/Gallery Button")
 play_button = NodePath("Panel/Navigation Buttons/Play ButtonAnchor/Play Button")
 messages_button = NodePath("Panel/Navigation Buttons/Messages ButtonAnchor/Messages Button")
+editor_button = NodePath("Panel/Navigation Buttons/Editor ButtonAnchor/Editor Button")
 settings_button = NodePath("Panel/Settings Button")
 
 [node name="TextureRect" type="NinePatchRect" parent="StartScreen"]
@@ -700,13 +701,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -20.0
+offset_top = -50.0
 offset_right = 200.0
-offset_bottom = 392.0
+offset_bottom = 466.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Play ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 anchors_preset = 0
 offset_right = 400.0
@@ -733,6 +735,7 @@ keepDown = true
 layout_mode = 0
 
 [node name="Messages ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 anchors_preset = 0
 offset_top = 104.0
@@ -760,6 +763,7 @@ keepDown = true
 layout_mode = 0
 
 [node name="Gallery ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 anchors_preset = 0
 offset_top = 208.0
@@ -786,12 +790,41 @@ keepDown = true
 [node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Gallery ButtonAnchor/Gallery Button" instance=ExtResource("6_uti07")]
 layout_mode = 0
 
-[node name="Credits ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
+[node name="Editor ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 anchors_preset = 0
 offset_top = 312.0
 offset_right = 400.0
 offset_bottom = 412.0
+
+[node name="Editor Button" type="Button" parent="StartScreen/Panel/Navigation Buttons/Editor ButtonAnchor"]
+layout_mode = 2
+offset_right = 400.0
+offset_bottom = 100.0
+text = "Level Editor"
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Editor ButtonAnchor/Editor Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("7_jkfwn")
+}
+script = ExtResource("8_8gfbx")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Editor ButtonAnchor/Editor Button" instance=ExtResource("6_uti07")]
+layout_mode = 0
+
+[node name="Credits ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+anchors_preset = 0
+offset_top = 416.0
+offset_right = 400.0
+offset_bottom = 516.0
 
 [node name="Credits Button" type="Button" parent="StartScreen/Panel/Navigation Buttons/Credits ButtonAnchor"]
 layout_mode = 2

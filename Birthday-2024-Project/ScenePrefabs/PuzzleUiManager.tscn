@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=55 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_0axgr"]

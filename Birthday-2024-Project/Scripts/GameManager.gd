@@ -49,14 +49,17 @@ func is_mouse_over_button() -> bool:
 	return puzzle_main_screen.is_a_button_hovered()
 	
 func go_to_level_select():
-	var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
-	var buttonsPerPage : int = myScreen.transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY]
-	var pageNum : int = 1 + floori(thisLevelIndex / buttonsPerPage)
-	
-	if myScreen.transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY]:
-		myScreen.GoToScreen(load(str(LevelsSelectMenu.CAMPAIGN_LEVELS, pageNum, ".tscn")), {}, ScreenManager.TransitionStyle.BACK_PAGE)
+	if myScreen.transitionData.has(LevelsSelectMenu.PASS_LEVEL_INDEX_KEY):
+		var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
+		var buttonsPerPage : int = myScreen.transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY]
+		var pageNum : int = 1 + floori(thisLevelIndex / buttonsPerPage)
+		
+		if myScreen.transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY]:
+			myScreen.GoToScreen(load(str(LevelsSelectMenu.CAMPAIGN_LEVELS, pageNum, ".tscn")), {}, ScreenManager.TransitionStyle.BACK_PAGE)
+		else:
+			myScreen.GoToScreen(load(str(LevelsSelectMenu.SAPLING_LEVELS, pageNum, ".tscn")), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 	else:
-		myScreen.GoToScreen(load(str(LevelsSelectMenu.SAPLING_LEVELS, pageNum, ".tscn")), {}, ScreenManager.TransitionStyle.BACK_PAGE)
+		myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 
 func go_to_next_level():
 	var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]

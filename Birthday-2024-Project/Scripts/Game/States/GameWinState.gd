@@ -4,8 +4,12 @@ extends GameState
 func next_puzzle(skipConfirm : bool = true):
 	manager.go_to_next_level()
 
-#func back_to_level_select(askConfirm : bool = true):
-#	manager.go_to_level_select()
+func back_to_level_select(askConfirm : bool = true):
+	if manager._previous_state == manager.test_state:
+		super.back_to_level_select()
+	else:
+		#skip confirmation
+		manager.go_to_level_select()
 
 func _reset_puzzle():
 	manager.grid.ReloadLevel()

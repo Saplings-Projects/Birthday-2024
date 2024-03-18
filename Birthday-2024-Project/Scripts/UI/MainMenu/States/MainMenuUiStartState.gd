@@ -23,6 +23,8 @@ func _on_messages_clicked():
 func _on_play_clicked():
 	_state.play()
 
+func _on_editor_clicked():
+	_state.go_to_editor()
 
 func _on_settings_clicked():
 	_state.show_settings()
@@ -45,6 +47,7 @@ func enter_state():
 	screen.gallery_button.pressed.connect(_on_gallery_clicked)
 	screen.messages_button.pressed.connect(_on_messages_clicked)
 	screen.play_button.pressed.connect(_on_play_clicked)
+	screen.editor_button.pressed.connect(_on_editor_clicked)
 	screen.settings_button.pressed.connect(_on_settings_clicked)
 
 
@@ -56,6 +59,7 @@ func exit_state():
 	screen.gallery_button.pressed.disconnect(_on_gallery_clicked)
 	screen.messages_button.pressed.disconnect(_on_messages_clicked)
 	screen.play_button.pressed.disconnect(_on_play_clicked)
+	screen.editor_button.pressed.disconnect(_on_editor_clicked)
 	screen.settings_button.pressed.disconnect(_on_settings_clicked)
 
 
