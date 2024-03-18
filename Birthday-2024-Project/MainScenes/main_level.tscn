@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkys348mactw2"]
+[gd_scene load_steps=16 format=3 uid="uid://bkys348mactw2"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_4oukr"]
 [ext_resource type="Script" path="res://Scripts/GridLogic.gd" id="1_ywtrj"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/Game/States/GameWinState.gd" id="7_bviq6"]
 [ext_resource type="PackedScene" uid="uid://cosap7ka4jc6c" path="res://ScenePrefabs/PuzzleUiManager.tscn" id="8_40gag"]
 [ext_resource type="Script" path="res://Scripts/Game/States/GameEditState.gd" id="8_e6fwe"]
+[ext_resource type="Script" path="res://Scripts/Game/States/GameTestState.gd" id="12_8bueu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5322b"]
 texture = ExtResource("4_3a30x")
@@ -180,7 +181,7 @@ layer_0/tile_data = PackedInt32Array(-131075, 0, 0, -65539, 0, 0, -65538, 0, 0, 
 script = ExtResource("1_ywtrj")
 gameManager = NodePath("../../GameManager")
 
-[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid", "deletionZone", "myScreen", "levelNameText", "authorText", "empty_state", "play_state", "win_state", "edit_state")]
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("grid", "deletionZone", "myScreen", "levelNameText", "authorText", "puzzle_main_screen", "empty_state", "play_state", "win_state", "edit_state", "test_state")]
 script = ExtResource("4_1cxrf")
 grid = NodePath("../GridCenter/GridMap")
 deletionZone = NodePath("../DeletionZone")
@@ -190,10 +191,12 @@ held_piece_distance_speed = 8.0
 place_piece_delay = 0.15
 levelNameText = NodePath("../Control/TextureRect/LevelName")
 authorText = NodePath("../Control/TextureRect2/Author")
+puzzle_main_screen = NodePath("../PuzzleUiManager/MainScreen/Panel")
 empty_state = NodePath("States/GameEmptyState")
 play_state = NodePath("States/GamePlayState")
 win_state = NodePath("States/GameWinState")
 edit_state = NodePath("States/GameEditState")
+test_state = NodePath("States/GameTestState")
 
 [node name="States" type="Node2D" parent="GameManager"]
 
@@ -208,6 +211,9 @@ script = ExtResource("7_bviq6")
 
 [node name="GameEditState" type="Node2D" parent="GameManager/States"]
 script = ExtResource("8_e6fwe")
+
+[node name="GameTestState" type="Node2D" parent="GameManager/States"]
+script = ExtResource("12_8bueu")
 
 [node name="PuzzleUiManager" parent="." node_paths=PackedStringArray("controller") instance=ExtResource("8_40gag")]
 layout_mode = 1

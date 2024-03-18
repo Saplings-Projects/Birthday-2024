@@ -13,7 +13,8 @@ config_version=5
 config/name="Birthday-2024"
 run/main_scene="res://MainScenes/screen_mngr_init_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+config/icon="res://Art/GameIcon.png"
 
 [audio]
 
@@ -72,3 +73,4 @@ GrabPiece={
 textures/canvas_textures/default_texture_filter=2
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

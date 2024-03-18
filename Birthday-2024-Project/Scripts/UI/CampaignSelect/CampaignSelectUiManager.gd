@@ -22,10 +22,10 @@ func _on_back_clicked():
 #region Node
 
 func _ready():
-	start_screen.exit_button.button_up.connect(_on_exit_clicked)
-	start_screen.settings_button.button_up.connect(_on_settings_clicked)
-	start_screen.campaign_button.button_up.connect(_on_campaign_clicked)
-	start_screen.saplings_button.button_up.connect(_on_saplings_clicked)
-	start_screen.back_button.button_up.connect(_on_back_clicked)
+	start_screen.exit_button.pressed.connect(_on_exit_clicked)
+	start_screen.settings_button.pressed.connect(_on_settings_clicked)
+	start_screen.campaign_button.pressed.connect(_on_campaign_clicked)
+	start_screen.saplings_button.pressed.connect(_on_saplings_clicked)
+	start_screen.back_button.pressed.connect(_on_back_clicked)
 
 #endregion None

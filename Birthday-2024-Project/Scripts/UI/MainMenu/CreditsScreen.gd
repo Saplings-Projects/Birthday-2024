@@ -7,11 +7,11 @@ signal back_to_main_menu
 signal exit_game
 signal open_settings_window
 
-func _on_exit_button_button_up():
+func _on_exit_button_pressed():
 	myScreen.ExitApplication()
 
-func _on_back_button_button_up():
+func _on_back_button_pressed():
 	myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 
-func _on_settings_button_button_up():
+func _on_settings_button_pressed():
 	myScreen.ShowSettings()

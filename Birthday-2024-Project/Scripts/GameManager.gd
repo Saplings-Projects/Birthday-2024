@@ -12,11 +12,14 @@ extends Node2D
 @export var levelNameText : Label
 @export var authorText : Label
 
+@export var puzzle_main_screen : PuzzleMainScreen
+
 @export_group("States")
 @export var empty_state: GameEmptyState
 @export var play_state: GamePlayState
 @export var win_state: GameWinState
 @export var edit_state: GameEditState
+@export var test_state: GameTestState
 
 var held_piece: PieceLogic
 var held_piece_cell: int
@@ -41,7 +44,10 @@ func retrieve_mouse_position() -> Vector2:
 	if !placing_piece:
 		return get_global_mouse_position()
 	return placing_locked_position
-
+	
+func is_mouse_over_button() -> bool:
+	return puzzle_main_screen.is_a_button_hovered()
+	
 func go_to_level_select():
 	var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
 	var buttonsPerPage : int = myScreen.transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY]
@@ -96,6 +102,10 @@ func switch_to_edit_state():
 	_switch_state(edit_state)
 
 
+func switch_to_test_state():
+	_switch_state(test_state)
+
+
 func _switch_state(state: GameState):
 	_previous_state = _current_state
 	_current_state = state
@@ -144,6 +154,7 @@ func _ready():
 	play_state.set_manager(self)
 	win_state.set_manager(self)
 	edit_state.set_manager(self)
+	test_state.set_manager(self)
 	overPieceLibrary = false
 
 func _process(delta):
@@ -151,14 +162,18 @@ func _process(delta):
 		_is_inititialized = true
 		
 		initialized_event.emit()
-		switch_to_play_state()
 		
 		_levelData = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY]
-		grid.LoadLevel(_levelData)
-		_setup_level_labels()
-		
-		if _levelData.tutorialData != null:
-			myScreen.ScreenEnter.connect(_show_tutorial)
+		if _levelData != null:
+			switch_to_play_state()
+			grid.LoadLevel(_levelData)
+			_setup_level_labels()
+			
+			if _levelData.tutorialData != null:
+				myScreen.ScreenEnter.connect(_show_tutorial)
+		else:
+			switch_to_edit_state()
+			_setup_level_labels()
 	
 	if not _can_interact or held_piece == null:
 		deletionZone.hide()
@@ -177,14 +192,14 @@ func _process(delta):
 
 func _setup_level_labels():
 	var labelSticker : Control = levelNameText.get_parent() as Control
-	if _levelData.levelName.is_empty():
+	if _levelData == null or _levelData.levelName.is_empty():
 		labelSticker.visible = false
 	else:
 		labelSticker.visible = true
 		levelNameText.text = _levelData.levelName
 	
 	labelSticker = authorText.get_parent() as Control
-	if _levelData.author.is_empty():
+	if _levelData == null or _levelData.author.is_empty():
 		labelSticker.visible = false
 	else:
 		labelSticker.visible = true
@@ -290,3 +305,7 @@ func _do_place_held_piece(delta):
 		held_piece.play_place_audio()
 		held_piece = null # Piece is no longer being held
 		placing_piece = false
+
+func get_fauna_frequency():
+	return _gm.audio_controller._prefs.freq
+	

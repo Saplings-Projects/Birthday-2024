@@ -21,11 +21,14 @@ func set_sfx_volume(value: float):
 func set_fauna_volume(value: float):
 	_prefs.fauna = value
 	_set_bus_volume(value, _FAUNA_BUS)
+func set_fauna_freq(value: float):
+	_prefs.freq = value
 func _apply_prefs():
 	set_master_volume(_prefs.master)
 	set_music_volume(_prefs.music)
 	set_sfx_volume(_prefs.sfx)
 	set_fauna_volume(_prefs.fauna)
+	set_fauna_freq(_prefs.freq)
 
 
 func _set_bus_volume(value: float, bus_name: String):

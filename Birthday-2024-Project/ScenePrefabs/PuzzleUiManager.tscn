@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=39 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_0axgr"]
@@ -36,10 +36,11 @@
 [ext_resource type="PackedScene" uid="uid://cvx660iqikvys" path="res://ScenePrefabs/Pieces/gold_apple.tscn" id="28_kcfq2"]
 [ext_resource type="PackedScene" uid="uid://qgaf0pv44vcf" path="res://ScenePrefabs/Pieces/happy_fauna.tscn" id="29_13ob1"]
 [ext_resource type="PackedScene" uid="uid://b38fclggnxgnu" path="res://ScenePrefabs/Pieces/maid_fauna.tscn" id="30_6d7gv"]
+[ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiTestState.gd" id="37_5b1c8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
 
-[node name="PuzzleUiManager" type="Control" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state")]
+[node name="PuzzleUiManager" type="Control" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state", "test_state")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,8 +52,9 @@ main_screen = NodePath("MainScreen/Panel")
 play_state = NodePath("States/PuzzleUiPlayState")
 win_state = NodePath("States/PuzzleUiWinState")
 edit_state = NodePath("States/PuzzleUiEditState")
+test_state = NodePath("States/PuzzleUiTestState")
 
-[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state")]
+[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state", "test_state")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,6 +67,7 @@ main_screen = NodePath("Panel")
 play_state = NodePath("../States/PuzzleUiPlayState")
 win_state = NodePath("../States/PuzzleUiWinState")
 edit_state = NodePath("../States/PuzzleUiEditState")
+test_state = NodePath("../States/PuzzleUiTestState")
 
 [node name="Fade" type="ColorRect" parent="MainScreen"]
 visible = false
@@ -789,6 +792,13 @@ importPopup = NodePath("../../MainScreen/ImportPopup")
 inputField = NodePath("../../MainScreen/ImportPopup/Panel/TextEdit")
 exportPopup = NodePath("../../MainScreen/ExportPopup")
 
+[node name="PuzzleUiTestState" type="Control" parent="States"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("37_5b1c8")
+
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece2" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece2" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece3" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece3" method="GrabPiece"]
@@ -812,6 +822,6 @@ exportPopup = NodePath("../../MainScreen/ExportPopup")
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" method="GrabPiece"]
-[connection signal="button_up" from="MainScreen/ExportPopup/Panel/Button" to="States/PuzzleUiEditState" method="_on_dismiss_export_popup"]
-[connection signal="button_up" from="MainScreen/ImportPopup/Panel/Button" to="States/PuzzleUiEditState" method="_on_confirm_import"]
-[connection signal="button_up" from="MainScreen/ImportPopup/Panel/Button2" to="States/PuzzleUiEditState" method="_on_cancel_import"]
+[connection signal="pressed" from="MainScreen/ExportPopup/Panel/Button" to="States/PuzzleUiEditState" method="_on_dismiss_export_popup"]
+[connection signal="pressed" from="MainScreen/ImportPopup/Panel/Button" to="States/PuzzleUiEditState" method="_on_confirm_import"]
+[connection signal="pressed" from="MainScreen/ImportPopup/Panel/Button2" to="States/PuzzleUiEditState" method="_on_cancel_import"]

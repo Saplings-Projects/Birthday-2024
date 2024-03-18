@@ -13,10 +13,16 @@ func _on_SceneTree_node_added(node):
 		connect_to_tab(node)
 
 func _on_Button_pressed():
-	$ButtonSound.play()
+	$PressSound.play()
 	
 func _on_Tab_pressed(index : int):
-	$ButtonSound.play()
+	$PressSound.play()
+	
+func _on_Button_hovered():
+	$HoverSound.play()
+	
+func _on_Tab_hovered(index : int):
+	$HoverSound.play()
 
 # recursively connect all buttons
 func connect_buttons(root):
@@ -29,6 +35,8 @@ func connect_buttons(root):
 
 func connect_to_button(button):
 	button.connect("pressed", _on_Button_pressed)
+	button.connect("mouse_entered", _on_Button_hovered)
 
 func connect_to_tab(tab):
 	tab.connect("tab_clicked", _on_Tab_pressed)
+	tab.connect("tab_hovered", _on_Tab_hovered)
