@@ -22,7 +22,7 @@ func enter_state():
 	_ui_manager.show_main_screen()
 	
 	var screen = _ui_manager.main_screen
-	screen.show_hide_win_text(true)
+	screen.play_win_animation()
 	screen.skip_button.set_theme(load("res://Art/UI/Themes/Next_Level_Button_theme.tres"))
 	screen.skip_button.pressed.connect(_state.next_puzzle)
 	screen.exit_button.pressed.connect(_state.exit_game)

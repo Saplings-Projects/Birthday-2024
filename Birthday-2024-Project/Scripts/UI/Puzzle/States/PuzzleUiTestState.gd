@@ -22,7 +22,6 @@ func enter_state():
 	_ui_manager.show_main_screen()
 	
 	var screen = _ui_manager.main_screen
-	screen.show_hide_win_text(false)
 	screen.skip_button.hide()
 	screen.exit_button.pressed.connect(_state.exit_game)
 	screen.reset_button.pressed.connect(_state.reset_puzzle)

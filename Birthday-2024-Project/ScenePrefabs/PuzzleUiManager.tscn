@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=47 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_0axgr"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://brxer7ld41we" path="res://Art/UI/Button_normal_128.png" id="9_aa587"]
 [ext_resource type="PackedScene" uid="uid://lsby14fmqnqx" path="res://ScenePrefabs/Pieces/cowkini_fauna.tscn" id="10_qy6ph"]
 [ext_resource type="PackedScene" uid="uid://cdlhh56v1qobi" path="res://ScenePrefabs/Pieces/ele_fauna.tscn" id="11_drf77"]
+[ext_resource type="Texture2D" uid="uid://cct3ppm61jl11" path="res://Art/UI/leaf4-01.png" id="11_rkgxl"]
 [ext_resource type="PackedScene" uid="uid://ddhymvh5q6hoy" path="res://ScenePrefabs/Pieces/faunashi.tscn" id="12_da6up"]
 [ext_resource type="PackedScene" uid="uid://r4yd455agjgx" path="res://ScenePrefabs/Pieces/faunya.tscn" id="13_32upj"]
 [ext_resource type="PackedScene" uid="uid://baib15bjrkayn" path="res://ScenePrefabs/Pieces/hitman_fauna.tscn" id="14_o47i1"]
@@ -36,9 +37,53 @@
 [ext_resource type="PackedScene" uid="uid://cvx660iqikvys" path="res://ScenePrefabs/Pieces/gold_apple.tscn" id="28_kcfq2"]
 [ext_resource type="PackedScene" uid="uid://qgaf0pv44vcf" path="res://ScenePrefabs/Pieces/happy_fauna.tscn" id="29_13ob1"]
 [ext_resource type="PackedScene" uid="uid://b38fclggnxgnu" path="res://ScenePrefabs/Pieces/maid_fauna.tscn" id="30_6d7gv"]
+[ext_resource type="AudioStream" uid="uid://c22tla6lptlui" path="res://Resources/Audio/Fauna_Yipeee.wav" id="35_k4pbi"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiTestState.gd" id="37_5b1c8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
+
+[sub_resource type="Curve" id="Curve_sv41s"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.69024, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mwpqh"]
+curve = SubResource("Curve_sv41s")
+
+[sub_resource type="Gradient" id="Gradient_o31gf"]
+colors = PackedColorArray(0.5019, 0.84, 0.2604, 1, 0.89, 0.700133, 0.178, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xcad8"]
+gradient = SubResource("Gradient_o31gf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ueaj4"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+angle_max = 360.0
+spread = 135.0
+initial_velocity_min = 135.0
+initial_velocity_max = 185.0
+angular_velocity_min = 360.0
+angular_velocity_max = 540.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 2.5
+color_initial_ramp = SubResource("GradientTexture1D_xcad8")
+alpha_curve = SubResource("CurveTexture_mwpqh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vrm0h"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+angle_max = 360.0
+spread = 90.0
+initial_velocity_min = 175.0
+initial_velocity_max = 225.0
+angular_velocity_min = 360.0
+angular_velocity_max = 720.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.482353, 0.768627, 0.388235, 1)
+alpha_curve = SubResource("CurveTexture_mwpqh")
 
 [node name="PuzzleUiManager" type="Control" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state", "test_state")]
 layout_mode = 3
@@ -99,7 +144,7 @@ text = "WIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("exit_button", "reset_button", "back_button", "skip_button", "settings_button", "win_text", "edit_button", "library_button", "import_button", "export_button")]
+[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("exit_button", "reset_button", "back_button", "skip_button", "settings_button", "edit_button", "library_button", "import_button", "export_button", "win_text", "win_particles", "audio_player")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,11 +158,13 @@ reset_button = NodePath("Reset Button")
 back_button = NodePath("Back Button")
 skip_button = NodePath("Skip Button")
 settings_button = NodePath("Settings Button")
-win_text = NodePath("../Fade")
 edit_button = NodePath("Level Buttons/Edit Mode Button")
 library_button = NodePath("Level Buttons/Library Button")
 import_button = NodePath("Level Buttons/Import Button")
 export_button = NodePath("Level Buttons/Export Button")
+win_text = NodePath("../Fade")
+win_particles = [NodePath("Skip Button/Control/WinParticles")]
+audio_player = NodePath("../AudioStreamPlayer")
 
 [node name="Settings Button" type="Button" parent="MainScreen/Panel"]
 layout_mode = 1
@@ -150,6 +197,27 @@ offset_bottom = 128.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("6_pw105")
+
+[node name="Control" type="Control" parent="MainScreen/Panel/Skip Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinParticles" type="GPUParticles2D" parent="MainScreen/Panel/Skip Button/Control"]
+rotation = 1.5708
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_ueaj4")
+texture = ExtResource("11_rkgxl")
+lifetime = 1.2
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
 
 [node name="Exit Button" type="Button" parent="MainScreen/Panel"]
 layout_mode = 1
@@ -241,6 +309,27 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Export"
+
+[node name="Control" type="Control" parent="MainScreen/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="MainScreen/Panel/Control"]
+rotation = -1.5708
+emitting = false
+amount = 7
+process_material = SubResource("ParticleProcessMaterial_vrm0h")
+texture = ExtResource("11_rkgxl")
+lifetime = 1.5
+explosiveness = 1.0
+fixed_fps = 60
 
 [node name="PieceLibrary" type="Panel" parent="MainScreen"]
 visible = false
@@ -763,6 +852,10 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "Cancel"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MainScreen"]
+stream = ExtResource("35_k4pbi")
+bus = &"Fauna"
 
 [node name="States" type="Control" parent="."]
 layout_mode = 3
