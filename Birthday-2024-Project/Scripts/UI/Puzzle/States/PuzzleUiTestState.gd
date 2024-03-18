@@ -28,10 +28,10 @@ func enter_state():
 	screen.reset_button.pressed.connect(_state.reset_puzzle)
 	screen.back_button.pressed.connect(_state.back_to_level_select)
 	screen.settings_button.pressed.connect(_on_settings_clicked)
-	screen.edit_button.show()
+	screen.edit_anchor.show()
 	screen.edit_button.text = "Edit"
 	screen.edit_button.pressed.connect(_on_edit_mode_clicked)
-	screen.library_button.hide()
+	screen.library_anchor.hide()
 
 
 func exit_state():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=60 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_0axgr"]
@@ -25,7 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://r4yd455agjgx" path="res://ScenePrefabs/Pieces/faunya.tscn" id="13_32upj"]
 [ext_resource type="PackedScene" uid="uid://baib15bjrkayn" path="res://ScenePrefabs/Pieces/hitman_fauna.tscn" id="14_o47i1"]
 [ext_resource type="PackedScene" uid="uid://difm5n532kkm5" path="res://ScenePrefabs/Pieces/hungry_fauna.tscn" id="15_f4tr3"]
+[ext_resource type="AnimationLibrary" uid="uid://dlrngmk2gejou" path="res://Animations/ButtonLift.res" id="15_k0y04"]
 [ext_resource type="PackedScene" uid="uid://ck50aqlumrne0" path="res://ScenePrefabs/Pieces/idol_fauna.tscn" id="16_assat"]
+[ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="16_frje2"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiEditState.gd" id="17_c6px3"]
 [ext_resource type="PackedScene" uid="uid://dgas6i2w16oks" path="res://ScenePrefabs/Pieces/kimono_fauna.tscn" id="17_pvu4a"]
 [ext_resource type="PackedScene" uid="uid://drv78mes8008c" path="res://ScenePrefabs/Pieces/matcha_1.tscn" id="18_m3bly"]
@@ -179,6 +181,68 @@ _data = {
 "RESET": SubResource("Animation_je6wi")
 }
 
+[sub_resource type="Animation" id="Animation_v4ssh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mduki"]
+resource_name = "SpinButton"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 0.6, 0.8, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-6.28319, -6.45772, -3.14159, 0.174533, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
+_data = {
+"RESET": SubResource("Animation_v4ssh"),
+"SpinButton": SubResource("Animation_mduki")
+}
+
 [node name="PuzzleUiManager" type="Control" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state", "test_state")]
 layout_mode = 3
 anchors_preset = 15
@@ -238,7 +302,7 @@ text = "WIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("exit_button", "reset_button", "back_button", "skip_button", "settings_button", "win_text", "edit_button", "library_button", "import_button", "export_button")]
+[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("exit_button", "reset_button", "back_button", "skip_button", "settings_button", "win_text", "edit_button", "edit_anchor", "library_button", "library_anchor", "import_button", "import_anchor", "export_button", "export_anchor")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -248,15 +312,19 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8uao3")
 script = ExtResource("2_fxt11")
 exit_button = NodePath("Exit Button")
-reset_button = NodePath("Reset Button")
+reset_button = NodePath("Reset ButtonAnchor/Reset Button")
 back_button = NodePath("Back Button")
 skip_button = NodePath("Skip Button")
 settings_button = NodePath("Settings Button")
 win_text = NodePath("../Fade")
-edit_button = NodePath("Level Buttons/Edit Mode Button")
-library_button = NodePath("Level Buttons/Library Button")
-import_button = NodePath("Level Buttons/Import Button")
-export_button = NodePath("Level Buttons/Export Button")
+edit_button = NodePath("Level Buttons/Edit Mode ButtonContainer/Edit Mode ButtonAnchor/Edit Mode Button")
+edit_anchor = NodePath("Level Buttons/Edit Mode ButtonContainer")
+library_button = NodePath("Level Buttons/Library ButtonContainer/Library ButtonAnchor/Library Button")
+library_anchor = NodePath("Level Buttons/Library ButtonContainer")
+import_button = NodePath("Level Buttons/Import ButtonContainer/Import ButtonAnchor/Import Button")
+import_anchor = NodePath("Level Buttons/Import ButtonContainer")
+export_button = NodePath("Level Buttons/Export ButtonContainer/Export ButtonAnchor/Export Button")
+export_anchor = NodePath("Level Buttons/Export ButtonContainer")
 
 [node name="Back Button" type="Button" parent="MainScreen/Panel"]
 custom_minimum_size = Vector2(100, 100)
@@ -308,9 +376,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1760.0
+offset_left = -160.0
 offset_top = -400.0
-offset_right = 1824.0
+offset_right = -96.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)
@@ -332,9 +400,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1830.0
+offset_left = -90.0
 offset_top = -400.0
-offset_right = 1894.0
+offset_right = -26.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)
@@ -351,7 +419,23 @@ introAnim = "LevelExitIntro"
 onEnter = "ButtonAnimations/ButtonEnter"
 onExit = "ButtonAnimations/ButtonExit"
 
-[node name="Reset Button" type="Button" parent="MainScreen/Panel"]
+[node name="Box" type="TextureRect" parent="MainScreen/Panel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -124.0
+offset_right = 64.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_aa587")
+
+[node name="Reset ButtonAnchor" type="Control" parent="MainScreen/Panel"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -369,21 +453,37 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("8_fa1xk")
 
-[node name="Box" type="TextureRect" parent="MainScreen/Panel/Reset Button"]
-show_behind_parent = true
+[node name="Reset Button" type="Button" parent="MainScreen/Panel/Reset ButtonAnchor"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
 grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_aa587")
+grow_vertical = 0
+pivot_offset = Vector2(50, 50)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("8_fa1xk")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Reset ButtonAnchor/Reset Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonAnimations": ExtResource("5_vufij"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onIdle = "RESET"
+onHover = "SpinButton"
+onExit = "RESET"
+onPress = "RESET"
+
+[node name="StaticButtonCapture" parent="MainScreen/Panel/Reset ButtonAnchor/Reset Button" instance=ExtResource("16_frje2")]
 
 [node name="Level Buttons" type="VBoxContainer" parent="MainScreen/Panel"]
 layout_mode = 1
@@ -399,36 +499,164 @@ grow_vertical = 0
 size_flags_vertical = 8
 alignment = 2
 
-[node name="Edit Mode Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
-custom_minimum_size = Vector2(100, 100)
+[node name="Edit Mode ButtonContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
+custom_minimum_size = Vector2(142, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Edit Mode ButtonAnchor" type="Control" parent="MainScreen/Panel/Level Buttons/Edit Mode ButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 0
+offset_left = -3.0
+offset_right = 139.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Edit Mode Button" type="Button" parent="MainScreen/Panel/Level Buttons/Edit Mode ButtonContainer/Edit Mode ButtonAnchor"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_right = 142.0
+offset_bottom = 100.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Edit"
 
-[node name="Library Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Level Buttons/Edit Mode ButtonContainer/Edit Mode ButtonAnchor/Edit Mode Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/Panel/Level Buttons/Edit Mode ButtonContainer/Edit Mode ButtonAnchor/Edit Mode Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
+
+[node name="Library ButtonContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
 visible = false
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(183, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Library ButtonAnchor" type="Control" parent="MainScreen/Panel/Level Buttons/Library ButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 0
+offset_left = -7.0
+offset_right = 183.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Library Button" type="Button" parent="MainScreen/Panel/Level Buttons/Library ButtonContainer/Library ButtonAnchor"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_right = 190.0
+offset_bottom = 100.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Library"
 
-[node name="Import Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Level Buttons/Library ButtonContainer/Library ButtonAnchor/Library Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/Panel/Level Buttons/Library ButtonContainer/Library ButtonAnchor/Library Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
+
+[node name="Import ButtonContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
 visible = false
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(183, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Import ButtonAnchor" type="Control" parent="MainScreen/Panel/Level Buttons/Import ButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 0
+offset_left = -5.0
+offset_right = 180.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Import Button" type="Button" parent="MainScreen/Panel/Level Buttons/Import ButtonContainer/Import ButtonAnchor"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_right = 185.0
+offset_bottom = 100.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Import"
 
-[node name="Export Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Level Buttons/Import ButtonContainer/Import ButtonAnchor/Import Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/Panel/Level Buttons/Import ButtonContainer/Import ButtonAnchor/Import Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
+
+[node name="Export ButtonContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
 visible = false
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(183, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Export ButtonAnchor" type="Control" parent="MainScreen/Panel/Level Buttons/Export ButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 0
+offset_left = -4.0
+offset_right = 179.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Export Button" type="Button" parent="MainScreen/Panel/Level Buttons/Export ButtonContainer/Export ButtonAnchor"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_right = 183.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Export"
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Level Buttons/Export ButtonContainer/Export ButtonAnchor/Export Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/Panel/Level Buttons/Export ButtonContainer/Export ButtonAnchor/Export Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
 
 [node name="PieceLibrary" type="Panel" parent="MainScreen"]
 visible = false
@@ -848,7 +1076,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="MainScreen/ExportPopup/Panel"]
+[node name="ButtonAnchor" type="Control" parent="MainScreen/ExportPopup/Panel"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 7
@@ -862,8 +1090,36 @@ offset_right = 100.0
 offset_bottom = -48.9999
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 16
+
+[node name="Button" type="Button" parent="MainScreen/ExportPopup/Panel/ButtonAnchor"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -101.0
+offset_right = 100.0
+offset_bottom = -9.15527e-05
+grow_horizontal = 2
+grow_vertical = 0
 text = "OK"
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/ExportPopup/Panel/ButtonAnchor/Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/ExportPopup/Panel/ButtonAnchor/Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
 
 [node name="ImportPopup" type="ColorRect" parent="MainScreen"]
 visible = false
@@ -921,7 +1177,7 @@ placeholder_text = "paste level data here..."
 wrap_mode = 1
 autowrap_mode = 1
 
-[node name="Button" type="Button" parent="MainScreen/ImportPopup/Panel"]
+[node name="ButtonAnchor" type="Control" parent="MainScreen/ImportPopup/Panel"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 2
@@ -932,10 +1188,33 @@ offset_top = -150.0
 offset_right = 250.0
 offset_bottom = -49.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 16
+
+[node name="Button" type="Button" parent="MainScreen/ImportPopup/Panel/ButtonAnchor"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = 200.0
+grow_vertical = 0
 text = "Import"
 
-[node name="Button2" type="Button" parent="MainScreen/ImportPopup/Panel"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/ImportPopup/Panel/ButtonAnchor/Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/ImportPopup/Panel/ButtonAnchor/Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
+
+[node name="ButtonAnchor2" type="Control" parent="MainScreen/ImportPopup/Panel"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 3
@@ -949,8 +1228,35 @@ offset_right = -49.9999
 offset_bottom = -49.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 16
+
+[node name="Button2" type="Button" parent="MainScreen/ImportPopup/Panel/ButtonAnchor2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -101.0
+offset_right = -0.00012207
+grow_horizontal = 0
+grow_vertical = 0
 text = "Cancel"
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/ImportPopup/Panel/ButtonAnchor2/Button2"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/ImportPopup/Panel/ButtonAnchor2/Button2" instance=ExtResource("16_frje2")]
+layout_mode = 0
 
 [node name="States" type="Control" parent="."]
 layout_mode = 3
@@ -1010,6 +1316,6 @@ script = ExtResource("37_5b1c8")
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" method="GrabPiece"]
-[connection signal="pressed" from="MainScreen/ExportPopup/Panel/Button" to="States/PuzzleUiEditState" method="_on_dismiss_export_popup"]
-[connection signal="pressed" from="MainScreen/ImportPopup/Panel/Button" to="States/PuzzleUiEditState" method="_on_confirm_import"]
-[connection signal="pressed" from="MainScreen/ImportPopup/Panel/Button2" to="States/PuzzleUiEditState" method="_on_cancel_import"]
+[connection signal="pressed" from="MainScreen/ExportPopup/Panel/ButtonAnchor/Button" to="States/PuzzleUiEditState" method="_on_dismiss_export_popup"]
+[connection signal="pressed" from="MainScreen/ImportPopup/Panel/ButtonAnchor/Button" to="States/PuzzleUiEditState" method="_on_confirm_import"]
+[connection signal="pressed" from="MainScreen/ImportPopup/Panel/ButtonAnchor2/Button2" to="States/PuzzleUiEditState" method="_on_cancel_import"]
