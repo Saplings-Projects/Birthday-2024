@@ -113,7 +113,7 @@ _data = {
 "RESET": SubResource("Animation_v4ssh")
 }
 
-[node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("selectableButtons", "pageText", "prevArrow", "nextArrow", "levelNameText", "authorNameText")]
+[node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("selectableButtons", "pageText", "prevArrow", "nextArrow", "editorButton", "levelNameText", "authorNameText")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,6 +131,9 @@ prevArrow = NodePath("Panel/PrevPageButtonAnchor/PrevPageButton")
 nextArrow = NodePath("Panel/NextPageButton2/NextPageButton")
 levelNameText = NodePath("Panel/GoldBar/LevelName")
 authorNameText = NodePath("Panel/GoldBar2/Author")
+editorButton = NodePath("Panel/EditModeButton")
+prevArrow = NodePath("Panel/PrevPageButton")
+nextArrow = NodePath("Panel/NextPageButton")
 
 [node name="TextureRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -408,6 +411,17 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7muh8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vq17u")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_ey6ba")
 
+[node name="EditModeButton" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 260.0
+offset_top = 930.0
+offset_right = 560.0
+offset_bottom = 1030.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Level Creator"
+
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/NextPageButton2/NextPageButton"]
 libraries = {
 "": SubResource("AnimationLibrary_h4btv"),
@@ -508,3 +522,4 @@ texture = ExtResource("17_30ude")
 [connection signal="pressed" from="Panel/Back Button" to="." method="on_back_clicked"]
 [connection signal="pressed" from="Panel/PrevPageButtonAnchor/PrevPageButton" to="." method="on_prev_clicked"]
 [connection signal="pressed" from="Panel/NextPageButton2/NextPageButton" to="." method="on_next_clicked"]
+[connection signal="pressed" from="Panel/EditModeButton" to="." method="on_editor_clicked"]

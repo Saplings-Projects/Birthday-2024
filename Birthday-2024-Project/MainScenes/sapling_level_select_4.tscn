@@ -20,7 +20,7 @@
 [ext_resource type="Resource" uid="uid://bdh0kf0y6d0df" path="res://Resources/SubmittedLevels/Tradgore.tres" id="17_uyead"]
 [ext_resource type="Resource" uid="uid://cwwvdlqy245k1" path="res://Resources/SubmittedLevels/Turtyo.tres" id="18_8qb7y"]
 [ext_resource type="Resource" uid="uid://cmrspgq3v36k6" path="res://Resources/SubmittedLevels/WamWarcen.tres" id="19_bam8u"]
-[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/SubmittedLevels/Wanderer.tres" id="20_mlqpw"]
+[ext_resource type="Resource" uid="uid://cagvipu6hy0pq" path="res://Resources/SubmittedLevels/wanderer.tres" id="20_mlqpw"]
 [ext_resource type="Resource" uid="uid://cjuv771fmaded" path="res://Resources/SubmittedLevels/Weeboss.tres" id="21_02pk6"]
 [ext_resource type="Resource" uid="uid://dsdm3efm4p8fb" path="res://Resources/SubmittedLevels/Weirder.tres" id="22_0cjpw"]
 
