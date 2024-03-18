@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_jb011")
 title = "Not gaming?"
-body = "If you think you can't go on and you have to end the stream, you can always use the red arrow in the upper left corner to skip level."
+body = "If you think you’re stumped and just want to move on, you can always use the red arrow in the upper left corner to skip the level."
 displayPieces = Array[PackedScene]([])

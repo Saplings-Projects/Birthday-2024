@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_an6no")
 title = "Almost finished"
-body = "There's still a bit more in the campaign but we hope you enjoy this little game. It was not easy to gather everyone for this project due to scheduling. Please, check out puzzles made by Saplings and their messages full of love and kind words! Thank you for playing!"
+body = "There's still a bit more in the campaign but we hope you enjoy this little game. It was not easy to gather everyone for this project due to scheduling. Please check out the puzzles made by Saplings, and their messages full of love and kind words! Thank you for playing!"
 displayPieces = Array[PackedScene]([ExtResource("1_2kh0h")])

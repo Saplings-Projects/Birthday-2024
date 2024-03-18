@@ -8,5 +8,5 @@
 [resource]
 script = ExtResource("1_gw210")
 title = "New Faunas"
-body = "Nice! Now in addition to new Faunas you might see also decorations. These pieces can't be moved but you can enjoy looking at them. Here's the fabled golden apple accompanied by Hungry Faunya and Happy Fauna."
+body = "Nice! Now in addition to new Faunas, you might also see decorations. These pieces can't be moved but you can enjoy looking at them. Here's the fabled golden apple accompanied by Hungry Faunya and Happy Fauna."
 displayPieces = Array[PackedScene]([ExtResource("1_viddd"), ExtResource("2_0v142"), ExtResource("3_qgr4u")])
