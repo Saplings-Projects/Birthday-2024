@@ -1,16 +1,84 @@
-[gd_scene load_steps=16 format=3 uid="uid://lma3uuskmlpo"]
+[gd_scene load_steps=32 format=3 uid="uid://lma3uuskmlpo"]
 
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_f0s32"]
 [ext_resource type="Script" path="res://Scripts/UI/CampaignSelect/LevelsSelectMenu.gd" id="2_qje3g"]
 [ext_resource type="Texture2D" uid="uid://ll2r6k84b1vw" path="res://Art/UI/Background/Background_default_Light_textured_v2.png" id="3_n1ct6"]
 [ext_resource type="PackedScene" uid="uid://shy8qxvm8ys6" path="res://ScenePrefabs/level_button.tscn" id="4_5jxwy"]
+[ext_resource type="AnimationLibrary" uid="uid://x3ltx0v8glt8" path="res://Animations/ButtonAnimations.res" id="6_r3wjr"]
+[ext_resource type="AnimationLibrary" uid="uid://bq3kvfnhm75a0" path="res://Animations/SettingsButton.res" id="7_f5r6e"]
+[ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="8_1r2fe"]
+[ext_resource type="AnimationLibrary" uid="uid://dtbni4srk3qoi" path="res://Animations/ExitButton.res" id="10_0rkb7"]
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="11_1sl5b"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="12_fsl8b"]
+[ext_resource type="AnimationLibrary" uid="uid://ba0kskllgfuds" path="res://Animations/BackButton.res" id="12_o3cjl"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="13_hp0wu"]
 [ext_resource type="Texture2D" uid="uid://db3rvquwfp1ls" path="res://Art/UI/Arrow_button_normal.png" id="14_pg7lu"]
 [ext_resource type="Texture2D" uid="uid://cyeqlujr0xudm" path="res://Art/UI/Arrow_button_pressed.png" id="15_qlyp1"]
+[ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="16_jw036"]
+[ext_resource type="Theme" uid="uid://brhrooxlo0rxq" path="res://Art/UI/Themes/HandwrittenLabel.tres" id="16_mno0u"]
+[ext_resource type="AnimationLibrary" uid="uid://dlrngmk2gejou" path="res://Animations/ButtonLift.res" id="16_w0xs4"]
 [ext_resource type="Texture2D" uid="uid://pfq2xiycjshy" path="res://Art/UI/Arrow_button_Hover.png" id="16_w3ija"]
 [ext_resource type="Texture2D" uid="uid://daeokhww64r8d" path="res://Art/UI/UiReferencesAndMockups/CampaignLevelScreen.png" id="17_30ude"]
+
+[sub_resource type="Animation" id="Animation_4f1s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1760, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_luyfv"]
+_data = {
+"RESET": SubResource("Animation_4f1s0")
+}
+
+[sub_resource type="Animation" id="Animation_je6wi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1830, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pblbj"]
+_data = {
+"RESET": SubResource("Animation_je6wi")
+}
+
+[sub_resource type="Animation" id="Animation_ksk4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(130, -200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbdgh"]
+_data = {
+"RESET": SubResource("Animation_ksk4g")
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jq74l"]
 texture = ExtResource("14_pg7lu")
@@ -25,7 +93,27 @@ texture = ExtResource("15_qlyp1")
 texture = ExtResource("14_pg7lu")
 modulate_color = Color(0.784314, 0.784314, 0.784314, 0.784314)
 
-[node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("selectableButtons", "pageText", "prevArrow", "nextArrow", "editorButton")]
+[sub_resource type="Animation" id="Animation_v4ssh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
+_data = {
+"RESET": SubResource("Animation_v4ssh")
+}
+
+[node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("selectableButtons", "pageText", "prevArrow", "nextArrow", "editorButton", "levelNameText", "authorNameText")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,9 +127,11 @@ isCampaign = true
 pageText = NodePath("Panel/Page")
 pageNumber = 1
 lastPageNumber = 1
-prevArrow = NodePath("Panel/PrevPageButton")
-nextArrow = NodePath("Panel/NextPageButton")
-editorButton = NodePath("Panel/EditModeButton")
+prevArrow = NodePath("Panel/PrevPageButtonAnchor/PrevPageButton")
+nextArrow = NodePath("Panel/NextPageButtonAnchor/NextPageButton")
+editorButton = NodePath("Panel/EditModeButtonAnchor/EditModeButton")
+levelNameText = NodePath("Panel/GoldBar/LevelName")
+authorNameText = NodePath("Panel/GoldBar2/Author")
 
 [node name="TextureRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -173,11 +263,23 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -160.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -96.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("11_1sl5b")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/Settings Button"]
+libraries = {
+"": SubResource("AnimationLibrary_luyfv"),
+"ButtonAnimations": ExtResource("6_r3wjr"),
+"SettingsButton": ExtResource("7_f5r6e")
+}
+script = ExtResource("8_1r2fe")
+introAnim = "SettingsButton/SettingsIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Exit Button" type="Button" parent="Panel"]
 layout_mode = 1
@@ -185,23 +287,48 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -90.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -26.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("12_fsl8b")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/Exit Button"]
+libraries = {
+"": SubResource("AnimationLibrary_pblbj"),
+"ButtonAnimations": ExtResource("6_r3wjr"),
+"ExitButton": ExtResource("10_0rkb7")
+}
+script = ExtResource("8_1r2fe")
+introAnim = "ExitButton/ExitIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Back Button" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 offset_left = 130.0
+offset_top = -200.0
 offset_right = 258.0
-offset_bottom = 128.0
+offset_bottom = -72.0
+pivot_offset = Vector2(64, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("13_hp0wu")
 
-[node name="PrevPageButton" type="Button" parent="Panel"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/Back Button"]
+libraries = {
+"": SubResource("AnimationLibrary_wbdgh"),
+"BackButton": ExtResource("12_o3cjl"),
+"ButtonAnimations": ExtResource("6_r3wjr")
+}
+script = ExtResource("8_1r2fe")
+introAnim = "BackButton/BackIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
+
+[node name="PrevPageButtonAnchor" type="Control" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -214,12 +341,40 @@ offset_right = -429.0
 offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PrevPageButton" type="Button" parent="Panel/PrevPageButtonAnchor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_jq74l")
 theme_override_styles/hover = SubResource("StyleBoxTexture_7muh8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vq17u")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_ey6ba")
 
-[node name="NextPageButton" type="Button" parent="Panel"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/PrevPageButtonAnchor/PrevPageButton"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("16_w0xs4")
+}
+script = ExtResource("8_1r2fe")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="Panel/PrevPageButtonAnchor/PrevPageButton" instance=ExtResource("16_jw036")]
+layout_mode = 0
+
+[node name="NextPageButtonAnchor" type="Control" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -232,6 +387,21 @@ offset_right = 685.0
 offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(128, 128)
+
+[node name="NextPageButton" type="Button" parent="Panel/NextPageButtonAnchor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(-1, 1)
 pivot_offset = Vector2(128, 128)
 theme_override_styles/normal = SubResource("StyleBoxTexture_jq74l")
@@ -239,16 +409,134 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7muh8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vq17u")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_ey6ba")
 
-[node name="EditModeButton" type="Button" parent="Panel"]
-custom_minimum_size = Vector2(100, 100)
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/NextPageButtonAnchor/NextPageButton"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("16_w0xs4")
+}
+script = ExtResource("8_1r2fe")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="Panel/NextPageButtonAnchor/NextPageButton" instance=ExtResource("16_jw036")]
 layout_mode = 0
-offset_left = 260.0
-offset_top = 930.0
-offset_right = 560.0
-offset_bottom = 1030.0
+
+[node name="EditModeButtonAnchor" type="Control" parent="Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 151.0
+offset_top = -301.0
+offset_right = 566.0
+offset_bottom = -155.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="EditModeButton" type="Button" parent="Panel/EditModeButtonAnchor"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -146.0
+offset_right = 415.0
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Level Creator"
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Panel/EditModeButtonAnchor/EditModeButton"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("16_w0xs4")
+}
+script = ExtResource("8_1r2fe")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="Panel/EditModeButtonAnchor/EditModeButton" instance=ExtResource("16_jw036")]
+layout_mode = 0
+
+[node name="GoldBar" type="ColorRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 440.0
+offset_top = 260.0
+offset_right = 840.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.894118, 0.823529, 0.627451, 1)
+
+[node name="LevelName" type="Label" parent="Panel/GoldBar"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("16_mno0u")
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldBar2" type="ColorRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 440.0
+offset_top = 360.0
+offset_right = 840.0
+offset_bottom = 365.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.894118, 0.823529, 0.627451, 1)
+
+[node name="Author" type="Label" parent="Panel/GoldBar2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -45.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("16_mno0u")
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="By" type="Label" parent="Panel/GoldBar2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "By:"
+vertical_alignment = 1
 
 [node name="CampaignLevelScreen" type="Sprite2D" parent="."]
 visible = false
@@ -260,6 +548,6 @@ texture = ExtResource("17_30ude")
 [connection signal="pressed" from="Panel/Settings Button" to="." method="on_settings_clicked"]
 [connection signal="pressed" from="Panel/Exit Button" to="." method="on_exit_clicked"]
 [connection signal="pressed" from="Panel/Back Button" to="." method="on_back_clicked"]
-[connection signal="pressed" from="Panel/PrevPageButton" to="." method="on_prev_clicked"]
-[connection signal="pressed" from="Panel/NextPageButton" to="." method="on_next_clicked"]
-[connection signal="pressed" from="Panel/EditModeButton" to="." method="on_editor_clicked"]
+[connection signal="pressed" from="Panel/PrevPageButtonAnchor/PrevPageButton" to="." method="on_prev_clicked"]
+[connection signal="pressed" from="Panel/NextPageButtonAnchor/NextPageButton" to="." method="on_next_clicked"]
+[connection signal="pressed" from="Panel/EditModeButtonAnchor/EditModeButton" to="." method="on_editor_clicked"]

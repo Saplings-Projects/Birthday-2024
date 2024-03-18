@@ -7,11 +7,12 @@ enum LevelButtonMode {
 	COMPLETE
 }
 
-@export var levelData : LevelSetup
 @export var levelPreviewRenderer : TextureRect
 @export var monochromeShader : ShaderMaterial
 
+var levelData : LevelSetup
 var _levelIndex : int
+var _levelSelectMenu : LevelsSelectMenu
 
 func GoToLevel():
 	var levelMenu : LevelsSelectMenu = get_node("../../..") as LevelsSelectMenu
@@ -19,15 +20,6 @@ func GoToLevel():
 
 func SetupButtonMode(buttonMode : LevelButtonMode, levelIndex : int):
 	_levelIndex = levelIndex
-	
-	tooltip_text = ""
-	if levelData.levelName.is_empty() == false:
-		tooltip_text = levelData.levelName
-	if levelData.author.is_empty() == false:
-		if tooltip_text.is_empty() == false:
-			tooltip_text = str(tooltip_text, "\nBy ", levelData.author)
-		else:
-			tooltip_text = str("By ", levelData.author)
 	
 	match buttonMode:
 		LevelButtonMode.LOCKED:
@@ -43,4 +35,23 @@ func SetupButtonMode(buttonMode : LevelButtonMode, levelIndex : int):
 			levelPreviewRenderer.texture = levelData.levelComplete
 			levelPreviewRenderer.material = null
 			levelPreviewRenderer.show()
-		
+			
+func OnMouseEnter():
+	_levelSelectMenu.SetLevelAndAuthor(levelData.levelName, levelData.author)
+
+func OnMouseExit():
+	_levelSelectMenu.SetLevelAndAuthor("", "")
+
+func _ready():
+	_levelSelectMenu = _findLevelSelectMenu()
+	mouse_entered.connect(OnMouseEnter)
+	mouse_exited.connect(OnMouseExit)
+
+func _findLevelSelectMenu() -> LevelsSelectMenu:
+	var parentNode = get_parent()
+	while parentNode != null and parentNode is LevelsSelectMenu == false:
+		parentNode = parentNode.get_parent()
+	
+	if parentNode != null:
+		return parentNode as LevelsSelectMenu
+	return null

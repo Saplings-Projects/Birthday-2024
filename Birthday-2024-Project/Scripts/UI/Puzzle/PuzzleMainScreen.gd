@@ -10,9 +10,13 @@ extends Control
 @export var settings_button: Button
 @export var win_text: Control
 @export var edit_button: Button
+@export var edit_anchor: Control
 @export var library_button: Button
+@export var library_anchor: Control
 @export var import_button: Button
+@export var import_anchor: Control
 @export var export_button: Button
+@export var export_anchor: Control
 
 
 func show_hide_win_text(is_showing: bool):

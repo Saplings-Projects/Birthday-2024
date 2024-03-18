@@ -10,6 +10,7 @@ extends Control
 @export var piece_name : Label
 @export var piece_names: Array[String]
 @export var page_num : Label
+@export var animators : Array[UIButtonAnimations]
 
 var gallery_tracker : int = 0
 
@@ -30,6 +31,7 @@ func _on_next_art_button_pressed():
 	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.TURN_PAGE, _transition_page_next, _animation_finished)
 
 func _transition_page_next():
+	_reset_animators()
 	pieces[gallery_tracker].hide()
 	gallery_tracker += 1
 	if gallery_tracker > (pieces.size() - 1) : 
@@ -40,6 +42,7 @@ func _on_previous_art_button_pressed():
 	myScreen.screenManager.ShowTransitionAnimation(ScreenManager.TransitionStyle.BACK_PAGE, _transition_page_back, _animation_finished)
 
 func _transition_page_back():
+	_reset_animators()
 	pieces[gallery_tracker].hide()
 	gallery_tracker -= 1
 	if gallery_tracker < 0 : 
@@ -53,8 +56,13 @@ func _update_UI():
 	_change_artist_credit()
 	page_num.text = str(gallery_tracker + 1, "/", pieces.size())
 
+func _reset_animators():
+	for uiButton in animators:
+		uiButton.reset()
+
 func _animation_finished():
-	pass
+	for uiButton in animators:
+		uiButton.startOnScreenEnter()
 
 func _change_artist_credit():
 	match gallery_tracker:

@@ -303,16 +303,6 @@ popupRoot = NodePath("PopupRoot")
 screenTexture = NodePath("TransitionLayer/AnimationPlayer/Control/MaskTexture/ScreenTexture")
 bgmPlayer = NodePath("bgmPlayer")
 
-[node name="BaseLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="BaseLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="PopupRoot" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=60 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_0axgr"]
@@ -8,19 +8,26 @@
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="4_3804r"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="5_kgic0"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/LibraryPiece.gd" id="5_umaa4"]
+[ext_resource type="AnimationLibrary" uid="uid://x3ltx0v8glt8" path="res://Animations/ButtonAnimations.res" id="5_vufij"]
 [ext_resource type="Theme" uid="uid://gvji6stl3xbw" path="res://Art/UI/Themes/Skip_Button_theme.tres" id="6_pw105"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="6_pwysr"]
+[ext_resource type="AnimationLibrary" uid="uid://bq3kvfnhm75a0" path="res://Animations/SettingsButton.res" id="6_wgkhd"]
+[ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="7_0qkwp"]
 [ext_resource type="PackedScene" uid="uid://k7op5iqng1g3" path="res://ScenePrefabs/Pieces/casual_fauna.tscn" id="8_7xd20"]
 [ext_resource type="Theme" uid="uid://c0e0e8cd45ihb" path="res://Art/UI/Themes/Reset_Button_theme.tres" id="8_fa1xk"]
 [ext_resource type="PackedScene" uid="uid://do712r6j516kq" path="res://ScenePrefabs/Pieces/casual_fauna_wave.tscn" id="9_46j5t"]
 [ext_resource type="Texture2D" uid="uid://brxer7ld41we" path="res://Art/UI/Button_normal_128.png" id="9_aa587"]
+[ext_resource type="AnimationLibrary" uid="uid://ba0kskllgfuds" path="res://Animations/BackButton.res" id="9_wnm2v"]
 [ext_resource type="PackedScene" uid="uid://lsby14fmqnqx" path="res://ScenePrefabs/Pieces/cowkini_fauna.tscn" id="10_qy6ph"]
 [ext_resource type="PackedScene" uid="uid://cdlhh56v1qobi" path="res://ScenePrefabs/Pieces/ele_fauna.tscn" id="11_drf77"]
+[ext_resource type="AnimationLibrary" uid="uid://dtbni4srk3qoi" path="res://Animations/ExitButton.res" id="12_03370"]
 [ext_resource type="PackedScene" uid="uid://ddhymvh5q6hoy" path="res://ScenePrefabs/Pieces/faunashi.tscn" id="12_da6up"]
 [ext_resource type="PackedScene" uid="uid://r4yd455agjgx" path="res://ScenePrefabs/Pieces/faunya.tscn" id="13_32upj"]
 [ext_resource type="PackedScene" uid="uid://baib15bjrkayn" path="res://ScenePrefabs/Pieces/hitman_fauna.tscn" id="14_o47i1"]
 [ext_resource type="PackedScene" uid="uid://difm5n532kkm5" path="res://ScenePrefabs/Pieces/hungry_fauna.tscn" id="15_f4tr3"]
+[ext_resource type="AnimationLibrary" uid="uid://dlrngmk2gejou" path="res://Animations/ButtonLift.res" id="15_k0y04"]
 [ext_resource type="PackedScene" uid="uid://ck50aqlumrne0" path="res://ScenePrefabs/Pieces/idol_fauna.tscn" id="16_assat"]
+[ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="16_frje2"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiEditState.gd" id="17_c6px3"]
 [ext_resource type="PackedScene" uid="uid://dgas6i2w16oks" path="res://ScenePrefabs/Pieces/kimono_fauna.tscn" id="17_pvu4a"]
 [ext_resource type="PackedScene" uid="uid://drv78mes8008c" path="res://ScenePrefabs/Pieces/matcha_1.tscn" id="18_m3bly"]
@@ -39,6 +46,202 @@
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiTestState.gd" id="37_5b1c8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
+
+[sub_resource type="Animation" id="Animation_ksk4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(130, -200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbdgh"]
+_data = {
+"RESET": SubResource("Animation_ksk4g")
+}
+
+[sub_resource type="Animation" id="Animation_q6xnp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(260, -200)]
+}
+
+[sub_resource type="Animation" id="Animation_sdc3a"]
+resource_name = "SkipIntro"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(260, -200), Vector2(260, -200), Vector2(260, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0gdm"]
+_data = {
+"RESET": SubResource("Animation_q6xnp"),
+"SkipIntro": SubResource("Animation_sdc3a")
+}
+
+[sub_resource type="Animation" id="Animation_j6gfi"]
+resource_name = "LevelSettingsIntro"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1760, -400), Vector2(1760, -400), Vector2(1760, -200)]
+}
+
+[sub_resource type="Animation" id="Animation_4f1s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1760, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_luyfv"]
+_data = {
+"LevelSettingsIntro": SubResource("Animation_j6gfi"),
+"RESET": SubResource("Animation_4f1s0")
+}
+
+[sub_resource type="Animation" id="Animation_ywoyt"]
+resource_name = "LevelExitIntro"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1830, -400), Vector2(1830, -400), Vector2(1830, -200)]
+}
+
+[sub_resource type="Animation" id="Animation_je6wi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1830, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pblbj"]
+_data = {
+"LevelExitIntro": SubResource("Animation_ywoyt"),
+"RESET": SubResource("Animation_je6wi")
+}
+
+[sub_resource type="Animation" id="Animation_v4ssh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mduki"]
+resource_name = "SpinButton"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 0.6, 0.8, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-6.28319, -6.45772, -3.14159, 0.174533, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
+_data = {
+"RESET": SubResource("Animation_v4ssh"),
+"SpinButton": SubResource("Animation_mduki")
+}
 
 [node name="PuzzleUiManager" type="Control" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state", "test_state")]
 layout_mode = 3
@@ -99,7 +302,7 @@ text = "WIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("exit_button", "reset_button", "back_button", "skip_button", "settings_button", "win_text", "edit_button", "library_button", "import_button", "export_button")]
+[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("exit_button", "reset_button", "back_button", "skip_button", "settings_button", "win_text", "edit_button", "edit_anchor", "library_button", "library_anchor", "import_button", "import_anchor", "export_button", "export_anchor")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -109,15 +312,64 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8uao3")
 script = ExtResource("2_fxt11")
 exit_button = NodePath("Exit Button")
-reset_button = NodePath("Reset Button")
+reset_button = NodePath("Reset ButtonAnchor/Reset Button")
 back_button = NodePath("Back Button")
 skip_button = NodePath("Skip Button")
 settings_button = NodePath("Settings Button")
 win_text = NodePath("../Fade")
-edit_button = NodePath("Level Buttons/Edit Mode Button")
-library_button = NodePath("Level Buttons/Library Button")
-import_button = NodePath("Level Buttons/Import Button")
-export_button = NodePath("Level Buttons/Export Button")
+edit_button = NodePath("Level Buttons/Edit Mode ButtonContainer/Edit Mode ButtonAnchor/Edit Mode Button")
+edit_anchor = NodePath("Level Buttons/Edit Mode ButtonContainer")
+library_button = NodePath("Level Buttons/Library ButtonContainer/Library ButtonAnchor/Library Button")
+library_anchor = NodePath("Level Buttons/Library ButtonContainer")
+import_button = NodePath("Level Buttons/Import ButtonContainer/Import ButtonAnchor/Import Button")
+import_anchor = NodePath("Level Buttons/Import ButtonContainer")
+export_button = NodePath("Level Buttons/Export ButtonContainer/Export ButtonAnchor/Export Button")
+export_anchor = NodePath("Level Buttons/Export ButtonContainer")
+
+[node name="Back Button" type="Button" parent="MainScreen/Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 130.0
+offset_top = -200.0
+offset_right = 258.0
+offset_bottom = -72.0
+pivot_offset = Vector2(64, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_kgic0")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Back Button"]
+libraries = {
+"": SubResource("AnimationLibrary_wbdgh"),
+"BackButton": ExtResource("9_wnm2v"),
+"ButtonAnimations": ExtResource("5_vufij")
+}
+script = ExtResource("7_0qkwp")
+introAnim = "BackButton/BackIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
+
+[node name="Skip Button" type="Button" parent="MainScreen/Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 260.0
+offset_top = -200.0
+offset_right = 388.0
+offset_bottom = -72.0
+pivot_offset = Vector2(64, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("6_pw105")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Skip Button"]
+libraries = {
+"": SubResource("AnimationLibrary_y0gdm"),
+"ButtonAnimations": ExtResource("5_vufij")
+}
+script = ExtResource("7_0qkwp")
+introAnim = "SkipIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Settings Button" type="Button" parent="MainScreen/Panel"]
 layout_mode = 1
@@ -125,31 +377,23 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -160.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -96.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("4_3804r")
 
-[node name="Back Button" type="Button" parent="MainScreen/Panel"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 1
-offset_left = 130.0
-offset_right = 258.0
-offset_bottom = 128.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("5_kgic0")
-
-[node name="Skip Button" type="Button" parent="MainScreen/Panel"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 1
-offset_left = 260.0
-offset_right = 388.0
-offset_bottom = 128.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("6_pw105")
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Settings Button"]
+libraries = {
+"": SubResource("AnimationLibrary_luyfv"),
+"ButtonAnimations": ExtResource("5_vufij"),
+"SettingsButton": ExtResource("6_wgkhd")
+}
+script = ExtResource("7_0qkwp")
+introAnim = "LevelSettingsIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Exit Button" type="Button" parent="MainScreen/Panel"]
 layout_mode = 1
@@ -157,13 +401,41 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -90.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -26.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("6_pwysr")
 
-[node name="Reset Button" type="Button" parent="MainScreen/Panel"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Exit Button"]
+libraries = {
+"": SubResource("AnimationLibrary_pblbj"),
+"ButtonAnimations": ExtResource("5_vufij"),
+"ExitButton": ExtResource("12_03370")
+}
+script = ExtResource("7_0qkwp")
+introAnim = "LevelExitIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
+
+[node name="Box" type="TextureRect" parent="MainScreen/Panel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -124.0
+offset_right = 64.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_aa587")
+
+[node name="Reset ButtonAnchor" type="Control" parent="MainScreen/Panel"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -181,21 +453,37 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("8_fa1xk")
 
-[node name="Box" type="TextureRect" parent="MainScreen/Panel/Reset Button"]
-show_behind_parent = true
+[node name="Reset Button" type="Button" parent="MainScreen/Panel/Reset ButtonAnchor"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
 grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_aa587")
+grow_vertical = 0
+pivot_offset = Vector2(50, 50)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("8_fa1xk")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Reset ButtonAnchor/Reset Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonAnimations": ExtResource("5_vufij"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onIdle = "RESET"
+onHover = "SpinButton"
+onExit = "RESET"
+onPress = "RESET"
+
+[node name="StaticButtonCapture" parent="MainScreen/Panel/Reset ButtonAnchor/Reset Button" instance=ExtResource("16_frje2")]
 
 [node name="Level Buttons" type="VBoxContainer" parent="MainScreen/Panel"]
 layout_mode = 1
@@ -211,36 +499,164 @@ grow_vertical = 0
 size_flags_vertical = 8
 alignment = 2
 
-[node name="Edit Mode Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
-custom_minimum_size = Vector2(100, 100)
+[node name="Edit Mode ButtonContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
+custom_minimum_size = Vector2(142, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Edit Mode ButtonAnchor" type="Control" parent="MainScreen/Panel/Level Buttons/Edit Mode ButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 0
+offset_left = -3.0
+offset_right = 139.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Edit Mode Button" type="Button" parent="MainScreen/Panel/Level Buttons/Edit Mode ButtonContainer/Edit Mode ButtonAnchor"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_right = 142.0
+offset_bottom = 100.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Edit"
 
-[node name="Library Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Level Buttons/Edit Mode ButtonContainer/Edit Mode ButtonAnchor/Edit Mode Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/Panel/Level Buttons/Edit Mode ButtonContainer/Edit Mode ButtonAnchor/Edit Mode Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
+
+[node name="Library ButtonContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
 visible = false
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(183, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Library ButtonAnchor" type="Control" parent="MainScreen/Panel/Level Buttons/Library ButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 0
+offset_left = -7.0
+offset_right = 183.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Library Button" type="Button" parent="MainScreen/Panel/Level Buttons/Library ButtonContainer/Library ButtonAnchor"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_right = 190.0
+offset_bottom = 100.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Library"
 
-[node name="Import Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Level Buttons/Library ButtonContainer/Library ButtonAnchor/Library Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/Panel/Level Buttons/Library ButtonContainer/Library ButtonAnchor/Library Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
+
+[node name="Import ButtonContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
 visible = false
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(183, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Import ButtonAnchor" type="Control" parent="MainScreen/Panel/Level Buttons/Import ButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 0
+offset_left = -5.0
+offset_right = 180.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Import Button" type="Button" parent="MainScreen/Panel/Level Buttons/Import ButtonContainer/Import ButtonAnchor"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_right = 185.0
+offset_bottom = 100.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Import"
 
-[node name="Export Button" type="Button" parent="MainScreen/Panel/Level Buttons"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Level Buttons/Import ButtonContainer/Import ButtonAnchor/Import Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/Panel/Level Buttons/Import ButtonContainer/Import ButtonAnchor/Import Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
+
+[node name="Export ButtonContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
 visible = false
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(183, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Export ButtonAnchor" type="Control" parent="MainScreen/Panel/Level Buttons/Export ButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 0
+offset_left = -4.0
+offset_right = 179.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Export Button" type="Button" parent="MainScreen/Panel/Level Buttons/Export ButtonContainer/Export ButtonAnchor"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_right = 183.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Export"
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Level Buttons/Export ButtonContainer/Export ButtonAnchor/Export Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/Panel/Level Buttons/Export ButtonContainer/Export ButtonAnchor/Export Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
 
 [node name="PieceLibrary" type="Panel" parent="MainScreen"]
 visible = false
@@ -660,7 +1076,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="MainScreen/ExportPopup/Panel"]
+[node name="ButtonAnchor" type="Control" parent="MainScreen/ExportPopup/Panel"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 7
@@ -674,8 +1090,36 @@ offset_right = 100.0
 offset_bottom = -48.9999
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 16
+
+[node name="Button" type="Button" parent="MainScreen/ExportPopup/Panel/ButtonAnchor"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -101.0
+offset_right = 100.0
+offset_bottom = -9.15527e-05
+grow_horizontal = 2
+grow_vertical = 0
 text = "OK"
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/ExportPopup/Panel/ButtonAnchor/Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/ExportPopup/Panel/ButtonAnchor/Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
 
 [node name="ImportPopup" type="ColorRect" parent="MainScreen"]
 visible = false
@@ -733,7 +1177,7 @@ placeholder_text = "paste level data here..."
 wrap_mode = 1
 autowrap_mode = 1
 
-[node name="Button" type="Button" parent="MainScreen/ImportPopup/Panel"]
+[node name="ButtonAnchor" type="Control" parent="MainScreen/ImportPopup/Panel"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 2
@@ -744,10 +1188,33 @@ offset_top = -150.0
 offset_right = 250.0
 offset_bottom = -49.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 16
+
+[node name="Button" type="Button" parent="MainScreen/ImportPopup/Panel/ButtonAnchor"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = 200.0
+grow_vertical = 0
 text = "Import"
 
-[node name="Button2" type="Button" parent="MainScreen/ImportPopup/Panel"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/ImportPopup/Panel/ButtonAnchor/Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/ImportPopup/Panel/ButtonAnchor/Button" instance=ExtResource("16_frje2")]
+layout_mode = 0
+
+[node name="ButtonAnchor2" type="Control" parent="MainScreen/ImportPopup/Panel"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 3
@@ -761,8 +1228,35 @@ offset_right = -49.9999
 offset_bottom = -49.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 16
+
+[node name="Button2" type="Button" parent="MainScreen/ImportPopup/Panel/ButtonAnchor2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -101.0
+offset_right = -0.00012207
+grow_horizontal = 0
+grow_vertical = 0
 text = "Cancel"
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/ImportPopup/Panel/ButtonAnchor2/Button2"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("15_k0y04")
+}
+script = ExtResource("7_0qkwp")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="MainScreen/ImportPopup/Panel/ButtonAnchor2/Button2" instance=ExtResource("16_frje2")]
+layout_mode = 0
 
 [node name="States" type="Control" parent="."]
 layout_mode = 3
@@ -822,6 +1316,6 @@ script = ExtResource("37_5b1c8")
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" to="MainScreen/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" method="GrabPiece"]
-[connection signal="pressed" from="MainScreen/ExportPopup/Panel/Button" to="States/PuzzleUiEditState" method="_on_dismiss_export_popup"]
-[connection signal="pressed" from="MainScreen/ImportPopup/Panel/Button" to="States/PuzzleUiEditState" method="_on_confirm_import"]
-[connection signal="pressed" from="MainScreen/ImportPopup/Panel/Button2" to="States/PuzzleUiEditState" method="_on_cancel_import"]
+[connection signal="pressed" from="MainScreen/ExportPopup/Panel/ButtonAnchor/Button" to="States/PuzzleUiEditState" method="_on_dismiss_export_popup"]
+[connection signal="pressed" from="MainScreen/ImportPopup/Panel/ButtonAnchor/Button" to="States/PuzzleUiEditState" method="_on_confirm_import"]
+[connection signal="pressed" from="MainScreen/ImportPopup/Panel/ButtonAnchor2/Button2" to="States/PuzzleUiEditState" method="_on_cancel_import"]

@@ -30,7 +30,7 @@ func enter_state():
 	screen.back_button.pressed.connect(_state.back_to_level_select)
 	screen.settings_button.pressed.connect(_on_settings_clicked)
 	screen.edit_button.pressed.connect(_on_edit_mode_clicked)
-	screen.library_button.hide()
+	screen.library_anchor.hide()
 
 
 func exit_state():

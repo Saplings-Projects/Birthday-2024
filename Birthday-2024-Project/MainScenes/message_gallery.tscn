@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cwdsrwiqnn7nh"]
+[gd_scene load_steps=33 format=3 uid="uid://cwdsrwiqnn7nh"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_u6whk"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_304n6"]
@@ -7,14 +7,81 @@
 [ext_resource type="Resource" uid="uid://c8fwg7knp7eop" path="res://Resources/MessageLibrary.tres" id="4_xh0q5"]
 [ext_resource type="Theme" uid="uid://ddnhn5ud1sj7x" path="res://Art/UI/Themes/Back_Button_theme.tres" id="5_l36m2"]
 [ext_resource type="Theme" uid="uid://7jinxao27kiu" path="res://Art/UI/Themes/Settings_Button_theme.tres" id="6_fsgkj"]
+[ext_resource type="AnimationLibrary" uid="uid://ba0kskllgfuds" path="res://Animations/BackButton.res" id="7_4hmow"]
 [ext_resource type="Theme" uid="uid://clkf6xmmherj8" path="res://Art/UI/Themes/Exit_Button_theme.tres" id="7_x7j7o"]
+[ext_resource type="AnimationLibrary" uid="uid://x3ltx0v8glt8" path="res://Animations/ButtonAnimations.res" id="8_26r63"]
 [ext_resource type="Texture2D" uid="uid://db3rvquwfp1ls" path="res://Art/UI/Arrow_button_normal.png" id="8_fc48a"]
 [ext_resource type="Texture2D" uid="uid://pfq2xiycjshy" path="res://Art/UI/Arrow_button_Hover.png" id="9_42onf"]
+[ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="9_qux2f"]
 [ext_resource type="Texture2D" uid="uid://cyeqlujr0xudm" path="res://Art/UI/Arrow_button_pressed.png" id="10_mefs4"]
+[ext_resource type="AnimationLibrary" uid="uid://bq3kvfnhm75a0" path="res://Animations/SettingsButton.res" id="11_ekgw3"]
 [ext_resource type="Theme" uid="uid://brhrooxlo0rxq" path="res://Art/UI/Themes/HandwrittenLabel.tres" id="12_jyjja"]
+[ext_resource type="AnimationLibrary" uid="uid://dtbni4srk3qoi" path="res://Animations/ExitButton.res" id="13_4qfvg"]
 [ext_resource type="Script" path="res://Scripts/UI/MessageEmoteSwapper.gd" id="13_khktn"]
+[ext_resource type="AnimationLibrary" uid="uid://dlrngmk2gejou" path="res://Animations/ButtonLift.res" id="17_882ax"]
+[ext_resource type="PackedScene" uid="uid://cprkdpxp0xfsl" path="res://ScenePrefabs/static_button_capture.tscn" id="17_efpuo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky78o"]
+
+[sub_resource type="Animation" id="Animation_ksk4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(130, -200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbdgh"]
+_data = {
+"RESET": SubResource("Animation_ksk4g")
+}
+
+[sub_resource type="Animation" id="Animation_4f1s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1760, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_luyfv"]
+_data = {
+"RESET": SubResource("Animation_4f1s0")
+}
+
+[sub_resource type="Animation" id="Animation_je6wi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1830, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pblbj"]
+_data = {
+"RESET": SubResource("Animation_je6wi")
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kof7u"]
 texture = ExtResource("8_fc48a")
@@ -25,6 +92,26 @@ texture = ExtResource("9_42onf")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlxyn"]
 texture = ExtResource("10_mefs4")
 
+[sub_resource type="Animation" id="Animation_v4ssh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4btv"]
+_data = {
+"RESET": SubResource("Animation_v4ssh")
+}
+
 [node name="GalleryScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -34,7 +121,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u6whk")
 
-[node name="Gallery" type="Control" parent="." node_paths=PackedStringArray("myScreen", "pageNumberText", "topLeftSmallMsgBox", "topLeftAuthorText", "bottomLeftSmallMsgBox", "bottomLeftAuthorText", "leftBigMsgBox", "leftAuthorText", "topRightSmallMsgBox", "topRightAuthorText", "bottomRightSmallMsgBox", "bottomRightAuthorText", "rightBigMsgBox", "rightAuthorText")]
+[node name="Gallery" type="Control" parent="." node_paths=PackedStringArray("myScreen", "pageNumberText", "topLeftSmallMsgBox", "topLeftAuthorText", "bottomLeftSmallMsgBox", "bottomLeftAuthorText", "leftBigMsgBox", "leftAuthorText", "topRightSmallMsgBox", "topRightAuthorText", "bottomRightSmallMsgBox", "bottomRightAuthorText", "rightBigMsgBox", "rightAuthorText", "animators")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,6 +146,7 @@ bottomRightSmallMsgBox = NodePath("BottomRightMessageBox/Message")
 bottomRightAuthorText = NodePath("BottomRightMessageBox/Author")
 rightBigMsgBox = NodePath("RightMessageBox/Message")
 rightAuthorText = NodePath("RightMessageBox/Author")
+animators = [NodePath("Panel/Back Button/UIButtonAnimations"), NodePath("Panel/Settings Button/UIButtonAnimations"), NodePath("Panel/Exit Button/UIButtonAnimations")]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Gallery"]
 layout_mode = 1
@@ -86,9 +174,22 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ky78o")
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 offset_left = 130.0
+offset_top = -200.0
 offset_right = 258.0
-offset_bottom = 128.0
+offset_bottom = -72.0
+pivot_offset = Vector2(64, 0)
 theme = ExtResource("5_l36m2")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Gallery/Panel/Back Button"]
+libraries = {
+"": SubResource("AnimationLibrary_wbdgh"),
+"BackButton": ExtResource("7_4hmow"),
+"ButtonAnimations": ExtResource("8_26r63")
+}
+script = ExtResource("9_qux2f")
+introAnim = "BackButton/BackIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Settings Button" type="Button" parent="Gallery/Panel"]
 layout_mode = 1
@@ -96,11 +197,23 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -160.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -96.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("6_fsgkj")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Gallery/Panel/Settings Button"]
+libraries = {
+"": SubResource("AnimationLibrary_luyfv"),
+"ButtonAnimations": ExtResource("8_26r63"),
+"SettingsButton": ExtResource("11_ekgw3")
+}
+script = ExtResource("9_qux2f")
+introAnim = "SettingsButton/SettingsIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Exit Button" type="Button" parent="Gallery/Panel"]
 layout_mode = 1
@@ -108,15 +221,27 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -90.0
-offset_top = -200.0
+offset_top = -400.0
 offset_right = -26.0
-offset_bottom = 120.0
+offset_bottom = -80.0
 grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
 theme = ExtResource("7_x7j7o")
 
-[node name="Previous Button" type="Button" parent="Gallery"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Gallery/Panel/Exit Button"]
+libraries = {
+"": SubResource("AnimationLibrary_pblbj"),
+"ButtonAnimations": ExtResource("8_26r63"),
+"ExitButton": ExtResource("13_4qfvg")
+}
+script = ExtResource("9_qux2f")
+introAnim = "ExitButton/ExitIntro"
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
+
+[node name="Previous ButtonAnchor" type="Control" parent="Gallery"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -125,14 +250,43 @@ offset_left = -760.0
 offset_top = -128.0
 offset_right = -504.0
 offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_304n6")
+
+[node name="Previous Button" type="Button" parent="Gallery/Previous ButtonAnchor"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
 theme = ExtResource("2_304n6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kof7u")
 theme_override_styles/hover = SubResource("StyleBoxTexture_r4683")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
 
-[node name="Next Button" type="Button" parent="Gallery"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Gallery/Previous ButtonAnchor/Previous Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("17_882ax")
+}
+script = ExtResource("9_qux2f")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="Gallery/Previous ButtonAnchor/Previous Button" instance=ExtResource("17_efpuo")]
+layout_mode = 0
+
+[node name="Next ButtonAnchor" type="Control" parent="Gallery"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -141,11 +295,40 @@ offset_left = 839.0
 offset_top = -128.0
 offset_right = 1095.0
 offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_304n6")
+
+[node name="Next Button" type="Button" parent="Gallery/Next ButtonAnchor"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
 scale = Vector2(-1, 1)
 theme = ExtResource("2_304n6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kof7u")
 theme_override_styles/hover = SubResource("StyleBoxTexture_r4683")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vlxyn")
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="Gallery/Next ButtonAnchor/Next Button"]
+libraries = {
+"": SubResource("AnimationLibrary_h4btv"),
+"ButtonLift": ExtResource("17_882ax")
+}
+script = ExtResource("9_qux2f")
+onEnter = "ButtonLift/ButtonEnter"
+onDown = "RESET"
+onExit = "ButtonLift/ButtonExit"
+keepDown = true
+
+[node name="StaticButtonCapture" parent="Gallery/Next ButtonAnchor/Next Button" instance=ExtResource("17_efpuo")]
+layout_mode = 0
 
 [node name="LeftMessageBox" type="Panel" parent="Gallery"]
 visible = false
@@ -439,5 +622,5 @@ horizontal_alignment = 1
 [connection signal="pressed" from="Gallery/Panel/Back Button" to="Gallery" method="on_back_clicked"]
 [connection signal="pressed" from="Gallery/Panel/Settings Button" to="." method="ShowSettings"]
 [connection signal="pressed" from="Gallery/Panel/Exit Button" to="." method="ExitApplication"]
-[connection signal="pressed" from="Gallery/Previous Button" to="Gallery" method="PrevPage"]
-[connection signal="pressed" from="Gallery/Next Button" to="Gallery" method="NextPage"]
+[connection signal="pressed" from="Gallery/Previous ButtonAnchor/Previous Button" to="Gallery" method="PrevPage"]
+[connection signal="pressed" from="Gallery/Next ButtonAnchor/Next Button" to="Gallery" method="NextPage"]

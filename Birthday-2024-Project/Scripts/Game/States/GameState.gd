@@ -29,8 +29,12 @@ func _reset_puzzle():
 
 func back_to_level_select(askConfirm : bool = true):
 	if askConfirm:
-		manager.myScreen.ScreenEnter.connect(BackToMenuConfirmation)
-		manager.myScreen.ShowConfirmationPopup("Level Select", "Go back to Level Select?", "Yes", "No")
+		if manager.myScreen.transitionData.has(LevelsSelectMenu.PASS_LEVEL_INDEX_KEY):
+			manager.myScreen.ScreenEnter.connect(BackToMenuConfirmation)
+			manager.myScreen.ShowConfirmationPopup("Level Select", "Go back to Level Select?", "Yes", "No")
+		else:
+			manager.myScreen.ScreenEnter.connect(BackToMenuConfirmation)
+			manager.myScreen.ShowConfirmationPopup("Main Menu", "Go back to Main Menu?", "Yes", "No")
 	else:
 		manager.go_to_level_select()
 		
