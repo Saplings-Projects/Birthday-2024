@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/UI/UISoundPlayer.gd" id="1_hm1sf"]
 [ext_resource type="AudioStream" uid="uid://bnggqbcd14e6h" path="res://Resources/Audio/SFX/ButtonPress.wav" id="2_82vd0"]
-[ext_resource type="AudioStream" path="res://Resources/Audio/SFX/ButtonHover.wav" id="3_fnrm5"]
+[ext_resource type="AudioStream" uid="uid://d0h81xxvsa0v" path="res://Resources/Audio/SFX/ButtonHover.wav" id="3_fnrm5"]
 
 [node name="UiSoundPlayer" type="Node2D"]
 script = ExtResource("1_hm1sf")
