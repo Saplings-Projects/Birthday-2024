@@ -7,5 +7,5 @@ script = ExtResource("1_syss4")
 levelData = Array[Resource("res://Scripts/PieceSetup.gd")]([])
 jsonData = ""
 author = "Matthew N"
-message = "Happy Birthday Fauna! Thank you for another amazingly fun year with you. Your fun and comforting personality and streams are my favorite way to end work with a smile on my face and a laugh that scares my poor cats. I love your creativity with your 3D, backgrounds, sounds, attachable 2D assets… just look at the all the karaokes from this year! Puddle Fauna, horse girl Fauna, EleFauna, Gondolier Fauna and now beloved GothFauna. Thank you for being you and inspiring my pursuit for creativity. :FaunaLoveRedYT:"
+message = "Happy Birthday Fauna! Thank you for another amazingly fun year with you. Your fun and comforting personality and streams are my favorite way to end work with a smile on my face and a laugh that scares my poor cats. I love your creativity with your 3D, backgrounds, sounds, and attachable 2D assets… just look at all the karaoke from this year! Puddle Fauna, horse girl Fauna, EleFauna, Gondolier Fauna, and now beloved GothFauna. Thank you for being you and inspiring my pursuit of creativity. :FaunaLoveRedYT:"
 levelName = ""
