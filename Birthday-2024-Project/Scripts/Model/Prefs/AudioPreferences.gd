@@ -12,7 +12,7 @@ const _DEFAULT_MASTER: float = 1.0
 const _DEFAULT_MUSIC: float = 0.25
 const _DEFAULT_SFX: float = 0.35
 const _DEFAULT_FAUNA: float = 0.5
-const _DEFAULT_FREQ: float = 100
+const _DEFAULT_FREQ: float = 50
 const _SECTION_NAME: String = "audio"
 
 
