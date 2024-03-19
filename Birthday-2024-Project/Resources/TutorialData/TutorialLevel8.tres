@@ -7,6 +7,6 @@
 
 [resource]
 script = ExtResource("1_ogd1l")
-title = "New Faunas"
+title = "New pieces"
 body = "Agent Fauna7 and her trusty wrench have arrived just in time to see Idol Fauna's performance. Wait, what do you mean 5th fes is already over?!"
 displayPieces = Array[PackedScene]([ExtResource("1_x5uhy"), ExtResource("2_3qquh"), ExtResource("3_wxxfb")])

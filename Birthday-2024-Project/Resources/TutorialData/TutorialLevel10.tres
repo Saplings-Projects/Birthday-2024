@@ -7,6 +7,6 @@
 
 [resource]
 script = ExtResource("1_5pg0n")
-title = "New Faunas"
+title = "New pieces"
 body = "Man, smol Faunas' cuteness is beyond Saplings' comprehension. Whether it's the first iteration or the Halloween edition, you just can't get enough of Fauna. But be careful with this matcha set!"
 displayPieces = Array[PackedScene]([ExtResource("1_16p12"), ExtResource("2_a7a6t"), ExtResource("3_c4r0o")])
