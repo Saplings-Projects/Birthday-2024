@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bvxs6val4gfwt"]
+[gd_scene load_steps=45 format=3 uid="uid://bvxs6val4gfwt"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_tp6rq"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_uvybp"]
@@ -17,6 +17,9 @@
 [ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="9_w14jy"]
 [ext_resource type="Texture2D" uid="uid://jpu45bfgsavl" path="res://Art/OfficialPieceArt/Level_type_Hover.png" id="10_ut252"]
 [ext_resource type="Texture2D" uid="uid://plb8jwpj3giv" path="res://Art/OfficialPieceArt/Level_type_Pressed.png" id="11_7q3fa"]
+[ext_resource type="Texture2D" uid="uid://ccto343ggucob" path="res://Art/OfficialPieceArt/SaplingsLevels_NEW_Normal.png" id="11_oeujn"]
+[ext_resource type="Texture2D" uid="uid://bcjgjqmdsxfsl" path="res://Art/OfficialPieceArt/SaplingsLevels_NEW_Hover.png" id="12_300dl"]
+[ext_resource type="Texture2D" uid="uid://jo7t85fhxq4g" path="res://Art/OfficialPieceArt/SaplingsLevels_NEW_Pressed.png" id="13_ajga1"]
 [ext_resource type="AnimationLibrary" uid="uid://bq3kvfnhm75a0" path="res://Animations/SettingsButton.res" id="15_sxdoy"]
 [ext_resource type="AnimationLibrary" uid="uid://dtbni4srk3qoi" path="res://Animations/ExitButton.res" id="17_dnqjq"]
 [ext_resource type="AnimationLibrary" uid="uid://ba0kskllgfuds" path="res://Animations/BackButton.res" id="19_6dbyg"]
@@ -80,14 +83,14 @@ _data = {
 "RESET": SubResource("Animation_lyk1v")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbvc3"]
-texture = ExtResource("9_6n0xi")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xe7a4"]
+texture = ExtResource("11_oeujn")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awk44"]
-texture = ExtResource("10_ut252")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gjch7"]
+texture = ExtResource("12_300dl")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p12qm"]
-texture = ExtResource("11_7q3fa")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5vdfa"]
+texture = ExtResource("13_ajga1")
 
 [sub_resource type="Animation" id="Animation_t1onh"]
 length = 0.001
@@ -138,6 +141,15 @@ _data = {
 "RESET": SubResource("Animation_t1onh"),
 "SaplingIntro": SubResource("Animation_mv2d8")
 }
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbvc3"]
+texture = ExtResource("9_6n0xi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awk44"]
+texture = ExtResource("10_ut252")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p12qm"]
+texture = ExtResource("11_7q3fa")
 
 [sub_resource type="Animation" id="Animation_4f1s0"]
 length = 0.001
@@ -358,9 +370,9 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(240, 320)
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxTexture_pbvc3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_awk44")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_p12qm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xe7a4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gjch7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5vdfa")
 
 [node name="Saplings Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchor/Sapling Levels"]
 layout_mode = 1
