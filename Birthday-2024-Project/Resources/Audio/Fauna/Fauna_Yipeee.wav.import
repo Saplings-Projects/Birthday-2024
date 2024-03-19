@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c22tla6lptlui"
-path="res://.godot/imported/Fauna_Yipeee.wav-15f0eba4eb9f186bf85773cc01baaa65.sample"
+path="res://.godot/imported/Fauna_Yipeee.wav-f533955c12dc62db2237ea27d15ac327.sample"
 
 [deps]
 
-source_file="res://Resources/Audio/Fauna_Yipeee.wav"
-dest_files=["res://.godot/imported/Fauna_Yipeee.wav-15f0eba4eb9f186bf85773cc01baaa65.sample"]
+source_file="res://Resources/Audio/Fauna/Fauna_Yipeee.wav"
+dest_files=["res://.godot/imported/Fauna_Yipeee.wav-f533955c12dc62db2237ea27d15ac327.sample"]
 
 [params]
 
