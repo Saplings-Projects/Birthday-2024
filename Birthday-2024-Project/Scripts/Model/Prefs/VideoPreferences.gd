@@ -6,9 +6,9 @@ var height: int
 var width: int
 var window: WindowType
 
-const _DEFAULT_HEIGHT: int = 1080
-const _DEFAULT_WIDTH: int = 1920
-const _DEFAULT_WINDOW: WindowType = WindowType.FULLSCREEN
+const _DEFAULT_HEIGHT: int = 900
+const _DEFAULT_WIDTH: int = 1600
+const _DEFAULT_WINDOW: WindowType = WindowType.WINDOWED
 const _SECTION_NAME: String = "video"
 
 
