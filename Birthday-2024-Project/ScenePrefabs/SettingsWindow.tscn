@@ -131,6 +131,7 @@ popup/item_2/text = "Windowed Borderless"
 popup/item_2/id = 2
 
 [node name="ResolutionContainer" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container/ResolutionContainer"]

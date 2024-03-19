@@ -1416,6 +1416,7 @@ onEnter = "ButtonAnimations/ButtonEnter"
 onExit = "ButtonAnimations/ButtonExit"
 
 [node name="Exit Button" type="Button" parent="MainScreen/Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1989,7 +1990,7 @@ anchor_bottom = 1.0
 offset_left = -100.0
 offset_top = -101.0
 offset_right = 100.0
-offset_bottom = -0.00209045
+offset_bottom = -0.00218201
 grow_horizontal = 2
 grow_vertical = 0
 text = "OK"
