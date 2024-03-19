@@ -8,3 +8,4 @@ extends Control
 @export var settings_button: Button
 @export var campaign_button: Button
 @export var saplings_button: Button
+@export var editor_button: Button

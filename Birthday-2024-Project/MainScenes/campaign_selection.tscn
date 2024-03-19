@@ -220,7 +220,7 @@ script = ExtResource("2_1asfj")
 screenLogic = NodePath("..")
 start_screen = NodePath("CampaignSelectStartScreen")
 
-[node name="CampaignSelectStartScreen" type="Control" parent="CampaignSelectUiManager" node_paths=PackedStringArray("back_button", "exit_button", "settings_button", "campaign_button", "saplings_button")]
+[node name="CampaignSelectStartScreen" type="Control" parent="CampaignSelectUiManager" node_paths=PackedStringArray("back_button", "exit_button", "settings_button", "campaign_button", "saplings_button", "editor_button")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -232,7 +232,8 @@ back_button = NodePath("Panel/Back Button")
 exit_button = NodePath("Panel/Exit Button")
 settings_button = NodePath("Panel/Settings Button")
 campaign_button = NodePath("Panel/PositionAnchorL/Campaign Levels")
-saplings_button = NodePath("Panel/PositionAnchorR/Sapling Levels")
+saplings_button = NodePath("Panel/PositionAnchor/Sapling Levels")
+editor_button = NodePath("Panel/PositionAnchorR/LevelCreator")
 
 [node name="TextureRect" type="NinePatchRect" parent="CampaignSelectUiManager/CampaignSelectStartScreen"]
 layout_mode = 1
@@ -259,7 +260,9 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = 50.0
 offset_top = 85.0
+offset_right = 50.0
 offset_bottom = 210.0
 grow_horizontal = 2
 size_flags_horizontal = 4
@@ -274,8 +277,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -380.0
-offset_right = -380.0
+offset_left = -485.0
+offset_right = -485.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -326,6 +329,66 @@ script = ExtResource("9_w14jy")
 onEnter = "ButtonAnimations/ButtonEnter"
 onExit = "ButtonAnimations/ButtonExit"
 
+[node name="PositionAnchor" type="Control" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = -10.0
+offset_right = 45.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sapling Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -320.0
+offset_right = 240.0
+offset_bottom = 320.001
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(240, 320)
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_pbvc3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_awk44")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p12qm")
+
+[node name="Saplings Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchor/Sapling Levels"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -233.0
+offset_top = -80.0
+offset_right = 233.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "SAPLING LEVELS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchor/Sapling Levels"]
+libraries = {
+"": SubResource("AnimationLibrary_2staw"),
+"ButtonAnimations": ExtResource("9_2jspl")
+}
+script = ExtResource("9_w14jy")
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
+
 [node name="PositionAnchorR" type="Control" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -333,12 +396,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 380.0
-offset_right = 380.0
+offset_left = 575.0
+offset_right = 575.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sapling Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR"]
+[node name="LevelCreator" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -358,7 +421,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_pbvc3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_awk44")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p12qm")
 
-[node name="Saplings Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR/Sapling Levels"]
+[node name="Editor Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR/LevelCreator"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -372,11 +435,11 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
-text = "SAPLING LEVELS"
+text = "LEVEL CREATOR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UIButtonAnimations" type="AnimationPlayer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR/Sapling Levels"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR/LevelCreator"]
 libraries = {
 "": SubResource("AnimationLibrary_2staw"),
 "ButtonAnimations": ExtResource("9_2jspl")
@@ -390,9 +453,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1760.0
+offset_left = -160.0
 offset_top = -400.0
-offset_right = 1824.0
+offset_right = -96.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)
@@ -414,9 +477,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1830.0
+offset_left = -90.0
 offset_top = -400.0
-offset_right = 1894.0
+offset_right = -26.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)
