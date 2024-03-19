@@ -1026,6 +1026,32 @@ grow_vertical = 2
 layout_mode = 2
 vertical = true
 
+[node name="LibraryPiece7" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Agent Fauna7"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../../..")
+
+[node name="hitman_fauna" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece7" instance=ExtResource("14_o47i1")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece13" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Cape Fauna"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../../..")
+
+[node name="mitts_fauna" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece13" instance=ExtResource("20_iet1h")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
 [node name="LibraryPiece" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
@@ -1049,6 +1075,19 @@ script = ExtResource("5_umaa4")
 puzzleUiManager = NodePath("../../../../../..")
 
 [node name="casual_fauna_wave" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece2" instance=ExtResource("9_46j5t")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece6" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Casual Faunya"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../../..")
+
+[node name="faunya" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece6" instance=ExtResource("13_32upj")]
 position = Vector2(120, 120)
 scale = Vector2(0.4, 0.4)
 
@@ -1091,29 +1130,16 @@ puzzleUiManager = NodePath("../../../../../..")
 position = Vector2(120, 120)
 scale = Vector2(0.4, 0.4)
 
-[node name="LibraryPiece6" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+[node name="LibraryPiece22" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
-tooltip_text = "Casual Faunya"
+tooltip_text = "Happy Fauna"
 mouse_filter = 1
 keep_pressed_outside = true
 script = ExtResource("5_umaa4")
 puzzleUiManager = NodePath("../../../../../..")
 
-[node name="faunya" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece6" instance=ExtResource("13_32upj")]
-position = Vector2(120, 120)
-scale = Vector2(0.4, 0.4)
-
-[node name="LibraryPiece7" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
-custom_minimum_size = Vector2(240, 240)
-layout_mode = 2
-tooltip_text = "Agent Fauna7"
-mouse_filter = 1
-keep_pressed_outside = true
-script = ExtResource("5_umaa4")
-puzzleUiManager = NodePath("../../../../../..")
-
-[node name="hitman_fauna" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece7" instance=ExtResource("14_o47i1")]
+[node name="happy_fauna" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece22" instance=ExtResource("29_13ob1")]
 position = Vector2(120, 120)
 scale = Vector2(0.4, 0.4)
 
@@ -1156,16 +1182,16 @@ puzzleUiManager = NodePath("../../../../../..")
 position = Vector2(120, 120)
 scale = Vector2(0.4, 0.4)
 
-[node name="LibraryPiece13" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+[node name="LibraryPiece23" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
-tooltip_text = "Cape Fauna"
+tooltip_text = "Maid Fauna"
 mouse_filter = 1
 keep_pressed_outside = true
 script = ExtResource("5_umaa4")
 puzzleUiManager = NodePath("../../../../../..")
 
-[node name="mitts_fauna" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece13" instance=ExtResource("20_iet1h")]
+[node name="maid_fauna" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece23" instance=ExtResource("30_6d7gv")]
 position = Vector2(120, 120)
 scale = Vector2(0.4, 0.4)
 
@@ -1234,45 +1260,6 @@ puzzleUiManager = NodePath("../../../../../..")
 position = Vector2(120, 120)
 scale = Vector2(0.4, 0.4)
 
-[node name="LibraryPiece23" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
-custom_minimum_size = Vector2(240, 240)
-layout_mode = 2
-tooltip_text = "Maid Fauna"
-mouse_filter = 1
-keep_pressed_outside = true
-script = ExtResource("5_umaa4")
-puzzleUiManager = NodePath("../../../../../..")
-
-[node name="maid_fauna" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece23" instance=ExtResource("30_6d7gv")]
-position = Vector2(120, 120)
-scale = Vector2(0.4, 0.4)
-
-[node name="LibraryPiece22" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
-custom_minimum_size = Vector2(240, 240)
-layout_mode = 2
-tooltip_text = "Happy Fauna"
-mouse_filter = 1
-keep_pressed_outside = true
-script = ExtResource("5_umaa4")
-puzzleUiManager = NodePath("../../../../../..")
-
-[node name="happy_fauna" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece22" instance=ExtResource("29_13ob1")]
-position = Vector2(120, 120)
-scale = Vector2(0.4, 0.4)
-
-[node name="LibraryPiece18" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
-custom_minimum_size = Vector2(240, 240)
-layout_mode = 2
-tooltip_text = "Snail - Decoration"
-mouse_filter = 1
-keep_pressed_outside = true
-script = ExtResource("5_umaa4")
-puzzleUiManager = NodePath("../../../../../..")
-
-[node name="snail" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece18" instance=ExtResource("25_txqha")]
-position = Vector2(120, 120)
-scale = Vector2(0.4, 0.4)
-
 [node name="LibraryPiece11" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
@@ -1283,6 +1270,19 @@ script = ExtResource("5_umaa4")
 puzzleUiManager = NodePath("../../../../../..")
 
 [node name="matcha_1" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece11" instance=ExtResource("18_m3bly")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
+[node name="LibraryPiece21" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Golden Apple - Decoration"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../../..")
+
+[node name="gold_apple" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" instance=ExtResource("28_kcfq2")]
 position = Vector2(120, 120)
 scale = Vector2(0.4, 0.4)
 
@@ -1299,6 +1299,19 @@ puzzleUiManager = NodePath("../../../../../..")
 position = Vector2(120, 120)
 scale = Vector2(0.4, 0.4)
 
+[node name="LibraryPiece18" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+tooltip_text = "Snail - Decoration"
+mouse_filter = 1
+keep_pressed_outside = true
+script = ExtResource("5_umaa4")
+puzzleUiManager = NodePath("../../../../../..")
+
+[node name="snail" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece18" instance=ExtResource("25_txqha")]
+position = Vector2(120, 120)
+scale = Vector2(0.4, 0.4)
+
 [node name="LibraryPiece20" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
@@ -1309,19 +1322,6 @@ script = ExtResource("5_umaa4")
 puzzleUiManager = NodePath("../../../../../..")
 
 [node name="wrench" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" instance=ExtResource("27_2038e")]
-position = Vector2(120, 120)
-scale = Vector2(0.4, 0.4)
-
-[node name="LibraryPiece21" type="Button" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer" node_paths=PackedStringArray("puzzleUiManager")]
-custom_minimum_size = Vector2(240, 240)
-layout_mode = 2
-tooltip_text = "Golden Apple - Decoration"
-mouse_filter = 1
-keep_pressed_outside = true
-script = ExtResource("5_umaa4")
-puzzleUiManager = NodePath("../../../../../..")
-
-[node name="gold_apple" parent="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" instance=ExtResource("28_kcfq2")]
 position = Vector2(120, 120)
 scale = Vector2(0.4, 0.4)
 
@@ -1523,20 +1523,6 @@ onPress = "RESET"
 
 [node name="StaticButtonCapture" parent="MainScreen/Panel/Level Buttons/BoxContainer/Reset ButtonAnchor/Reset Button" instance=ExtResource("16_frje2")]
 layout_mode = 0
-
-[node name="Level Buttons" type="VBoxContainer" parent="MainScreen/Panel"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -142.0
-offset_top = -100.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_vertical = 8
-alignment = 2
 
 [node name="Edit Mode ButtonContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
 visible = false
@@ -2003,7 +1989,7 @@ anchor_bottom = 1.0
 offset_left = -100.0
 offset_top = -101.0
 offset_right = 100.0
-offset_bottom = -0.0015564
+offset_bottom = -0.00209045
 grow_horizontal = 2
 grow_vertical = 0
 text = "OK"
@@ -2194,29 +2180,29 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("37_5b1c8")
 
+[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece7" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece7" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece13" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece13" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece2" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece2" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece6" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece6" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece3" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece3" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece4" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece4" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece5" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece5" method="GrabPiece"]
-[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece6" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece6" method="GrabPiece"]
-[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece7" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece7" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece22" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece22" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece8" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece8" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece9" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece9" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece10" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece10" method="GrabPiece"]
-[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece13" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece13" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece23" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece23" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece14" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece14" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece15" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece15" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece16" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece16" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece17" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece17" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece19" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece19" method="GrabPiece"]
-[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece23" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece23" method="GrabPiece"]
-[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece22" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece22" method="GrabPiece"]
-[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece18" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece18" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece11" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece11" method="GrabPiece"]
-[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" method="GrabPiece"]
-[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" method="GrabPiece"]
 [connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece21" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece12" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece18" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece18" method="GrabPiece"]
+[connection signal="button_down" from="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" to="MainScreen/Panel/PieceLibrary/ScrollContainer/BoxContainer/LibraryPiece20" method="GrabPiece"]
 [connection signal="pressed" from="MainScreen/ExportPopup/Panel/ButtonAnchor/Button" to="States/PuzzleUiEditState" method="_on_dismiss_export_popup"]
 [connection signal="pressed" from="MainScreen/ImportPopup/Panel/ButtonAnchor/Button" to="States/PuzzleUiEditState" method="_on_confirm_import"]
 [connection signal="pressed" from="MainScreen/ImportPopup/Panel/ButtonAnchor2/Button2" to="States/PuzzleUiEditState" method="_on_cancel_import"]
