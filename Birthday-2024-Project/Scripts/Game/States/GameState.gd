@@ -3,12 +3,9 @@ extends Node2D
 
 var manager: GameManager
 
-func next_puzzle(skipConfirm : bool = true):
-	if skipConfirm:
-		manager.myScreen.ScreenEnter.connect(SkipConfirmation)
-		manager.myScreen.ShowConfirmationPopup("Skip Level", "Do you want to skip to the next level?", "Yes", "No")
-	else:
-		manager.go_to_next_level()
+func next_puzzle():
+	manager.myScreen.ScreenEnter.connect(SkipConfirmation)
+	manager.myScreen.ShowConfirmationPopup("Skip Level", "Do you want to skip to the next level?", "Yes", "No")
 		
 func SkipConfirmation():
 	manager.myScreen.ScreenEnter.disconnect(SkipConfirmation)
@@ -27,16 +24,13 @@ func ResetConfirmation():
 func _reset_puzzle():
 	manager.grid.ReloadLevel()
 
-func back_to_level_select(askConfirm : bool = true):
-	if askConfirm:
-		if manager.myScreen.transitionData.has(LevelsSelectMenu.PASS_LEVEL_INDEX_KEY):
-			manager.myScreen.ScreenEnter.connect(BackToMenuConfirmation)
-			manager.myScreen.ShowConfirmationPopup("Level Select", "Go back to Level Select?", "Yes", "No")
-		else:
-			manager.myScreen.ScreenEnter.connect(BackToMenuConfirmation)
-			manager.myScreen.ShowConfirmationPopup("Main Menu", "Go back to Main Menu?", "Yes", "No")
+func back_to_level_select():
+	if manager.myScreen.transitionData.has(LevelsSelectMenu.PASS_LEVEL_INDEX_KEY):
+		manager.myScreen.ScreenEnter.connect(BackToMenuConfirmation)
+		manager.myScreen.ShowConfirmationPopup("Level Select", "Go back to Level Select?", "Yes", "No")
 	else:
-		manager.go_to_level_select()
+		manager.myScreen.ScreenEnter.connect(BackToMenuConfirmation)
+		manager.myScreen.ShowConfirmationPopup("Main Menu", "Go back to Main Menu?", "Yes", "No")
 		
 func BackToMenuConfirmation():
 	manager.myScreen.ScreenEnter.disconnect(BackToMenuConfirmation)

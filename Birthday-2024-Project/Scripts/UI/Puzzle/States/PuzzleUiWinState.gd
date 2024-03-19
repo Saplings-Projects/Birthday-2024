@@ -4,6 +4,8 @@ extends PuzzleUiState
 
 var _state: GameWinState
 
+func _next_puzzle():
+	_state.next_puzzle()
 
 func _on_edit_mode_clicked():
 	_state.go_to_edit_mode()

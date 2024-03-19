@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=72 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_0axgr"]
@@ -44,8 +44,12 @@
 [ext_resource type="PackedScene" uid="uid://cvx660iqikvys" path="res://ScenePrefabs/Pieces/gold_apple.tscn" id="28_kcfq2"]
 [ext_resource type="PackedScene" uid="uid://qgaf0pv44vcf" path="res://ScenePrefabs/Pieces/happy_fauna.tscn" id="29_13ob1"]
 [ext_resource type="PackedScene" uid="uid://b38fclggnxgnu" path="res://ScenePrefabs/Pieces/maid_fauna.tscn" id="30_6d7gv"]
-[ext_resource type="AudioStream" uid="uid://c22tla6lptlui" path="res://Resources/Audio/Fauna_Yipeee.wav" id="35_k4pbi"]
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/States/PuzzleUiTestState.gd" id="37_5b1c8"]
+[ext_resource type="AudioStream" uid="uid://b3w1ojar3eou7" path="res://Resources/Audio/BoostedShutterSound.wav" id="42_p3g1g"]
+[ext_resource type="Texture2D" uid="uid://mcccjebnm7fe" path="res://Art/UI/WinPhoto_Textless.png" id="43_atjs6"]
+[ext_resource type="Texture2D" uid="uid://co416oavb0s6s" path="res://Art/UI/UiReferencesAndMockups/CommunityLevelScreen.png" id="45_84hna"]
+[ext_resource type="Theme" uid="uid://brhrooxlo0rxq" path="res://Art/UI/Themes/HandwrittenLabel.tres" id="46_nrcbi"]
+[ext_resource type="Texture2D" uid="uid://rntlh0kkhd62" path="res://Art/UI/LevelPreviewMask.png" id="49_nrb1s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
 
@@ -61,7 +65,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(130, -200)]
+"values": [Vector2(85, -200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wbdgh"]
@@ -81,7 +97,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(260, -200)]
+"values": [Vector2(215, -200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_sdc3a"]
@@ -98,7 +126,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(260, -200), Vector2(260, -200), Vector2(260, 0)]
+"values": [Vector2(215, -200), Vector2(215, -200), Vector2(215, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y0gdm"]
@@ -347,7 +375,7 @@ text = "WIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("exit_button", "reset_button", "back_button", "skip_button", "settings_button", "edit_button", "edit_anchor", "library_button", "library_anchor", "import_button", "import_anchor", "export_button", "export_anchor", "win_text", "win_particles", "audio_player")]
+[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("exit_button", "reset_button", "back_button", "skip_button", "settings_button", "edit_button", "edit_anchor", "library_button", "library_anchor", "import_button", "import_anchor", "export_button", "export_anchor", "win_text", "win_particles", "audio_player", "photoTexture", "toEnable")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -357,7 +385,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8uao3")
 script = ExtResource("2_fxt11")
 exit_button = NodePath("Exit Button")
-reset_button = NodePath("Reset ButtonAnchor/Reset Button")
+reset_button = NodePath("Level Buttons/BoxContainer/Reset ButtonAnchor/Reset Button")
 back_button = NodePath("Back Button")
 skip_button = NodePath("Skip Button")
 settings_button = NodePath("Settings Button")
@@ -372,6 +400,8 @@ export_anchor = NodePath("Level Buttons/Export ButtonContainer")
 win_text = NodePath("../Fade")
 win_particles = [NodePath("Skip Button/Control/WinParticles")]
 audio_player = NodePath("../AudioStreamPlayer")
+photoTexture = NodePath("../WinPhoto/PhotoMask/PhotoBounds/PreviewImage")
+toEnable = [NodePath("../WinPhoto")]
 
 [node name="PieceLibrary" type="Panel" parent="MainScreen/Panel"]
 visible = false
@@ -752,9 +782,9 @@ scale = Vector2(0.4, 0.4)
 [node name="Back Button" type="Button" parent="MainScreen/Panel"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-offset_left = 130.0
+offset_left = 85.0
 offset_top = -200.0
-offset_right = 258.0
+offset_right = 213.0
 offset_bottom = -72.0
 pivot_offset = Vector2(64, 0)
 size_flags_horizontal = 4
@@ -775,9 +805,9 @@ onExit = "ButtonAnimations/ButtonExit"
 [node name="Skip Button" type="Button" parent="MainScreen/Panel"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-offset_left = 260.0
+offset_left = 215.0
 offset_top = -200.0
-offset_right = 388.0
+offset_right = 343.0
 offset_bottom = -72.0
 pivot_offset = Vector2(64, 0)
 size_flags_horizontal = 4
@@ -863,7 +893,26 @@ introAnim = "LevelExitIntro"
 onEnter = "ButtonAnimations/ButtonEnter"
 onExit = "ButtonAnimations/ButtonExit"
 
-[node name="Box" type="TextureRect" parent="MainScreen/Panel"]
+[node name="Level Buttons" type="VBoxContainer" parent="MainScreen/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -142.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+alignment = 2
+
+[node name="BoxContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
+show_behind_parent = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Box" type="TextureRect" parent="MainScreen/Panel/Level Buttons/BoxContainer"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = -1
@@ -872,14 +921,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -64.0
-offset_top = -124.0
+offset_top = -128.0
 offset_right = 64.0
-offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_aa587")
 
-[node name="Reset ButtonAnchor" type="Control" parent="MainScreen/Panel"]
+[node name="Reset ButtonAnchor" type="Control" parent="MainScreen/Panel/Level Buttons/BoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -888,16 +936,16 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -50.0
-offset_top = -110.0
+offset_top = -114.0
 offset_right = 50.0
-offset_bottom = -10.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("8_fa1xk")
 
-[node name="Reset Button" type="Button" parent="MainScreen/Panel/Reset ButtonAnchor"]
+[node name="Reset Button" type="Button" parent="MainScreen/Panel/Level Buttons/BoxContainer/Reset ButtonAnchor"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -915,7 +963,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("8_fa1xk")
 
-[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Reset ButtonAnchor/Reset Button"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="MainScreen/Panel/Level Buttons/BoxContainer/Reset ButtonAnchor/Reset Button"]
 libraries = {
 "": SubResource("AnimationLibrary_h4btv"),
 "ButtonAnimations": ExtResource("5_vufij"),
@@ -927,25 +975,12 @@ onHover = "SpinButton"
 onExit = "RESET"
 onPress = "RESET"
 
-[node name="StaticButtonCapture" parent="MainScreen/Panel/Reset ButtonAnchor/Reset Button" instance=ExtResource("16_frje2")]
+[node name="StaticButtonCapture" parent="MainScreen/Panel/Level Buttons/BoxContainer/Reset ButtonAnchor/Reset Button" instance=ExtResource("16_frje2")]
 layout_mode = 0
 
-[node name="Level Buttons" type="VBoxContainer" parent="MainScreen/Panel"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -142.0
-offset_top = -100.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_vertical = 8
-alignment = 2
-
 [node name="Edit Mode ButtonContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
-custom_minimum_size = Vector2(142, 100)
+visible = false
+custom_minimum_size = Vector2(183, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -954,8 +989,7 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 0
-offset_left = -3.0
-offset_right = 139.0
+offset_right = 183.0
 offset_bottom = 100.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -963,7 +997,7 @@ size_flags_vertical = 4
 [node name="Edit Mode Button" type="Button" parent="MainScreen/Panel/Level Buttons/Edit Mode ButtonContainer/Edit Mode ButtonAnchor"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-offset_right = 142.0
+offset_right = 183.0
 offset_bottom = 100.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -1192,7 +1226,7 @@ anchor_bottom = 1.0
 offset_left = -100.0
 offset_top = -101.0
 offset_right = 100.0
-offset_bottom = -0.000274658
+offset_bottom = -0.000549316
 grow_horizontal = 2
 grow_vertical = 0
 text = "OK"
@@ -1349,8 +1383,86 @@ keepDown = true
 layout_mode = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MainScreen"]
-stream = ExtResource("35_k4pbi")
+stream = ExtResource("42_p3g1g")
 bus = &"Fauna"
+
+[node name="WinPhoto" type="TextureRect" parent="MainScreen"]
+visible = false
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -541.0
+offset_top = -511.0
+offset_right = 537.0
+offset_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0523599
+pivot_offset = Vector2(500, 467)
+texture = ExtResource("43_atjs6")
+
+[node name="PhotoMask" type="TextureRect" parent="MainScreen/WinPhoto"]
+self_modulate = Color(0, 1, 1, 1)
+clip_children = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("49_nrb1s")
+expand_mode = 1
+
+[node name="PhotoBounds" type="Control" parent="MainScreen/WinPhoto/PhotoMask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 41.0
+offset_right = -36.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PreviewImage" type="TextureRect" parent="MainScreen/WinPhoto/PhotoMask/PhotoBounds"]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("45_84hna")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="MainScreen/WinPhoto"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -261.5
+offset_top = -145.27
+offset_right = 261.5
+offset_bottom = -7.27002
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("46_nrcbi")
+theme_override_font_sizes/font_size = 96
+text = "COMPLETE"
 
 [node name="States" type="Control" parent="."]
 layout_mode = 3

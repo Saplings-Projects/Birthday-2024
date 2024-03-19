@@ -20,10 +20,28 @@ extends Control
 @export var win_text: Control
 @export var win_particles : Array[GPUParticles2D]
 @export var audio_player : AudioStreamPlayer
+@export var photoTexture : TextureRect
+@export var toEnable : Array[Control]
 
 func play_win_animation():
 	#win_text.show()
+	
+	#temporarily hide the skip button
+	skip_button.visible = false
+	
+	await get_tree().create_timer(0.05)
+	
+	var screenCapture = get_viewport().get_texture().get_image()
+	var tex = ImageTexture.create_from_image(screenCapture)
+	photoTexture.texture = tex
+	
+	skip_button.visible = true
+	
 	audio_player.play()
+	
+	for controlNode in toEnable:
+		controlNode.visible = true
+	
 	for particleEmitter in win_particles:
 		particleEmitter.emitting = true
 
