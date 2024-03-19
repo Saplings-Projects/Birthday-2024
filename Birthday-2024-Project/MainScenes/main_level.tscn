@@ -268,8 +268,11 @@ controller = NodePath("../../GameManager")
 [node name="Panel" parent="PuzzleUiManager/MainScreen" index="0" node_paths=PackedStringArray("gridViewport")]
 gridViewport = NodePath("../../../GridViewportContainer/GridViewport")
 
+[node name="WinParticles" parent="PuzzleUiManager/MainScreen/Panel/Skip Button/Control" index="0"]
+one_shot = false
+
 [node name="Button" parent="PuzzleUiManager/MainScreen/ExportPopup/Panel/ButtonAnchor" index="0"]
-offset_bottom = -0.000915527
+offset_bottom = -0.00100708
 
 [connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
 [connection signal="state_changed_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_state_changed"]
