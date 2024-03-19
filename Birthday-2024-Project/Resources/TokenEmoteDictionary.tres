@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TokenToImageDict" load_steps=110 format=3 uid="uid://prwhfg3khrcq"]
+[gd_resource type="Resource" script_class="TokenToImageDict" load_steps=111 format=3 uid="uid://prwhfg3khrcq"]
 
 [ext_resource type="Texture2D" uid="uid://4702vqb2v4xo" path="res://Art/Emotes/yay.png" id="1_42ww6"]
 [ext_resource type="Script" path="res://Scripts/UI/TokenToImageDict.gd" id="1_ks2ee"]
@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bah3sk0xd22rt" path="res://Art/Emotes/shy.png" id="22_01tal"]
 [ext_resource type="Texture2D" uid="uid://du8qiv1rto5xj" path="res://Art/Emotes/slap.png" id="23_qhn68"]
 [ext_resource type="Texture2D" uid="uid://5jge67r6y4b3" path="res://Art/Emotes/sleep.png" id="24_ys6ox"]
-[ext_resource type="Texture2D" uid="uid://c5u4uqi66mgjc" path="res://Art/Emotes/smile.png" id="25_pge4l"]
+[ext_resource type="Texture2D" uid="uid://ckq3d8s0gmi" path="res://Art/Emotes/smile.png" id="25_pge4l"]
 [ext_resource type="Texture2D" uid="uid://b1j6algfqqsrb" path="res://Art/Emotes/smug.png" id="26_uxnbr"]
 [ext_resource type="Texture2D" uid="uid://byavesev7sio6" path="res://Art/Emotes/tako.png" id="27_vku5n"]
 [ext_resource type="Texture2D" uid="uid://buc8mb07wtxpw" path="res://Art/Emotes/UUU.png" id="28_blk7t"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://da8hrvpjcexs0" path="res://Art/Emotes/yandere.png" id="34_jlam4"]
 [ext_resource type="Texture2D" uid="uid://cfi0cfy8hofol" path="res://Art/Emotes/zoom.png" id="36_g4q6t"]
 [ext_resource type="Texture2D" uid="uid://bewx24hguilwu" path="res://Art/Emotes/heart.png" id="37_hld2v"]
+[ext_resource type="Texture2D" uid="uid://dl527lktmu61" path="res://Art/Emotes/smileyface.png" id="38_1xagb"]
 [ext_resource type="Texture2D" uid="uid://c0n3qospejsug" path="res://Art/Emotes/lennysmug.png" id="38_b5ar7"]
 
 [sub_resource type="Resource" id="Resource_cfbns"]
@@ -387,7 +388,7 @@ image = ExtResource("37_hld2v")
 [sub_resource type="Resource" id="Resource_qlqvj"]
 script = ExtResource("2_gv347")
 token = ":smile:"
-image = ExtResource("25_pge4l")
+image = ExtResource("38_1xagb")
 
 [sub_resource type="Resource" id="Resource_haam7"]
 script = ExtResource("2_gv347")

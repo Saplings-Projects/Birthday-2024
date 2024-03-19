@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckq3d8s0gmi"
-path="res://.godot/imported/smile.png-c3c4076a4de9ba7f4c893fa6da9ab9f9.ctex"
+uid="uid://dl527lktmu61"
+path="res://.godot/imported/smileyface.png-c7367b56ec91264c710a7b7b2253696d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Emotes/smile.png"
-dest_files=["res://.godot/imported/smile.png-c3c4076a4de9ba7f4c893fa6da9ab9f9.ctex"]
+source_file="res://Art/Emotes/smileyface.png"
+dest_files=["res://.godot/imported/smileyface.png-c7367b56ec91264c710a7b7b2253696d.ctex"]
 
 [params]
 
