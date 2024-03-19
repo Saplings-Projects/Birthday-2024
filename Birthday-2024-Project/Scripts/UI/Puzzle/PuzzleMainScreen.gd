@@ -26,7 +26,6 @@ func play_win_animation():
 	var screenCapture = gridViewport.get_texture().get_image()
 	var tex = ImageTexture.create_from_image(screenCapture)
 	photoTexture.texture = tex
-	
 	shutterAnimation.play("ShutterSnap")
 
 func hide_win_animation():

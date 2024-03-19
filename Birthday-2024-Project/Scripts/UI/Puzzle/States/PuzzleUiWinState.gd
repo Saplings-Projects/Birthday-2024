@@ -25,7 +25,7 @@ func enter_state():
 	
 	var screen = _ui_manager.main_screen
 	screen.play_win_animation()
-	screen.skip_button.set_theme(load("res://Art/UI/Themes/Next_Level_Button_theme.tres"))
+	#screen.skip_button.set_theme(load("res://Art/UI/Themes/Next_Level_Button_theme.tres"))
 	screen.skip_button.pressed.connect(_state.next_puzzle)
 	screen.exit_button.pressed.connect(_state.exit_game)
 	screen.reset_button.pressed.connect(_state.reset_puzzle)
