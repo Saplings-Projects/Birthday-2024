@@ -9,7 +9,7 @@ func back_to_level_select():
 		super.back_to_level_select()
 	else:
 		#skip confirmation
-		manager.go_to_level_select()
+		manager.go_back_to_menu()
 
 func _reset_puzzle():
 	manager.grid.ReloadLevel()

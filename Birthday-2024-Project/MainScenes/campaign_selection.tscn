@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bvxs6val4gfwt"]
+[gd_scene load_steps=45 format=3 uid="uid://bvxs6val4gfwt"]
 
 [ext_resource type="Script" path="res://Scripts/ScreenManagement/ScreenLogic.gd" id="1_tp6rq"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="1_uvybp"]
@@ -17,6 +17,9 @@
 [ext_resource type="Script" path="res://Scripts/UI/UIButtonAnimations.gd" id="9_w14jy"]
 [ext_resource type="Texture2D" uid="uid://jpu45bfgsavl" path="res://Art/OfficialPieceArt/Level_type_Hover.png" id="10_ut252"]
 [ext_resource type="Texture2D" uid="uid://plb8jwpj3giv" path="res://Art/OfficialPieceArt/Level_type_Pressed.png" id="11_7q3fa"]
+[ext_resource type="Texture2D" uid="uid://b6qb4fvamw0tc" path="res://Art/OfficialPieceArt/SaplingsLevels_NEW_Normal.png" id="11_fuf0g"]
+[ext_resource type="Texture2D" uid="uid://rky80y2m6hfm" path="res://Art/OfficialPieceArt/SaplingsLevels_NEW_Hover.png" id="12_cvgiv"]
+[ext_resource type="Texture2D" uid="uid://dyks675l0mcp2" path="res://Art/OfficialPieceArt/SaplingsLevels_NEW_Pressed.png" id="13_8s30d"]
 [ext_resource type="AnimationLibrary" uid="uid://bq3kvfnhm75a0" path="res://Animations/SettingsButton.res" id="15_sxdoy"]
 [ext_resource type="AnimationLibrary" uid="uid://dtbni4srk3qoi" path="res://Animations/ExitButton.res" id="17_dnqjq"]
 [ext_resource type="AnimationLibrary" uid="uid://ba0kskllgfuds" path="res://Animations/BackButton.res" id="19_6dbyg"]
@@ -80,14 +83,14 @@ _data = {
 "RESET": SubResource("Animation_lyk1v")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbvc3"]
-texture = ExtResource("9_6n0xi")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8xyop"]
+texture = ExtResource("11_fuf0g")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awk44"]
-texture = ExtResource("10_ut252")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qbbbn"]
+texture = ExtResource("12_cvgiv")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p12qm"]
-texture = ExtResource("11_7q3fa")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifk4x"]
+texture = ExtResource("13_8s30d")
 
 [sub_resource type="Animation" id="Animation_t1onh"]
 length = 0.001
@@ -138,6 +141,15 @@ _data = {
 "RESET": SubResource("Animation_t1onh"),
 "SaplingIntro": SubResource("Animation_mv2d8")
 }
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbvc3"]
+texture = ExtResource("9_6n0xi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awk44"]
+texture = ExtResource("10_ut252")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p12qm"]
+texture = ExtResource("11_7q3fa")
 
 [sub_resource type="Animation" id="Animation_4f1s0"]
 length = 0.001
@@ -220,7 +232,7 @@ script = ExtResource("2_1asfj")
 screenLogic = NodePath("..")
 start_screen = NodePath("CampaignSelectStartScreen")
 
-[node name="CampaignSelectStartScreen" type="Control" parent="CampaignSelectUiManager" node_paths=PackedStringArray("back_button", "exit_button", "settings_button", "campaign_button", "saplings_button")]
+[node name="CampaignSelectStartScreen" type="Control" parent="CampaignSelectUiManager" node_paths=PackedStringArray("back_button", "exit_button", "settings_button", "campaign_button", "saplings_button", "editor_button")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -232,7 +244,8 @@ back_button = NodePath("Panel/Back Button")
 exit_button = NodePath("Panel/Exit Button")
 settings_button = NodePath("Panel/Settings Button")
 campaign_button = NodePath("Panel/PositionAnchorL/Campaign Levels")
-saplings_button = NodePath("Panel/PositionAnchorR/Sapling Levels")
+saplings_button = NodePath("Panel/PositionAnchor/Sapling Levels")
+editor_button = NodePath("Panel/PositionAnchorR/LevelCreator")
 
 [node name="TextureRect" type="NinePatchRect" parent="CampaignSelectUiManager/CampaignSelectStartScreen"]
 layout_mode = 1
@@ -259,7 +272,9 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = 50.0
 offset_top = 85.0
+offset_right = 50.0
 offset_bottom = 210.0
 grow_horizontal = 2
 size_flags_horizontal = 4
@@ -274,8 +289,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -380.0
-offset_right = -380.0
+offset_left = -485.0
+offset_right = -485.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -326,6 +341,66 @@ script = ExtResource("9_w14jy")
 onEnter = "ButtonAnimations/ButtonEnter"
 onExit = "ButtonAnimations/ButtonExit"
 
+[node name="PositionAnchor" type="Control" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = -10.0
+offset_right = 45.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sapling Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -320.0
+offset_right = 240.0
+offset_bottom = 320.001
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(240, 320)
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_8xyop")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qbbbn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ifk4x")
+
+[node name="Saplings Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchor/Sapling Levels"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -233.0
+offset_top = -80.0
+offset_right = 233.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "SAPLING LEVELS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchor/Sapling Levels"]
+libraries = {
+"": SubResource("AnimationLibrary_2staw"),
+"ButtonAnimations": ExtResource("9_2jspl")
+}
+script = ExtResource("9_w14jy")
+onEnter = "ButtonAnimations/ButtonEnter"
+onExit = "ButtonAnimations/ButtonExit"
+
 [node name="PositionAnchorR" type="Control" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -333,12 +408,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 380.0
-offset_right = 380.0
+offset_left = 575.0
+offset_right = 575.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sapling Levels" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR"]
+[node name="LevelCreator" type="Button" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -358,7 +433,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_pbvc3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_awk44")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p12qm")
 
-[node name="Saplings Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR/Sapling Levels"]
+[node name="Editor Label" type="Label" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR/LevelCreator"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -372,11 +447,11 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
-text = "SAPLING LEVELS"
+text = "LEVEL CREATOR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UIButtonAnimations" type="AnimationPlayer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR/Sapling Levels"]
+[node name="UIButtonAnimations" type="AnimationPlayer" parent="CampaignSelectUiManager/CampaignSelectStartScreen/Panel/PositionAnchorR/LevelCreator"]
 libraries = {
 "": SubResource("AnimationLibrary_2staw"),
 "ButtonAnimations": ExtResource("9_2jspl")
@@ -390,9 +465,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1760.0
+offset_left = -160.0
 offset_top = -400.0
-offset_right = 1824.0
+offset_right = -96.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)
@@ -414,9 +489,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1830.0
+offset_left = -90.0
 offset_top = -400.0
-offset_right = 1894.0
+offset_right = -26.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)

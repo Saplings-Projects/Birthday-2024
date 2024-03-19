@@ -701,9 +701,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -50.0
+offset_top = -9.0
 offset_right = 200.0
-offset_bottom = 466.0
+offset_bottom = 507.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -791,6 +791,7 @@ keepDown = true
 layout_mode = 0
 
 [node name="Editor ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
+visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 anchors_preset = 0
@@ -822,9 +823,9 @@ layout_mode = 0
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 anchors_preset = 0
-offset_top = 416.0
+offset_top = 312.0
 offset_right = 400.0
-offset_bottom = 516.0
+offset_bottom = 412.0
 
 [node name="Credits Button" type="Button" parent="StartScreen/Panel/Navigation Buttons/Credits ButtonAnchor"]
 layout_mode = 2
@@ -851,9 +852,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1760.0
+offset_left = -160.0
 offset_top = -400.0
-offset_right = 1824.0
+offset_right = -96.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)
@@ -875,9 +876,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1830.0
+offset_left = -90.0
 offset_top = -400.0
-offset_right = 1894.0
+offset_right = -26.0
 offset_bottom = -80.0
 grow_horizontal = 0
 pivot_offset = Vector2(32, 0)

@@ -48,7 +48,7 @@ func retrieve_mouse_position() -> Vector2:
 func is_mouse_over_button() -> bool:
 	return puzzle_main_screen.is_a_button_hovered()
 	
-func go_to_level_select():
+func go_back_to_menu():
 	if myScreen.transitionData.has(LevelsSelectMenu.PASS_LEVEL_INDEX_KEY):
 		var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
 		var buttonsPerPage : int = myScreen.transitionData[LevelsSelectMenu.BUTTONS_PER_PAGE_KEY]
@@ -59,7 +59,7 @@ func go_to_level_select():
 		else:
 			myScreen.GoToScreen(load(str(LevelsSelectMenu.SAPLING_LEVELS, pageNum, ".tscn")), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 	else:
-		myScreen.GoToScreen(load("res://MainScenes/main_menu.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
+		myScreen.GoToScreen(load("res://MainScenes/campaign_selection.tscn"), {}, ScreenManager.TransitionStyle.BACK_PAGE)
 
 func go_to_next_level():
 	var thisLevelIndex : int = myScreen.transitionData[LevelsSelectMenu.PASS_LEVEL_INDEX_KEY]
@@ -71,7 +71,7 @@ func go_to_next_level():
 	if myScreen.transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY]:
 		#last level
 		if thisLevelIndex + 1 >= _gm.campaign_level_library.Levels.size():
-			go_to_level_select()
+			go_back_to_menu()
 		#go to next level if present, it will go to it no matter if it's unlocked but won't mark it as complete
 		else:
 			transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY] = true
@@ -81,7 +81,7 @@ func go_to_next_level():
 	else:
 		#last level
 		if thisLevelIndex + 1 >= _gm.submitted_level_library.Levels.size():
-			go_to_level_select()
+			go_back_to_menu()
 		else:
 			transitionData[LevelsSelectMenu.IS_CAMPAIGN_KEY] = false
 			transitionData[LevelsSelectMenu.PASS_LEVEL_DATA_KEY] = _gm.submitted_level_library.Levels[thisLevelIndex + 1]

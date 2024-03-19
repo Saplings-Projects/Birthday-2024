@@ -30,12 +30,12 @@ func back_to_level_select():
 		manager.myScreen.ShowConfirmationPopup("Level Select", "Go back to Level Select?", "Yes", "No")
 	else:
 		manager.myScreen.ScreenEnter.connect(BackToMenuConfirmation)
-		manager.myScreen.ShowConfirmationPopup("Main Menu", "Go back to Main Menu?", "Yes", "No")
+		manager.myScreen.ShowConfirmationPopup("Campaign Select", "Go back to Campaign Select?", "Yes", "No")
 		
 func BackToMenuConfirmation():
 	manager.myScreen.ScreenEnter.disconnect(BackToMenuConfirmation)
 	if manager.myScreen.transitionData[ConfirmationPopupController.RESPONSE_KEY]:
-		manager.go_to_level_select()
+		manager.go_back_to_menu()
 
 func exit_game():
 	manager.myScreen.ExitApplication()
