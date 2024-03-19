@@ -17,25 +17,16 @@ extends Control
 @export var export_button: Button
 @export var export_anchor: Control
 
-@export var win_text: Control
 @export var win_particles : Array[GPUParticles2D]
 @export var audio_player : AudioStreamPlayer
 @export var photoTexture : TextureRect
 @export var toEnable : Array[Control]
+@export var gridViewport : SubViewport
 
 func play_win_animation():
-	#win_text.show()
-	
-	#temporarily hide the skip button
-	skip_button.visible = false
-	
-	await get_tree().create_timer(0.05)
-	
-	var screenCapture = get_viewport().get_texture().get_image()
+	var screenCapture = gridViewport.get_texture().get_image()
 	var tex = ImageTexture.create_from_image(screenCapture)
 	photoTexture.texture = tex
-	
-	skip_button.visible = true
 	
 	audio_player.play()
 	
@@ -44,6 +35,10 @@ func play_win_animation():
 	
 	for particleEmitter in win_particles:
 		particleEmitter.emitting = true
+
+func hide_win_animation():
+	for controlNode in toEnable:
+		controlNode.visible = false
 
 func is_a_button_hovered() -> bool:
 	var buttons = [

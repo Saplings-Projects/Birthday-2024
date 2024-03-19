@@ -37,6 +37,7 @@ func enter_state():
 
 func exit_state():
 	var screen = _ui_manager.main_screen
+	screen.hide_win_animation()
 	screen.skip_button.set_theme(load("res://Art/UI/Themes/Skip_Button_theme.tres"))
 	screen.skip_button.pressed.disconnect(_state.next_puzzle)
 	screen.exit_button.pressed.disconnect(_state.exit_game)

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b3w1ojar3eou7"
-path="res://.godot/imported/BoostedShutterSound.wav-9caa5f9600985e38012773a687e45b91.sample"
+path="res://.godot/imported/BoostedShutterSound.wav-470ab37d17737c63fc844a8d8d1db24f.sample"
 
 [deps]
 
-source_file="res://Resources/Audio/BoostedShutterSound.wav"
-dest_files=["res://.godot/imported/BoostedShutterSound.wav-9caa5f9600985e38012773a687e45b91.sample"]
+source_file="res://Resources/Audio/SFX/BoostedShutterSound.wav"
+dest_files=["res://.godot/imported/BoostedShutterSound.wav-470ab37d17737c63fc844a8d8d1db24f.sample"]
 
 [params]
 
