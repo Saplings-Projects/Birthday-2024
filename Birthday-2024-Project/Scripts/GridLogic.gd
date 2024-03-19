@@ -295,6 +295,13 @@ func CheckIfOutsideSafeZone(piece : PieceLogic) -> bool:
 	var cellOffsetsArray : Array[Vector2i] = piece.GetPieceShapeOffsetArray()
 	for shapeCell in cellOffsetsArray:
 		var spaceCoord : Vector2i = pieceCoords + shapeCell
+		
+		#Correcting for 0 order with negatives
+		if spaceCoord.x < 0:
+			spaceCoord.x += 1
+		if spaceCoord.y < 0:
+			spaceCoord.y += 1
+		
 		# if at least 1 square is in view
 		if abs(spaceCoord.x) < SAFE_WIDTH and abs(spaceCoord.y) < SAFE_HEIGHT:
 			return false
