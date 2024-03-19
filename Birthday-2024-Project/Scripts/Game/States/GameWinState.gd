@@ -1,10 +1,10 @@
 class_name GameWinState
 extends GameState
 
-func next_puzzle(skipConfirm : bool = true):
+func next_puzzle():
 	manager.go_to_next_level()
 
-func back_to_level_select(askConfirm : bool = true):
+func back_to_level_select():
 	if manager._previous_state == manager.test_state:
 		super.back_to_level_select()
 	else:

@@ -4,6 +4,8 @@ extends PuzzleUiState
 
 var _state: GameWinState
 
+func _next_puzzle():
+	_state.next_puzzle()
 
 func _on_edit_mode_clicked():
 	_state.go_to_edit_mode()
@@ -22,8 +24,8 @@ func enter_state():
 	_ui_manager.show_main_screen()
 	
 	var screen = _ui_manager.main_screen
-	screen.show_hide_win_text(true)
-	screen.skip_button.set_theme(load("res://Art/UI/Themes/Next_Level_Button_theme.tres"))
+	screen.play_win_animation()
+	#screen.skip_button.set_theme(load("res://Art/UI/Themes/Next_Level_Button_theme.tres"))
 	screen.skip_button.pressed.connect(_state.next_puzzle)
 	screen.exit_button.pressed.connect(_state.exit_game)
 	screen.reset_button.pressed.connect(_state.reset_puzzle)
@@ -35,6 +37,7 @@ func enter_state():
 
 func exit_state():
 	var screen = _ui_manager.main_screen
+	screen.hide_win_animation()
 	screen.skip_button.set_theme(load("res://Art/UI/Themes/Skip_Button_theme.tres"))
 	screen.skip_button.pressed.disconnect(_state.next_puzzle)
 	screen.exit_button.pressed.disconnect(_state.exit_game)

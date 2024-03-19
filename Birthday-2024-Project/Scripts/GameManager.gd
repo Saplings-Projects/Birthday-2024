@@ -139,6 +139,7 @@ func on_piece_clicked(clicked_piece: PieceLogic, clicked_cell: int):
 	
 	clicked_piece.play_grab_audio()
 	_remove_occupied_cells(held_piece)
+	clicked_piece.cancel_movement_tween()
 
 func spawn_piece(pieceID : String):
 	if not _can_interact or held_piece != null:
