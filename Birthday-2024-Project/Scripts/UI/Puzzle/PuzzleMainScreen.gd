@@ -17,27 +17,20 @@ extends Control
 @export var export_button: Button
 @export var export_anchor: Control
 
-@export var win_particles : Array[GPUParticles2D]
-@export var audio_player : AudioStreamPlayer
 @export var photoTexture : TextureRect
-@export var toEnable : Array[Control]
+@export var toHide : Array[Control]
 @export var gridViewport : SubViewport
+@export var shutterAnimation : AnimationPlayer
 
 func play_win_animation():
 	var screenCapture = gridViewport.get_texture().get_image()
 	var tex = ImageTexture.create_from_image(screenCapture)
 	photoTexture.texture = tex
 	
-	audio_player.play()
-	
-	for controlNode in toEnable:
-		controlNode.visible = true
-	
-	for particleEmitter in win_particles:
-		particleEmitter.emitting = true
+	shutterAnimation.play("ShutterSnap")
 
 func hide_win_animation():
-	for controlNode in toEnable:
+	for controlNode in toHide:
 		controlNode.visible = false
 
 func is_a_button_hovered() -> bool:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cosap7ka4jc6c"]
+[gd_scene load_steps=75 format=3 uid="uid://cosap7ka4jc6c"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Puzzle/PuzzleUiManager.gd" id="1_e57yp"]
 [ext_resource type="Theme" uid="uid://cp1430xlncsx2" path="res://Art/UI/Themes/Fauna_2024_birthday_game_theme.tres" id="2_0axgr"]
@@ -49,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://mcccjebnm7fe" path="res://Art/UI/WinPhoto_Textless.png" id="43_atjs6"]
 [ext_resource type="Texture2D" uid="uid://co416oavb0s6s" path="res://Art/UI/UiReferencesAndMockups/CommunityLevelScreen.png" id="45_84hna"]
 [ext_resource type="Theme" uid="uid://brhrooxlo0rxq" path="res://Art/UI/Themes/HandwrittenLabel.tres" id="46_nrcbi"]
+[ext_resource type="AudioStream" uid="uid://c22tla6lptlui" path="res://Resources/Audio/Fauna/Fauna_Yipeee.wav" id="47_6u3e0"]
 [ext_resource type="Texture2D" uid="uid://rntlh0kkhd62" path="res://Art/UI/LevelPreviewMask.png" id="49_nrb1s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uao3"]
@@ -301,6 +302,296 @@ _data = {
 "SpinButton": SubResource("Animation_mduki")
 }
 
+[sub_resource type="Animation" id="Animation_bgupg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.392699]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.1781]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.9635]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect4:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.74889]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect5:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.53429]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect6:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.31969]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect7:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.10509]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ColorRect8:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.89049]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../WinPhoto:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AudioStreamPlayer2:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0yxva"]
+resource_name = "ShutterSnap"
+length = 1.75
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.392699, 1.5708, 0.392699]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.1781, 2.35619, 1.1781]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect3:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.9635, 3.14159, 1.9635]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect4:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.74889, 3.92699, 2.74889]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect5:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.53429, 4.71239, 3.53429]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect6:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [4.31969, 5.49779, 4.31969]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect7:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [5.10509, 6.28319, 5.10509]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ColorRect8:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [5.89049, 7.06858, 5.89049]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Skip Button/Control/WinParticles:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.475),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../WinPhoto:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AudioStreamPlayer:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AudioStreamPlayer2:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.475),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tj541"]
+_data = {
+"RESET": SubResource("Animation_bgupg"),
+"ShutterSnap": SubResource("Animation_0yxva")
+}
+
 [node name="PuzzleUiManager" type="Control" node_paths=PackedStringArray("main_screen", "play_state", "win_state", "edit_state", "test_state")]
 layout_mode = 3
 anchors_preset = 15
@@ -332,7 +623,7 @@ win_state = NodePath("../States/PuzzleUiWinState")
 edit_state = NodePath("../States/PuzzleUiEditState")
 test_state = NodePath("../States/PuzzleUiTestState")
 
-[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("exit_button", "reset_button", "back_button", "skip_button", "settings_button", "edit_button", "edit_anchor", "library_button", "library_anchor", "import_button", "import_anchor", "export_button", "export_anchor", "win_particles", "audio_player", "photoTexture", "toEnable")]
+[node name="Panel" type="Panel" parent="MainScreen" node_paths=PackedStringArray("exit_button", "reset_button", "back_button", "skip_button", "settings_button", "edit_button", "edit_anchor", "library_button", "library_anchor", "import_button", "import_anchor", "export_button", "export_anchor", "photoTexture", "toHide", "shutterAnimation")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -355,10 +646,9 @@ import_button = NodePath("Level Buttons/Import ButtonContainer/Import ButtonAnch
 import_anchor = NodePath("Level Buttons/Import ButtonContainer")
 export_button = NodePath("Level Buttons/Export ButtonContainer/Export ButtonAnchor/Export Button")
 export_anchor = NodePath("Level Buttons/Export ButtonContainer")
-win_particles = [NodePath("Skip Button/Control/WinParticles")]
-audio_player = NodePath("../AudioStreamPlayer")
 photoTexture = NodePath("WinPhoto/PhotoMask/PhotoBounds/PreviewImage")
-toEnable = [NodePath("WinPhoto")]
+toHide = [NodePath("WinPhoto")]
+shutterAnimation = NodePath("Control/AnimationPlayer")
 
 [node name="WinFade" type="ColorRect" parent="MainScreen/Panel"]
 visible = false
@@ -1182,6 +1472,140 @@ theme = ExtResource("46_nrcbi")
 theme_override_font_sizes/font_size = 96
 text = "COMPLETE"
 
+[node name="Control" type="Control" parent="MainScreen/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainScreen/Panel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2160.0
+offset_top = 540.0
+offset_right = 2160.0
+offset_bottom = 1380.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.392699
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="MainScreen/Panel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1810.0
+offset_top = 1390.0
+offset_right = 1810.0
+offset_bottom = 2230.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.1781
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="MainScreen/Panel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 960.0
+offset_top = 1740.0
+offset_right = 960.0
+offset_bottom = 2580.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.9635
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="MainScreen/Panel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_top = 1390.0
+offset_right = 110.0
+offset_bottom = 2230.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 2.74889
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="MainScreen/Panel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = 540.0
+offset_right = -240.0
+offset_bottom = 1380.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.53429
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="MainScreen/Panel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_top = -310.0
+offset_right = 110.0
+offset_bottom = 530.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 4.31969
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="MainScreen/Panel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 960.0
+offset_top = -660.0
+offset_right = 960.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 5.10509
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="MainScreen/Panel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1810.0
+offset_top = -310.0
+offset_right = 1810.0
+offset_bottom = 530.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 5.89049
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreen/Panel/Control"]
+libraries = {
+"": SubResource("AnimationLibrary_tj541")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MainScreen/Panel/Control"]
+stream = ExtResource("42_p3g1g")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="MainScreen/Panel/Control"]
+stream = ExtResource("47_6u3e0")
+bus = &"Fauna"
+
 [node name="ExportPopup" type="ColorRect" parent="MainScreen"]
 visible = false
 layout_mode = 1
@@ -1250,7 +1674,7 @@ anchor_bottom = 1.0
 offset_left = -100.0
 offset_top = -101.0
 offset_right = 100.0
-offset_bottom = -0.00100708
+offset_bottom = -0.00119019
 grow_horizontal = 2
 grow_vertical = 0
 text = "OK"
@@ -1405,10 +1829,6 @@ keepDown = true
 
 [node name="StaticButtonCapture" parent="MainScreen/ImportPopup/Panel/ButtonAnchor2/Button2" instance=ExtResource("16_frje2")]
 layout_mode = 0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MainScreen"]
-stream = ExtResource("42_p3g1g")
-bus = &"Fauna"
 
 [node name="States" type="Control" parent="."]
 layout_mode = 3
