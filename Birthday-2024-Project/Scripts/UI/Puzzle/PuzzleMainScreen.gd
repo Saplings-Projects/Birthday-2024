@@ -23,6 +23,7 @@ extends Control
 @export var shutterAnimation : AnimationPlayer
 
 func play_win_animation():
+	await get_tree().create_timer(0.05).timeout
 	var screenCapture = gridViewport.get_texture().get_image()
 	var tex = ImageTexture.create_from_image(screenCapture)
 	photoTexture.texture = tex
