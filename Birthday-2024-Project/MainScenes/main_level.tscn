@@ -79,6 +79,76 @@ patch_margin_top = 250
 patch_margin_right = 250
 patch_margin_bottom = 250
 
+[node name="TextureRect" type="NinePatchRect" parent="GridViewportContainer/GridViewport/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -370.0
+offset_right = 23.0
+offset_bottom = -260.0
+rotation = 0.174533
+texture = ExtResource("4_x055w")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="LevelName" type="Label" parent="GridViewportContainer/GridViewport/Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -55.0
+offset_right = 150.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_ycc46")
+text = "Last Dinosaurs: In A Million Years"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect2" type="NinePatchRect" parent="GridViewportContainer/GridViewport/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -112.53
+offset_right = -30.0001
+offset_bottom = -2.53027
+rotation = -0.349066
+texture = ExtResource("4_x055w")
+
+[node name="Author" type="Label" parent="GridViewportContainer/GridViewport/Control/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -55.0
+offset_right = 150.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_ycc46")
+text = "Not The Real Northernlion"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="GridCenter" type="Control" parent="GridViewportContainer/GridViewport/Control"]
 self_modulate = Color(1, 0, 0, 1)
 layout_mode = 1
@@ -98,76 +168,6 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-131075, 0, 0, -65539, 0, 0, -65538, 0, 0, -196612, 0, 0, -131076, 0, 0, -65540, 0, 0, -4, 0, 0, 65532, 0, 0, 131068, 0, 0, 196604, 0, 0, 262140, 0, 0, -196611, 0, 0, -3, 0, 0, 65533, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 0, 0, -196610, 0, 0, -131074, 0, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, -196609, 0, 0, -131073, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, -262144, 0, 0, -196608, 0, 0, -131072, 0, 0, -65536, 0, 0, 0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, -262143, 0, 0, -196607, 0, 0, -131071, 0, 0, -65535, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, -262142, 0, 0, -196606, 0, 0, -131070, 0, 0, -65534, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, -262141, 0, 0, -196605, 0, 0, -131069, 0, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0)
 script = ExtResource("1_ywtrj")
 gameManager = NodePath("../../../../../GameManager")
-
-[node name="TextureRect" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -307.0
-offset_top = -370.0
-offset_right = 23.0
-offset_bottom = -260.0
-rotation = 0.174533
-texture = ExtResource("4_x055w")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-
-[node name="LevelName" type="Label" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -55.0
-offset_right = 150.0
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("5_ycc46")
-text = "Last Dinosaurs: In A Million Years"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="TextureRect2" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -112.53
-offset_right = -30.0001
-offset_bottom = -2.53027
-rotation = -0.349066
-texture = ExtResource("4_x055w")
-
-[node name="Author" type="Label" parent="TextureRect2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -55.0
-offset_right = 150.0
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("5_ycc46")
-text = "Not The Real Northernlion"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="DeletionZone" type="Control" parent="."]
 visible = false
@@ -232,8 +232,8 @@ myScreen = NodePath("..")
 held_piece_flat_speed = 1.0
 held_piece_distance_speed = 8.0
 place_piece_delay = 0.15
-levelNameText = NodePath("../TextureRect/LevelName")
-authorText = NodePath("../TextureRect2/Author")
+levelNameText = NodePath("../GridViewportContainer/GridViewport/Control/TextureRect/LevelName")
+authorText = NodePath("../GridViewportContainer/GridViewport/Control/TextureRect2/Author")
 puzzle_main_screen = NodePath("../PuzzleUiManager/MainScreen/Panel")
 empty_state = NodePath("States/GameEmptyState")
 play_state = NodePath("States/GamePlayState")
@@ -265,12 +265,11 @@ controller = NodePath("../GameManager")
 [node name="MainScreen" parent="PuzzleUiManager" index="0" node_paths=PackedStringArray("controller")]
 controller = NodePath("../../GameManager")
 
-[node name="Panel" parent="PuzzleUiManager/MainScreen" index="0" node_paths=PackedStringArray("gridViewport", "goldAppleStamp")]
+[node name="Panel" parent="PuzzleUiManager/MainScreen" index="0" node_paths=PackedStringArray("gridViewport")]
 gridViewport = NodePath("../../../GridViewportContainer/GridViewport")
-goldAppleStamp = NodePath("")
 
 [node name="Button" parent="PuzzleUiManager/MainScreen/ExportPopup/Panel/ButtonAnchor" index="0"]
-offset_bottom = -0.000823975
+offset_bottom = -0.000915527
 
 [connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
 [connection signal="state_changed_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_state_changed"]
