@@ -16,7 +16,14 @@ func revert_changes():
 	
 	# Handle window options
 	if video.window < window_options.item_count:
-		window_options.select(video.window)
+		match DisplayServer.window_get_mode():
+			DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+				window_options.select(VideoPreferences.WindowType.FULLSCREEN)
+			DisplayServer.WINDOW_MODE_WINDOWED:
+				window_options.select(VideoPreferences.WindowType.WINDOWED)
+			DisplayServer.WINDOW_MODE_MAXIMIZED:
+				window_options.select(VideoPreferences.WindowType.WINDOWED_BORDERLESS)
+				
 		resolution_options.disabled = video.window != VideoPreferences.WindowType.WINDOWED
 	else:
 		resolution_options.disabled = true
