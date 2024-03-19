@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ScreenResolution" load_steps=2 format=3 uid="uid://dooucr0212fsm"]
+
+[ext_resource type="Script" path="res://Scripts/Model/ScreenResolution.gd" id="1_01one"]
+
+[resource]
+script = ExtResource("1_01one")
+width = 1024
+height = 768
