@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1ws7dt38mgsp"
-path="res://.godot/imported/Next_button_normal_half.png-b371f603b56cdf8302276b23cb428310.ctex"
+uid="uid://brqs8u3a5r6er"
+path="res://.godot/imported/Skip_Button_Pressed.png-1993b9c796ea25ec771a9f8ea8682af2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/Next_button_normal_half.png"
-dest_files=["res://.godot/imported/Next_button_normal_half.png-b371f603b56cdf8302276b23cb428310.ctex"]
+source_file="res://Art/UI/Skip_Button_Pressed.png"
+dest_files=["res://.godot/imported/Skip_Button_Pressed.png-1993b9c796ea25ec771a9f8ea8682af2.ctex"]
 
 [params]
 
