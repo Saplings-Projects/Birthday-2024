@@ -439,7 +439,7 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id="Animation_0yxva"]
 resource_name = "ShutterSnap"
-length = 1.75
+length = 2.0
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -448,7 +448,7 @@ tracks/0/path = NodePath("ColorRect:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.392699, 1.5708, 0.392699]
@@ -460,7 +460,7 @@ tracks/1/path = NodePath("ColorRect2:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [1.1781, 2.35619, 1.1781]
@@ -472,7 +472,7 @@ tracks/2/path = NodePath("ColorRect3:rotation")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [1.9635, 3.14159, 1.9635]
@@ -484,7 +484,7 @@ tracks/3/path = NodePath("ColorRect4:rotation")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [2.74889, 3.92699, 2.74889]
@@ -496,7 +496,7 @@ tracks/4/path = NodePath("ColorRect5:rotation")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [3.53429, 4.71239, 3.53429]
@@ -508,7 +508,7 @@ tracks/5/path = NodePath("ColorRect6:rotation")
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [4.31969, 5.49779, 4.31969]
@@ -520,7 +520,7 @@ tracks/6/path = NodePath("ColorRect7:rotation")
 tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [5.10509, 6.28319, 5.10509]
@@ -532,7 +532,7 @@ tracks/7/path = NodePath("ColorRect8:rotation")
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.225, 0.3, 0.375),
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [5.89049, 7.06858, 5.89049]
@@ -544,7 +544,7 @@ tracks/8/path = NodePath("../Skip Button/Control/WinParticles:emitting")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.475),
+"times": PackedFloat32Array(0.7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -580,7 +580,7 @@ tracks/11/path = NodePath("AudioStreamPlayer2:playing")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.475),
+"times": PackedFloat32Array(0.7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -1483,13 +1483,12 @@ mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="MainScreen/Panel/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 2160.0
-offset_top = 540.0
-offset_right = 2160.0
-offset_bottom = 1380.0
+anchors_preset = -1
+anchor_left = 1.125
+anchor_top = 0.5
+anchor_right = 2.125
+anchor_bottom = 2.278
+offset_bottom = -0.240234
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.392699
@@ -1497,83 +1496,88 @@ color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="MainScreen/Panel/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1810.0
-offset_top = 1390.0
-offset_right = 1810.0
-offset_bottom = 2230.0
+anchors_preset = -1
+anchor_left = 0.943
+anchor_top = 1.287
+anchor_right = 1.943
+anchor_bottom = 3.065
+offset_left = -0.560059
+offset_top = 0.039917
+offset_right = -0.560059
+offset_bottom = -0.199951
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 rotation = 1.1781
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="MainScreen/Panel/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 960.0
-offset_top = 1740.0
-offset_right = 960.0
-offset_bottom = 2580.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.611
+anchor_right = 1.5
+anchor_bottom = 3.389
+offset_top = 0.119873
+offset_right = -0.000244141
+offset_bottom = -0.120117
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 rotation = 1.9635
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="MainScreen/Panel/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 110.0
-offset_top = 1390.0
-offset_right = 110.0
-offset_bottom = 2230.0
-grow_horizontal = 2
+anchors_preset = -1
+anchor_left = 0.057
+anchor_top = 1.287
+anchor_right = 1.057
+anchor_bottom = 3.065
+offset_left = 0.55999
+offset_top = 0.039917
+offset_right = 0.559937
+offset_bottom = -0.199951
 grow_vertical = 2
 rotation = 2.74889
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="MainScreen/Panel/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = 540.0
-offset_right = -240.0
-offset_bottom = 1380.0
-grow_horizontal = 2
+anchors_preset = -1
+anchor_left = -0.125
+anchor_top = 0.5
+anchor_right = 0.875
+anchor_bottom = 2.278
+offset_right = -0.00012207
+offset_bottom = -0.240234
 grow_vertical = 2
 rotation = 3.53429
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="MainScreen/Panel/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 110.0
-offset_top = -310.0
-offset_right = 110.0
-offset_bottom = 530.0
+anchors_preset = -1
+anchor_left = 0.057
+anchor_top = -0.287
+anchor_right = 1.057
+anchor_bottom = 1.491
+offset_left = 0.55999
+offset_top = -0.0400085
+offset_right = 0.559937
+offset_bottom = -0.280029
 grow_horizontal = 2
-grow_vertical = 2
 rotation = 4.31969
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="MainScreen/Panel/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 960.0
-offset_top = -660.0
-offset_right = 960.0
-offset_bottom = 180.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.611
+anchor_right = 1.5
+anchor_bottom = 1.167
+offset_top = -0.119995
+offset_right = -0.000244141
+offset_bottom = -0.360107
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 5.10509
@@ -1581,14 +1585,16 @@ color = Color(0, 0, 0, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="MainScreen/Panel/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1810.0
-offset_top = -310.0
-offset_right = 1810.0
-offset_bottom = 530.0
-grow_horizontal = 2
+anchors_preset = -1
+anchor_left = 0.943
+anchor_top = -0.287
+anchor_right = 1.943
+anchor_bottom = 1.491
+offset_left = -0.560059
+offset_top = -0.0400085
+offset_right = -0.560059
+offset_bottom = -0.280029
+grow_horizontal = 0
 grow_vertical = 2
 rotation = 5.89049
 color = Color(0, 0, 0, 1)
