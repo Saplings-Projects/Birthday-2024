@@ -64,7 +64,8 @@ func _on_window_selected(index: int):
 			_gm.video_controller.enable_windowed()
 		VideoPreferences.WindowType.WINDOWED_BORDERLESS:
 			resolution_options.disabled = true
-			_gm.video_controller.enable_windowed_borderless()
+			#_gm.video_controller.enable_windowed_borderless()
+			_gm.video_controller.enable_fullscreen()
 		_:
 			printerr("Unhandled screen type selected")
 	

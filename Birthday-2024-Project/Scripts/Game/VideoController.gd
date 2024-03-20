@@ -55,7 +55,8 @@ func _apply_prefs():
 		VideoPreferences.WindowType.WINDOWED:
 			enable_windowed()
 		VideoPreferences.WindowType.WINDOWED_BORDERLESS:
-			enable_windowed_borderless()
+			#enable_windowed_borderless()
+			enable_fullscreen()
 		_:
 			printerr("Unknown window type for video preference: ", _prefs.window)
 
