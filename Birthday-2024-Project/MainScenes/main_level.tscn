@@ -295,7 +295,7 @@ gridViewport = NodePath("../../../GridViewportContainer/GridViewport")
 one_shot = false
 
 [node name="Button" parent="PuzzleUiManager/MainScreen/ExportPopup/Panel/ButtonAnchor" index="0"]
-offset_bottom = -0.00100708
+offset_bottom = -0.000915527
 
 [connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
 [connection signal="state_changed_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_state_changed"]
