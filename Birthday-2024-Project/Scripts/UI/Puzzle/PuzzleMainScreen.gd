@@ -30,6 +30,7 @@ func play_win_animation():
 	shutterAnimation.play("ShutterSnap")
 
 func hide_win_animation():
+	shutterAnimation.play("RESET")
 	for controlNode in toHide:
 		controlNode.visible = false
 
