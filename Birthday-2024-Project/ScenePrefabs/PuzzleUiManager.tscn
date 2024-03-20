@@ -1467,38 +1467,24 @@ alignment = 2
 
 [node name="BoxContainer" type="Control" parent="MainScreen/Panel/Level Buttons"]
 show_behind_parent = true
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(183, 183)
 layout_mode = 2
 
 [node name="Box" type="TextureRect" parent="MainScreen/Panel/Level Buttons/BoxContainer"]
 show_behind_parent = true
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -128.0
-offset_right = 64.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 183.0
+offset_bottom = 183.0
 texture = ExtResource("9_aa587")
 
 [node name="Reset ButtonAnchor" type="Control" parent="MainScreen/Panel/Level Buttons/BoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -114.0
-offset_right = 50.0
-offset_bottom = -14.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 0
+offset_left = 16.5
+offset_top = 16.5
+offset_right = 166.5
+offset_bottom = 166.5
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("8_fa1xk")
@@ -1506,16 +1492,8 @@ theme = ExtResource("8_fa1xk")
 [node name="Reset Button" type="Button" parent="MainScreen/Panel/Level Buttons/BoxContainer/Reset ButtonAnchor"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -100.0
-offset_right = 50.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_right = 150.0
+offset_bottom = 150.0
 pivot_offset = Vector2(50, 50)
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -2001,7 +1979,7 @@ anchor_bottom = 1.0
 offset_left = -100.0
 offset_top = -101.0
 offset_right = 100.0
-offset_bottom = -0.00209045
+offset_bottom = -0.00218201
 grow_horizontal = 2
 grow_vertical = 0
 text = "OK"
