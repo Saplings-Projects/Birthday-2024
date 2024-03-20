@@ -16,6 +16,7 @@ extends Control
 @export var import_anchor: Control
 @export var export_button: Button
 @export var export_anchor: Control
+@export var editor_instructions : Control
 
 @export var photoTexture : TextureRect
 @export var toHide : Array[Control]
@@ -30,6 +31,7 @@ func play_win_animation():
 	shutterAnimation.play("ShutterSnap")
 
 func hide_win_animation():
+	shutterAnimation.play("RESET")
 	for controlNode in toHide:
 		controlNode.visible = false
 

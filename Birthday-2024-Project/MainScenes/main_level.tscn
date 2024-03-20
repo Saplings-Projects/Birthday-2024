@@ -79,6 +79,28 @@ patch_margin_top = 250
 patch_margin_right = 250
 patch_margin_bottom = 250
 
+[node name="Instructions" type="Label" parent="GridViewportContainer/GridViewport/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -327.0
+offset_top = 125.0
+offset_right = -27.0
+offset_bottom = 782.0
+grow_horizontal = 0
+theme = ExtResource("5_ycc46")
+theme_override_font_sizes/font_size = 16
+text = "Instructions:
+1) Open the LIBRARY to drag n drop pieces you want to add to the level
+2) Drag pieces into the red area to remove them
+3) Test your level with the PLAY button
+4) When you're finished, you can EXPORT the level as text. Paste the text data wherever you want, and share it with friends!
+5) If you have level text data, paste it in IMPORT to play & edit the level
+6) To clear the board and start over, use the RESET arrow"
+autowrap_mode = 2
+
 [node name="TextureRect" type="NinePatchRect" parent="GridViewportContainer/GridViewport/Control"]
 layout_mode = 1
 anchors_preset = -1
@@ -265,8 +287,12 @@ controller = NodePath("../GameManager")
 [node name="MainScreen" parent="PuzzleUiManager" index="0" node_paths=PackedStringArray("controller")]
 controller = NodePath("../../GameManager")
 
-[node name="Panel" parent="PuzzleUiManager/MainScreen" index="0" node_paths=PackedStringArray("gridViewport")]
+[node name="Panel" parent="PuzzleUiManager/MainScreen" index="0" node_paths=PackedStringArray("editor_instructions", "gridViewport")]
+editor_instructions = NodePath("../../../GridViewportContainer/GridViewport/Control/Instructions")
 gridViewport = NodePath("../../../GridViewportContainer/GridViewport")
+
+[node name="WinParticles" parent="PuzzleUiManager/MainScreen/Panel/Skip Button/Control" index="0"]
+one_shot = false
 
 [node name="Button" parent="PuzzleUiManager/MainScreen/ExportPopup/Panel/ButtonAnchor" index="0"]
 offset_bottom = -0.000915527

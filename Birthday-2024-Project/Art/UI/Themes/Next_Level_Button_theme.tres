@@ -1,13 +1,13 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://gt73ei8kbdry"]
 
-[ext_resource type="Texture2D" uid="uid://b8ve42ksoaex7" path="res://Art/UI/Next_button_Hover_half.png" id="1_1i3gd"]
-[ext_resource type="Texture2D" uid="uid://c1ws7dt38mgsp" path="res://Art/UI/Next_button_normal_half.png" id="2_hk5wl"]
+[ext_resource type="Texture2D" uid="uid://chv1br0d3jna0" path="res://Art/UI/Fauna_game_Next_Hover_half.png" id="1_vho2y"]
+[ext_resource type="Texture2D" path="res://Art/UI/Next_button_normal_half.png" id="2_hk5wl"]
 [ext_resource type="Texture2D" uid="uid://dneufyns8jued" path="res://Art/UI/Next_button_Pressed_half.png" id="3_yeo8q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5dsd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iixah"]
-texture = ExtResource("1_1i3gd")
+texture = ExtResource("1_vho2y")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8e4p"]
 texture = ExtResource("2_hk5wl")
