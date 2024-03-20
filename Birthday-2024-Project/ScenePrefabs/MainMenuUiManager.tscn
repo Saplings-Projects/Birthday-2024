@@ -718,7 +718,6 @@ offset_bottom = 100.0
 layout_mode = 2
 offset_right = 400.0
 offset_bottom = 100.0
-text = "Play"
 
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Play ButtonAnchor/Play Button"]
 libraries = {
@@ -734,6 +733,17 @@ keepDown = true
 [node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Play ButtonAnchor/Play Button" instance=ExtResource("6_uti07")]
 layout_mode = 0
 
+[node name="Label" type="Label" parent="StartScreen/Panel/Navigation Buttons/Play ButtonAnchor/Play Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Messages ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -746,7 +756,6 @@ offset_bottom = 204.0
 layout_mode = 2
 offset_right = 400.0
 offset_bottom = 100.0
-text = "Sapling Messages"
 
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Messages ButtonAnchor/Messages Button"]
 libraries = {
@@ -762,6 +771,17 @@ keepDown = true
 [node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Messages ButtonAnchor/Messages Button" instance=ExtResource("6_uti07")]
 layout_mode = 0
 
+[node name="Label" type="Label" parent="StartScreen/Panel/Navigation Buttons/Messages ButtonAnchor/Messages Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sapling Messages"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Gallery ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -774,7 +794,6 @@ offset_bottom = 308.0
 layout_mode = 2
 offset_right = 400.0
 offset_bottom = 100.0
-text = "Piece Gallery"
 
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Gallery ButtonAnchor/Gallery Button"]
 libraries = {
@@ -790,6 +809,17 @@ keepDown = true
 [node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Gallery ButtonAnchor/Gallery Button" instance=ExtResource("6_uti07")]
 layout_mode = 0
 
+[node name="Label" type="Label" parent="StartScreen/Panel/Navigation Buttons/Gallery ButtonAnchor/Gallery Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Piece Gallery"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Editor ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
 visible = false
 custom_minimum_size = Vector2(0, 100)
@@ -803,7 +833,6 @@ offset_bottom = 412.0
 layout_mode = 2
 offset_right = 400.0
 offset_bottom = 100.0
-text = "Level Creator"
 
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Editor ButtonAnchor/Editor Button"]
 libraries = {
@@ -819,6 +848,17 @@ keepDown = true
 [node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Editor ButtonAnchor/Editor Button" instance=ExtResource("6_uti07")]
 layout_mode = 0
 
+[node name="Label" type="Label" parent="StartScreen/Panel/Navigation Buttons/Editor ButtonAnchor/Editor Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Creator"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Credits ButtonAnchor" type="Control" parent="StartScreen/Panel/Navigation Buttons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -831,7 +871,6 @@ offset_bottom = 412.0
 layout_mode = 2
 offset_right = 400.0
 offset_bottom = 100.0
-text = "Credits"
 
 [node name="UIButtonAnimations" type="AnimationPlayer" parent="StartScreen/Panel/Navigation Buttons/Credits ButtonAnchor/Credits Button"]
 libraries = {
@@ -846,6 +885,17 @@ keepDown = true
 
 [node name="StaticButtonCapture" parent="StartScreen/Panel/Navigation Buttons/Credits ButtonAnchor/Credits Button" instance=ExtResource("6_uti07")]
 layout_mode = 0
+
+[node name="Label" type="Label" parent="StartScreen/Panel/Navigation Buttons/Credits ButtonAnchor/Credits Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Settings Button" type="Button" parent="StartScreen/Panel"]
 layout_mode = 1

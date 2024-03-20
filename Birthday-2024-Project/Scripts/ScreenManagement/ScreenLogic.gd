@@ -29,7 +29,7 @@ func ShowDisplayPopup(title : String, body : String, displayPieces : Array[Packe
 
 func ExitApplication():
 	ScreenEnter.connect(ExitConfirmation)
-	ShowConfirmationPopup("Quit", "Are you sure you want to quit?", "Yes", "No")
+	ShowConfirmationPopup("Quit", "Close the game and return to desktop?", "Yes", "No")
 	
 func ExitConfirmation():
 	#if yes
