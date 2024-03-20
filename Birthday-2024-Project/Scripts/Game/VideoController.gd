@@ -10,15 +10,15 @@ var _prefs: VideoPreferences
 func enable_fullscreen():
 	_prefs.window = VideoPreferences.WindowType.FULLSCREEN
 	
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 
 func enable_windowed():
 	_prefs.window = VideoPreferences.WindowType.WINDOWED
 	
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
 	_resize_window()
 
@@ -26,8 +26,8 @@ func enable_windowed():
 func enable_windowed_borderless():
 	_prefs.window = VideoPreferences.WindowType.WINDOWED_BORDERLESS
 	
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 
 
 func set_resolution(res_idx: int):
