@@ -66,6 +66,7 @@ func enter_state():
 	screen.import_button.pressed.connect(_on_import_clicked)
 	screen.export_anchor.show()
 	screen.export_button.pressed.connect(_on_export_clicked)
+	screen.editor_instructions.visible = true
 
 
 func exit_state():
@@ -82,6 +83,7 @@ func exit_state():
 	screen.library_button.pressed.disconnect(_on_show_library_clicked)
 	screen.import_button.pressed.disconnect(_on_import_clicked)
 	screen.export_button.pressed.disconnect(_on_export_clicked)
+	screen.editor_instructions.visible = false
 	_state = null
 
 
