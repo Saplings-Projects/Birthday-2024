@@ -20,4 +20,6 @@ func onScreenEnter():
 func onClose():
 	animator.play("PopupAnimations/Exit")
 	await animator.animation_finished
+	#extra wait so shadow is gone
+	await get_tree().create_timer(0.05).timeout
 	myScreen.ClosePopup()
