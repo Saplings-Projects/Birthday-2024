@@ -86,9 +86,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -327.0
-offset_top = 125.0
+offset_top = 100.0
 offset_right = -27.0
-offset_bottom = 782.0
+offset_bottom = 757.0
 grow_horizontal = 0
 theme = ExtResource("5_ycc46")
 theme_override_font_sizes/font_size = 16
@@ -295,7 +295,7 @@ gridViewport = NodePath("../../../GridViewportContainer/GridViewport")
 one_shot = false
 
 [node name="Button" parent="PuzzleUiManager/MainScreen/ExportPopup/Panel/ButtonAnchor" index="0"]
-offset_bottom = -0.000915527
+offset_bottom = -0.00100708
 
 [connection signal="initialized_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_initialized"]
 [connection signal="state_changed_event" from="GameManager" to="PuzzleUiManager" method="on_puzzle_state_changed"]
