@@ -26,7 +26,6 @@ func GoToScreen(screen : PackedScene, data : Dictionary, transitionStyle: Transi
 
 	if transitionStyle != TransitionStyle.NONE:
 		_animationActive = true
-		await get_tree().create_timer(0.05).timeout
 		var screenCapture = get_viewport().get_texture().get_image()
 		var tex = ImageTexture.create_from_image(screenCapture)
 		screenTexture.texture = tex

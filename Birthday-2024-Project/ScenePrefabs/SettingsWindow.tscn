@@ -121,14 +121,12 @@ text = "Window Mode"
 
 [node name="WindowOptions" type="OptionButton" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container/WindowContainer"]
 layout_mode = 2
-item_count = 3
+item_count = 2
 selected = 0
 popup/item_0/text = "Fullscreen"
 popup/item_0/id = 0
 popup/item_1/text = "Windowed"
 popup/item_1/id = 1
-popup/item_2/text = "Windowed Borderless"
-popup/item_2/id = 2
 
 [node name="ResolutionContainer" type="VBoxContainer" parent="Panel/ThemeHolder/TabContainer/Video/MarginContainer/Settings Container"]
 visible = false

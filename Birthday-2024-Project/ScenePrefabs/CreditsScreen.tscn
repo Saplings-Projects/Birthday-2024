@@ -208,12 +208,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -550.0
-offset_top = -290.0
+offset_top = -326.21
 offset_right = 550.0
-offset_bottom = 460.0
+offset_bottom = 459.79
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -351,7 +351,7 @@ layout_mode = 2
 [node name="Server Text" type="RichTextLabel" parent="VBoxContainer/Server Container"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[center][font_size=25]Made possible thanks to the community of Fauna's Forest Server[/font_size][/center]"
+text = "[center][font_size=25]Made possible thanks to the community of the Fauna's Forest Fan Server.[/font_size][/center]"
 fit_content = true
 scroll_active = false
 
