@@ -66,7 +66,7 @@ func LoadLevel(levelSetupData : LevelSetup):
 	ClearLevel()
 	_levelData = levelSetupData
 	
-	var pieceSetupsData : Array[PieceSetup] = levelSetupData.RetrieveLevelData()
+	var pieceSetupsData : Array[PieceSetup] = levelSetupData.RetrieveLevelData(gameManager.myScreen)
 	if pieceSetupsData.size() > 0:
 		for pieceSetup in pieceSetupsData:
 			var pieceLogic : PieceLogic = LoadPiece(pieceSetup.pieceID)
