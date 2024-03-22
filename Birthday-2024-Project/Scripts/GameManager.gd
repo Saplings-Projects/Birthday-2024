@@ -124,7 +124,7 @@ func _switch_state(state: GameState):
 func on_piece_clicked(clicked_piece: PieceLogic, clicked_cell: int):
 	if not _can_interact or held_piece != null:
 		return
-	if _current_state == play_state:
+	if _current_state != edit_state:
 		if clicked_piece.isBlocker:
 			return
 	# only allow pieces to be interacted if level is the top screen

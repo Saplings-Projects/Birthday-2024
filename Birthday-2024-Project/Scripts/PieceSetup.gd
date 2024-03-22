@@ -16,11 +16,24 @@ static func JsonParse(jsonData : String) -> PieceSetup:
 	var error = json.parse(jsonData)
 	if(error == OK):
 		var parsedDictionary : Dictionary = json.data 
+		
+		if parsedDictionary.has(ID_KEY) == false:
+			printerr("ERROR: Unable to parse piece ID data")
+			return null
 		parsedData.pieceID = parsedDictionary[ID_KEY]
+		
+		if parsedDictionary.has(GRID_X_KEY) == false or parsedDictionary.has(GRID_Y_KEY) == false:
+			printerr("ERROR: Unable to parse piece grid data")
+			return null
 		parsedData.gridPosition = Vector2(parsedDictionary[GRID_X_KEY], parsedDictionary[GRID_Y_KEY])
+		
+		if parsedDictionary.has(ROTATION_KEY) == false:
+			printerr("ERROR: Unable to parse piece rotation data")
+			return null
 		parsedData.pieceRotation = parsedDictionary[ROTATION_KEY]
 	else:
-		printerr("ERROR: Unable to parse json setup data")
+		printerr("ERROR: Unable to parse piece setup data")
+		return null
 	return parsedData
 
 func JsonSerialize() -> String:
