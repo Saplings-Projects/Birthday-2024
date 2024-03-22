@@ -15,17 +15,7 @@ static func JsonParse(jsonData : String) -> PieceSetup:
 	var json = JSON.new()
 	var error = json.parse(jsonData)
 	if(error == OK):
-		var parsedDictionary : Dictionary = json.data 
-<<<<<<< Updated upstream
-		
-		if parsedDictionary.has(ID_KEY) == false:
-			printerr("ERROR: Unable to parse piece ID data")
-			return null
-		parsedData.pieceID = parsedDictionary[ID_KEY]
-=======
-<<<<<<< Updated upstream
-		parsedData.pieceID = parsedDictionary[ID_KEY]
-=======
+		var parsedDictionary : Dictionary = json.data
 		
 		if parsedDictionary.has(ID_KEY) == false:
 			printerr("ERROR: Unable to parse piece ID data")
@@ -35,15 +25,11 @@ static func JsonParse(jsonData : String) -> PieceSetup:
 		if ResourceLoader.exists("res://ScenePrefabs/Pieces/" + parsedData.pieceID + ".tscn") == false:
 			printerr("ERROR: Invalid piece ID")
 			return null
->>>>>>> Stashed changes
-		
+
 		if parsedDictionary.has(GRID_X_KEY) == false or parsedDictionary.has(GRID_Y_KEY) == false:
 			printerr("ERROR: Unable to parse piece grid data")
 			return null
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
 		parsedData.gridPosition = Vector2(parsedDictionary[GRID_X_KEY], parsedDictionary[GRID_Y_KEY])
 		
 		if parsedDictionary.has(ROTATION_KEY) == false:
