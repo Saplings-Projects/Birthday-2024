@@ -6,7 +6,15 @@ var _state: GameTestState
 
 
 func _on_edit_mode_clicked():
-	_state.go_to_edit_mode()
+	_state.manager._can_interact = false
+	_controller.myScreen.ScreenEnter.connect(_confirm_edit_mode)
+	_controller.myScreen.ShowConfirmationPopup("Edit Mode", "Return to Edit mode?\nThis will reveal the level solution", "Yes", "No")
+	
+func _confirm_edit_mode():
+	_controller.myScreen.ScreenEnter.disconnect(_confirm_edit_mode)
+	_state.manager._can_interact = true
+	if _controller.myScreen.transitionData[ConfirmationPopupController.RESPONSE_KEY]:
+		_state.go_to_edit_mode()
 
 #region PuzzleUiState
 

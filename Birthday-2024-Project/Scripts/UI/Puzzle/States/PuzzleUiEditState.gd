@@ -20,9 +20,16 @@ func _on_import_clicked():
 	importPopup.show()
 
 func _on_confirm_import():
-	_state.manager.grid.ImportLevel(inputField.text)
+	var testParse : LevelSetup = LevelSetup.new()
+	testParse.jsonData = inputField.text
+	var parsedPieces = testParse.RetrieveLevelData(_controller.myScreen)
+	
 	importPopup.hide()
 	_state.manager._can_interact = true
+	if parsedPieces.size() == 0:
+		return
+	
+	_state.manager.grid.ImportLevel(inputField.text)
 	_state.go_to_test_mode()
 
 func _on_cancel_import():
